@@ -186,6 +186,20 @@ const Navbar = () => {
               </button>
             </div>
 
+            {/* Get Started Button - Desktop */}
+            <div className="hidden md:block">
+              <Link 
+                href="/contact" 
+                className="inline-flex items-center px-4 py-2 rounded-md text-sm font-medium text-white bg-gradient-to-r from-orange-500 to-red-600 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                {t('get_started')}
+              </Link>
+            </div>
+
             {/* Mobile menu button */}
             <button
               onClick={toggleMenu}
@@ -217,6 +231,18 @@ const Navbar = () => {
             className="md:hidden bg-white dark:bg-[#121212] border-b border-light-border dark:border-dark-border"
           >
             <div className="px-4 pt-2 pb-3 space-y-1">
+              {/* Get Started Button - Mobile */}
+              <Link 
+                href="/contact" 
+                className="flex items-center justify-center w-full px-4 py-3 mb-2 rounded-md text-sm font-medium text-white bg-gradient-to-r from-orange-500 to-red-600 hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                {t('get_started')}
+              </Link>
+              
               {navItems.map((item) => (
                 <Link
                   key={item.href}
