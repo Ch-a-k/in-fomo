@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { useTheme } from 'next-themes'
 import { useTranslation } from 'next-i18next'
 import { motion } from 'framer-motion'
@@ -9,7 +9,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const { theme, setTheme } = useTheme()
-  const router = useRouter()
+  const pathname = usePathname()
   const { t, i18n } = useTranslation('common')
   
   // Проверяем, что мы на клиенте
@@ -44,7 +44,12 @@ export default function Header() {
 
   // Переключение языка
   const changeLanguage = (locale: string) => {
-    router.push(router.pathname, router.asPath, { locale })
+    // Сохраняем выбранный язык
+    localStorage.setItem('i18nextLng', locale);
+    // Меняем язык
+    i18n.changeLanguage(locale);
+    // Перезагружаем страницу для применения изменений
+    window.location.reload();
   }
 
   return (
@@ -69,7 +74,7 @@ export default function Header() {
                 key={item.href} 
                 href={item.href}
                 className={`text-sm font-medium transition-colors hover:text-orange-500 ${
-                  router.pathname === item.href 
+                  pathname === item.href 
                     ? 'text-orange-500' 
                     : isScrolled
                       ? 'text-gray-800 dark:text-white'
@@ -106,7 +111,7 @@ export default function Header() {
                       key={lang.code}
                       onClick={() => changeLanguage(lang.code)}
                       className={`block w-full text-left px-4 py-2 text-sm ${
-                        router.locale === lang.code
+                        i18n.language === lang.code
                           ? 'text-orange-500 bg-orange-50 dark:bg-gray-700'
                           : 'text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
                       }`}
@@ -140,6 +145,17 @@ export default function Header() {
                 )
               )}
             </button>
+            
+            {/* Кнопка для заказчиков */}
+            <Link 
+              href="/contact"
+              className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center gap-1"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              {t('get_started')}
+            </Link>
             
             {/* Кнопка контакта */}
             <Link 
@@ -225,7 +241,7 @@ export default function Header() {
                   <Link 
                     href={item.href}
                     className={`block py-2 text-lg ${
-                      router.pathname === item.href 
+                      pathname === item.href 
                         ? 'text-orange-500 font-medium' 
                         : 'text-gray-800 dark:text-white'
                     }`}
@@ -239,6 +255,18 @@ export default function Header() {
           </nav>
 
           <div className="mt-auto space-y-6">
+            {/* Кнопка для заказчиков (мобильная) */}
+            <Link 
+              href="/contact"
+              className="block w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white text-center font-medium py-3 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              {t('get_started')}
+            </Link>
+            
             {/* Переключатель языка */}
             <div>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{t('select_language')}</p>
@@ -250,59 +278,17 @@ export default function Header() {
                       changeLanguage(lang.code)
                       setIsMenuOpen(false)
                     }}
-                    className={`py-2 px-3 text-sm rounded-md ${
-                      router.locale === lang.code 
-                        ? 'bg-orange-500 text-white' 
+                    className={`flex items-center justify-center px-3 py-2 rounded-md ${
+                      i18n.language === lang.code
+                        ? 'bg-orange-500 text-white'
                         : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700'
                     }`}
                   >
-                    {lang.name}
+                    {lang.code.toUpperCase()}
                   </button>
                 ))}
               </div>
             </div>
-
-            {/* Переключатель темы */}
-            <div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{t('appearance')}</p>
-              <div className="flex space-x-2">
-                <button
-                  onClick={() => setTheme('light')}
-                  className={`flex items-center px-3 py-1 text-sm rounded-md ${
-                    theme === 'light' 
-                      ? 'bg-orange-500 text-white' 
-                      : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700'
-                  }`}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                  <span>{t('light')}</span>
-                </button>
-                <button
-                  onClick={() => setTheme('dark')}
-                  className={`flex items-center px-3 py-1 text-sm rounded-md ${
-                    theme === 'dark' 
-                      ? 'bg-orange-500 text-white' 
-                      : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700'
-                  }`}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                  </svg>
-                  <span>{t('dark')}</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Кнопка контакта */}
-            <Link 
-              href="/contact"
-              className="block w-full py-2 text-center text-white bg-orange-500 rounded-lg hover:bg-orange-600 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('get_in_touch')}
-            </Link>
           </div>
         </div>
       </motion.div>
