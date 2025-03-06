@@ -1,0 +1,59 @@
+{
+  "hero_badge": "Zaawansowane rozwiązania IT",
+  "hero_title_1": "Przekształć swój biznes dzięki",
+  "hero_title_highlight": "Innowacyjnym",
+  "hero_title_2": "Technologiom",
+  "hero_description": "Pomagamy firmom wdrażać najnowsze technologie, aby zwiększyć wydajność, obniżyć koszty i napędzać wzrost w dzisiejszym cyfrowym świecie.",
+  "get_started": "Rozpocznij",
+  "our_services": "Nasze usługi",
+  
+  "services_title": "Rozwiązania, które oferujemy",
+  "services_description": "Oferujemy kompleksowy zakres usług IT, aby sprostać potrzebom Twojej firmy i wspierać cyfrową transformację.",
+  
+  "web_development": "Tworzenie stron internetowych",
+  "web_development_desc": "Niestandardowe strony internetowe i aplikacje webowe z wykorzystaniem nowoczesnych technologii, takich jak React, Next.js i inne.",
+  
+  "mobile_development": "Tworzenie aplikacji mobilnych",
+  "mobile_development_desc": "Natywne i wieloplatformowe aplikacje mobilne dla iOS i Android, które angażują Twoich użytkowników.",
+  
+  "cloud_solutions": "Rozwiązania chmurowe",
+  "cloud_solutions_desc": "Skalowalna infrastruktura chmurowa i rozwiązania wdrożeniowe, aby zoptymalizować operacje i obniżyć koszty.",
+  
+  "data_analytics": "Analiza danych",
+  "data_analytics_desc": "Rozwiązania do analizy danych i business intelligence, które pomogą Ci podejmować świadome decyzje.",
+  
+  "cybersecurity": "Cyberbezpieczeństwo",
+  "cybersecurity_desc": "Kompleksowa ochrona przed zagrożeniami i rozwiązania bezpieczeństwa chroniące Twoje dane i infrastrukturę.",
+  
+  "it_consulting": "Doradztwo IT",
+  "it_consulting_desc": "Strategiczne porady i mapy drogowe technologii, aby pomóc Ci osiągnąć cele biznesowe.",
+  
+  "ai_solutions": "Rozwiązania AI",
+  "ai_solutions_desc": "Wykorzystaj moc sztucznej inteligencji i uczenia maszynowego do uzyskiwania analiz i automatyzacji procesów.",
+  
+  "ui_ux_design": "Projektowanie UI/UX",
+  "ui_ux_design_desc": "Piękne, intuicyjne interfejsy, które poprawiają doświadczenie użytkownika i zwiększają zaangażowanie.",
+  
+  "bot_development": "Rozwój botów",
+  "bot_development_desc": "Niestandardowe chatboty i boty automatyzacji dla różnych platform, które usprawniają interakcje i poprawiają obsługę klienta.",
+  
+  "crm_development": "Rozwój systemów CRM",
+  "crm_development_desc": "Dostosowane systemy zarządzania relacjami z klientami do optymalizacji procesów sprzedaży i poprawy relacji z klientami.",
+  
+  "business_consulting": "Doradztwo biznesowe",
+  "business_consulting_desc": "Strategiczne wskazówki pomagające Twojej firmie rozwijać się, wdrażać nowe technologie i poprawiać efektywność operacyjną.",
+  
+  "web3_blockchain": "Web3 i Blockchain",
+  "web3_blockchain_desc": "Zdecentralizowane aplikacje, inteligentne kontrakty i rozwiązania blockchain wykorzystujące najnowsze technologie web3 do bezpiecznych i przejrzystych aktywów cyfrowych.",
+  
+  "telegram_mini_apps": "Aplikacje mini Telegram",
+  "telegram_mini_apps_desc": "Niestandardowe mini aplikacje dla Telegrama, które rozszerzają możliwości Twojego biznesu i docierają do użytkowników w ich ulubionym komunikatorze.",
+  
+  "parsers_scrapers": "Parsery i Scrapery",
+  "parsers_scrapers_desc": "Narzędzia do zbierania danych, które automatycznie gromadzą, przetwarzają i analizują informacje z różnych źródeł internetowych.",
+  
+  "language_code": "pl",
+  
+  "our_partners": "Nasi zaufani partnerzy",
+  "partners_description": "Współpracujemy z wiodącymi firmami z różnych branż, aby dostarczać innowacyjne rozwiązania dostosowane do potrzeb Twojego biznesu."
+}

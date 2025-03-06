@@ -1,0 +1,104 @@
+{
+  "title": "Our Portfolio",
+  "subtitle": "Explore our recent projects and see how we've helped businesses achieve their goals",
+  "meta_description": "Explore our portfolio of innovative IT solutions and successful projects across various industries.",
+  "hero_title": "Our Portfolio",
+  "hero_description": "Discover our successful projects and innovative solutions that have helped businesses transform and grow.",
+  "view_details": "View Details",
+  "view_all": "View All Projects",
+  "view_project": "View Project",
+  "technologies": "Technologies Used",
+  "categories": {
+    "all": "All Projects",
+    "web": "Web Development",
+    "mobile": "Mobile Apps",
+    "blockchain": "Blockchain",
+    "ai": "AI Solutions",
+    "crm": "CRM Systems",
+    "ecommerce": "E-commerce"
+  },
+  
+  "project_polerowanie_title": "Website Redesign for Polerowanie-Szyb",
+  "project_polerowanie_description": "A complete redesign of the website with modern features and improved content, focusing on user experience and conversion optimization.",
+  
+  "project_blastlybot_title": "Service Interface with AI and Telegram Bot",
+  "project_blastlybot_description": "Developed an intuitive interface for clients to easily access information through AI and Telegram bots, enhancing customer support and engagement.",
+  
+  "project_pharmprostir_title": "Stylish E-commerce Website",
+  "project_pharmprostir_description": "A fast and well-designed e-commerce website that significantly increased sales through improved user experience and optimized checkout flow.",
+  
+  "project_savier_title": "Tactical Medicine Blog",
+  "project_savier_description": "Developed a specialized blog about tactical medicine with a modern design and user-friendly navigation, providing valuable information in an accessible way.",
+  
+  "project_budgood_title": "Construction Company Website",
+  "project_budgood_description": "Created a professional website for a construction company that effectively showcases their services and portfolio, increasing their online presence and lead generation.",
+  
+  "project_factum_title": "Auto Import Platform and CRM",
+  "project_factum_description": "Development of a high-load application, CRM system, and website for a company importing cars from US auctions, including auction data parsing and comprehensive history tracking.",
+  
+  "project_skybud_title": "Construction Company CRM with GPS Navigation",
+  "project_skybud_description": "Created a CRM system with GPS navigation capabilities and website for a construction company, streamlining project management and resource allocation.",
+  
+  "project_vimmi_title": "Sales Enhancement SaaS Platform",
+  "project_vimmi_description": "Development of a SaaS project and website for a company specializing in increasing sales, featuring analytics, customer tracking, and performance reporting.",
+  
+  "project_beautyprostir_title": "Niche Cosmetics E-commerce Website",
+  "project_beautyprostir_description": "Simple yet effective e-commerce website for trading niche cosmetics products, with a focus on product presentation and user experience.",
+  
+  "project_llm_title": "Dual AI Document Search System",
+  "project_llm_description": "Creation of an LLM model with two types of AI for information search in documents of any format, enabling efficient knowledge retrieval and context-aware answers.",
+  
+  "project_transport_crm_title": "Transport Company CRM System",
+  "project_transport_crm_description": "Development of a CRM system for a company engaged in automobile transportation, optimizing route planning, fleet management, and customer relationships.",
+  
+  "project_smashandfun_title": "Rage Room Booking Website",
+  "project_smashandfun_description": "Creation of a website for a company that specializes in renting rooms for breaking items with bats and hammers to reduce stress, featuring a comprehensive booking system.",
+  
+  "project_soulspace_title": "SEO Optimization for Wellness Platform",
+  "project_soulspace_description": "Comprehensive SEO setup and optimization for a wellness and personal development platform, significantly improving organic traffic and search engine rankings.",
+  
+  "project_commentify_title": "AI-Powered Business Monitoring Tool",
+  "project_commentify_description": "Development of a high-load application with artificial intelligence and CRM system that tracks competitors, your business, negative reviews, and helps improve customer experience with instant response capabilities.",
+  
+  "project_everscale_title": "Blockchain Network Website",
+  "project_everscale_description": "Development of a web3 website for the well-known blockchain network Everscale (formerly TON Crystal), showcasing the network's features, ecosystem, and technical documentation.",
+  
+  "project_cryptonumiz_title": "NFT Project Crypto Token",
+  "project_cryptonumiz_description": "Creation of a Web3 crypto token for the NFT project Cryptonumiz, including smart contract development, security auditing, and deployment on the Ethereum blockchain.",
+  
+  "project_therace_title": "NFT Racing dApp",
+  "project_therace_description": "Development of a decentralized application (dApp) and NFT racing game, featuring blockchain-based digital assets, racing mechanics, and an interactive user experience.",
+  
+  "project_survey_bot_title": "Sociological Survey Bot",
+  "project_survey_bot_description": "Created a sophisticated survey bot with integrated CRM and admin panel for conducting sociological studies, collecting and analyzing responses, and generating detailed reports.",
+  
+  "project_crypto_signals_title": "Crypto Trading Signals Bot",
+  "project_crypto_signals_description": "Developed a crypto signals bot using TradingView API, Binance API, Bybit API, Huobi API, and KuCoin API with an integrated algorithm for providing profitable buy and sell signals, enhanced with an LLM.",
+  
+  "project_meta_management_title": "Meta Accounts Management System",
+  "project_meta_management_description": "Built a comprehensive management system for multiple Meta accounts (Instagram, Facebook) with AntiDetect Browser integration, enabling efficient management of multiple profiles while maintaining security.",
+  
+  "project_product_parser_title": "Automated Product Parser",
+  "project_product_parser_description": "Created an automated parser for extracting product data, images, and prices from various websites, with CSV export functionality and integrated translation capabilities for international e-commerce operations.",
+  
+  "project_social_parser_title": "Social Media Data Mining App",
+  "project_social_parser_description": "Developed an application for parsing data from all major social networks based on keywords and geographic locations, providing valuable insights for marketing, research, and business intelligence.",
+  
+  "project_cefion_title": "Cefion Mobile App",
+  "project_cefion_description": "Cefion is a multifunctional messenger with chats, new conversations, and incredible features. App, scheduler, crypto wallet, and social network united in the explosive mixture for online communications in the modern world.",
+  
+  "cta_title": "Ready to Start Your Project?",
+  "cta_description": "Contact us today to discuss how we can help bring your ideas to life with our expertise and innovative solutions.",
+
+  "meta": {
+    "title": "Portfolio",
+    "description": "Explore our diverse portfolio of projects across various domains and technologies"
+  },
+  "hero": {
+    "badge": "Our Work",
+    "title": "Discover Our",
+    "title_highlight": "Projects",
+    "description": "Browse through our diverse portfolio of projects spanning various domains and technologies."
+  },
+  "no_projects_found": "No projects found in this category."
+}

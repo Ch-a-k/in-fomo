@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "Privacy Policy - IN-FOMO",
+    "description": "Learn about how IN-FOMO collects, uses, and protects your personal information."
+  },
+
+  "hero": {
+    "badge": "Privacy Policy",
+    "title": "Privacy Policy",
+    "subtitle": "Your privacy matters to us. This policy describes how we handle your personal information."
+  },
+
+  "sections": {
+    "introduction": {
+      "title": "Introduction",
+      "content": "This Privacy Policy describes how IN-FOMO ('we', 'us', or 'our') collects, uses, and discloses your personal information when you visit our website or use our services. We are committed to protecting your privacy and ensuring the security of your personal information."
+    },
+
+    "information": {
+      "title": "Information We Collect",
+      "content": "We collect various types of information to provide and improve our services. Here's what we collect:",
+      "items": {
+        "0": "Personal identification information (name, email address, phone number)",
+        "1": "Business information (company name, job title)",
+        "2": "Technical information (IP address, browser type, device information)",
+        "3": "Usage data (how you interact with our site and services)",
+        "4": "Communication data (messages sent through our contact forms)"
+      }
+    },
+
+    "usage": {
+      "title": "How We Use Your Information",
+      "content": "We use the collected information for various purposes, including:",
+      "items": {
+        "0": "Providing and maintaining our services",
+        "1": "Communicating with you about our services",
+        "2": "Improving our website and user experience",
+        "3": "Complying with legal obligations"
+      }
+    },
+
+    "cookies": {
+      "title": "Cookies and Tracking Technologies",
+      "content": "We use cookies and similar tracking technologies to monitor activity on our website and improve user experience. These technologies help us:",
+      "items": {
+        "0": "Remember your preferences and settings",
+        "1": "Understand how you use our website",
+        "2": "Deliver personalized content and advertising"
+      }
+    },
+
+    "security": {
+      "title": "Data Security",
+      "content": "We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure."
+    },
+
+    "thirdParty": {
+      "title": "Third-Party Services",
+      "content": "Our website may contain links to third-party websites or services. We are not responsible for the privacy policies or content of these third-party sites. We recommend reviewing the privacy policy of any third-party site you visit."
+    },
+
+    "rights": {
+      "title": "Your Rights",
+      "content": "You have certain rights regarding your personal information, including:",
+      "items": {
+        "0": "The right to access your personal information",
+        "1": "The right to rectify inaccurate information",
+        "2": "The right to delete your information",
+        "3": "The right to restrict processing of your information",
+        "4": "The right to data portability",
+        "5": "The right to object to processing of your information"
+      }
+    },
+
+    "updates": {
+      "title": "Updates to This Policy",
+      "content": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the 'Last Updated' date."
+    },
+
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about this Privacy Policy or our practices, please contact us at privacy@in-fomo.com."
+    }
+  },
+
+  "lastUpdated": "Last Updated: March 19, 2024"
+}

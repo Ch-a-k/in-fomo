@@ -1,0 +1,114 @@
+{
+  "tagline": "Innovative IT Solutions",
+  "meta_description": "IN-FOMO is a leading IT company providing innovative software development, cloud solutions, and digital transformation services.",
+  
+  "home": "Home",
+  "services": "Services",
+  "portfolio": "Portfolio",
+  "about": "About",
+  "contact": "Contact",
+  "blog": "Blog",
+  "careers": "Careers",
+  
+  "language": "Language",
+  "get_started": "Get started",
+  
+  "quick_links": "Quick Links",
+  "footer_description": "We provide cutting-edge IT solutions to help businesses transform and thrive in the digital era.",
+  "all_rights_reserved": "All rights reserved.",
+  "privacy_policy": "Privacy Policy",
+  "terms_of_service": "Terms of Service",
+  "navigation": "Navigation",
+  "legal": "Legal",
+  "follow_us": "Follow Us",
+  "location": "Worldwide",
+  
+  "web_development": "Web development",
+  "mobile_development": "Mobile development",
+  "cloud_solutions": "Cloud Solutions",
+  "digital_transformation": "Digital Transformation",
+  "cybersecurity": "Cybersecurity",
+  "ai_solutions": "AI Solutions",
+  "ui_ux_design": "UI/UX Design",
+  "bot_development": "Bot Development",
+  "crm_development": "CRM Development",
+  "business_consulting": "Business Consulting",
+  "web3_blockchain": "Web3 & Blockchain",
+  "telegram_mini_apps": "Telegram Mini Apps",
+  "parsers_scrapers": "Parsers & Scrapers",
+  "select_language": "Select language",
+  "language_code": "en",
+  
+  "footer_demo": "Footer Design Demo",
+  "footer_demo_description": "Choose between different footer designs for the website",
+  "select_footer_design": "Select Footer Design",
+  "design": "Design",
+  "design1_description": "Spacious layout with clear section separation",
+  "design2_description": "Compact layout with inline elements",
+  "current_selection": "Current Selection",
+  "scroll_down_to_view": "Scroll down to view the selected footer design",
+  
+  "about_page": {
+    "title": "About Me",
+    "subtitle": "Passionate developer with expertise in modern web technologies and blockchain development",
+    "heroImage": "/images/profile.jpg",
+    "longDescription": "I am a passionate developer with extensive experience in creating modern web applications, blockchain solutions, and AI-powered systems. My goal is to deliver high-quality software that solves real-world problems and provides exceptional user experiences.",
+    "skills": {
+      "title": "Skills & Expertise",
+      "items": [
+        {
+          "name": "Frontend Development",
+          "description": "React, Next.js, TypeScript"
+        },
+        {
+          "name": "Backend Development",
+          "description": "Node.js, Python, Go"
+        },
+        {
+          "name": "Blockchain",
+          "description": "Solidity, Web3.js, Ethers.js"
+        },
+        {
+          "name": "DevOps",
+          "description": "Docker, AWS, CI/CD"
+        }
+      ]
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "items": [
+        {
+          "period": "2021 - Present",
+          "role": "Senior Full Stack Developer",
+          "company": "Tech Company",
+          "description": "Leading development of enterprise applications..."
+        },
+        {
+          "period": "2018 - 2021",
+          "role": "Blockchain Developer",
+          "company": "Crypto Startup",
+          "description": "Developed smart contracts and DeFi applications..."
+        }
+      ]
+    }
+  },
+  
+  "our_core_values": "Our Core Values",
+  "meet_our_team": "meet_our_team",
+  "join_our_team": "join_our_team",
+  "join_team_text": "We're always looking for talented individuals to join our team. If you're passionate about technology and innovation, we'd love to hear from you!",
+  
+  "get_in_touch": "get_in_touch",
+  "toggle_theme": "Toggle theme",
+  "close_menu": "Close menu",
+  "open_menu": "Open menu",
+  "appearance": "Appearance",
+  "light": "Light",
+  "dark": "Dark",
+  "light_mode": "Light Mode",
+  "dark_mode": "Dark Mode",
+  "system_mode": "System Mode",
+  "ready_to_start": "Ready to Start Your Project?",
+  "contact_us": "contact_us",
+  "contact_description": "Contact us today to discuss how we can help bring your ideas to life with our expertise and innovative solutions."
+}

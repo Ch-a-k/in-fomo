@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Warunki korzystania - IN-FOMO",
+    "description": "Zapoznaj się z naszymi Warunkami korzystania, aby zrozumieć zasady i wytyczne dotyczące korzystania z usług i strony internetowej IN-FOMO."
+  },
+
+  "hero": {
+    "badge": "Warunki korzystania",
+    "title": "Warunki korzystania",
+    "subtitle": "Prosimy o uważne zapoznanie się z tymi warunkami przed rozpoczęciem korzystania z naszych usług."
+  },
+
+  "sections": {
+    "introduction": {
+      "title": "Wprowadzenie",
+      "content": "Niniejsze Warunki korzystania ('Warunki') regulują dostęp i korzystanie ze strony internetowej i usług IN-FOMO. Uzyskując dostęp lub korzystając z naszych usług, zgadzasz się przestrzegać tych Warunków. Jeśli nie zgadzasz się z jakąkolwiek częścią Warunków, nie możesz uzyskać dostępu do naszych usług."
+    },
+
+    "definitions": {
+      "title": "Definicje",
+      "content": "Na potrzeby niniejszych Warunków:",
+      "items": {
+        "0": "'Usługa' oznacza stronę internetową zarządzaną przez IN-FOMO",
+        "1": "'Ty' oznacza osobę fizyczną uzyskującą dostęp lub korzystającą z Usługi",
+        "2": "'Firma' oznacza IN-FOMO",
+        "3": "'Treść' oznacza wszelkie informacje, teksty, grafikę lub inne materiały przesłane, pobrane lub pojawiające się w Usłudze"
+      }
+    },
+
+    "account": {
+      "title": "Konta użytkowników",
+      "content": "Podczas tworzenia konta u nas musisz podać dokładne, kompletne i aktualne informacje. Nieprzestrzeganie tego wymogu stanowi naruszenie Warunków i może skutkować natychmiastowym zamknięciem Twojego konta.",
+      "items": {
+        "0": "Jesteś odpowiedzialny za zachowanie bezpieczeństwa hasła do swojego konta",
+        "1": "Zgadzasz się nie ujawniać swojego hasła osobom trzecim",
+        "2": "Musisz natychmiast powiadomić nas o wykryciu naruszenia bezpieczeństwa lub nieautoryzowanego użycia Twojego konta",
+        "3": "Nie możesz korzystać z konta innego użytkownika bez pozwolenia"
+      }
+    },
+
+    "intellectualProperty": {
+      "title": "Własność intelektualna",
+      "content": "Usługa i jej oryginalna zawartość (z wyjątkiem Treści dostarczonych przez użytkowników), funkcje i funkcjonalność są i pozostaną wyłączną własnością IN-FOMO i jej licencjodawców. Usługa jest chroniona prawami autorskimi, znakami towarowymi i innymi prawami.",
+      "items": {
+        "0": "Nasze znaki towarowe nie mogą być używane bez naszej uprzedniej pisemnej zgody",
+        "1": "Zachowujesz prawa własności do swoich Treści",
+        "2": "Publikując Treści, udzielasz nam licencji na używanie, modyfikowanie i wyświetlanie tych Treści"
+      }
+    },
+
+    "restrictions": {
+      "title": "Zabronione działania",
+      "content": "Możesz korzystać z naszej Usługi tylko w celach zgodnych z prawem i zgodnie z niniejszymi Warunkami. Zgadzasz się nie korzystać z Usługi:",
+      "items": {
+        "0": "W sposób naruszający obowiązujące prawo lub przepisy",
+        "1": "Do przesyłania jakiegokolwiek szkodliwego lub złośliwego kodu",
+        "2": "Do podszywania się lub próby podszywania się pod Firmę lub inne osoby",
+        "3": "Do uczestnictwa w jakiejkolwiek działalności, która zakłóca lub narusza działanie Usługi",
+        "4": "Do próby uzyskania nieautoryzowanego dostępu do jakiejkolwiek części Usługi"
+      }
+    },
+
+    "termination": {
+      "title": "Zakończenie",
+      "content": "Możemy natychmiast zakończyć lub zawiesić działanie Twojego konta bez wcześniejszego powiadomienia lub odpowiedzialności z jakiegokolwiek powodu, w tym między innymi za naruszenie Warunków. Po zakończeniu Twoje prawo do korzystania z Usługi natychmiast wygasa."
+    },
+
+    "liability": {
+      "title": "Ograniczenie odpowiedzialności",
+      "content": "IN-FOMO oraz jej dyrektorzy, pracownicy, partnerzy, agenci, dostawcy lub podmioty stowarzyszone nie ponoszą odpowiedzialności za jakiekolwiek pośrednie, przypadkowe, szczególne, wynikowe lub karne szkody, w tym między innymi utratę zysków, danych, użytkowania, wartości firmy lub inne straty niematerialne."
+    },
+
+    "warranty": {
+      "title": "Wyłączenie gwarancji",
+      "content": "Korzystanie z Usługi odbywa się na własne ryzyko. Usługa jest dostarczana 'TAK JAK JEST' i 'JAK JEST DOSTĘPNA' bez jakichkolwiek gwarancji, wyraźnych lub dorozumianych."
+    },
+
+    "changes": {
+      "title": "Zmiany w Warunkach",
+      "content": "Zastrzegamy sobie prawo do modyfikacji lub zastąpienia tych Warunków w dowolnym momencie. Jeśli zmiana jest istotna, postaramy się powiadomić Cię co najmniej 30 dni przed wejściem w życie nowych warunków."
+    },
+
+    "contact": {
+      "title": "Kontakt z nami",
+      "content": "Jeśli masz jakiekolwiek pytania dotyczące tych Warunków, prosimy o kontakt pod adresem info@in-fomo.com."
+    }
+  },
+
+  "lastUpdated": "Ostatnia aktualizacja: 19 marca 2024 r."
+}

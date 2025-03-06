@@ -1,0 +1,53 @@
+{
+  "hero_badge": "Cutting-edge IT Solutions",
+  "hero_title_1": "Transform Your Business with",
+  "hero_title_highlight": "Innovative",
+  "hero_title_2": "Technology",
+  "hero_description": "We help businesses adopt the latest technologies to improve efficiency, reduce costs, and drive growth in today's digital world.",
+  "get_started": "Get Started",
+  "our_services": "Our Services",
+  
+  "services_title": "Solutions We Provide",
+  "services_description": "We offer a comprehensive range of IT services to meet your business needs and drive digital transformation.",
+  
+  "web_development": "Web Development",
+  "web_development_desc": "Custom websites and web applications with modern technologies like React, Next.js, and more.",
+  
+  "mobile_development": "Mobile Development",
+  "mobile_development_desc": "Native and cross-platform mobile apps for iOS and Android that engage your users.",
+  
+  "cloud_solutions": "Cloud Solutions",
+  "cloud_solutions_desc": "Scalable cloud infrastructure and migration services to optimize your operations.",
+  
+  "cybersecurity": "Cybersecurity",
+  "cybersecurity_desc": "Protect your business from threats with our comprehensive security solutions.",
+  
+  "ai_solutions": "AI Solutions",
+  "ai_solutions_desc": "Leverage the power of artificial intelligence and machine learning to gain insights and automate processes.",
+  
+  "ui_ux_design": "UI/UX Design",
+  "ui_ux_design_desc": "Beautiful, intuitive interfaces that enhance user experience and drive engagement.",
+  
+  "bot_development": "Bot Development",
+  "bot_development_desc": "Custom chatbots and automation bots for various platforms that streamline interactions and improve customer service.",
+  
+  "crm_development": "CRM Development",
+  "crm_development_desc": "Tailored Customer Relationship Management systems to optimize your sales processes and improve customer relations.",
+  
+  "business_consulting": "Business Consulting",
+  "business_consulting_desc": "Strategic guidance to help your business grow, implement new technologies, and improve operational efficiency.",
+  
+  "web3_blockchain": "Web3 & Blockchain",
+  "web3_blockchain_desc": "Decentralized applications, smart contracts, and blockchain solutions leveraging the newest web3 technologies for secure and transparent digital assets.",
+  
+  "telegram_mini_apps": "Telegram Mini Apps",
+  "telegram_mini_apps_desc": "Custom mini applications for Telegram that extend your business capabilities and reach users within their favorite messenger.",
+  
+  "parsers_scrapers": "Parsers & Scrapers",
+  "parsers_scrapers_desc": "Data collection tools that automatically gather, process, and analyze information from various web sources.",
+  
+  "language_code": "en",
+  
+  "our_partners": "Our Trusted Partners",
+  "partners_description": "We collaborate with leading companies across various industries to deliver innovative solutions tailored to your business needs."
+}

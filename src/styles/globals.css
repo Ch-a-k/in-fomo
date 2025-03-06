@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply transition-colors duration-200 bg-light-bg dark:bg-dark-bg text-slate-900 dark:text-white;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center px-5 py-3 font-medium transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply text-white bg-primary hover:bg-primary-light focus:ring-primary;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary;
+  }
+  
+  .heading-1 {
+    @apply text-4xl font-bold sm:text-5xl md:text-6xl;
+  }
+  
+  .heading-2 {
+    @apply text-3xl font-bold sm:text-4xl;
+  }
+  
+  .heading-3 {
+    @apply text-2xl font-bold sm:text-3xl;
+  }
+}

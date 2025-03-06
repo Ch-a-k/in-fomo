@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Contact Us - IN-FOMO",
+    "description": "Get in touch with IN-FOMO for innovative IT solutions and expert consultation for your business needs."
+  },
+
+  "hero": {
+    "badge": "Contact Us",
+    "title": "Get in Touch",
+    "subtitle": "Have a question or want to work with us? We'd love to hear from you!"
+  },
+
+  "forms": {
+    "general": {
+      "title": "General Inquiries & Development",
+      "description": "Have questions about our services, want to discuss a project, or need technical consultation? Our team is here to help you with web development, mobile apps, blockchain solutions, or other IT services."
+    },
+    "careers": {
+      "title": "Career Opportunities",
+      "description": "Looking to join our team? Whether you're an experienced developer, designer, or emerging talent, we're always looking for passionate individuals to grow with us."
+    },
+    "fields": {
+      "name": {
+        "label": "Your Name",
+        "placeholder": "Enter your full name"
+      },
+      "contact": {
+        "label": "Contact Information",
+        "placeholder": "Email or phone number"
+      },
+      "message": {
+        "label": "Your Message",
+        "placeholder": "Tell us about your project or question"
+      }
+    },
+    "actions": {
+      "submit": "Send Message",
+      "sending": "Sending..."
+    },
+    "feedback": {
+      "success": "Thank you! We'll get back to you soon.",
+      "error": "Something went wrong. Please try again.",
+      "charactersLeft": "characters left",
+      "newMessage": "New message"
+    }
+  }
+}

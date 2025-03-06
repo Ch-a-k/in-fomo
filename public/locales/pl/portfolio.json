@@ -1,0 +1,106 @@
+{
+  "title": "Portfolio",
+  "subtitle": "Poznaj nasze projekty i dowiedz się, jak pomogliśmy firmom osiągnąć ich cele",
+  "meta_description": "Poznaj nasze portfolio innowacyjnych rozwiązań IT i udanych projektów w różnych branżach.",
+  "hero_title": "Nasze Portfolio",
+  "hero_description": "Odkryj nasze udane projekty i innowacyjne rozwiązania, które pomogły firmom transformować się i rozwijać.",
+  
+  "view_project": "Zobacz Projekt",
+  "view_details": "Szczegóły",
+  "view_all": "Wszystkie projekty",
+  "technologies": "Użyte technologie",
+  
+  "categories": {
+    "all": "Wszystkie Projekty",
+    "web": "Rozwój Stron WWW",
+    "mobile": "Aplikacje Mobilne",
+    "blockchain": "Blockchain",
+    "ai": "Rozwiązania AI",
+    "crm": "Systemy CRM",
+    "ecommerce": "E-commerce"
+  },
+  
+  "project_polerowanie_title": "Redesign strony dla Polerowanie-Szyb",
+  "project_polerowanie_description": "Kompletny redesign strony internetowej z nowoczesnymi funkcjami i ulepszonym contentem, skupiający się na doświadczeniu użytkownika i optymalizacji konwersji.",
+  
+  "project_blastlybot_title": "Interfejs usługowy z AI i botem Telegram",
+  "project_blastlybot_description": "Opracowano intuicyjny interfejs dla klientów, umożliwiający łatwy dostęp do informacji za pomocą AI i botów Telegram, poprawiający obsługę klienta i interakcję.",
+  
+  "project_pharmprostir_title": "Stylowa strona E-commerce",
+  "project_pharmprostir_description": "Szybka i dobrze zaprojektowana strona e-commerce, która znacznie zwiększyła sprzedaż dzięki ulepszonemu doświadczeniu użytkownika i zoptymalizowanemu procesowi finalizacji zakupu.",
+  
+  "project_savier_title": "Blog o medycynie taktycznej",
+  "project_savier_description": "Opracowano specjalistyczny blog o medycynie taktycznej z nowoczesnym designem i przyjazną nawigacją, dostarczający wartościowych informacji w przystępny sposób.",
+  
+  "project_budgood_title": "Strona internetowa firmy budowlanej",
+  "project_budgood_description": "Stworzono profesjonalną stronę internetową dla firmy budowlanej, która skutecznie prezentuje ich usługi i portfolio, zwiększając ich obecność online i generowanie leadów.",
+  
+  "project_factum_title": "Platforma importu samochodów i CRM",
+  "project_factum_description": "Rozwój aplikacji o wysokim obciążeniu, systemu CRM i strony internetowej dla firmy importującej samochody z aukcji w USA, w tym parsowanie danych aukcyjnych i kompleksowe śledzenie historii.",
+  
+  "project_skybud_title": "CRM dla firmy budowlanej z nawigacją GPS",
+  "project_skybud_description": "Stworzono system CRM z możliwościami nawigacji GPS i stronę internetową dla firmy budowlanej, optymalizując zarządzanie projektami i alokację zasobów.",
+  
+  "project_vimmi_title": "Platforma SaaS do zwiększania sprzedaży",
+  "project_vimmi_description": "Rozwój projektu SaaS i strony internetowej dla firmy specjalizującej się w zwiększaniu sprzedaży, z funkcjami analitycznymi, śledzeniem klientów i raportowaniem wyników.",
+  
+  "project_beautyprostir_title": "Strona E-commerce dla niszowych kosmetyków",
+  "project_beautyprostir_description": "Prosta, ale efektywna strona e-commerce do handlu niszowymi produktami kosmetycznymi, z naciskiem na prezentację produktów i doświadczenie użytkownika.",
+  
+  "project_llm_title": "System wyszukiwania dokumentów z podwójnym AI",
+  "project_llm_description": "Stworzenie modelu LLM z dwoma rodzajami AI do wyszukiwania informacji w dokumentach dowolnego formatu, umożliwiającego efektywne pozyskiwanie wiedzy i kontekstowe odpowiedzi.",
+  
+  "project_transport_crm_title": "System CRM dla firmy transportowej",
+  "project_transport_crm_description": "Rozwój systemu CRM dla firmy zajmującej się transportem samochodowym, optymalizującego planowanie tras, zarządzanie flotą i relacje z klientami.",
+  
+  "project_smashandfun_title": "Strona rezerwacji pokojów do wyładowania stresu",
+  "project_smashandfun_description": "Stworzenie strony internetowej dla firmy specjalizującej się w wynajmie pokojów do rozbijania przedmiotów kijami i młotkami w celu redukcji stresu, z kompleksowym systemem rezerwacji.",
+  
+  "project_soulspace_title": "Optymalizacja SEO dla platformy wellness",
+  "project_soulspace_description": "Kompleksowa konfiguracja i optymalizacja SEO dla platformy wellness i rozwoju osobistego, znacznie poprawiająca ruch organiczny i pozycje w wyszukiwarkach.",
+  
+  "project_commentify_title": "Narzędzie do monitorowania biznesu z AI",
+  "project_commentify_description": "Rozwój aplikacji o wysokim obciążeniu ze sztuczną inteligencją i systemem CRM, która śledzi konkurentów, Twój biznes, negatywne recenzje i pomaga poprawić doświadczenie klienta z możliwościami natychmiastowej reakcji.",
+  
+  "project_everscale_title": "Strona internetowa sieci blockchain",
+  "project_everscale_description": "Rozwój strony web3 dla znanej sieci blockchain Everscale (dawniej TON Crystal), prezentującej funkcje sieci, ekosystem i dokumentację techniczną.",
+  
+  "project_cryptonumiz_title": "Token krypto dla projektu NFT",
+  "project_cryptonumiz_description": "Stworzenie tokenu krypto Web3 dla projektu NFT Cryptonumiz, w tym rozwój smart kontraktów, audyt bezpieczeństwa i wdrożenie w blockchainie Ethereum.",
+  
+  "project_therace_title": "Aplikacja dApp wyścigów NFT",
+  "project_therace_description": "Rozwój zdecentralizowanej aplikacji (dApp) i gry wyścigowej NFT, zawierającej cyfrowe aktywa oparte na blockchainie, mechanikę wyścigową i interaktywne doświadczenie użytkownika.",
+  
+  "project_survey_bot_title": "Bot do badań socjologicznych",
+  "project_survey_bot_description": "Stworzenie zaawansowanego bota do ankiet z zintegrowanym CRM i panelem administracyjnym do prowadzenia badań socjologicznych, zbierania i analizowania odpowiedzi oraz generowania szczegółowych raportów.",
+  
+  "project_crypto_signals_title": "Bot do sygnałów kryptowalutowych",
+  "project_crypto_signals_description": "Opracowanie bota do sygnałów kryptowalutowych korzystającego z API TradingView, Binance, Bybit, Huobi i KuCoin z zintegrowanym algorytmem dostarczającym opłacalnych sygnałów kupna i sprzedaży, ulepszonym o LLM.",
+  
+  "project_meta_management_title": "System zarządzania kontami Meta",
+  "project_meta_management_description": "Zbudowanie kompleksowego systemu zarządzania wieloma kontami Meta (Instagram, Facebook) z integracją AntiDetect Browser, umożliwiającego efektywne zarządzanie wieloma profilami przy zachowaniu bezpieczeństwa.",
+  
+  "project_product_parser_title": "Zautomatyzowany parser produktów",
+  "project_product_parser_description": "Stworzenie zautomatyzowanego parsera do wydobywania danych o produktach, obrazów i cen z różnych stron internetowych, z funkcjonalnością eksportu CSV i zintegrowanymi możliwościami tłumaczenia dla międzynarodowych operacji e-commerce.",
+  
+  "project_social_parser_title": "Aplikacja do wydobywania danych z mediów społecznościowych",
+  "project_social_parser_description": "Opracowanie aplikacji do parsowania danych ze wszystkich głównych sieci społecznościowych na podstawie słów kluczowych i lokalizacji geograficznych, dostarczającej wartościowych informacji dla marketingu, badań i inteligencji biznesowej.",
+  
+  "project_cefion_title": "Aplikacja mobilna Cefion",
+  "project_cefion_description": "Cefion to wielofunkcyjny komunikator z czatami, nowymi rozmowami i niesamowitymi funkcjami. Aplikacja, harmonogram, portfel kryptograficzny i sieć społecznościowa zjednoczone w wybuchowej mieszance do komunikacji online we współczesnym świecie.",
+    
+  "cta_title": "Gotowy na rozpoczęcie swojego projektu?",
+  "cta_description": "Skontaktuj się z nami już dziś, aby omówić, jak możemy pomóc w realizacji Twoich pomysłów dzięki naszej wiedzy i innowacyjnym rozwiązaniom.",
+  
+  "meta": {
+    "title": "Portfolio",
+    "description": "Odkryj nasze zróżnicowane portfolio projektów w różnych dziedzinach i technologiach"
+  },
+  "hero": {
+    "badge": "Nasze Prace",
+    "title": "Odkryj Nasze",
+    "title_highlight": "Projekty",
+    "description": "Przeglądaj nasze zróżnicowane portfolio projektów obejmujących różne dziedziny i technologie."
+  },
+  "no_projects_found": "Nie znaleziono projektów w tej kategorii."
+}

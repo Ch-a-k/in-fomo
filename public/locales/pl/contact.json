@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Kontakt - IN-FOMO",
+    "description": "Skontaktuj się z IN-FOMO, aby uzyskać innowacyjne rozwiązania IT i eksperckie konsultacje dla Twojej firmy."
+  },
+
+  "hero": {
+    "badge": "Kontakt",
+    "title": "Skontaktuj się z nami",
+    "subtitle": "Masz pytania lub chcesz z nami współpracować? Chętnie Cię wysłuchamy!"
+  },
+
+  "forms": {
+    "general": {
+      "title": "Zapytania ogólne i rozwój",
+      "description": "Masz pytania dotyczące naszych usług, chcesz omówić projekt lub potrzebujesz konsultacji technicznej? Nasz zespół jest gotowy pomóc Ci w tworzeniu stron internetowych, aplikacji mobilnych, rozwiązań blockchain lub innych usług IT."
+    },
+    "careers": {
+      "title": "Możliwości kariery",
+      "description": "Chcesz dołączyć do naszego zespołu? Niezależnie od tego, czy jesteś doświadczonym programistą, projektantem czy początkującym talentem, zawsze szukamy pasjonatów do wspólnego rozwoju."
+    },
+    "fields": {
+      "name": {
+        "label": "Twoje imię",
+        "placeholder": "Wpisz swoje pełne imię"
+      },
+      "contact": {
+        "label": "Informacje kontaktowe",
+        "placeholder": "Email lub numer telefonu"
+      },
+      "message": {
+        "label": "Twoja wiadomość",
+        "placeholder": "Opowiedz nam o swoim projekcie lub pytaniu"
+      }
+    },
+    "actions": {
+      "submit": "Wyślij wiadomość",
+      "sending": "Wysyłanie wiadomości..."
+    },
+    "feedback": {
+      "success": "Dziękujemy! Otrzymaliśmy Twoją wiadomość i wkrótce się z Tobą skontaktujemy.",
+      "error": "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie.",
+      "charactersLeft": "pozostało znaków",
+      "newMessage": "Nowa wiadomość"
+    }
+  }
+}

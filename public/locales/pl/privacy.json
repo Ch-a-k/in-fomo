@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "Polityka Prywatności - IN-FOMO",
+    "description": "Dowiedz się, jak IN-FOMO zbiera, wykorzystuje i chroni Twoje dane osobowe."
+  },
+
+  "hero": {
+    "badge": "Polityka Prywatności",
+    "title": "Polityka Prywatności",
+    "subtitle": "Twoja prywatność jest dla nas ważna. Ta polityka opisuje, jak przetwarzamy Twoje dane osobowe."
+  },
+
+  "sections": {
+    "introduction": {
+      "title": "Wprowadzenie",
+      "content": "Niniejsza Polityka Prywatności opisuje, jak IN-FOMO ('my', 'nas' lub 'nasz') zbiera, wykorzystuje i ujawnia Twoje dane osobowe podczas korzystania z naszej strony internetowej lub usług. Dokładamy wszelkich starań, aby chronić Twoją prywatność i zapewnić bezpieczeństwo Twoich danych osobowych."
+    },
+
+    "information": {
+      "title": "Informacje, które zbieramy",
+      "content": "Zbieramy różne rodzaje informacji w celu świadczenia i ulepszania naszych usług. Oto co zbieramy:",
+      "items": {
+        "0": "Dane identyfikacyjne (imię i nazwisko, adres e-mail, numer telefonu)",
+        "1": "Informacje biznesowe (nazwa firmy, stanowisko)",
+        "2": "Informacje techniczne (adres IP, typ przeglądarki, informacje o urządzeniu)",
+        "3": "Dane o użytkowaniu (jak korzystasz z naszej strony i usług)",
+        "4": "Dane komunikacyjne (wiadomości wysłane przez nasze formularze kontaktowe)"
+      }
+    },
+
+    "usage": {
+      "title": "Jak wykorzystujemy Twoje informacje",
+      "content": "Wykorzystujemy zebrane informacje do różnych celów, w tym:",
+      "items": {
+        "0": "Świadczenie i wsparcie naszych usług",
+        "1": "Komunikacja z Tobą o naszych usługach",
+        "2": "Ulepszanie naszej strony internetowej i doświadczenia użytkownika",
+        "3": "Przestrzeganie zobowiązań prawnych"
+      }
+    },
+
+    "cookies": {
+      "title": "Pliki cookie i technologie śledzenia",
+      "content": "Używamy plików cookie i podobnych technologii śledzenia do monitorowania aktywności na naszej stronie internetowej i poprawy doświadczenia użytkownika. Te technologie pomagają nam:",
+      "items": {
+        "0": "Zapamiętywać Twoje preferencje i ustawienia",
+        "1": "Zrozumieć, jak korzystasz z naszej strony",
+        "2": "Dostarczać spersonalizowane treści i reklamy"
+      }
+    },
+
+    "security": {
+      "title": "Bezpieczeństwo danych",
+      "content": "Stosujemy odpowiednie środki bezpieczeństwa w celu ochrony Twoich danych osobowych przed nieautoryzowanym dostępem, zmianą, ujawnieniem lub zniszczeniem. Jednak żadna metoda transmisji przez Internet lub przechowywania elektronicznego nie jest w 100% bezpieczna."
+    },
+
+    "thirdParty": {
+      "title": "Usługi stron trzecich",
+      "content": "Nasza strona internetowa może zawierać linki do stron internetowych lub usług stron trzecich. Nie ponosimy odpowiedzialności za politykę prywatności lub treść tych stron trzecich. Zalecamy zapoznanie się z polityką prywatności każdej odwiedzanej strony trzeciej."
+    },
+
+    "rights": {
+      "title": "Twoje prawa",
+      "content": "Masz określone prawa dotyczące Twoich danych osobowych, w tym:",
+      "items": {
+        "0": "Prawo dostępu do Twoich danych osobowych",
+        "1": "Prawo do sprostowania niedokładnych informacji",
+        "2": "Prawo do usunięcia Twoich danych",
+        "3": "Prawo do ograniczenia przetwarzania Twoich danych",
+        "4": "Prawo do przenoszenia danych",
+        "5": "Prawo do sprzeciwu wobec przetwarzania Twoich danych"
+      }
+    },
+
+    "updates": {
+      "title": "Aktualizacje tej polityki",
+      "content": "Możemy od czasu do czasu aktualizować niniejszą Politykę Prywatności. Powiadomimy Cię o wszelkich zmianach, publikując nową Politykę Prywatności na tej stronie i aktualizując datę 'Ostatniej aktualizacji'."
+    },
+
+    "contact": {
+      "title": "Kontakt z nami",
+      "content": "Jeśli masz jakiekolwiek pytania dotyczące niniejszej Polityki Prywatności lub naszych praktyk, prosimy o kontakt pod adresem privacy@in-fomo.com."
+    }
+  },
+
+  "lastUpdated": "Ostatnia aktualizacja: 19 marca 2024 r."
+}

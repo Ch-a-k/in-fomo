@@ -1,0 +1,115 @@
+{
+  "tagline": "Innowacyjne rozwiązania IT",
+  "meta_description": "IN-FOMO - wiodąca firma IT dostarczająca innowacyjne usługi rozwoju oprogramowania, rozwiązania chmurowe i usługi transformacji cyfrowej.",
+  
+  "home": "Strona główna",
+  "services": "Usługi",
+  "portfolio": "Portfolio",
+  "about": "O nas",
+  "contact": "Kontakt",
+  "blog": "Blog",
+  "careers": "Kariera",
+  
+  "language": "Język",
+  "get_started": "Rozpocznij",
+  "get_in_touch": "Skontaktuj się",
+  "toggle_theme": "Przełącz motyw",
+  
+  "quick_links": "Szybkie linki",
+  "footer_description": "Dostarczamy zaawansowane rozwiązania IT, które pomagają firmom transformować się i prosperować w erze cyfrowej.",
+  "all_rights_reserved": "Wszelkie prawa zastrzeżone.",
+  "privacy_policy": "Polityka prywatności",
+  "terms_of_service": "Warunki korzystania",
+  "navigation": "Nawigacja",
+  "legal": "Informacje prawne",
+  "follow_us": "Obserwuj nas",
+  "location": "Na całym świecie",
+  
+  "web_development": "Rozwój stron internetowych",
+  "mobile_development": "Rozwój aplikacji mobilnych",
+  "cloud_solutions": "Rozwiązania chmurowe",
+  "digital_transformation": "Transformacja cyfrowa",
+  "cybersecurity": "Cyberbezpieczeństwo",
+  "ai_solutions": "Rozwiązania AI",
+  "ui_ux_design": "Projektowanie UI/UX",
+  "bot_development": "Rozwój botów",
+  "crm_development": "Rozwój CRM",
+  "business_consulting": "Doradztwo biznesowe",
+  "web3_blockchain": "Web3 i Blockchain",
+  "telegram_mini_apps": "Telegram Mini Apps",
+  "parsers_scrapers": "Parsery i Scrapery",
+  "select_language": "Wybierz język",
+  "language_code": "pl",
+  
+  "footer_demo": "Demo projektu stopki",
+  "footer_demo_description": "Wybierz spośród różnych projektów stopki dla strony internetowej",
+  "select_footer_design": "Wybierz projekt stopki",
+  "design": "Projekt",
+  "design1_description": "Przestronny układ z wyraźnym podziałem sekcji",
+  "design2_description": "Kompaktowy układ z elementami wbudowanymi",
+  "current_selection": "Aktualny wybór",
+  "scroll_down_to_view": "Przewiń w dół, aby zobaczyć wybrany projekt stopki",
+  
+  "about_page": {
+    "title": "O nas",
+    "subtitle": "Pasjonaci programowania z doświadczeniem w nowoczesnych technologiach webowych i rozwoju blockchain",
+    "heroImage": "/images/profile.jpg",
+    "longDescription": "Jesteśmy zespołem pasjonatów programowania z szerokim doświadczeniem w tworzeniu nowoczesnych aplikacji internetowych, rozwiązań blockchain i systemów opartych na sztucznej inteligencji. Naszym celem jest tworzenie wysokiej jakości oprogramowania, które rozwiązuje rzeczywiste problemy i zapewnia wyjątkowe doświadczenia użytkownika.",
+    "skills": {
+      "title": "Umiejętności i ekspertyza",
+      "items": [
+        {
+          "name": "Rozwój Frontend",
+          "description": "React, Next.js, TypeScript"
+        },
+        {
+          "name": "Rozwój Backend",
+          "description": "Node.js, Python, Go"
+        },
+        {
+          "name": "Blockchain",
+          "description": "Solidity, Web3.js, Ethers.js"
+        },
+        {
+          "name": "DevOps",
+          "description": "Docker, AWS, CI/CD"
+        }
+      ]
+    },
+    "experience": {
+      "title": "Doświadczenie zawodowe",
+      "items": [
+        {
+          "period": "2021 - Obecnie",
+          "role": "Starszy Full Stack Developer",
+          "company": "Firma technologiczna",
+          "description": "Kierowanie rozwojem aplikacji korporacyjnych..."
+        },
+        {
+          "period": "2018 - 2021",
+          "role": "Developer Blockchain",
+          "company": "Startup kryptowalutowy",
+          "description": "Rozwój smart kontraktów i aplikacji DeFi..."
+        }
+      ]
+    }
+  },
+  
+  "our_core_values": "Nasze podstawowe wartości",
+  "meet_our_team": "Poznaj nasz zespół",
+  "join_our_team": "Dołącz do naszego zespołu",
+  "join_team_text": "Zawsze szukamy utalentowanych specjalistów do naszego zespołu. Jeśli pasjonujesz się technologią i innowacjami, chętnie Cię poznamy!",
+  
+  "ready_to_start": "Gotowy, aby rozpocząć swój projekt?",
+  "contact_us": "Skontaktuj się z nami",
+  "contact_description": "Skontaktuj się z nami już dziś, aby omówić, jak możemy pomóc w realizacji Twoich pomysłów dzięki naszemu doświadczeniu i innowacyjnym rozwiązaniom.",
+  
+  "close_menu": "Zamknij menu",
+  "open_menu": "Otwórz menu",
+  "appearance": "Wygląd",
+  "light": "Jasny",
+  "dark": "Ciemny",
+  "light_mode": "Tryb jasny",
+  "dark_mode": "Tryb ciemny",
+  "system_mode": "Tryb systemowy"
+}
