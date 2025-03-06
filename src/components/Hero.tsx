@@ -73,16 +73,16 @@ const Hero = () => {
           >
             {/* Trusted by logos */}
             <div className="flex items-center justify-center">
-              <div className="h-8 text-gray-400 dark:text-gray-600 font-bold text-xl">Microsoft</div>
+              <div className="h-8 text-gray-400 dark:text-gray-600 font-bold text-xl">Blastly bot</div>
             </div>
             <div className="flex items-center justify-center">
-              <div className="h-8 text-gray-400 dark:text-gray-600 font-bold text-xl">Google</div>
+              <div className="h-8 text-gray-400 dark:text-gray-600 font-bold text-xl">Cats & Dogs</div>
             </div>
             <div className="flex items-center justify-center">
-              <div className="h-8 text-gray-400 dark:text-gray-600 font-bold text-xl">Amazon</div>
+              <div className="h-8 text-gray-400 dark:text-gray-600 font-bold text-xl">Heimdal AI</div>
             </div>
             <div className="flex items-center justify-center">
-              <div className="h-8 text-gray-400 dark:text-gray-600 font-bold text-xl">Facebook</div>
+              <div className="h-8 text-gray-400 dark:text-gray-600 font-bold text-xl">Memhash</div>
             </div>
           </motion.div>
         </motion.div>

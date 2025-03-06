@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next'
+import type { GetStaticProps } from 'next/types'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { useTheme } from 'next-themes'
@@ -74,114 +74,101 @@ const ContactForm = ({ formType, t }) => {
   }
 
   return (
-    <>
-      {/* Header Section */}
-      <div className="mb-12">
-        <h3 className="text-4xl font-semibold text-white">
-          {t(`forms.${formType}.title`)}
-        </h3>
-        <p className="text-gray-400 mt-4 text-lg">
-          {t(`forms.${formType}.description`)}
-        </p>
-      </div>
-
-      {/* Form Section */}
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        className="w-full bg-[#1a1a1a] rounded-lg p-8"
-      >
-        <div>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-base text-white mb-2">
-                  {t('forms.fields.name.label')} <span className="text-[#FF5a00]">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="block w-full px-4 py-3 text-base text-white bg-[#090909] border border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-1 focus:ring-[#FF5a00] transition-colors placeholder-gray-500"
-                  placeholder={t('forms.fields.name.placeholder')}
-                />
-              </div>
-
-              <div>
-                <label className="block text-base text-white mb-2">
-                  {t('forms.fields.contact.label')} <span className="text-[#FF5a00]">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="contact"
-                  value={formData.contact}
-                  onChange={handleChange}
-                  required
-                  className="block w-full px-4 py-3 text-base text-white bg-[#090909] border border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-1 focus:ring-[#FF5a00] transition-colors placeholder-gray-500"
-                  placeholder={t('forms.fields.contact.placeholder')}
-                />
-              </div>
+    <motion.div 
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      className="w-full bg-white dark:bg-[#1a1a1a] rounded-lg p-6 md:p-8 shadow-sm dark:shadow-none border border-gray-100 dark:border-gray-800"
+    >
+      <div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-base text-gray-900 dark:text-white mb-2">
+                {t('forms.fields.name.label')} <span className="text-[#FF5a00]">*</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-1 focus:ring-[#FF5a00] transition-colors placeholder-gray-500"
+                placeholder={t('forms.fields.name.placeholder')}
+              />
             </div>
 
             <div>
-              <label className="block text-base text-white mb-2">
-                {t('forms.fields.message.label')} <span className="text-[#FF5a00]">*</span>
+              <label className="block text-base text-gray-900 dark:text-white mb-2 whitespace-nowrap text-ellipsis overflow-hidden">
+                {t('forms.fields.contact.label')} <span className="text-[#FF5a00]">*</span>
               </label>
-              <div className="relative">
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  className="block w-full px-4 py-3 text-base text-white bg-[#090909] border border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-1 focus:ring-[#FF5a00] transition-colors resize-none placeholder-gray-500"
-                  placeholder={t('forms.fields.message.placeholder')}
-                />
-                <div className="absolute bottom-3 right-3 text-sm text-gray-500">
-                  {4000 - formData.message.length} {t('forms.feedback.charactersLeft')}
+              <input
+                type="text"
+                name="contact"
+                value={formData.contact}
+                onChange={handleChange}
+                required
+                className="block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-1 focus:ring-[#FF5a00] transition-colors placeholder-gray-500"
+                placeholder={t('forms.fields.contact.placeholder')}
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-base text-gray-900 dark:text-white mb-2">
+              {t('forms.fields.message.label')} <span className="text-[#FF5a00]">*</span>
+            </label>
+            <div className="relative">
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={4}
+                className="block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-1 focus:ring-[#FF5a00] transition-colors resize-none placeholder-gray-500"
+                placeholder={t('forms.fields.message.placeholder')}
+              />
+              <div className="absolute bottom-3 right-3 text-sm text-gray-500">
+                {4000 - formData.message.length} {t('forms.feedback.charactersLeft')}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-end mt-6">
+            <button
+              type="submit"
+              disabled={status === 'sending'}
+              className="px-8 py-3 text-base font-medium text-white bg-[#FF5a00] hover:bg-[#FF5a00]/90 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {status === 'sending' ? (
+                <div className="flex items-center justify-center gap-2">
+                  <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  <span>{t('forms.actions.sending')}</span>
                 </div>
-              </div>
+              ) : (
+                t('forms.actions.submit')
+              )}
+            </button>
+          </div>
+
+          {status === 'success' && (
+            <div className="mt-4 p-4 bg-green-900/20 text-green-400 rounded-lg">
+              {t('forms.feedback.success')}
             </div>
+          )}
 
-            <div className="flex justify-end mt-6">
-              <button
-                type="submit"
-                disabled={status === 'sending'}
-                className="px-8 py-3 text-base font-medium text-white bg-[#FF5a00] hover:bg-[#FF5a00]/90 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {status === 'sending' ? (
-                  <div className="flex items-center justify-center gap-2">
-                    <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                    </svg>
-                    <span>{t('forms.actions.sending')}</span>
-                  </div>
-                ) : (
-                  t('forms.actions.submit')
-                )}
-              </button>
+          {status === 'error' && (
+            <div className="mt-4 p-4 bg-red-900/20 text-red-400 rounded-lg">
+              {t('forms.feedback.error')}
             </div>
-
-            {status === 'success' && (
-              <div className="mt-4 p-4 bg-green-900/20 text-green-400 rounded-lg">
-                {t('forms.feedback.success')}
-              </div>
-            )}
-
-            {status === 'error' && (
-              <div className="mt-4 p-4 bg-red-900/20 text-red-400 rounded-lg">
-                {t('forms.feedback.error')}
-              </div>
-            )}
-          </form>
-        </div>
-      </motion.div>
-    </>
+          )}
+        </form>
+      </div>
+    </motion.div>
   )
 }
 
@@ -249,12 +236,50 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Forms */}
+      {/* General Contact Form Section */}
       <section className="py-12 bg-light-bg dark:bg-dark-bg">
-        <div className="container max-w-5xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <ContactForm formType="general" t={(key) => t(key, { ns: 'contact' })} />
-            <ContactForm formType="careers" t={(key) => t(key, { ns: 'contact' })} />
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            {/* Left Column - Description */}
+            <div className="w-full lg:w-[30%]">
+              <div className="sticky top-24">
+                <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+                  {t('forms.general.title', { ns: 'contact' })}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {t('forms.general.description', { ns: 'contact' })}
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column - Form */}
+            <div className="w-full lg:w-[70%]">
+              <ContactForm formType="general" t={t} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Careers Form Section */}
+      <section className="py-12 bg-white dark:bg-[#0a0a0a]">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            {/* Left Column - Description */}
+            <div className="w-full lg:w-[30%]">
+              <div className="sticky top-24">
+                <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+                  {t('forms.careers.title', { ns: 'contact' })}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {t('forms.careers.description', { ns: 'contact' })}
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column - Form */}
+            <div className="w-full lg:w-[70%]">
+              <ContactForm formType="careers" t={t} />
+            </div>
           </div>
         </div>
       </section>
@@ -262,10 +287,10 @@ export default function Contact() {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale || 'en', ['contact'])),
+      ...(await serverSideTranslations(locale, ['common', 'contact'])),
     },
   };
 };

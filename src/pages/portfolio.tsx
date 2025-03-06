@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import { GetStaticProps } from 'next';
+import { GetStaticProps } from 'next/types';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -702,10 +702,10 @@ useEffect(() => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }: { locale?: string }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['portfolio', 'common'])),
+      ...(await serverSideTranslations(locale, ['common', 'portfolio'])),
     },
   };
 };

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { GetStaticProps } from 'next';
+import { GetStaticProps } from 'next/types';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
@@ -8,15 +8,15 @@ import Services from '../components/Services';
 import Partners from '../components/Partners';
 
 export default function Home() {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common', 'home']);
 
   return (
     <>
-     <Head>
-    <title>{`IN-FOMO | ${t('title')}`}</title>
-    <meta name="description" content={t('subtitle')} />
-    <link rel="icon" href="/favicon.ico" />
-    </Head>
+      <Head>
+        <title>{`IN-FOMO | ${t('tagline')}`}</title>
+        <meta name="description" content={t('meta_description')} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
       <Hero />
       <Services />
@@ -26,10 +26,10 @@ export default function Home() {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale || 'en', ['common', 'home'])),
+      ...(await serverSideTranslations(locale, ['common', 'home'])),
     },
   };
 };

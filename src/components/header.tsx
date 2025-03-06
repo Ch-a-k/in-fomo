@@ -38,7 +38,7 @@ export default function Header() {
   // Доступные языки
   const languages = [
     { code: 'en', name: 'English' },
-    { code: 'ru', name: 'Русский' },
+    { code: 'kz', name: 'Казахский' },
     { code: 'uk', name: 'Українська' }
   ]
 

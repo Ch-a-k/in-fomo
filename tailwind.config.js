@@ -16,7 +16,7 @@ module.exports = {
         },
         dark: {
           bg: '#121212',
-          surface: '#1E1E1E',
+          surface: '#0f0f0f',
           border: '#2C2C2C',
         },
         light: {

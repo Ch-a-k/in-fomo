@@ -70,7 +70,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
                     alt="IN-FOMO" 
                     width={48} 
                     height={48} 
-                    className="rounded-full"
+                    className="w-full h-full"
                   />
                 </div>
                 <div className="h-10 w-auto">
