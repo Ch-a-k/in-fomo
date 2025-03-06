@@ -6,6 +6,10 @@
   body {
     @apply transition-colors duration-200 bg-light-bg dark:bg-dark-bg text-slate-900 dark:text-white;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
 }
 
 @layer components {
@@ -26,14 +30,24 @@
   }
   
   .heading-1 {
-    @apply text-4xl font-bold sm:text-5xl md:text-6xl;
+    @apply text-4xl font-heading font-bold sm:text-5xl md:text-6xl;
   }
   
   .heading-2 {
-    @apply text-3xl font-bold sm:text-4xl;
+    @apply text-3xl font-heading font-bold sm:text-4xl;
   }
   
   .heading-3 {
-    @apply text-2xl font-bold sm:text-3xl;
+    @apply text-2xl font-heading font-bold sm:text-3xl;
+  }
+  
+  /* Применяем шрифт Fredoka к навигационной панели */
+  nav {
+    @apply font-heading;
+  }
+  
+  /* Применяем шрифт Fredoka к футеру */
+  footer h2, footer h3, footer h4 {
+    @apply font-heading;
   }
 }
