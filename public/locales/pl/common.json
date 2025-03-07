@@ -124,26 +124,68 @@
   },
   
   "cookie_policy": {
+    "cookie_policy": "Polityka plików cookie",
+    "last_updated": "Ostatnia aktualizacja",
     "what_are_cookies": "Czym są pliki cookie?",
-    "cookies_explanation": "Pliki cookie to małe pliki tekstowe, które są umieszczane na Twoim urządzeniu podczas odwiedzania naszej strony internetowej. Pomagają nam zapewnić lepsze doświadczenie, zapamiętując Twoje preferencje, analizując sposób korzystania z naszej witryny i personalizując treści.",
+    "cookies_explanation": "Pliki cookie to małe pliki tekstowe, które są umieszczane na Twoim urządzeniu podczas odwiedzania naszej strony internetowej. Pomagają nam zapewnić lepsze doświadczenie, zapamiętując Twoje preferencje, analizując korzystanie z naszej witryny i personalizując treści.",
+    "document_description": "Ten dokument opisuje, jakie rodzaje plików cookie i innych technologii śledzenia używamy, do czego ich używamy i jak możesz nimi zarządzać.",
+    
+    "legal_basis_title": "Podstawa prawna używania plików cookie",
+    "legal_basis_text": "Używamy plików cookie na podstawie Twojej zgody, z wyjątkiem przypadków, gdy pliki cookie są niezbędne do funkcjonowania naszej strony internetowej. Możesz wycofać swoją zgodę w dowolnym momencie, zmieniając ustawienia plików cookie w swojej przeglądarce.",
     
     "types_of_cookies": "Rodzaje używanych przez nas plików cookie",
     "necessary_cookies": "Niezbędne pliki cookie",
-    "necessary_cookies_desc": "Te pliki cookie są niezbędne do prawidłowego funkcjonowania strony internetowej. Umożliwiają podstawowe funkcje, takie jak nawigacja po stronie i dostęp do bezpiecznych obszarów witryny.",
+    "necessary_cookies_desc": "Te pliki cookie są niezbędne do prawidłowego funkcjonowania strony internetowej. Zapewniają podstawowe funkcje, takie jak nawigacja po stronach i dostęp do bezpiecznych obszarów witryny.",
+    "necessary_cookies_list": {
+      "session": "Sesyjne pliki cookie do utrzymania stanu sesji",
+      "language": "Pliki cookie do zapisywania wybranego języka (next-i18next)",
+      "theme": "Pliki cookie do zapisywania wybranego motywu (next-themes)",
+      "consent": "Pliki cookie do zapisywania preferencji dotyczących plików cookie"
+    },
     
     "analytics_cookies": "Analityczne pliki cookie",
-    "analytics_cookies_desc": "Te pliki cookie pomagają nam zrozumieć, jak odwiedzający wchodzą w interakcję z naszą witryną, zbierając i raportując informacje anonimowo. Pomaga nam to ulepszyć naszą stronę internetową.",
+    "analytics_cookies_desc": "Te pliki cookie pomagają nam zrozumieć, jak odwiedzający wchodzą w interakcję z naszą witryną, zbierając i raportując informacje anonimowo. Pomaga nam to ulepszać naszą witrynę.",
+    "analytics_cookies_list": {
+      "ga": "Google Analytics (_ga) - okres przechowywania: 2 lata",
+      "ga_id": "Google Analytics (_ga_id) - okres przechowywania: 24 godziny",
+      "behavior": "Dane o zachowaniu użytkowników",
+      "stats": "Statystyki wykorzystania funkcji"
+    },
     
     "marketing_cookies": "Marketingowe pliki cookie",
-    "marketing_cookies_desc": "Te pliki cookie służą do śledzenia użytkowników na stronach internetowych. Celem jest wyświetlanie reklam, które są istotne i angażujące dla indywidualnego użytkownika.",
+    "marketing_cookies_desc": "Te pliki cookie są używane do śledzenia odwiedzających na stronach internetowych. Celem jest wyświetlanie reklam, które są odpowiednie i interesujące dla poszczególnych użytkowników.",
+    "marketing_cookies_list": {
+      "ads": "Google Ads (_gcl_au) - okres przechowywania: 90 dni",
+      "conversion": "Pliki cookie do śledzenia konwersji",
+      "social": "Pliki cookie mediów społecznościowych"
+    },
     
-    "how_to_control": "Jak kontrolować pliki cookie",
-    "control_explanation": "Możesz kontrolować i/lub usuwać pliki cookie według własnego uznania. Możesz usunąć wszystkie pliki cookie, które są już na Twoim urządzeniu i możesz ustawić większość przeglądarek tak, aby zapobiec ich umieszczaniu. Jednak jeśli to zrobisz, możliwe, że będziesz musiał ręcznie dostosowywać niektóre preferencje za każdym razem, gdy odwiedzasz naszą witrynę, a niektóre usługi i funkcje mogą nie działać.",
+    "third_party_title": "Pliki cookie stron trzecich",
+    "third_party_desc": "Nasza strona korzysta z następujących usług stron trzecich, które również ustawiają swoje pliki cookie:",
+    "third_party_list": {
+      "analytics": "Google Analytics - analityka i statystyki",
+      "ads": "Google Ads - reklama i marketing",
+      "other": "Inne usługi analityczne w razie potrzeby"
+    },
+    
+    "how_to_control": "Jak zarządzać plikami cookie",
+    "control_explanation": "Możesz zarządzać i/lub usuwać pliki cookie według własnego uznania. Możesz usunąć wszystkie pliki cookie, które są już na Twoim urządzeniu, i możesz skonfigurować większość przeglądarek tak, aby zapobiegać ich umieszczaniu.",
+    "browser_settings_title": "Jak wyłączyć pliki cookie w przeglądarce:",
+    "browser_settings": {
+      "chrome": "Chrome: Ustawienia → Prywatność i bezpieczeństwo → Pliki cookie",
+      "firefox": "Firefox: Ustawienia → Prywatność → Historia → Ustawienia plików cookie",
+      "safari": "Safari: Ustawienia → Prywatność → Pliki cookie",
+      "edge": "Edge: Ustawienia → Pliki cookie i uprawnienia witryn"
+    },
+    
+    "data_transfer_title": "Międzynarodowy transfer danych",
+    "data_transfer_text": "Informacje zebrane za pomocą plików cookie mogą być przekazywane i przechowywane w krajach poza Europejskim Obszarem Gospodarczym. Każdy taki transfer danych odbywa się zgodnie z obowiązującym prawem o ochronie danych.",
     
     "updates": "Aktualizacje tej polityki",
-    "updates_explanation": "Możemy od czasu do czasu aktualizować tę Politykę plików cookie, aby odzwierciedlić zmiany w technologii, prawodawstwie, naszych operacjach lub gdy uznamy to za konieczne lub stosowne.",
+    "updates_explanation": "Możemy od czasu do czasu aktualizować tę Politykę plików cookie, aby odzwierciedlić zmiany w technologii, prawie, naszych operacjach lub gdy uznamy to za konieczne lub stosowne.",
     
     "contact_us": "Skontaktuj się z nami",
-    "contact_explanation": "Jeśli masz jakiekolwiek pytania dotyczące naszego wykorzystania plików cookie, skontaktuj się z nami pod adresem info@in-fomo.com."
+    "contact_explanation": "Jeśli masz pytania dotyczące naszego wykorzystania plików cookie, skontaktuj się z nami pod adresem info@in-fomo.com.",
+    "eu_rights": "Jeśli znajdujesz się w Unii Europejskiej, masz również prawo do złożenia skargi do lokalnego organu ochrony danych."
   }
 }

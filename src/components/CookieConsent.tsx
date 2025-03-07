@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useTranslation('common');
+  const router = useRouter();
 
   useEffect(() => {
     // Проверяем, было ли уже получено согласие
@@ -25,6 +27,11 @@ const CookieConsent = () => {
     // Здесь можно добавить логику для отключения необязательных куки
   };
 
+  const handleLearnMore = () => {
+    router.push('/cookie-policy');
+    setIsVisible(false);
+  };
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -43,7 +50,7 @@ const CookieConsent = () => {
                   {t('cookie_consent.description')}
                 </p>
                 <button
-                  onClick={() => setIsVisible(false)}
+                  onClick={handleLearnMore}
                   className="text-primary hover:text-primary-dark text-sm underline transition-colors"
                 >
                   {t('cookie_consent.learn_more')}
