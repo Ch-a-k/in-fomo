@@ -42,5 +42,23 @@
   "business_consultant": "Business Consultant",
   "join_team": "Join Our Team",
   "join_team_desc": "Passionate about tech? Let's build the future together.",
-  "contact_us": "Contact Us"
+  "contact_us": "Contact Us",
+  "tech_stack_desc": "We use modern technologies to create effective solutions",
+  
+  "mobile_development": "Mobile Development",
+  "mobile_development_desc": "Native and cross-platform mobile apps for iOS and Android.",
+  "cloud_solutions": "Cloud Solutions",
+  "cloud_solutions_desc": "Scalable cloud infrastructure and migration services.",
+  "cybersecurity": "Cybersecurity",
+  "cybersecurity_desc": "Comprehensive security solutions for your business.",
+  "ui_ux_design": "UI/UX Design",
+  "ui_ux_design_desc": "Beautiful, intuitive interfaces that enhance user experience.",
+  "bot_development": "Bot Development",
+  "bot_development_desc": "Custom chatbots and automation bots for various platforms.",
+  "crm_development": "CRM Development",
+  "crm_development_desc": "Tailored CRM systems to optimize your business processes.",
+  "telegram_mini_apps": "Telegram Mini Apps",
+  "telegram_mini_apps_desc": "Custom mini applications for Telegram messenger.",
+  "parsers_scrapers": "Parsers & Scrapers",
+  "parsers_scrapers_desc": "Data collection tools for web sources."
 }

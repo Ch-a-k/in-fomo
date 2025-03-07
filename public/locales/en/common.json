@@ -2,13 +2,13 @@
   "tagline": "Innovative IT Solutions",
   "meta_description": "IN-FOMO is a leading IT company providing innovative software development, cloud solutions, and digital transformation services.",
   
-  "home": "Home",
-  "services": "Services",
-  "portfolio": "Portfolio",
-  "about": "About",
-  "contact": "Contact",
-  "blog": "Blog",
-  "careers": "Careers",
+  "home": "HOME",
+  "services": "SERVICES",
+  "portfolio": "PORTFOLIO",
+  "about": "ABOUT",
+  "contact": "CONTACT",
+  "blog": "BLOG",
+  "careers": "CAREERS",
   
   "language": "Language",
   "get_started": "Get started",
@@ -94,8 +94,8 @@
   },
   
   "our_core_values": "Our Core Values",
-  "meet_our_team": "meet_our_team",
-  "join_our_team": "join_our_team",
+  "meet_our_team": "Meet Our Team",
+  "join_our_team": "Join Our Team",
   "join_team_text": "We're always looking for talented individuals to join our team. If you're passionate about technology and innovation, we'd love to hear from you!",
   
   "get_in_touch": "Contact Us",
@@ -109,6 +109,6 @@
   "dark_mode": "Dark Mode",
   "system_mode": "System Mode",
   "ready_to_start": "Ready to Start Your Project?",
-  "contact_us": "contact_us",
+  "contact_us": "Contact Us",
   "contact_description": "Contact us today to discuss how we can help bring your ideas to life with our expertise and innovative solutions."
 }

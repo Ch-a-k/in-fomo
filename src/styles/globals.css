@@ -1,4 +1,10 @@
-@import './fonts.css';
+@font-face {
+  font-family: 'Fredoka One';
+  src: url('/fonts/FredokaOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,32 +29,80 @@
   }
   
   .btn-primary {
-    @apply text-white bg-primary hover:bg-primary-light focus:ring-primary;
+    @apply text-white;
+    position: relative;
+    background: linear-gradient(90deg, #ff5a00, #ff2d55);
+    border-radius: 8px;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+    width: 30px;
+    height: 100%;
+    transform: skewX(-30deg) translateX(-100px);
+    animation: borderLight 3s infinite linear;
+    z-index: 2;
+  }
+  
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, #ff5a00, #ff0000, #ff5a00);
+    background-size: 200% 100%;
+    border-radius: 10px;
+    z-index: -1;
+    animation: movingBorder 2s infinite linear;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(255, 90, 0, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  @keyframes borderLight {
+    0% {
+      transform: skewX(-30deg) translateX(-100px);
+    }
+    100% {
+      transform: skewX(-30deg) translateX(300px);
+    }
+  }
+  
+  @keyframes movingBorder {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 200% 0%;
+    }
   }
   
   .btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary;
+    @apply text-primary bg-transparent border border-primary hover:bg-primary hover:text-white focus:ring-primary;
   }
   
   .heading-1 {
-    @apply text-4xl font-heading font-bold sm:text-5xl md:text-6xl;
+    @apply text-4xl font-bold sm:text-5xl md:text-6xl;
   }
   
   .heading-2 {
-    @apply text-3xl font-heading font-bold sm:text-4xl;
+    @apply text-3xl font-bold sm:text-4xl;
   }
   
   .heading-3 {
-    @apply text-2xl font-heading font-bold sm:text-3xl;
-  }
-  
-  /* Применяем шрифт Fredoka к навигационной панели */
-  nav {
-    @apply font-heading;
-  }
-  
-  /* Применяем шрифт Fredoka к футеру */
-  footer h2, footer h3, footer h4 {
-    @apply font-heading;
+    @apply text-2xl font-bold sm:text-3xl;
   }
 }

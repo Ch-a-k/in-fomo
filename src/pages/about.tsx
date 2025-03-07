@@ -1,11 +1,12 @@
-import { GetStaticProps } from 'next'
+import type { GetStaticProps } from 'next/types'
 import Head from 'next/head'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 
 // Данные (без переводов, так как они будут в i18n)
 const teamMembers = [
@@ -28,27 +29,69 @@ const companyValues = [
   { titleKey: "expertise", descKey: "expertise_desc" }
 ];
 
-const techStack = [
-  { categoryKey: "frontend", technologies: ["React", "Next.js", "Vue.js"] },
-  { categoryKey: "backend", technologies: ["Node.js", "Python", "Go"] },
-  { categoryKey: "mobile", technologies: ["React Native", "Flutter"] },
-  { categoryKey: "database", technologies: ["MongoDB", "PostgreSQL"] },
-  { categoryKey: "cloud", technologies: ["AWS", "Azure", "Docker"] },
-  { categoryKey: "ai", technologies: ["TensorFlow", "PyTorch"] }
-];
+// Обновляем интерфейс для techStack
+interface TechCategory {
+  titleKey: string;
+  icon: string;
+  technologies: string[];
+}
 
-const achievements = [
-  { number: "50+", textKey: "projects" },
-  { number: "30+", textKey: "clients" },
-  { number: "12", textKey: "countries" },
-  { number: "24/7", textKey: "support" }
-];
-
-const whatWeDo = [
-  { titleKey: "web_development", descKey: "web_development_desc" },
-  { titleKey: "mobile_apps", descKey: "mobile_apps_desc" },
-  { titleKey: "ai_solutions", descKey: "ai_solutions_desc" },
-  { titleKey: "web3_blockchain", descKey: "web3_blockchain_desc" }
+const techStack: TechCategory[] = [
+  {
+    titleKey: "web_development",
+    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+    technologies: ["Next.js", "React", "Vue.js", "Node.js", "TypeScript"]
+  },
+  {
+    titleKey: "mobile_development",
+    icon: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z",
+    technologies: ["React Native", "Flutter", "iOS", "Android", "Kotlin"]
+  },
+  {
+    titleKey: "cloud_solutions",
+    icon: "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z",
+    technologies: ["AWS", "Google Cloud", "Azure", "Docker", "Kubernetes"]
+  },
+  {
+    titleKey: "cybersecurity",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+    technologies: ["Penetration Testing", "Security Audits", "Encryption", "Access Control", "Security Monitoring"]
+  },
+  {
+    titleKey: "ai_solutions",
+    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
+    technologies: ["Machine Learning", "Computer Vision", "NLP", "TensorFlow", "PyTorch"]
+  },
+  {
+    titleKey: "ui_ux_design",
+    icon: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01",
+    technologies: ["Figma", "Adobe XD", "Sketch", "Prototyping", "User Research"]
+  },
+  {
+    titleKey: "bot_development",
+    icon: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z",
+    technologies: ["Telegram Bots", "Discord Bots", "WhatsApp Bots", "Chatbots", "AI Integration"]
+  },
+  {
+    titleKey: "crm_development",
+    icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
+    technologies: ["Custom CRM", "ERP Systems", "Business Automation", "Analytics", "Integration"]
+  },
+  {
+    titleKey: "web3_blockchain",
+    icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9",
+    technologies: ["Smart Contracts", "DeFi", "NFT", "Web3.js", "Solidity"]
+  },
+  {
+    titleKey: "telegram_mini_apps",
+    icon: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z",
+    technologies: ["TWA", "Bot API", "Payments", "WebApp API", "TON"]
+  },
+  {
+    titleKey: "parsers_scrapers",
+    icon: "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4",
+    technologies: ["Web Scraping", "Data Mining", "API Integration", "Automation", "Data Processing"]
+  }
 ];
 
 export default function About() {
@@ -123,54 +166,43 @@ export default function About() {
       {/* Content */}
       <section className="py-12 bg-light-surface dark:bg-dark-surface">
         <div className="container max-w-7xl mx-auto px-4 space-y-16">
-          {/* What We Do */}
-          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-            <motion.h2 variants={itemVariants} className="text-3xl font-bold mb-6 text-center dark:text-white">
-              {t('what_we_do')}
-            </motion.h2>
-            <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 grid-auto-rows-1fr">
-              {whatWeDo.map((service, index) => (
-                <motion.div key={index} variants={itemVariants}>
-                  <div className="p-4 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-[#ff5a00] dark:hover:border-[#ff5a00] transition-colors h-full">
-                    <div className="p-2 mb-3 rounded-lg bg-primary/10 inline-block text-primary">
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-lg font-bold mb-2 dark:text-white">{t(service.titleKey)}</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{t(service.descKey)}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Achievements */}
-          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-            <motion.h2 variants={itemVariants} className="text-3xl font-bold mb-6 text-center dark:text-white">
-              {t('achievements')}
-            </motion.h2>
-            <motion.div variants={containerVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {achievements.map((item, index) => (
-                <motion.div key={index} variants={itemVariants} className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">{item.number}</div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{t(item.textKey)}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-
+          
           {/* Tech Stack */}
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-            <motion.h2 variants={itemVariants} className="text-3xl font-bold mb-6 text-center dark:text-white">
-              {t('tech_stack')}
-            </motion.h2>
-            <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {techStack.map((stack, index) => (
+            <motion.div variants={itemVariants} className="max-w-3xl mx-auto text-center mb-10">
+              <div className="inline-block px-4 py-1.5 mb-4 text-xs font-medium rounded-full bg-primary/10 text-primary">
+                {t('tech_stack')}
+              </div>
+              <h2 className="text-3xl font-bold mb-4 dark:text-white">
+                {t('tech_stack')}
+              </h2>
+              <p className="text-base text-gray-600 dark:text-gray-400">
+                {t('tech_stack_desc')}
+              </p>
+            </motion.div>
+            
+            <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {techStack.map((category, index) => (
                 <motion.div key={index} variants={itemVariants}>
-                  <div className="p-4 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-[#ff5a00] dark:hover:border-[#ff5a00] transition-colors">
-                    <h3 className="text-lg font-bold mb-2 dark:text-white">{t(stack.categoryKey)}</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{stack.technologies.join(', ')}</p>
+                  <div className="p-6 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-primary dark:hover:border-primary transition-colors duration-300 h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 mr-3 rounded-lg bg-primary/10 inline-block text-primary">
+                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={category.icon} />
+                        </svg>
+                      </div>
+                      <h3 className="text-lg font-bold dark:text-white">{t(category.titleKey)}</h3>
+                    </div>
+                    <ul className="space-y-2">
+                      {category.technologies.map((tech, techIndex) => (
+                        <li key={techIndex} className="text-sm text-gray-600 dark:text-gray-400 flex items-center">
+                          <svg className="h-4 w-4 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </motion.div>
               ))}

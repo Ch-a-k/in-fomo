@@ -90,7 +90,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
           </div>
           <div className="flex flex-col items-start md:items-end">
             <div className="text-right mb-4">
-              <h4 className="font-semibold text-lg mb-2">{t('contact_us')}</h4>
+              <h4 className="font-heading text-lg mb-2">{t('contact_us')}</h4>
               <a href="mailto:info@in-fomo.com" className="text-primary hover:text-primary-dark transition-colors">info@in-fomo.com</a>
               <p className="text-gray-800 dark:text-white">{t('location')}</p>
             </div>
@@ -103,7 +103,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Navigation */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-primary">{t('navigation')}</h3>
+            <h3 className="text-lg font-heading mb-4 text-primary">{t('navigation')}</h3>
             <ul className="grid grid-cols-2 gap-4">
               {navItems.map((item) => (
                 <li key={item.href}>
@@ -117,7 +117,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
           
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-primary">{t('legal')}</h3>
+            <h3 className="text-lg font-heading mb-4 text-primary">{t('legal')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/privacy-policy" className="text-gray-800 dark:text-white hover:text-primary transition-colors">
@@ -134,7 +134,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
           
           {/* Social Media */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-primary">{t('follow_us')}</h3>
+            <h3 className="text-lg font-heading mb-4 text-primary">{t('follow_us')}</h3>
             <div className="flex flex-wrap gap-4">
               {socialLinks.map((social) => (
                 <a
@@ -220,7 +220,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
           
           {/* Navigation */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-primary">{t('navigation')}</h3>
+            <h3 className="text-lg font-heading mb-4 text-primary">{t('navigation')}</h3>
             <ul className="space-y-2">
               {navItems.map((item) => (
                 <li key={item.href}>
@@ -234,7 +234,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
           
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-primary">{t('legal')}</h3>
+            <h3 className="text-lg font-heading mb-4 text-primary">{t('legal')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/privacy-policy" className="text-gray-800 dark:text-white hover:text-primary transition-colors">

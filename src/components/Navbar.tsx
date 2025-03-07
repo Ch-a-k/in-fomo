@@ -17,7 +17,7 @@ const Navbar = () => {
     { code: 'en', name: 'English', flag: '🇬🇧' },
     { code: 'uk', name: 'Українська', flag: '🇺🇦' },
     { code: 'pl', name: 'Polski', flag: '🇵🇱' },
-    { code: 'kz', name: 'Қазақша', flag: '🇰🇿' }
+    { code: 'kz', name: 'Казахский', flag: '🇰🇿' }
   ];
 
   useEffect(() => {
@@ -107,7 +107,7 @@ const Navbar = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-heading transition-colors hover:text-primary ${
                   isActive(item.href)
                     ? 'text-primary'
                     : 'text-gray-700 dark:text-gray-200'
@@ -185,17 +185,13 @@ const Navbar = () => {
                 )}
               </button>
             </div>
-
+            
             {/* Get Started Button - Desktop */}
-            <div className="hidden md:block">
+            <div className="hidden md:block ml-2">
               <Link 
                 href="/contact" 
-                className="inline-flex items-center px-4 py-2 rounded-md text-sm font-medium text-white bg-gradient-to-r from-orange-500 to-red-600 hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
+                className="btn btn-primary"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
                 {t('get_started')}
               </Link>
             </div>
@@ -231,23 +227,11 @@ const Navbar = () => {
             className="md:hidden bg-white dark:bg-[#121212] border-b border-light-border dark:border-dark-border"
           >
             <div className="px-4 pt-2 pb-3 space-y-1">
-              {/* Get Started Button - Mobile */}
-              <Link 
-                href="/contact" 
-                className="flex items-center justify-center w-full px-4 py-3 mb-2 rounded-md text-sm font-medium text-white bg-gradient-to-r from-orange-500 to-red-600 hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                {t('get_started')}
-              </Link>
-              
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
+                  className={`block px-3 py-2 rounded-md text-base font-heading ${
                     isActive(item.href)
                       ? 'text-primary bg-primary/5'
                       : 'text-gray-700 dark:text-gray-200 hover:bg-light-surface dark:hover:bg-dark-surface'
@@ -324,6 +308,17 @@ const Navbar = () => {
                     )}
                   </button>
                 </div>
+              </div>
+              
+              {/* Get Started Button - Mobile */}
+              <div className="px-3 py-3">
+                <Link 
+                  href="/contact" 
+                  className="btn btn-primary w-full"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('get_started')}
+                </Link>
               </div>
             </div>
           </motion.div>

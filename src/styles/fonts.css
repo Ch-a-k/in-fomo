@@ -1,7 +1,24 @@
+/* Подключение шрифта Fredoka */
 @font-face {
   font-family: 'Fredoka';
-  src: url('/fonts/FredokaOne-Regular.ttf') format('truetype');
-  font-weight: 600;
   font-style: normal;
+  font-weight: 400;
   font-display: swap;
-} 
+  src: local('Fredoka'), url('/fonts/FredokaOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Fredoka'), url('/fonts/FredokaOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Fredoka'), url('/fonts/FredokaOne-Regular.ttf') format('truetype');
+}

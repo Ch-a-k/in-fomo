@@ -42,5 +42,23 @@
   "business_consultant": "Konsultant biznesowy",
   "join_team": "Dołącz do naszego zespołu",
   "join_team_desc": "Pasjonujesz się technologią? Budujmy przyszłość razem.",
-  "contact_us": "Skontaktuj się z nami"
+  "contact_us": "Skontaktuj się z nami",
+  "tech_stack_desc": "Używamy nowoczesnych technologii do tworzenia efektywnych rozwiązań",
+  
+  "mobile_development": "Rozwój aplikacji mobilnych",
+  "mobile_development_desc": "Natywne i wieloplatformowe aplikacje mobilne dla iOS i Android.",
+  "cloud_solutions": "Rozwiązania chmurowe",
+  "cloud_solutions_desc": "Skalowalna infrastruktura chmurowa i usługi migracji.",
+  "cybersecurity": "Cyberbezpieczeństwo",
+  "cybersecurity_desc": "Kompleksowe rozwiązania bezpieczeństwa dla Twojej firmy.",
+  "ui_ux_design": "Projektowanie UI/UX",
+  "ui_ux_design_desc": "Piękne, intuicyjne interfejsy, które poprawiają doświadczenie użytkownika.",
+  "bot_development": "Rozwój botów",
+  "bot_development_desc": "Niestandardowe chatboty i boty automatyzacji dla różnych platform.",
+  "crm_development": "Rozwój CRM",
+  "crm_development_desc": "Dostosowane systemy CRM do optymalizacji procesów biznesowych.",
+  "telegram_mini_apps": "Aplikacje mini Telegram",
+  "telegram_mini_apps_desc": "Niestandardowe mini aplikacje dla komunikatora Telegram.",
+  "parsers_scrapers": "Parsery i scrapery",
+  "parsers_scrapers_desc": "Narzędzia do zbierania danych ze źródeł internetowych."
 }
