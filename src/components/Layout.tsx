@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import Script from 'next/script'
 
 interface LayoutProps {
   children: ReactNode
@@ -26,6 +27,7 @@ const Layout = ({
   const { t } = useTranslation('common')
   const siteUrl = ogUrl || 'https://in-fomo.com'
   const metaDescription = description || t('meta_description')
+  const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX' // Замените на ваш ID Google Analytics
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -62,6 +64,20 @@ const Layout = ({
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
       </Head>
+      
+      {/* Google Analytics */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_MEASUREMENT_ID}');
+        `}
+      </Script>
       
       <Navbar />
       
