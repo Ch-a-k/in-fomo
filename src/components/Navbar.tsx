@@ -96,7 +96,8 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center space-x-2">
+              <Image src={getRoundedLogo()} alt="IN-FOMO" width={40} height={40} className="h-10 w-10" />
               <Image src={getLogo()} alt="IN-FOMO" width={120} height={40} className="h-8 w-auto" />
             </Link>
           </div>
