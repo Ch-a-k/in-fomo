@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const { t, i18n } = useTranslation('common');
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   // Languages available
   const languages = [
@@ -59,8 +59,8 @@ const Navbar = () => {
   };
 
   const getLogo = () => {
-    if (!mounted) return '/images/partners/logo.png';
-    return theme === 'dark' ? '/images/partners/logowhite.png' : '/images/partners/logo.png';
+    if (!mounted) return '/images/partners/logowhite.png';
+    return resolvedTheme === 'dark' ? '/images/partners/logowhite.png' : '/images/partners/logo.png';
   };
 
   const getRoundedLogo = () => '/images/partners/logorounded.png';
@@ -182,11 +182,11 @@ const Navbar = () => {
           {/* Theme Toggle - Desktop */}
           <div className="hidden md:block relative">
             <button
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
               className="p-2 rounded-md hover:bg-light-border dark:hover:bg-dark-border transition-colors"
               aria-label={t('toggle_theme')}
             >
-              {theme === 'light' ? (
+              {resolvedTheme === 'light' ? (
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
@@ -304,11 +304,11 @@ const Navbar = () => {
 
                   {/* Theme Toggle - Mobile */}
                   <button
-                    onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                    onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
                     className="p-2 rounded-md hover:bg-light-border dark:hover:bg-dark-border transition-colors"
                     aria-label={t('toggle_theme')}
                   >
-                    {theme === 'light' ? (
+                    {resolvedTheme === 'light' ? (
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                       </svg>
