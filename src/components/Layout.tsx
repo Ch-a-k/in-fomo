@@ -11,23 +11,56 @@ interface LayoutProps {
   title?: string
   description?: string
   footerVariant?: 'design1' | 'design2'
+  ogImage?: string
+  ogUrl?: string
 }
 
 const Layout = ({ 
   children, 
   title = 'IN-FOMO', 
   description,
-  footerVariant = 'design1'
+  footerVariant = 'design1',
+  ogImage = '/images/og-image.png',
+  ogUrl
 }: LayoutProps) => {
   const { t } = useTranslation('common')
+  const siteUrl = ogUrl || 'https://in-fomo.com'
+  const metaDescription = description || t('meta_description')
 
   return (
     <div className="flex flex-col min-h-screen">
       <Head>
         <title>{title}</title>
-        <meta name="description" content={description || t('meta_description')} />
+        <meta name="description" content={metaDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={siteUrl} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={metaDescription} />
+        <meta property="twitter:image" content={`${siteUrl}${ogImage}`} />
+        
+        {/* WhatsApp */}
+        <meta property="og:site_name" content="IN-FOMO" />
+        <meta property="og:locale" content="en_US" />
+        
+        {/* Telegram */}
+        <meta name="telegram:channel" content="@infomo" />
+        <meta name="telegram:image" content={`${siteUrl}${ogImage}`} />
+        
+        {/* Instagram and Threads (use same OG tags) */}
+        <meta property="instapp:owner_id" content="IN-FOMO" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
       
       <Navbar />
