@@ -59,7 +59,7 @@ const Hero = () => {
           </motion.p>
           
           <motion.div variants={itemVariants} className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 justify-center">
-            <a href="#contact" className="btn btn-primary">
+            <a href="/contact" className="btn btn-primary">
               {t('get_started')}
             </a>
             <a href="#services" className="btn btn-outline">
