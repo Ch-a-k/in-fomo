@@ -4,7 +4,6 @@ import { useTranslation } from 'next-i18next'
 import { useTheme } from 'next-themes'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import Head from 'next/head'
 
 // Конфигурация для Telegram ботов
 const TELEGRAM_CONFIG = {
@@ -199,11 +198,6 @@ export default function Contact() {
 
   return (
     <>
-      <Head>
-        <title>{t('meta.title', { ns: 'contact' })}</title>
-        <meta name="description" content={t('meta.description', { ns: 'contact' })} />
-      </Head>
-
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -288,9 +282,15 @@ export default function Contact() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
+  const translations = await serverSideTranslations(locale, ['common', 'contact']);
+  
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'contact'])),
+      ...translations,
+      title: 'IN-FOMO | Contact Us',
+      description: 'Get in touch with IN-FOMO for your IT project needs. We provide innovative solutions for businesses worldwide.',
+      ogImage: '/images/og-image.png',
+      footerVariant: 'design1'
     },
   };
 };

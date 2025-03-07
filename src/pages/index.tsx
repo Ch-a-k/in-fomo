@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { GetStaticProps } from 'next/types';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
@@ -12,12 +11,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>{`IN-FOMO | ${t('tagline')}`}</title>
-        <meta name="description" content={t('meta_description')} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <Hero />
       <Services />
       <Partners />
@@ -27,9 +20,15 @@ export default function Home() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
+  const translations = await serverSideTranslations(locale, ['common', 'home']);
+  
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'home'])),
+      ...translations,
+      title: 'IN-FOMO | Innovative IT Solutions',
+      description: 'IN-FOMO - leading IT company providing innovative software development, cloud solutions, and digital transformation services.',
+      ogImage: '/images/og-image.png',
+      footerVariant: 'design1'
     },
   };
 };

@@ -49,6 +49,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [pathname, searchParams]);
 
+  // Получаем метаданные страницы для OG-тегов
+  const title = pageProps.title || 'IN-FOMO';
+  const description = pageProps.description || '';
+  const ogImage = pageProps.ogImage || '/images/og-image.png';
+  const ogUrl = pageProps.ogUrl || '';
+  const footerVariant = pageProps.footerVariant || 'design1';
+
   return (
     <>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
@@ -71,7 +78,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <Layout>
+        <Layout
+          title={title}
+          description={description}
+          ogImage={ogImage}
+          ogUrl={ogUrl}
+          footerVariant={footerVariant}
+        >
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>

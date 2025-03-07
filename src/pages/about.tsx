@@ -125,12 +125,6 @@ export default function About() {
 
   return (
     <>
-      <Head>
-      <title>{`IN-FOMO | ${t('title')}`}</title>
-      <meta name="description" content={t('subtitle')} />
-      <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       {/* Hero */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -267,9 +261,15 @@ export default function About() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const translations = await serverSideTranslations(locale || 'en', ['common', 'about']);
+  
   return {
     props: {
-      ...(await serverSideTranslations(locale || 'en', ['common', 'about'])),
+      ...translations,
+      title: 'IN-FOMO | About Us',
+      description: 'Learn about IN-FOMO - our team, values, and mission to deliver innovative IT solutions.',
+      ogImage: '/images/og-image.png',
+      footerVariant: 'design1'
     },
   };
 };

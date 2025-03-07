@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
 import { GetStaticProps } from 'next/types';
+import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -518,12 +517,6 @@ useEffect(() => {
 
   return (
     <>
-      <Head>
-        <title>{`IN-FOMO | ${t('meta.title', { ns: 'portfolio' })}`}</title>
-        <meta name="description" content={t('meta.description', { ns: 'portfolio' })} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -794,9 +787,15 @@ useEffect(() => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
+  const translations = await serverSideTranslations(locale, ['common', 'portfolio']);
+  
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common', 'portfolio'])),
+      ...translations,
+      title: 'IN-FOMO | Portfolio',
+      description: 'Explore our portfolio of innovative IT solutions and successful projects across various industries.',
+      ogImage: '/images/og-image.png',
+      footerVariant: 'design1'
     },
   };
 };
