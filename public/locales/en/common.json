@@ -110,5 +110,37 @@
   "system_mode": "System Mode",
   "ready_to_start": "Ready to Start Your Project?",
   "contact_us": "Contact Us",
-  "contact_description": "Contact us today to discuss how we can help bring your ideas to life with our expertise and innovative solutions."
+  "contact_description": "Contact us today to discuss how we can help bring your ideas to life with our expertise and innovative solutions.",
+  "cookie_consent": {
+    "title": "Cookie Consent",
+    "description": "We use cookies and similar technologies to help personalize content, tailor and measure ads, and provide a better experience. By clicking 'Accept', you agree to this use of cookies and data processing. You can learn more about our cookie policy and change your preferences at any time.",
+    "learn_more": "Learn more about cookies",
+    "accept": "Accept all cookies",
+    "decline": "Use necessary cookies only",
+    "privacy_policy": "Privacy Policy",
+    "cookie_policy": "Cookie Policy"
+  },
+  "cookie_policy": {
+    "what_are_cookies": "What are Cookies?",
+    "cookies_explanation": "Cookies are small text files that are placed on your device when you visit our website. They help us provide you with a better experience by remembering your preferences, analyzing how you use our site, and personalizing content.",
+    
+    "types_of_cookies": "Types of Cookies We Use",
+    "necessary_cookies": "Necessary Cookies",
+    "necessary_cookies_desc": "These cookies are essential for the website to function properly. They enable basic functions like page navigation and access to secure areas of the website.",
+    
+    "analytics_cookies": "Analytics Cookies",
+    "analytics_cookies_desc": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve our website.",
+    
+    "marketing_cookies": "Marketing Cookies",
+    "marketing_cookies_desc": "These cookies are used to track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user.",
+    
+    "how_to_control": "How to Control Cookies",
+    "control_explanation": "You can control and/or delete cookies as you wish. You can delete all cookies that are already on your device and you can set most browsers to prevent them from being placed. However, if you do this, you may have to manually adjust some preferences every time you visit our site and some services and functionalities may not work.",
+    
+    "updates": "Updates to This Policy",
+    "updates_explanation": "We may update this Cookie Policy from time to time to reflect changes in technology, legislation, our operations, or as we otherwise determine is necessary or appropriate.",
+    
+    "contact_us": "Contact Us",
+    "contact_explanation": "If you have any questions about our use of cookies, please contact us at info@in-fomo.com."
+  }
 }

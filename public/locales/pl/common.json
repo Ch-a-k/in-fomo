@@ -111,5 +111,39 @@
   "dark": "Ciemny",
   "light_mode": "Tryb jasny",
   "dark_mode": "Tryb ciemny",
-  "system_mode": "Tryb systemowy"
+  "system_mode": "Tryb systemowy",
+  
+  "cookie_consent": {
+    "title": "Zgoda na pliki cookie",
+    "description": "Używamy plików cookie i podobnych technologii, aby pomóc spersonalizować treści, dostosować i mierzyć reklamy oraz zapewnić lepsze doświadczenie. Klikając 'Akceptuj', zgadzasz się na to wykorzystanie plików cookie i przetwarzanie danych. Możesz dowiedzieć się więcej o naszej polityce plików cookie i zmienić swoje preferencje w dowolnym momencie.",
+    "learn_more": "Dowiedz się więcej o plikach cookie",
+    "accept": "Akceptuj wszystkie pliki cookie",
+    "decline": "Używaj tylko niezbędnych plików cookie",
+    "privacy_policy": "Polityka prywatności",
+    "cookie_policy": "Polityka plików cookie"
+  },
+  
+  "cookie_policy": {
+    "what_are_cookies": "Czym są pliki cookie?",
+    "cookies_explanation": "Pliki cookie to małe pliki tekstowe, które są umieszczane na Twoim urządzeniu podczas odwiedzania naszej strony internetowej. Pomagają nam zapewnić lepsze doświadczenie, zapamiętując Twoje preferencje, analizując sposób korzystania z naszej witryny i personalizując treści.",
+    
+    "types_of_cookies": "Rodzaje używanych przez nas plików cookie",
+    "necessary_cookies": "Niezbędne pliki cookie",
+    "necessary_cookies_desc": "Te pliki cookie są niezbędne do prawidłowego funkcjonowania strony internetowej. Umożliwiają podstawowe funkcje, takie jak nawigacja po stronie i dostęp do bezpiecznych obszarów witryny.",
+    
+    "analytics_cookies": "Analityczne pliki cookie",
+    "analytics_cookies_desc": "Te pliki cookie pomagają nam zrozumieć, jak odwiedzający wchodzą w interakcję z naszą witryną, zbierając i raportując informacje anonimowo. Pomaga nam to ulepszyć naszą stronę internetową.",
+    
+    "marketing_cookies": "Marketingowe pliki cookie",
+    "marketing_cookies_desc": "Te pliki cookie służą do śledzenia użytkowników na stronach internetowych. Celem jest wyświetlanie reklam, które są istotne i angażujące dla indywidualnego użytkownika.",
+    
+    "how_to_control": "Jak kontrolować pliki cookie",
+    "control_explanation": "Możesz kontrolować i/lub usuwać pliki cookie według własnego uznania. Możesz usunąć wszystkie pliki cookie, które są już na Twoim urządzeniu i możesz ustawić większość przeglądarek tak, aby zapobiec ich umieszczaniu. Jednak jeśli to zrobisz, możliwe, że będziesz musiał ręcznie dostosowywać niektóre preferencje za każdym razem, gdy odwiedzasz naszą witrynę, a niektóre usługi i funkcje mogą nie działać.",
+    
+    "updates": "Aktualizacje tej polityki",
+    "updates_explanation": "Możemy od czasu do czasu aktualizować tę Politykę plików cookie, aby odzwierciedlić zmiany w technologii, prawodawstwie, naszych operacjach lub gdy uznamy to za konieczne lub stosowne.",
+    
+    "contact_us": "Skontaktuj się z nami",
+    "contact_explanation": "Jeśli masz jakiekolwiek pytania dotyczące naszego wykorzystania plików cookie, skontaktuj się z nami pod adresem info@in-fomo.com."
+  }
 }

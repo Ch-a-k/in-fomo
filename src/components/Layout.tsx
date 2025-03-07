@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import CookieConsent from './CookieConsent'
 
 interface LayoutProps {
   children: ReactNode
@@ -70,6 +71,7 @@ const Layout = ({
       </main>
       
       <Footer variant={footerVariant} />
+      <CookieConsent />
     </div>
   )
 }
