@@ -1,11 +1,11 @@
 {
-  "title": "Our Portfolio",
-  "subtitle": "Explore our recent projects and see how we've helped businesses achieve their goals",
+  "title": "Portfolio",
+  "subtitle": "Explore our projects and learn how we've helped businesses achieve their goals",
   "meta_description": "Explore our portfolio of innovative IT solutions and successful projects across various industries.",
   "hero_title": "Our Portfolio",
   "hero_description": "Discover our successful projects and innovative solutions that have helped businesses transform and grow.",
   "view_details": "View Details",
-  "view_all": "View All Projects",
+  "view_all": "All Projects",
   "view_project": "View Project",
   "technologies": "Technologies Used",
   "categories": {
@@ -19,13 +19,16 @@
   },
   
   "project_polerowanie_title": "Website Redesign for Polerowanie-Szyb",
-  "project_polerowanie_description": "A complete redesign of the website with modern features and improved content, focusing on user experience and conversion optimization.",
+  "project_polerowanie_description": "Complete website redesign with modern features and improved content, focusing on user experience and conversion optimization.",
   
   "project_blastlybot_title": "Service Interface with AI and Telegram Bot",
-  "project_blastlybot_description": "Developed an intuitive interface for clients to easily access information through AI and Telegram bots, enhancing customer support and engagement.",
+  "project_blastlybot_description": "Developed an intuitive client interface for easy access to information via AI and Telegram bots, enhancing customer support and interaction.",
   
   "project_pharmprostir_title": "Stylish E-commerce Website",
-  "project_pharmprostir_description": "A fast and well-designed e-commerce website that significantly increased sales through improved user experience and optimized checkout flow.",
+  "project_pharmprostir_description": "Fast and well-designed e-commerce site that significantly increased sales through improved user experience and optimized checkout process.",
+  
+  "project_cryptorecovery_title": "Crypto Asset Recovery Service",
+  "project_cryptorecovery_description": "Using cutting-edge technology and deep blockchain expertise, we help recover your lost crypto assets with maximum efficiency.",
   
   "project_savier_title": "Tactical Medicine Blog",
   "project_savier_description": "Developed a specialized blog about tactical medicine with a modern design and user-friendly navigation, providing valuable information in an accessible way.",

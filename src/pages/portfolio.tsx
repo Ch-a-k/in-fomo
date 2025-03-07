@@ -6,6 +6,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { event } from './_app'; // Импортируем функцию event из _app.tsx
 
 // Типы для проектов
 interface Project {
@@ -41,16 +42,32 @@ const Portfolio = () => {
       setCurrentImageIndex((prev) => 
         prev === selectedProject.images.length - 1 ? 0 : prev + 1
       );
+      
+      // Отправляем событие в Google Analytics
+      event({
+        action: 'project_image_next',
+        category: 'Portfolio',
+        label: t(selectedProject.titleKey, { ns: 'portfolio' }),
+        value: selectedProject.id
+      });
     }
-  }, [selectedProject]);
+  }, [selectedProject, t]);
 
   const prevImage = useCallback(() => {
     if (selectedProject) {
       setCurrentImageIndex((prev) => 
         prev === 0 ? selectedProject.images.length - 1 : prev - 1
       );
+      
+      // Отправляем событие в Google Analytics
+      event({
+        action: 'project_image_prev',
+        category: 'Portfolio',
+        label: t(selectedProject.titleKey, { ns: 'portfolio' }),
+        value: selectedProject.id
+      });
     }
-  }, [selectedProject]);
+  }, [selectedProject, t]);
 
   // Handle keyboard navigation for modal
   useEffect(() => {
@@ -142,15 +159,16 @@ useEffect(() => {
     },
     {
       id: 3,
-      titleKey: 'project_pharmprostir_title',
-      descriptionKey: 'project_pharmprostir_description',
-      categories: ['E-commerce', 'Web dev'],
+      titleKey: 'project_cryptorecovery_title',
+      descriptionKey: 'project_cryptorecovery_description',
+      categories: ['Blockchain', 'AI Solutions', 'Web dev'],
       images: [
-        '/images/projects/pharmprostir.avif',
-        '/images/projects/pharmprostir-2.avif',
+        '/images/projects/cryptorecovery.avif',
+        '/images/projects/cryptorecovery-2.avif',
+        '/images/projects/cryptorecovery-3.avif',
       ],
-      technologies: ['WooCommerce', 'WordPress', 'Payment Gateway', 'Responsive Design'],
-      link: 'https://pharmprostir.com.ua/',
+      technologies: ['Blockchain', 'Cryptography', 'AI', 'Data Recovery', 'Security'],
+      link: 'https://example.com/crypto-recovery',
       year: 2024
     },
     {
@@ -434,7 +452,21 @@ useEffect(() => {
       technologies: ['React Native', 'React.js', 'Node.js', 'MongoDB'],
       link: 'https://cefion.vercel.app',
       year: 2022
-    }
+    },
+    {
+      id: 24,
+      titleKey: 'project_pharmprostir_title',
+      descriptionKey: 'project_pharmprostir_description',
+      categories: ['E-commerce', 'Web dev'],
+      images: [
+        '/images/projects/pharmprostir.avif',
+        '/images/projects/pharmprostir-2.avif',
+      ],
+      technologies: ['WooCommerce', 'WordPress', 'Payment Gateway', 'Responsive Design'],
+      link: 'https://pharmprostir.com.ua/',
+      year: 2024
+    },
+    
   ];
   
   setProjects(projectsData);
@@ -451,6 +483,38 @@ useEffect(() => {
       );
     }
   }, [activeCategory, projects]);
+
+  // Функция для отслеживания кликов на проекты
+  const trackProjectClick = (project: Project) => {
+    // Отправляем событие в Google Analytics
+    event({
+      action: 'project_click',
+      category: 'Portfolio',
+      label: t(project.titleKey, { ns: 'portfolio' }),
+      value: project.id
+    });
+    
+    // Устанавливаем выбранный проект
+    setSelectedProject(project);
+  };
+
+  // Функция для отслеживания кликов на ссылки проектов
+  const trackProjectLinkClick = (project: Project, e: React.MouseEvent) => {
+    e.stopPropagation(); // Предотвращаем всплытие события
+    
+    // Отправляем событие в Google Analytics
+    event({
+      action: 'project_link_click',
+      category: 'Portfolio',
+      label: t(project.titleKey, { ns: 'portfolio' }),
+      value: project.id
+    });
+    
+    // Если ссылка не является заглушкой (#), открываем ее
+    if (project.link !== '#') {
+      window.open(project.link, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   return (
     <>
@@ -503,7 +567,16 @@ useEffect(() => {
                     ? 'bg-primary text-white'
                     : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => {
+                  setActiveCategory(category.id);
+                  
+                  // Отправляем событие в Google Analytics
+                  event({
+                    action: 'category_filter',
+                    category: 'Portfolio',
+                    label: category.name,
+                  });
+                }}
               >
                 {category.name}
               </button>
@@ -522,7 +595,7 @@ useEffect(() => {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
                   className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
-                  onClick={() => setSelectedProject(project)}
+                  onClick={() => trackProjectClick(project)}
                 >
                   <div className="relative h-56">
                   <Image
@@ -564,18 +637,15 @@ useEffect(() => {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-gray-500">{project.year}</span>
-                      <a
-                        href={project.link}
-                        target={project.link === '#' ? '_self' : '_blank'} // Предотвращает открытие новой вкладки для '#'
-                        rel={project.link === '#' ? undefined : 'noopener noreferrer'}
+                      <button
+                        onClick={(e) => trackProjectLinkClick(project, e)}
                         className={`text-primary hover:text-primary-dark transition-colors flex items-center gap-1 text-sm font-medium ${project.link === '#' ? 'opacity-50 cursor-not-allowed' : ''}`}
-                        onClick={(e) => e.stopPropagation()}
                       >
                         {t('view_project', { ns: 'portfolio' })} 
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </motion.div>
@@ -591,7 +661,19 @@ useEffect(() => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-                onClick={() => setSelectedProject(null)}
+                onClick={() => {
+                  // Отправляем событие в Google Analytics
+                  if (selectedProject) {
+                    event({
+                      action: 'project_modal_close',
+                      category: 'Portfolio',
+                      label: t(selectedProject.titleKey, { ns: 'portfolio' }),
+                      value: selectedProject.id
+                    });
+                  }
+                  
+                  setSelectedProject(null);
+                }}
               >
                 <motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
@@ -676,6 +758,15 @@ useEffect(() => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary hover:text-primary-dark transition-colors flex items-center gap-1"
+                        onClick={() => {
+                          // Отправляем событие в Google Analytics
+                          event({
+                            action: 'project_modal_link_click',
+                            category: 'Portfolio',
+                            label: t(selectedProject.titleKey, { ns: 'portfolio' }),
+                            value: selectedProject.id
+                          });
+                        }}
                       >
                         {t('view_project', { ns: 'portfolio' })}
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
