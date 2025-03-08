@@ -160,7 +160,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
                 <li>
                   <Link
                     href="/privacy-policy"
-                    className="text-gray-700 dark:text-gray-200 text-sm hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
+                    className="uppercase text-gray-700 dark:text-gray-200 text-sm hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
                     style={{ willChange: 'transform' }}
                   >
                     {t('privacy_policy')}
@@ -169,7 +169,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
                 <li>
                   <Link
                     href="/terms-of-service"
-                    className="text-gray-700 dark:text-gray-200 text-sm hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
+                    className="uppercase text-gray-700 dark:text-gray-200 text-sm hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
                     style={{ willChange: 'transform' }}
                   >
                     {t('terms_of_service')}
