@@ -60,11 +60,11 @@ const Navbar = () => {
   };
 
   const getLogo = () => {
-    if (!mounted) return '/images/partners/logowhite.png';
-    return resolvedTheme === 'dark' ? '/images/partners/logowhite.png' : '/images/partners/logo.png';
+    if (!mounted) return '/images/partners/logowhite.avif';
+    return resolvedTheme === 'dark' ? '/images/partners/logowhite.avif' : '/images/partners/logo.avif';
   };
 
-  const getRoundedLogo = () => '/images/partners/logorounded.png';
+  const getRoundedLogo = () => '/images/partners/logorounded.avif';
 
   const handleLanguageChange = async (langCode: string) => {
     try {

@@ -40,11 +40,11 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
   ];
 
   const getLogo = () => {
-    if (!mounted) return '/images/partners/logowhite.png';
-    return resolvedTheme === 'dark' ? '/images/partners/logowhite.png' : '/images/partners/logo.png';
+    if (!mounted) return '/images/partners/logowhite.avif';
+    return resolvedTheme === 'dark' ? '/images/partners/logowhite.avif' : '/images/partners/logo.avif';
   };
 
-  const getRoundedLogo = () => '/images/partners/logorounded.png';
+  const getRoundedLogo = () => '/images/partners/logorounded.avif';
 
   if (!mounted) {
     return (
@@ -63,7 +63,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
           {/* Logo and Description */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <Link href="/">
+            <Link href="/" aria-label="Home">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="relative w-10 h-10">
                   <Image 
@@ -109,6 +109,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
                 <a
                   key={social.name}
                   href={social.href}
+                  aria-label="Social link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:text-primary hover:bg-gray-300 dark:hover:bg-gray-600 flex items-center justify-center transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
@@ -128,7 +129,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
             <div className="text-center md:text-left">
               <h3 className="text-base font-heading font-black mb-3 text-primary uppercase">{t('contact_us')}</h3>
               <p className="text-gray-700 dark:text-gray-200 text-sm">
-                <a href="mailto:info@in-fomo.com" className="hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors" style={{ willChange: 'transform' }}>
+                <a href="mailto:info@in-fomo.com" className="hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors" aria-label="Email"style={{ willChange: 'transform' }}>
                   info@in-fomo.com
                 </a>
               </p>
@@ -143,6 +144,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
                   <li key={item.href}>
                     <Link
                       href={item.href}
+                      aria-label="Items link"
                       className="text-gray-700 dark:text-gray-200 text-sm hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
                       style={{ willChange: 'transform' }}
                     >
@@ -159,6 +161,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
               <ul className="space-y-2">
                 <li>
                   <Link
+                    aria-label="Privacy Policy"
                     href="/privacy-policy"
                     className="uppercase text-gray-700 dark:text-gray-200 text-sm hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
                     style={{ willChange: 'transform' }}
@@ -168,6 +171,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
                 </li>
                 <li>
                   <Link
+                    aria-label="Terms of Service"
                     href="/terms-of-service"
                     className="uppercase text-gray-700 dark:text-gray-200 text-sm hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
                     style={{ willChange: 'transform' }}

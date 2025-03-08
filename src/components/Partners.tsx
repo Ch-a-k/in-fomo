@@ -106,6 +106,8 @@ const Partners = () => {
                     <img 
                       src={getPartnerLogoPath(partner.id)}
                       alt={`${partner.name} logo`} 
+                      width={40}
+                      height={40}
                       className="max-h-12 max-w-full object-contain transition-all duration-300"
                       onError={(e) => handleImageError(e, partner.name)}
                     />

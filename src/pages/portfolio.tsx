@@ -528,7 +528,7 @@ const Portfolio = () => {
 
         <div className="container relative z-10 py-16 md:py-24">
           <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
-            <div className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-primary/10 text-primary stagger-delay-1">
+            <div className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-primary/90 text-white stagger-delay-1">
               {t('hero.badge')}
             </div>
             

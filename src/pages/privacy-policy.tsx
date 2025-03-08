@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
         <div className="container relative z-10 py-16 md:py-24">
           <div
           >
-            <div  className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-primary/10 text-primary">
+            <div  className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-primary/90 text-white stagger-delay-1">
               {t('hero.badge')}
             </div>
             <h1  className="text-4xl md:text-5xl font-bold mb-6 dark:text-white">

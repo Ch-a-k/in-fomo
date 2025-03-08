@@ -119,8 +119,8 @@ export default function About() {
         <div className="container relative z-10 py-16 md:py-24">
           <div className="max-w-4xl mx-auto text-center">
             <div className="text-center mb-16 animate-fade-in-up">
-              <div className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-primary/10 text-primary stagger-delay-1">
-                IN-FOMO
+              <div className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-primary/90 text-white stagger-delay-1">
+                IN-FOMO.
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white stagger-delay-2">
                 {t('title')} <span className="text-primary">2024</span>
@@ -186,7 +186,7 @@ export default function About() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {companyValues.map((value, index) => (
-              <div key={value.titleKey} className="animate-fade-in-up stagger-delay-1">
+              <div key={value.titleKey} className="text-center animate-fade-in-up stagger-delay-1">
                 <div className="p-4 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-[#ff5a00] dark:hover:border-[#ff5a00] transition-colors">
                   <h3 className="text-lg font-bold mb-2 dark:text-white">{t(value.titleKey)}</h3>
 
