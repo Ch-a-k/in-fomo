@@ -113,8 +113,8 @@ const Navbar = () => {
                     width: 'auto',
                     height: 'auto'
                   }}
-                  priority={false}
-                  loading="lazy"
+                  priority={true}
+                  fetchPriority="high"
                 />
               </div>
               <div className="relative h-8 w-32">
@@ -128,8 +128,8 @@ const Navbar = () => {
                     width: 'auto',
                     height: 'auto'
                   }}
-                  priority={false}
-                  loading="lazy"
+                  priority={true}
+                  fetchPriority="high"
                 />
               </div>
             </div>

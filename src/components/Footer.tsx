@@ -85,7 +85,6 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
                 <div className="relative h-8 w-32">
                   <Image 
                     src={getLogo()}
-                    fetchPriority="high"
                     alt="IN-FOMO" 
                     width={120} 
                     height={32}
