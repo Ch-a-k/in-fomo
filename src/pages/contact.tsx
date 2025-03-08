@@ -2,10 +2,10 @@ import type { GetStaticProps } from 'next/types'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { useTheme } from 'next-themes'
-import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import Head from 'next/head'
 
-// Конфигурация для Telegram ботов
+// Telegram bots configuration
 const TELEGRAM_CONFIG = {
   general: {
     token: process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN_GENERAL,
@@ -73,13 +73,7 @@ const ContactForm = ({ formType, t }) => {
   }
 
   return (
-    <motion.div 
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
-      className="w-full bg-white dark:bg-[#1a1a1a] rounded-lg p-6 md:p-8 shadow-sm dark:shadow-none border border-gray-100 dark:border-gray-800"
-    >
+    <div className="w-full bg-white dark:bg-[#1a1a1a] rounded-lg p-6 md:p-8 shadow-sm dark:shadow-none border border-gray-100 dark:border-gray-800">
       <div>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -167,30 +161,9 @@ const ContactForm = ({ formType, t }) => {
           )}
         </form>
       </div>
-    </motion.div>
+    </div>
   )
 }
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { 
-    opacity: 1,
-    transition: { duration: 0.3 }
-  }
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { 
-    y: 0, 
-    opacity: 1,
-    transition: { 
-      type: 'spring', 
-      stiffness: 100,
-      damping: 10
-    }
-  }
-};
 
 export default function Contact() {
   const { t } = useTranslation(['contact', 'common'])
@@ -198,6 +171,11 @@ export default function Contact() {
 
   return (
     <>
+      <Head>
+        <title>{t('meta.title')}</title>
+        <meta name="description" content={t('meta.description')} />
+      </Head>
+
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -208,25 +186,20 @@ export default function Contact() {
         </div>
 
         <div className="container relative z-10 py-16 md:py-24">
-          <motion.div 
-            className="max-w-4xl mx-auto text-center"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div variants={itemVariants} className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-primary/10 text-primary">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-primary/10 text-primary">
               {t('hero.badge', { ns: 'contact' })}
-            </motion.div>
+            </div>
             
-            <motion.h1 variants={itemVariants} className="heading-1 mb-6">
+            <h1 className="heading-1 mb-6">
               {t('hero.title', { ns: 'contact' }).split(' ').slice(0, -1).join(' ')}{' '}
               <span className="text-primary">{t('hero.title', { ns: 'contact' }).split(' ').slice(-1)}</span>
-            </motion.h1>
+            </h1>
             
-            <motion.p variants={itemVariants} className="mb-10 text-xl text-gray-600 dark:text-gray-300">
+            <p className="mb-10 text-xl text-gray-600 dark:text-gray-300">
               {t('hero.subtitle', { ns: 'contact' })}
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </div>
       </div>
 

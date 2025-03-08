@@ -6,6 +6,9 @@ import { useTranslation } from 'next-i18next'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import CookieConsent from './CookieConsent'
+import { GoogleTagManager } from '@next/third-parties/google'
+ 
+
 
 interface LayoutProps {
   children: ReactNode
@@ -19,36 +22,34 @@ interface LayoutProps {
 const Layout = ({ 
   children, 
   title = 'IN-FOMO', 
-  description,
+  description = '',
   footerVariant = 'design1',
   ogImage = '/images/og-image.png',
-  ogUrl
+  ogUrl = ''
 }: LayoutProps) => {
   const { t } = useTranslation('common')
-  const siteUrl = ogUrl || 'https://in-fomo.com'
-  const metaDescription = description || t('meta_description')
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <>
+      <GoogleTagManager gtmId="G-YET0LLRBZN" />
       <Head>
         <title>{title}</title>
-        <meta name="description" content={metaDescription} />
+        <meta name="description" content={description || t('meta_description')} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/images/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={siteUrl} />
+        {/* Open Graph */}
         <meta property="og:title" content={title} />
-        <meta property="og:description" content={metaDescription} />
-        <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+        <meta property="og:description" content={description || t('meta_description')} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:url" content={ogUrl} />
+        <meta property="og:type" content="website" />
         
         {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={siteUrl} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={metaDescription} />
-        <meta property="twitter:image" content={`${siteUrl}${ogImage}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description || t('meta_description')} />
+        <meta name="twitter:image" content={ogImage} />
         
         {/* WhatsApp */}
         <meta property="og:site_name" content="IN-FOMO" />
@@ -56,7 +57,7 @@ const Layout = ({
         
         {/* Telegram */}
         <meta name="telegram:channel" content="@infomo" />
-        <meta name="telegram:image" content={`${siteUrl}${ogImage}`} />
+        <meta name="telegram:image" content={`${ogUrl}${ogImage}`} />
         
         {/* Instagram and Threads (use same OG tags) */}
         <meta property="instapp:owner_id" content="IN-FOMO" />
@@ -64,15 +65,15 @@ const Layout = ({
         <meta property="og:image:height" content="630" />
       </Head>
       
-      <Navbar />
-      
-      <main className="flex-grow relative z-10">
-        {children}
-      </main>
-      
-      <Footer variant={footerVariant} />
-      <CookieConsent />
-    </div>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow relative z-10">
+          {children}
+        </main>
+        <Footer variant={footerVariant} />
+        <CookieConsent />
+      </div>
+    </>
   )
 }
 

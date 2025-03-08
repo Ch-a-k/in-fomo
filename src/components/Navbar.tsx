@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useTranslation } from 'next-i18next';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
   const [mounted, setMounted] = useState(false);
@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const { t, i18n } = useTranslation('common');
   const { resolvedTheme, setTheme } = useTheme();
+  const router = useRouter();
 
   // Languages available
   const languages = [
@@ -65,20 +66,24 @@ const Navbar = () => {
 
   const getRoundedLogo = () => '/images/partners/logorounded.png';
 
-  const handleLanguageChange = (langCode: string) => {
-    if (typeof window !== 'undefined') {
-      // Сохраняем выбранный язык в localStorage
+  const handleLanguageChange = async (langCode: string) => {
+    try {
+      // Save language preference
       localStorage.setItem('i18nextLng', langCode);
       
-      // Изменяем язык через i18n
-      i18n.changeLanguage(langCode);
+      // Change language in i18n
+      await i18n.changeLanguage(langCode);
+
+      // Get the current path without the locale prefix
+      const path = router.asPath;
       
-      // Перенаправляем на ту же страницу с новым языком
-      const currentPath = window.location.pathname;
-      const pathWithoutLang = currentPath.replace(/^\/(en|uk|pl|kz)/, '');
-      window.location.href = `/${langCode}${pathWithoutLang || '/'}`;
+      // Change route to the new locale
+      await router.push(path, path, { locale: langCode });
+      
+      setIsLangMenuOpen(false);
+    } catch (error) {
+      console.error('Error changing language:', error);
     }
-    setIsLangMenuOpen(false);
   };
 
   if (!mounted) return null;
@@ -103,11 +108,29 @@ const Navbar = () => {
                   alt="IN-FOMO" 
                   width={40} 
                   height={40} 
-                  className="w-full h-full"
+                  style={{
+                    maxWidth: '100%',
+                    width: 'auto',
+                    height: 'auto'
+                  }}
+                  priority={false}
+                  loading="lazy"
                 />
               </div>
-              <div className="h-8 w-auto">
-                <Image src={getLogo()} alt="IN-FOMO" width={120} height={40} className="h-8 w-auto" />
+              <div className="relative h-8 w-32">
+                <Image 
+                  src={getLogo()} 
+                  alt="IN-FOMO" 
+                  width={120} 
+                  height={32} 
+                  style={{
+                    maxWidth: '100%',
+                    width: 'auto',
+                    height: 'auto'
+                  }}
+                  priority={false}
+                  loading="lazy"
+                />
               </div>
             </div>
           </Link>
@@ -119,11 +142,12 @@ const Navbar = () => {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-heading transition-colors hover:text-primary ${
+              className={`text-sm font-heading font-black transition-transform transform-gpu hover:-translate-y-[1px] ${
                 isActive(item.href)
                   ? 'text-primary'
-                  : 'text-gray-700 dark:text-gray-200'
+                  : 'text-gray-700 dark:text-gray-200 hover:text-primary'
               }`}
+              style={{ willChange: 'transform' }}
             >
               {item.label}
             </Link>
@@ -146,37 +170,31 @@ const Navbar = () => {
               </svg>
             </button>
 
-            <AnimatePresence>
-              {isLangMenuOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-[#1a1a1a] ring-1 ring-black ring-opacity-5 focus:outline-none"
-                >
-                  <div className="py-1">
-                    {languages.map((lang) => (
-                      <button
-                        key={lang.code}
-                        onClick={() => handleLanguageChange(lang.code)}
-                        className={`flex items-center space-x-3 w-full text-left px-4 py-2 text-sm hover:bg-light-surface dark:hover:bg-dark-surface transition-colors ${
-                          i18n.language === lang.code ? 'text-primary font-medium bg-primary/5' : ''
-                        }`}
-                      >
-                        <span className="text-lg">{lang.flag}</span>
-                        <span>{lang.name}</span>
-                        {i18n.language === lang.code && (
-                          <svg className="h-4 w-4 ml-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {isLangMenuOpen && (
+              <div
+                className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-[#1a1a1a] ring-1 ring-black ring-opacity-5 focus:outline-none animate-fadeIn"
+              >
+                <div className="py-1">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => handleLanguageChange(lang.code)}
+                      className={`flex items-center space-x-3 w-full text-left px-4 py-2 text-sm hover:bg-light-surface dark:hover:bg-dark-surface transition-colors ${
+                        i18n.language === lang.code ? 'text-primary font-medium bg-primary/5' : ''
+                      }`}
+                    >
+                      <span className="text-lg">{lang.flag}</span>
+                      <span>{lang.name}</span>
+                      {i18n.language === lang.code && (
+                        <svg className="h-4 w-4 ml-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Theme Toggle - Desktop */}
@@ -228,113 +246,101 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden bg-white dark:bg-[#121212] border-b border-light-border dark:border-dark-border"
-          >
-            <div className="px-4 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-heading ${
-                    isActive(item.href)
-                      ? 'text-primary bg-primary/5'
-                      : 'text-gray-700 dark:text-gray-200 hover:bg-light-surface dark:hover:bg-dark-surface'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+      {isMenuOpen && (
+        <div
+          className="md:hidden bg-white dark:bg-[#121212] border-b border-light-border dark:border-dark-border animate-slideDown"
+        >
+          <div className="px-4 pt-2 pb-3 space-y-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`block px-3 py-2 rounded-md text-base font-heading font-black ${
+                  isActive(item.href)
+                    ? 'text-primary bg-primary/5'
+                    : 'text-gray-700 dark:text-gray-200 hover:bg-light-surface dark:hover:bg-dark-surface'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
 
-              <div className="pt-4 pb-3 border-t border-light-border dark:border-dark-border">
-                <div className="flex items-center justify-between px-3">
-                  {/* Language Selector - Mobile */}
-                  <div className="relative lang-menu">
-                    <button
-                      onClick={toggleLangMenu}
-                      className="flex items-center space-x-2 p-2 rounded-md hover:bg-light-border dark:hover:bg-dark-border transition-colors"
-                      aria-label={t('select_language')}
-                    >
-                      <span className="text-lg">{getCurrentLanguage().flag}</span>
-                      <span className="text-sm font-medium">{getCurrentLanguage().name}</span>
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-
-                    <AnimatePresence>
-                      {isLangMenuOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-[#1a1a1a] ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
-                        >
-                          <div className="py-1">
-                            {languages.map((lang) => (
-                              <button
-                                key={lang.code}
-                                onClick={() => handleLanguageChange(lang.code)}
-                                className={`flex items-center space-x-3 w-full text-left px-4 py-2 text-sm hover:bg-light-surface dark:hover:bg-dark-surface transition-colors ${
-                                  i18n.language === lang.code ? 'text-primary font-medium bg-primary/5' : ''
-                                }`}
-                              >
-                                <span className="text-lg">{lang.flag}</span>
-                                <span>{lang.name}</span>
-                                {i18n.language === lang.code && (
-                                  <svg className="h-4 w-4 ml-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                  </svg>
-                                )}
-                              </button>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Theme Toggle - Mobile */}
+            <div className="pt-4 pb-3 border-t border-light-border dark:border-dark-border">
+              <div className="flex items-center justify-between px-3">
+                {/* Language Selector - Mobile */}
+                <div className="relative lang-menu">
                   <button
-                    onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
-                    className="p-2 rounded-md hover:bg-light-border dark:hover:bg-dark-border transition-colors"
-                    aria-label={t('toggle_theme')}
+                    onClick={toggleLangMenu}
+                    className="flex items-center space-x-2 p-2 rounded-md hover:bg-light-border dark:hover:bg-dark-border transition-colors"
+                    aria-label={t('select_language')}
                   >
-                    {resolvedTheme === 'light' ? (
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                      </svg>
-                    ) : (
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                      </svg>
-                    )}
+                    <span className="text-lg">{getCurrentLanguage().flag}</span>
+                    <span className="text-sm font-medium">{getCurrentLanguage().name}</span>
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
                   </button>
+
+                  {isLangMenuOpen && (
+                    <div
+                      className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-[#1a1a1a] ring-1 ring-black ring-opacity-5 focus:outline-none z-10 animate-fadeIn"
+                    >
+                      <div className="py-1">
+                        {languages.map((lang) => (
+                          <button
+                            key={lang.code}
+                            onClick={() => handleLanguageChange(lang.code)}
+                            className={`flex items-center space-x-3 w-full text-left px-4 py-2 text-sm hover:bg-light-surface dark:hover:bg-dark-surface transition-colors ${
+                              i18n.language === lang.code ? 'text-primary font-medium bg-primary/5' : ''
+                            }`}
+                          >
+                            <span className="text-lg">{lang.flag}</span>
+                            <span>{lang.name}</span>
+                            {i18n.language === lang.code && (
+                              <svg className="h-4 w-4 ml-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                              </svg>
+                            )}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
-              
-              {/* Get Started Button - Mobile */}
-              <div className="px-3 py-3">
-                <Link 
-                  href="/contact" 
-                  className="btn btn-primary w-full"
-                  onClick={() => setIsMenuOpen(false)}
+
+                {/* Theme Toggle - Mobile */}
+                <button
+                  onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
+                  className="p-2 rounded-md hover:bg-light-border dark:hover:bg-dark-border transition-colors"
+                  aria-label={t('toggle_theme')}
                 >
-                  {t('get_started')}
-                </Link>
+                  {resolvedTheme === 'light' ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  )}
+                </button>
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            
+            {/* Get Started Button - Mobile */}
+            <div className="px-3 py-3">
+              <Link 
+                href="/contact" 
+                className="btn btn-primary w-full"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {t('get_started')}
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

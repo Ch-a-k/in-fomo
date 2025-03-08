@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next/types'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
-import { motion } from 'framer-motion'
+
 
 const CookiePolicy = () => {
   const { t } = useTranslation('common')
@@ -9,11 +9,7 @@ const CookiePolicy = () => {
   return (
     <div className="bg-light-bg dark:bg-dark-bg min-h-screen">
       <div className="container mx-auto px-4 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        
           <h1 className="heading-1 mb-8">{t('cookie_consent.cookie_policy')}</h1>
           
           <div className="prose dark:prose-invert max-w-none">
@@ -49,7 +45,6 @@ const CookiePolicy = () => {
               <p>{t('cookie_policy.contact_explanation')}</p>
             </section>
           </div>
-        </motion.div>
       </div>
     </div>
   )

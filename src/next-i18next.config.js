@@ -1,7 +1,15 @@
 module.exports = {
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'kz', 'pl', 'uk'], // Ваши языки
+    locales: ['en', 'kz', 'pl', 'uk'], // Supported languages
+    localeDetection: true,
   },
-  localePath: './public/locales', // Путь к переводам
+  defaultNS: 'common',
+  localePath: './public/locales', // Path to translations
+  react: { useSuspense: false },
+  load: 'languageOnly',
+  detection: {
+    order: ['path', 'cookie', 'localStorage', 'navigator'],
+    caches: ['cookie', 'localStorage']
+  }
 };

@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next/types';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import Head from 'next/head';
 
 import Hero from '../components/Hero';
 import Services from '../components/Services';
@@ -11,10 +12,26 @@ export default function Home() {
 
   return (
     <>
-      <Hero />
-      <Services />
-      <Partners />
-      {/* Add more sections as needed */}
+      <Head>
+        <title>{t('meta.title', { ns: 'home', defaultValue: 'IN-FOMO | Innovative IT Solutions' })}</title>
+        <meta 
+          name="description" 
+          content={t('meta.description', { ns: 'home', defaultValue: 'IN-FOMO - leading IT company providing innovative software development, cloud solutions, and digital transformation services.' })} 
+        />
+        <meta property="og:title" content={t('meta.title', { ns: 'home', defaultValue: 'IN-FOMO | Innovative IT Solutions' })} />
+        <meta 
+          property="og:description" 
+          content={t('meta.description', { ns: 'home', defaultValue: 'IN-FOMO - leading IT company providing innovative software development, cloud solutions, and digital transformation services.' })} 
+        />
+        <meta property="og:image" content="/images/og-image.png" />
+        <meta property="og:type" content="website" />
+      </Head>
+
+      <main>
+        <Hero />
+        <Services />
+        <Partners />
+      </main>
     </>
   );
 }

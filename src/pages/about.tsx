@@ -125,6 +125,11 @@ export default function About() {
 
   return (
     <>
+      <Head>
+        <title>{t('meta_title')}</title>
+        <meta name="description" content={t('meta_description')} />
+      </Head>
+
       {/* Hero */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -135,25 +140,19 @@ export default function About() {
         </div>
 
         <div className="container relative z-10 py-16 md:py-24">
-          <motion.div 
-            className="max-w-4xl mx-auto text-center"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div variants={itemVariants} className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-primary/10 text-primary">
-              IN-FOMO
-            </motion.div>
-            <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-6 dark:text-white">
-              {t('title')} <span className="text-primary">2024</span>
-            </motion.h1>
-            <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
-              {t('subtitle')}
-            </motion.p>
-            <motion.p variants={itemVariants} className="text-base text-gray-500 dark:text-gray-400">
-              {t('description')}
-            </motion.p>
-          </motion.div>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="text-center mb-16 animate-fade-in-up">
+              <div className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-primary/10 text-primary stagger-delay-1">
+                IN-FOMO
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white stagger-delay-2">
+                {t('title')} <span className="text-primary">2024</span>
+              </h1>
+              <p className="text-base text-gray-500 dark:text-gray-400 stagger-delay-4">
+                {t('description')}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -162,98 +161,98 @@ export default function About() {
         <div className="container max-w-7xl mx-auto px-4 space-y-16">
           
           {/* Tech Stack */}
-          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-            <motion.div variants={itemVariants} className="max-w-3xl mx-auto text-center mb-10">
-              <div className="inline-block px-4 py-1.5 mb-4 text-xs font-medium rounded-full bg-primary/10 text-primary">
-                {t('tech_stack')}
-              </div>
-              <h2 className="text-3xl font-bold mb-4 dark:text-white">
-                {t('tech_stack')}
-              </h2>
-              <p className="text-base text-gray-600 dark:text-gray-400">
-                {t('tech_stack_desc')}
-              </p>
-            </motion.div>
-            
-            <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {techStack.map((category, index) => (
-                <motion.div key={index} variants={itemVariants}>
-                  <div className="p-6 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-primary dark:hover:border-primary transition-colors duration-300 h-full">
-                    <div className="flex items-center mb-4">
-                      <div className="p-3 mr-3 rounded-lg bg-primary/10 inline-block text-primary">
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={category.icon} />
-                        </svg>
-                      </div>
-                      <h3 className="text-lg font-bold dark:text-white">{t(category.titleKey)}</h3>
+          <div className="max-w-3xl mx-auto text-center mb-10 animate-fade-in-up">
+            <div className="inline-block px-4 py-1.5 mb-4 text-xs font-medium rounded-full bg-primary/10 text-primary">
+              {t('tech_stack')}
+            </div>
+            <h2 className="text-3xl font-bold mb-4 dark:text-white">
+              {t('tech_stack')}
+            </h2>
+            <p className="text-base text-gray-600 dark:text-gray-400">
+              {t('tech_stack_desc')}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {techStack.map((category, index) => (
+              <div key={index} className="animate-fade-in-up stagger-delay-1">
+                <div className="p-6 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-primary dark:hover:border-primary transition-colors duration-300 h-full">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 mr-3 rounded-lg bg-primary/10 inline-block text-primary">
+                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={category.icon} />
+                      </svg>
                     </div>
-                    <ul className="space-y-2">
-                      {category.technologies.map((tech, techIndex) => (
-                        <li key={techIndex} className="text-sm text-gray-600 dark:text-gray-400 flex items-center">
-                          <svg className="h-4 w-4 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          {tech}
-                        </li>
-                      ))}
-                    </ul>
+                    <h3 className="text-lg font-bold dark:text-white">{t(category.titleKey)}</h3>
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+                  <ul className="space-y-2">
+                    {category.technologies.map((tech, techIndex) => (
+                      <li key={techIndex} className="text-sm text-gray-600 dark:text-gray-400 flex items-center">
+                        <svg className="h-4 w-4 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
 
           {/* Values */}
-          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-            <motion.h2 variants={itemVariants} className="text-3xl font-bold mb-6 text-center dark:text-white">
+          <div className="max-w-3xl mx-auto text-center mb-10 animate-fade-in-up">
+            <h2 className="text-3xl font-bold mb-4 dark:text-white">
               {t('values')}
-            </motion.h2>
-            <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {companyValues.map((value, index) => (
-                <motion.div key={index} variants={itemVariants}>
-                  <div className="p-4 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-[#ff5a00] dark:hover:border-[#ff5a00] transition-colors">
-                    <h3 className="text-lg font-bold mb-2 dark:text-white">{t(value.titleKey)}</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{t(value.descKey)}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {companyValues.map((value, index) => (
+              <div key={value.titleKey} className="animate-fade-in-up stagger-delay-1">
+                <div className="p-4 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-[#ff5a00] dark:hover:border-[#ff5a00] transition-colors">
+                  <h3 className="text-lg font-bold mb-2 dark:text-white">{t(value.titleKey)}</h3>
+
+                </div>
+              </div>
+            ))}
+          </div>
 
           {/* Team */}
-          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-            <motion.h2 variants={itemVariants} className="text-3xl font-bold mb-6 text-center dark:text-white">
+          <div className="max-w-3xl mx-auto text-center mb-10 animate-fade-in-up">
+            <h2 className="text-3xl font-bold mb-4 dark:text-white">
               {t('team')}
-            </motion.h2>
-            <motion.div variants={containerVariants} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-              {teamMembers.map((member, index) => (
-                <motion.div key={index} variants={itemVariants}>
-                  <div className="p-4 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-[#ff5a00] dark:hover:border-[#ff5a00] transition-colors text-center">
-                    <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </div>
-                    <h3 className="text-sm font-bold dark:text-white">{member.name}</h3>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">{t(member.roleKey)}</p>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {teamMembers.map((member, index) => (
+              <div key={member.name} className={`animate-fade-in-up stagger-delay-${index + 1}`}>
+                <div className="p-4 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-[#ff5a00] dark:hover:border-[#ff5a00] transition-colors text-center">
+                  <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                    {member.name.split(' ').map(n => n[0]).join('')}
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+                  <h3 className="text-sm font-bold dark:text-white">{member.name}</h3>
+                  <p className="text-xs text-gray-600 dark:text-gray-400">{t(member.roleKey)}</p>
+                </div>
+              </div>
+            ))}
+          </div>
 
           {/* Join Us */}
-          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="text-center">
-            <motion.h2 variants={itemVariants} className="text-3xl font-bold mb-6 dark:text-white">
+          <div className="text-center animate-fade-in-up">
+            <h2 className="text-3xl font-bold mb-6 dark:text-white stagger-delay-1">
               {t('join_team')}
-            </motion.h2>
-            <motion.p variants={itemVariants} className="text-base text-gray-600 dark:text-gray-300 mb-6">
+            </h2>
+            <p className="text-base text-gray-600 dark:text-gray-300 mb-6 stagger-delay-2">
               {t('join_team_desc')}
-            </motion.p>
-            <motion.div variants={itemVariants}>
-              <Link href="/contact" className="btn btn-primary">
+            </p>
+            <div className="stagger-delay-3">
+              <Link href="/contact" className="btn btn-primary uppercase">
                 {t('contact_us')}
               </Link>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
     </>

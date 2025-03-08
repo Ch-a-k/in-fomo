@@ -1,31 +1,7 @@
 import { useTranslation } from 'next-i18next';
-import { motion } from 'framer-motion';
 
 const Services = () => {
   const { t } = useTranslation('home');
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 10
-      }
-    }
-  };
 
   const services = [
     {
@@ -141,38 +117,26 @@ const Services = () => {
   return (
     <section id="services" className="py-12 md:py-16 bg-light-surface dark:bg-dark-surface">
       <div className="container max-w-7xl mx-auto px-4">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="max-w-3xl mx-auto text-center mb-10"
-        >
-          <motion.div variants={itemVariants} className="inline-block px-4 py-1.5 mb-4 text-xs font-medium rounded-full bg-primary/10 text-primary">
+        <div className="max-w-3xl mx-auto text-center mb-10">
+          <div className="inline-block px-4 py-1.5 mb-4 text-xs font-medium rounded-full bg-primary/10 text-primary animate-fade-in">
             {t('our_services')}
-          </motion.div>
+          </div>
           
-          <motion.h2 variants={itemVariants} className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-4 animate-fade-in [animation-delay:200ms]">
             {t('services_title')}
-          </motion.h2>
+          </h2>
           
-          <motion.p variants={itemVariants} className="text-base text-gray-600 dark:text-gray-300">
+          <p className="text-base text-gray-600 dark:text-gray-300 animate-fade-in [animation-delay:400ms]">
             {t('services_description')}
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
-        >
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={index}
-              variants={itemVariants}
-              className="w-full"
+              className="w-full animate-fade-in"
+              style={{ animationDelay: `${600 + index * 100}ms` }}
             >
               <div className="p-4 h-full rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-primary dark:hover:border-primary transition-colors duration-300">
                 <div className="p-3 mb-3 rounded-lg bg-primary/10 inline-block text-primary">
@@ -181,9 +145,9 @@ const Services = () => {
                 <h3 className="text-lg font-bold mb-2">{service.title}</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 hyphens-auto" lang={t('language_code')}>{service.description}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

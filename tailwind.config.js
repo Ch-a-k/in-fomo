@@ -27,7 +27,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        heading: ['Fredoka One', 'cursive'],
+        heading: ['Sofia Sans', 'sans-serif'],
       },
     },
   },

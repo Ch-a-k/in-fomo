@@ -142,5 +142,15 @@
     
     "contact_us": "Contact Us",
     "contact_explanation": "If you have any questions about our use of cookies, please contact us at info@in-fomo.com."
+  },
+  "contact_modal": {
+    "title": "Contact Us",
+    "name": "Name",
+    "name_placeholder": "Enter your name",
+    "email": "Email",
+    "email_placeholder": "Enter your email",
+    "message": "Message",
+    "message_placeholder": "Enter your message",
+    "send": "Send Message"
   }
 }
