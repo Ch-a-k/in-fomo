@@ -12,8 +12,12 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Head>
-        <title>{`IN-FOMO | ${t('meta.title')}`}</title>
-        <meta name="description" content={t('meta.description')} />
+        <title>{t('meta.title', { ns: 'privacy', defaultValue: 'IN-FOMO | Privacy Policy' })}</title>
+        <meta name="description" content={t('meta.description', { ns: 'privacy', defaultValue: 'Read our privacy policy to understand how IN-FOMO protects and handles your personal information.' })} />
+        <meta property="og:title" content={t('meta.title', { ns: 'privacy', defaultValue: 'IN-FOMO | Privacy Policy' })} />
+        <meta property="og:description" content={t('meta.description', { ns: 'privacy', defaultValue: 'Read our privacy policy to understand how IN-FOMO protects and handles your personal information.' })} />
+        <meta property="og:image" content="/images/og-image.png" />
+        <meta property="og:type" content="website" />
       </Head>
 
       {/* Hero */}

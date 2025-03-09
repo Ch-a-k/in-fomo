@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "IN-FOMO | Portfolio",
+    "description": "Odkryj nasze zróżnicowane portfolio projektów w różnych dziedzinach i technologiach"
+  },
   "title": "Portfolio | IN-FOMO",
   "subtitle": "Poznaj nasze projekty i dowiedz się, jak pomogliśmy firmom osiągnąć ich cele",
   "meta_description": "Poznaj nasze portfolio innowacyjnych rozwiązań IT i udanych projektów w różnych branżach.",
@@ -95,10 +99,7 @@
   "cta_title": "Gotowy na rozpoczęcie swojego projektu?",
   "cta_description": "Skontaktuj się z nami już dziś, aby omówić, jak możemy pomóc w realizacji Twoich pomysłów dzięki naszej wiedzy i innowacyjnym rozwiązaniom.",
   
-  "meta": {
-    "title": "Portfolio",
-    "description": "Odkryj nasze zróżnicowane portfolio projektów w różnych dziedzinach i technologiach"
-  },
+  
   "hero": {
     "badge": "Nasze Prace",
     "title": "Odkryj Nasze",

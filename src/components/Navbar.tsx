@@ -60,8 +60,10 @@ const Navbar = () => {
   };
 
   const getLogo = () => {
-    if (!mounted) return '/images/partners/logowhite.avif';
-    return resolvedTheme === 'dark' ? '/images/partners/logowhite.avif' : '/images/partners/logo.avif';
+    if (!mounted) return '/images/partners/logo.avif';
+    return resolvedTheme === 'dark' 
+      ? '/images/partners/logowhite.avif' 
+      : '/images/partners/logo.avif';
   };
 
   const getRoundedLogo = () => '/images/partners/logorounded.avif';
@@ -97,39 +99,39 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white dark:bg-[#121212] border-b border-light-border dark:border-dark-border">
-      <div className="container mx-auto px-4 flex justify-between items-center h-20">
+      <div className="container mx-auto px-4 flex justify-between items-center h-16 md:h-20">
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center">
-            <div className="flex items-center space-x-3">
-              <div className="relative w-10 h-10">
+            <div className="flex items-center space-x-2 md:space-x-3">
+              <div className="relative w-7 h-7 md:w-10 md:h-10">
                 <Image 
                   src={getRoundedLogo()} 
-                  alt="IN-FOMO" 
-                  width={40} 
-                  height={40} 
-                  style={{
-                    maxWidth: '100%',
-                    width: 'auto',
-                    height: 'auto'
-                  }}
+                  alt="IN-FOMO"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain"
                   priority={true}
-                  fetchPriority="high"
+                  loading="eager"
+                  quality={90}
+                  sizes="(max-width: 768px) 28px, 40px"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,..."
                 />
               </div>
-              <div className="relative h-8 w-32">
+              <div className="relative h-5 w-20 md:h-8 md:w-32">
                 <Image 
                   src={getLogo()} 
-                  alt="IN-FOMO" 
-                  width={120} 
-                  height={32} 
-                  style={{
-                    maxWidth: '100%',
-                    width: 'auto',
-                    height: 'auto'
-                  }}
+                  alt="IN-FOMO"
+                  width={128}
+                  height={32}
+                  className="w-full h-full object-contain"
                   priority={true}
-                  fetchPriority="high"
+                  loading="eager"
+                  quality={90}
+                  sizes="(max-width: 768px) 80px, 128px"
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,..."
                 />
               </div>
             </div>

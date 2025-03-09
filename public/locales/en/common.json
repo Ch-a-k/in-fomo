@@ -152,5 +152,9 @@
     "message": "Message",
     "message_placeholder": "Enter your message",
     "send": "Send Message"
+  },
+  "meta": {
+    "title": "IN-FOMO | Cookie Policy",
+    "description": "Learn about how we use cookies and similar technologies on our website."
   }
 }

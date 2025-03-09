@@ -11,8 +11,12 @@ export default function TermsOfService() {
   return (
     <>
       <Head>
-        <title>{`IN-FOMO | ${t('meta.title')}`}</title>
-        <meta name="description" content={t('meta.description')} />
+        <title>{t('meta.title', { ns: 'terms', defaultValue: 'IN-FOMO | Terms of Service' })}</title>
+        <meta name="description" content={t('meta.description', { ns: 'terms', defaultValue: 'Review our terms of service to understand the conditions for using IN-FOMO\'s services and products.' })} />
+        <meta property="og:title" content={t('meta.title', { ns: 'terms', defaultValue: 'IN-FOMO | Terms of Service' })} />
+        <meta property="og:description" content={t('meta.description', { ns: 'terms', defaultValue: 'Review our terms of service to understand the conditions for using IN-FOMO\'s services and products.' })} />
+        <meta property="og:image" content="/images/og-image.png" />
+        <meta property="og:type" content="website" />
       </Head>
 
       {/* Hero */}
