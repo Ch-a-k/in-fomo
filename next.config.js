@@ -27,6 +27,11 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  experimental: {
+    optimizeFonts: true,
+    optimizeImages: true,
+    scrollRestoration: true,
+  },
   webpack(config, { dev, isServer }) {
     // Оптимизация для production сборки
     if (!dev && !isServer) {
@@ -37,6 +42,7 @@ const nextConfig = {
           chunks: 'all',
           maxInitialRequests: 25,
           minSize: 20000,
+          maxSize: 244000, // Максимальный размер чанка
           cacheGroups: {
             default: false,
             vendors: false,
@@ -61,6 +67,10 @@ const nextConfig = {
           },
         },
       };
+
+      // Дополнительные оптимизации
+      config.optimization.minimize = true;
+      config.optimization.moduleIds = 'deterministic';
     }
 
     // Поддержка шрифтов
