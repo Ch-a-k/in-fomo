@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import '../styles/globals.css';
 import nextI18NextConfig from '../../next-i18next.config.js';
 
+
 function MyApp({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = useState(false);
 
