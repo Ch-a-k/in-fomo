@@ -103,8 +103,12 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>{t('meta_title')}</title>
-        <meta name="description" content={t('meta_description')} />
+        <title>{t('meta.title')}</title>
+        <meta name="description" content={t('meta.description')} />
+        <meta property="og:title" content={t('meta.title')} />
+        <meta property="og:description" content={t('meta.description')} />
+        <meta property="og:image" content="/images/og-image.png" />
+        <meta property="og:type" content="website" />
       </Head>
 
       {/* Hero */}
