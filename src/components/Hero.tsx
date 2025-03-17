@@ -40,17 +40,17 @@ const Hero = memo(() => {
             {t('hero_description')}
           </p>
           
-          <div className="flex flex-col sm:flex-row sm:space-x-4 justify-center space-y-4 sm:space-y-0">
+          <div className="flex flex-row sm:flex-row justify-center sm:space-y-0">
             <Link 
               href="/contact" 
-              className="btn btn-primary"
+              className="btn btn-primary mx-4"
               style={{ willChange: 'transform' }}
             >
               {t('get_started')}
             </Link>
             <Link 
               href="#services" 
-              className="btn btn-outline"
+              className="btn btn-outline mx-4"
               style={{ willChange: 'transform' }}
             >
               {t('our_services')}

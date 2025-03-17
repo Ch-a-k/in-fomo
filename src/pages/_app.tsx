@@ -6,7 +6,7 @@ import Script from 'next/script';
 import Layout from '../components/Layout';
 import '../styles/globals.css';
 import nextI18NextConfig from '../../next-i18next.config.js';
-
+import SEO from '../components/SEO';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = useState(false);
@@ -37,6 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
         `}
       </Script>
+      <SEO />
       <Layout
         title={pageProps.title || 'IN-FOMO'}
         description={pageProps.description || ''}

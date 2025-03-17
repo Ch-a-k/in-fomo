@@ -191,5 +191,20 @@
     "contact_us": "Skontaktuj się z nami",
     "contact_explanation": "Jeśli masz pytania dotyczące naszego wykorzystania plików cookie, skontaktuj się z nami pod adresem info@in-fomo.com.",
     "eu_rights": "Jeśli znajdujesz się w Unii Europejskiej, masz również prawo do złożenia skargi do lokalnego organu ochrony danych."
+  },
+  
+  "seo": {
+    "defaultTitle": "In-Fomo - Agencja Marketingu Cyfrowego i Rozwoju Stron",
+    "defaultDescription": "Profesjonalne usługi marketingu cyfrowego i tworzenia stron internetowych. Pomagamy firmom rozwijać ich obecność online.",
+    "defaultKeywords": "marketing cyfrowy, tworzenie stron, SEO, obecność online, rozwiązania customowe, agencja marketingowa"
+  },
+  "breadcrumbs": {
+    "home": "Strona główna",
+    "about": "O nas",
+    "portfolio": "Portfolio",
+    "contact": "Kontakt",
+    "privacy-policy": "Polityka prywatności",
+    "terms-of-service": "Warunki użytkowania",
+    "cookie-policy": "Polityka cookies"
   }
 }

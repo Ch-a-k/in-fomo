@@ -156,5 +156,19 @@
   "meta": {
     "title": "IN-FOMO | Cookie Policy",
     "description": "Learn about how we use cookies and similar technologies on our website."
+  },
+  "seo": {
+    "defaultTitle": "In-Fomo - Digital Marketing and Web Development Agency",
+    "defaultDescription": "Professional digital marketing and web development services. We help businesses grow their online presence with custom solutions.",
+    "defaultKeywords": "digital marketing, web development, SEO, online presence, custom solutions, marketing agency"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "privacy-policy": "Privacy Policy",
+    "terms-of-service": "Terms of Service",
+    "cookie-policy": "Cookie Policy"
   }
 }

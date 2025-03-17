@@ -7,8 +7,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import CookieConsent from './CookieConsent'
 import { GoogleTagManager } from '@next/third-parties/google'
- 
-
+import Breadcrumbs from './Breadcrumbs'
 
 interface LayoutProps {
   children: ReactNode
@@ -67,6 +66,9 @@ const Layout = ({
       
       <div className="flex flex-col min-h-screen">
         <Navbar />
+        <div className="container mx-auto px-4">
+          <Breadcrumbs />
+        </div>
         <main className="flex-grow relative z-10">
           {children}
         </main>
@@ -76,6 +78,5 @@ const Layout = ({
     </>
   )
 }
-
 
 export default Layout

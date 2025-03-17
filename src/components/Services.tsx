@@ -131,7 +131,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {services.map((service, index) => (
             <div
               key={index}
@@ -139,13 +139,13 @@ const Services = () => {
               style={{ animationDelay: `${600 + index * 100}ms` }}
             >
               <div className="flex flex-col items-center p-4 h-full rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-primary dark:hover:border-primary transition-colors duration-300">
-                <div className="p-3 mb-3 rounded-lg bg-primary/10 inline-block text-primary">
-                  {service.icon}
+                  <div className="p-3 mb-3 rounded-lg bg-primary/10 inline-block text-primary">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-lg font-bold mb-2 text-center break-words hyphens-auto" lang={t('language_code')}>{service.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 w-full text-left break-words hyphens-auto" lang={t('language_code')}>{service.description}</p>
                 </div>
-                <h3 className="text-lg font-bold mb-2 text-center">{service.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 hyphens-auto" lang={t('language_code')}>{service.description}</p>
               </div>
-            </div>
           ))}
         </div>
       </div>

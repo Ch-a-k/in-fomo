@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Home page -->
+  <url>
+    <loc>https://in-fomo.com</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://in-fomo.com/en"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://in-fomo.com/pl"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk"/>
+    <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About page -->
+  <url>
+    <loc>https://in-fomo.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://in-fomo.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://in-fomo.com/pl/about"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/about"/>
+    <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Portfolio page -->
+  <url>
+    <loc>https://in-fomo.com/portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://in-fomo.com/en/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://in-fomo.com/pl/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/portfolio"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Contact page -->
+  <url>
+    <loc>https://in-fomo.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://in-fomo.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://in-fomo.com/pl/contact"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/contact"/>
+    <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://in-fomo.com/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://in-fomo.com/en/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://in-fomo.com/pl/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/privacy-policy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://in-fomo.com/terms-of-service</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://in-fomo.com/en/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://in-fomo.com/pl/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/terms-of-service"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Cookie Policy -->
+  <url>
+    <loc>https://in-fomo.com/cookie-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://in-fomo.com/en/cookie-policy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://in-fomo.com/pl/cookie-policy"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/cookie-policy"/>
+    <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/cookie-policy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset> 

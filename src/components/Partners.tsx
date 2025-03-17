@@ -87,7 +87,7 @@ const Partners = memo(() => {
         </div>
         
         {/* Сетка логотипов */}
-        <div className="grid grid-cols-7 sm:grid-cols-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 gap-4 ">
+        <div className="grid grid-cols-3 sm:grid-cols-7 md:grid-cols-7 lg:grid-cols-7 xl:grid-cols-7 gap-4 ">
           {partners.map((partner, index) => (
             <div 
               key={index} 
