@@ -126,10 +126,10 @@ export default function About() {
               <div className="inline-block px-6 py-2 mb-6 text-sm font-medium rounded-full bg-primary/90 text-white stagger-delay-1">
                 IN-FOMO.
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white stagger-delay-2">
+              <h1 className="heading-1 mb-6">
                 {t('title')} <span className="text-primary">2024</span>
               </h1>
-              <p className="text-base text-gray-500 dark:text-gray-400 stagger-delay-4">
+              <p className="mb-10 text-xl text-gray-600 dark:text-gray-300">
                 {t('description')}
               </p>
             </div>

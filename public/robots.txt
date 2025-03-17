@@ -1,10 +1,52 @@
+# Allow all web crawlers
 User-agent: *
 Allow: /
-Allow: /sitemap.xml
+Allow: /en/
+Allow: /pl/
+Allow: /uk/
+Allow: /kz/
+Allow: /*.js
+Allow: /*.css
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+Allow: /*.woff
+Allow: /*.woff2
 
-# Disallow admin and api routes
-Disallow: /api/*
-Disallow: /admin/*
+# Disallow specific paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /*?*
+Disallow: /*.json$
 
-# Sitemap
-Sitemap: https://in-fomo.com/sitemap.xml 
+# Crawl delay
+Crawl-delay: 10
+
+# Host
+Host: https://in-fomo.com
+
+# Sitemaps
+Sitemap: https://in-fomo.com/sitemap.xml
+
+# Additional rules for specific bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+Disallow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 1 

@@ -14,12 +14,13 @@ const SEO: React.FC<SEOProps> = ({
   title,
   description,
   keywords,
-  ogImage = 'https://in-fomo.com/og-image.jpg',
+  ogImage = '/images/og-image.jpg',
   noindex = false,
 }) => {
   const router = useRouter();
   const { t } = useTranslation('common');
   const locale = router.locale || 'en';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com';
   
   const defaultTitle = t('seo.defaultTitle');
   const defaultDescription = t('seo.defaultDescription');
@@ -29,7 +30,8 @@ const SEO: React.FC<SEOProps> = ({
   const siteDescription = description || defaultDescription;
   const siteKeywords = keywords || defaultKeywords;
 
-  const canonicalUrl = `https://in-fomo.com${router.asPath}`;
+  const canonicalUrl = `${siteUrl}${router.asPath}`;
+  const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 
   return (
     <Head>
@@ -44,7 +46,7 @@ const SEO: React.FC<SEOProps> = ({
       {/* Open Graph */}
       <meta property="og:title" content={siteTitle} />
       <meta property="og:description" content={siteDescription} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:image" content={fullOgImage} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="In-Fomo" />
@@ -53,13 +55,14 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={siteTitle} />
       <meta name="twitter:description" content={siteDescription} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={fullOgImage} />
       
       {/* Alternate language versions */}
-      <link rel="alternate" href={`https://in-fomo.com/en${router.asPath}`} hrefLang="en" />
-      <link rel="alternate" href={`https://in-fomo.com/pl${router.asPath}`} hrefLang="pl" />
-      <link rel="alternate" href={`https://in-fomo.com/uk${router.asPath}`} hrefLang="uk" />
-      <link rel="alternate" href={`https://in-fomo.com/kz${router.asPath}`} hrefLang="kz" />
+      <link rel="alternate" href={`${siteUrl}/en${router.asPath}`} hrefLang="en" />
+      <link rel="alternate" href={`${siteUrl}/pl${router.asPath}`} hrefLang="pl" />
+      <link rel="alternate" href={`${siteUrl}/uk${router.asPath}`} hrefLang="uk" />
+      <link rel="alternate" href={`${siteUrl}/kz${router.asPath}`} hrefLang="kz" />
+      <link rel="alternate" href={canonicalUrl} hrefLang="x-default" />
       
       {/* Schema.org markup */}
       <script type="application/ld+json">
