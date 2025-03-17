@@ -5,7 +5,14 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  i18n,
+  i18n: {
+    ...i18n,
+    localeDetection: false
+  },
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
   images: {
     remotePatterns: [
       {
@@ -31,6 +38,7 @@ const nextConfig = {
     optimizeFonts: true,
     optimizeImages: true,
     scrollRestoration: true,
+    optimizeCss: true,
   },
   webpack(config, { dev, isServer }) {
     // Оптимизация для production сборки

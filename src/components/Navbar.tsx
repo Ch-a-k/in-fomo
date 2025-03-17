@@ -111,12 +111,9 @@ const Navbar = () => {
                   width={40}
                   height={40}
                   className="w-full h-full object-contain"
-                  priority={true}
                   loading="eager"
                   quality={90}
                   sizes="(max-width: 768px) 28px, 40px"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml;base64,..."
                 />
               </div>
               <div className="relative h-5 w-20 md:h-8 md:w-32">
@@ -126,12 +123,9 @@ const Navbar = () => {
                   width={128}
                   height={32}
                   className="w-full h-full object-contain"
-                  priority={true}
                   loading="eager"
                   quality={90}
                   sizes="(max-width: 768px) 80px, 128px"
-                  placeholder="blur"
-                  blurDataURL="data:image/svg+xml;base64,..."
                 />
               </div>
             </div>
