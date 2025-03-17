@@ -1,12 +1,15 @@
-import { writeFileSync } from 'fs';
-import { globby } from 'globby';
-import prettier from 'prettier';
+import fs from 'fs';
 
-const DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com';
-const LANGUAGES = ['en', 'pl', 'uk', 'kz'];
-
-async function generateSitemap() {
+// Используем динамические импорты для ESM модулей
+async function generateSitemap(): Promise<void> {
   try {
+    // Динамически импортируем globby и prettier
+    const { globby } = await import('globby');
+    const prettier = await import('prettier');
+
+    const DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com';
+    const LANGUAGES = ['en', 'pl', 'uk', 'kz'];
+
     // Get all pages except dynamic ones, API routes, etc.
     const pages = await globby([
       'src/pages/**/*.tsx',
@@ -85,7 +88,7 @@ async function generateSitemap() {
     });
 
     // Write to file
-    writeFileSync('public/sitemap.xml', formatted);
+    fs.writeFileSync('public/sitemap.xml', formatted);
     console.log('✅ Sitemap generated successfully!');
   } catch (error) {
     console.error('❌ Error generating sitemap:', error);

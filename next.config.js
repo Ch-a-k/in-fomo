@@ -1,14 +1,17 @@
 /** @type {import('next').NextConfig} */
 const { i18n } = require('./next-i18next.config');
 
+// Убедимся, что localeDetection установлен в false
+const i18nConfig = {
+  ...i18n,
+  localeDetection: false
+};
+
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  i18n: {
-    ...i18n,
-    localeDetection: false
-  },
+  i18n: i18nConfig,
   onDemandEntries: {
     maxInactiveAge: 25 * 1000,
     pagesBufferLength: 2,
@@ -35,10 +38,8 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   experimental: {
-    optimizeFonts: true,
-    optimizeImages: true,
-    scrollRestoration: true,
     optimizeCss: true,
+    scrollRestoration: true
   },
   webpack(config, { dev, isServer }) {
     // Оптимизация для production сборки

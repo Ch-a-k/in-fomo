@@ -17,17 +17,36 @@ const TELEGRAM_CONFIG = {
   }
 };
 
-const ContactForm = ({ formType, t }) => {
-  const [formData, setFormData] = useState({ name: '', contact: '', message: '' })
-  const [status, setStatus] = useState('')
+interface ContactFormProps {
+  formType: 'general' | 'careers';
+  t: (key: string) => string;
+}
 
-  const handleChange = (e) => {
+interface FormData {
+  name: string;
+  contact: string;
+  message: string;
+}
+
+interface FormEvent extends React.FormEvent<HTMLFormElement> {
+  target: HTMLFormElement;
+}
+
+interface InputEvent extends React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> {
+  target: HTMLInputElement | HTMLTextAreaElement;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({ formType, t }) => {
+  const [formData, setFormData] = useState<FormData>({ name: '', contact: '', message: '' })
+  const [status, setStatus] = useState<string>('')
+
+  const handleChange = (e: InputEvent) => {
     const { name, value } = e.target
     if (name === 'message' && value.length > 4000) return
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setStatus('sending')
 
