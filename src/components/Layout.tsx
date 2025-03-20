@@ -1,7 +1,6 @@
 'use client';
 
 import { ReactNode } from 'react'
-import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import Navbar from './Navbar'
 import Footer from './Footer'
@@ -9,23 +8,26 @@ import CookieConsent from './CookieConsent'
 import Script from 'next/script'
 import Breadcrumbs from './Breadcrumbs'
 import SchemaOrg from './SchemaOrg'
+import SEO from './SEO'
 
 interface LayoutProps {
   children: ReactNode
   title?: string
   description?: string
+  keywords?: string
   footerVariant?: 'design1' | 'design2'
-  ogImage?: string
-  ogUrl?: string
+  noindex?: boolean
+  customStructuredData?: Record<string, any>
 }
 
 const Layout = ({ 
   children, 
-  title = 'IN-FOMO', 
-  description = '',
+  title,
+  description,
+  keywords,
   footerVariant = 'design1',
-  ogImage = '/images/og-image.png',
-  ogUrl = ''
+  noindex = false,
+  customStructuredData
 }: LayoutProps) => {
   const { t } = useTranslation('common')
   const canonicalUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com'
@@ -75,44 +77,19 @@ const Layout = ({
         </>
       )}
 
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={description || t('meta_description')} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description || t('meta_description')} />
-        <meta property="og:image" content={ogImage} />
-        <meta property="og:url" content={ogUrl} />
-        <meta property="og:type" content="website" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description || t('meta_description')} />
-        <meta name="twitter:image" content={ogImage} />
-        
-        {/* WhatsApp */}
-        <meta property="og:site_name" content="IN-FOMO" />
-        <meta property="og:locale" content="en_US" />
-        
-        {/* Telegram */}
-        <meta name="telegram:channel" content="@infomo" />
-        <meta name="telegram:image" content={`${ogUrl}${ogImage}`} />
-        
-        {/* Instagram and Threads (use same OG tags) */}
-        <meta property="instapp:owner_id" content="IN-FOMO" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-      </Head>
+      <SEO
+        title={title}
+        description={description}
+        keywords={keywords}
+        noindex={noindex}
+        customStructuredData={customStructuredData}
+      />
       
       <SchemaOrg
         title={title}
         description={description || t('meta_description')}
         canonicalUrl={canonicalUrl}
-        imageUrl={`${canonicalUrl}${ogImage}`}
+        imageUrl={`${canonicalUrl}/images/og-image.png`}
         dateModified={new Date().toISOString()}
       />
       
