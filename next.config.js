@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
-const { i18n } = require('./next-i18next.config');
+// Заменяем импорт локализации прямым определением
+const i18n = {
+  defaultLocale: 'en',
+  locales: ['en', 'uk', 'pl', 'kz'],
+  // Next.js 15.2.1 ожидает false в production
+  localeDetection: process.env.NODE_ENV === 'development' ? true : false
+};
 
 const nextConfig = {
   reactStrictMode: true,

@@ -6,19 +6,18 @@ import Head from 'next/head';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Partners from '../components/Partners';
+import SEO from '../components/SEO';
 
 export default function Home() {
   const { t } = useTranslation(['common', 'home']);
 
   return (
     <>
-      <Head>
-        <title>{t('meta.title', { ns: 'home', defaultValue: 'IN-FOMO | Innovative IT Solutions' })}</title>
-        <meta 
-          name="description" 
-          content={t('meta.description', { ns: 'home', defaultValue: 'IN-FOMO - leading IT company providing innovative software development, cloud solutions, and digital transformation services.' })} 
-        />
-      </Head>
+      <SEO 
+        title={t('meta.title', { ns: 'home', defaultValue: 'IN-FOMO | Innovative IT Solutions' })}
+        description={t('meta.description', { ns: 'home', defaultValue: 'IN-FOMO - leading IT company providing innovative software development, cloud solutions, and digital transformation services.' })}
+        ogImage="/images/og-image.png"
+      />
 
       <main>
         <Hero />
