@@ -28,8 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Layout
         title={pageProps.title || 'IN-FOMO'}
         description={pageProps.description || ''}
-        ogImage={pageProps.ogImage || '/images/og-image.png'}
-        ogUrl={pageProps.ogUrl || ''}
+        keywords={pageProps.keywords}
         footerVariant={pageProps.footerVariant || 'design1'}
       >
         <Component {...pageProps} />
