@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import '../styles/globals.css';
 import nextI18NextConfig from '../../next-i18next.config.js';
-import SEO from '../components/SEO';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [mounted, setMounted] = useState(false);
@@ -24,7 +23,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <SEO />
       <Layout
         title={pageProps.title || 'IN-FOMO'}
         description={pageProps.description || ''}
