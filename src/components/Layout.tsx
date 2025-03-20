@@ -22,7 +22,7 @@ interface LayoutProps {
 
 const Layout = ({ 
   children, 
-  title,
+  title = 'IN-FOMO.',
   description,
   keywords,
   footerVariant = 'design1',
@@ -33,6 +33,8 @@ const Layout = ({
   const canonicalUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com'
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID
   const gaId = process.env.NEXT_PUBLIC_GA_ID
+
+  const defaultDescription = t('meta_description', 'IN-FOMO - leading IT company providing innovative software development.')
 
   return (
     <>
@@ -79,7 +81,7 @@ const Layout = ({
 
       <SEO
         title={title}
-        description={description}
+        description={description || defaultDescription}
         keywords={keywords}
         noindex={noindex}
         customStructuredData={customStructuredData}
@@ -87,7 +89,7 @@ const Layout = ({
       
       <SchemaOrg
         title={title}
-        description={description || t('meta_description')}
+        description={description || defaultDescription}
         canonicalUrl={canonicalUrl}
         imageUrl={`${canonicalUrl}/images/og-image.png`}
         dateModified={new Date().toISOString()}
