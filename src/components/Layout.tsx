@@ -7,34 +7,19 @@ import Footer from './Footer'
 import CookieConsent from './CookieConsent'
 import Script from 'next/script'
 import Breadcrumbs from './Breadcrumbs'
-import SchemaOrg from './SchemaOrg'
-import SEO from './SEO'
 
 interface LayoutProps {
   children: ReactNode
-  title?: string
-  description?: string
-  keywords?: string
   footerVariant?: 'design1' | 'design2'
-  noindex?: boolean
-  customStructuredData?: Record<string, any>
 }
 
 const Layout = ({ 
   children, 
-  title = 'IN-FOMO.',
-  description,
-  keywords,
   footerVariant = 'design1',
-  noindex = false,
-  customStructuredData
 }: LayoutProps) => {
   const { t } = useTranslation('common')
-  const canonicalUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com'
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID
   const gaId = process.env.NEXT_PUBLIC_GA_ID
-
-  const defaultDescription = t('meta_description', 'IN-FOMO - leading IT company providing innovative software development.')
 
   return (
     <>
@@ -78,22 +63,6 @@ const Layout = ({
           </Script>
         </>
       )}
-
-      <SEO
-        title={title}
-        description={description || defaultDescription}
-        keywords={keywords}
-        noindex={noindex}
-        customStructuredData={customStructuredData}
-      />
-      
-      <SchemaOrg
-        title={title}
-        description={description || defaultDescription}
-        canonicalUrl={canonicalUrl}
-        imageUrl={`${canonicalUrl}/images/og-image.png`}
-        dateModified={new Date().toISOString()}
-      />
       
       <div className="flex flex-col min-h-screen">
         <Navbar />
