@@ -3,37 +3,71 @@ import type { NextRequest } from 'next/server'
 import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 
+// Поддерживаемые языки
 const locales = ['en', 'uk', 'pl', 'kz']
 const defaultLocale = 'en'
 
+// Сопоставление кодов языков для mapping двухбуквенных кодов языка к нашим локалям
+const languageMapping: Record<string, string> = {
+  'en': 'en', // английский
+  'uk': 'uk', // украинский
+  'pl': 'pl', // польский
+  'kk': 'kz', // казахский - стандартный код 'kk', но наша локаль 'kz'
+  'ru': 'kz', // русский - ближайший к украинскому, если нет казахского
+  'be': 'kz', // белорусский - ближайший к украинскому
+}
+
 function getLocale(request: NextRequest): string {
-  // Проверяем сохраненную локаль в cookie
+  // 1. Проверяем сохраненную локаль в cookie
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value
   if (cookieLocale && locales.includes(cookieLocale)) {
     return cookieLocale
   }
 
-  // Проверяем локаль в localStorage
-  if (typeof window !== 'undefined') {
-    const localStorageLocale = localStorage.getItem('i18nextLng')
-    if (localStorageLocale && locales.includes(localStorageLocale)) {
-      return localStorageLocale
-    }
-  }
-
-  // Получаем заголовки для определения предпочтительного языка
+  // 2. Получаем заголовки для определения предпочтительного языка
   const negotiatorHeaders: Record<string, string> = {}
-  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
+  request.headers.forEach((value, key) => {
+    negotiatorHeaders[key] = value
+  })
 
-  // Используем negotiator для определения предпочтительного языка
-  const languages = new Negotiator({ headers: negotiatorHeaders }).languages()
-  const locale = matchLocale(languages, locales, defaultLocale)
+  let languages: string[] = []
   
-  return locale
+  // Проверка Accept-Language заголовка
+  if (negotiatorHeaders['accept-language']) {
+    languages = new Negotiator({ headers: negotiatorHeaders }).languages()
+  }
+  
+  // 3. Ищем соответствие предпочтительного языка пользователя нашим локалям
+  try {
+    // Пытаемся найти прямое соответствие
+    const matchedLocale = matchLocale(languages, locales, defaultLocale)
+    return matchedLocale
+  } catch (error) {
+    // Если прямого соответствия нет, ищем в нашей таблице маппинга
+    for (const lang of languages) {
+      const shortLang = lang.split('-')[0].toLowerCase()
+      if (languageMapping[shortLang]) {
+        return languageMapping[shortLang]
+      }
+    }
+    
+    // Если совпадений нет, возвращаем английский по умолчанию
+    return defaultLocale
+  }
 }
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+  
+  // Пропускаем API роуты и статические файлы
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/static') ||
+    pathname.includes('.')
+  ) {
+    return
+  }
 
   // Проверяем, есть ли уже локаль в URL
   const pathnameIsMissingLocale = locales.every(
