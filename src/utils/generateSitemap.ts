@@ -1,20 +1,15 @@
-import { writeFileSync } from 'fs';
-import { globby } from 'globby';
-import prettier from 'prettier';
+const fs = require('fs');
+const glob = require('glob');
+const prettier = require('prettier');
 
 const DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com';
 const LANGUAGES = ['en', 'pl', 'uk', 'kz'];
 
 async function generateSitemap() {
   try {
-    // Get all pages except dynamic ones, API routes, etc.
-    const pages = await globby([
-      'src/pages/**/*.tsx',
-      '!src/pages/_*.tsx',
-      '!src/pages/api',
-      '!src/pages/404.tsx',
-      '!src/pages/500.tsx',
-    ]);
+    // Используем синхронную версию glob вместо промиса
+    const pagesPattern = 'src/pages/**/!(*.test|_*|api/**|404|500).{jsx,tsx}';
+    const pages = glob.sync(pagesPattern);
 
     const currentDate = new Date().toISOString().split('T')[0];
 
@@ -30,7 +25,7 @@ async function generateSitemap() {
             // Convert file path to URL path
             const path = page
               .replace('src/pages', '')
-              .replace('.tsx', '')
+              .replace(/\.(jsx|tsx)$/, '')
               .replace('/index', '');
 
             // Skip dynamic routes
@@ -85,7 +80,7 @@ async function generateSitemap() {
     });
 
     // Write to file
-    writeFileSync('public/sitemap.xml', formatted);
+    fs.writeFileSync('public/sitemap.xml', formatted);
     console.log('✅ Sitemap generated successfully!');
   } catch (error) {
     console.error('❌ Error generating sitemap:', error);

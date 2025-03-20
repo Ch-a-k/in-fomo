@@ -14,7 +14,6 @@ const teamMembers = [
   { name: "Volodymyr Zeleniuk", roleKey: "ceo_us" },
   { name: "Artur Voievoda", roleKey: "sales_manager" },
   { name: "Olha Berezenko", roleKey: "sales_manager" },
-  { name: "Eugene B", roleKey: "sales_manager" },
   { name: "Oleksandr Bodiul", roleKey: "full_stack_developer" },
   { name: "Oleksii Perevala", roleKey: "marketing_director" },
   { name: "Serhii Serhienko", roleKey: "business_consultant" },

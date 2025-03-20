@@ -18,13 +18,6 @@ export default function Home() {
           name="description" 
           content={t('meta.description', { ns: 'home', defaultValue: 'IN-FOMO - leading IT company providing innovative software development, cloud solutions, and digital transformation services.' })} 
         />
-        <meta property="og:title" content={t('meta.title', { ns: 'home', defaultValue: 'IN-FOMO | Innovative IT Solutions' })} />
-        <meta 
-          property="og:description" 
-          content={t('meta.description', { ns: 'home', defaultValue: 'IN-FOMO - leading IT company providing innovative software development, cloud solutions, and digital transformation services.' })} 
-        />
-        <meta property="og:image" content="/images/og-image.png" />
-        <meta property="og:type" content="website" />
       </Head>
 
       <main>

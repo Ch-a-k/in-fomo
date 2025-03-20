@@ -9,7 +9,7 @@ interface Partner {
 }
 
 const Partners = memo(() => {
-  const { t, ready } = useTranslation('home');
+  const { t, i18n } = useTranslation('home');
   const { resolvedTheme } = useTheme();
   const [partners, setPartners] = useState<Partner[]>([]);
   const [mounted, setMounted] = useState(false);
@@ -59,6 +59,9 @@ const Partners = memo(() => {
     }
   };
 
+  // Проверяем, загружены ли переводы
+  const hasTranslations = i18n.isInitialized && i18n.hasResourceBundle(i18n.language, 'home');
+
   return (
     <section className="relative overflow-hidden bg-light-bg dark:bg-dark-bg py-12 md:py-20">
       {/* Декоративный фон */}
@@ -74,15 +77,15 @@ const Partners = memo(() => {
         {/* Заголовок секции */}
         <div className="text-center max-w-3xl mx-auto mb-8">
           <div className="inline-block px-6 py-2 mb-4 text-sm font-medium rounded-full bg-primary/10 text-primary">
-            {ready ? t('our_partners') : 'Наши надежные партнеры'}
+            {hasTranslations ? t('our_partners') : 'Наши надежные партнеры'}
           </div>
           
           <h2 className="text-3xl font-bold sm:text-4xl mb-4">
-            {ready ? t('our_partners') : 'Наши надежные партнеры'}
+            {hasTranslations ? t('our_partners') : 'Наши надежные партнеры'}
           </h2>
           
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-300">
-            {ready ? t('partners_description') : 'Мы сотрудничаем с ведущими компаниями из различных отраслей для предоставления инновационных решений, адаптированных к потребностям вашего бизнеса.'}
+            {hasTranslations ? t('partners_description') : 'Мы сотрудничаем с ведущими компаниями из различных отраслей для предоставления инновационных решений, адаптированных к потребностям вашего бизнеса.'}
           </p>
         </div>
         

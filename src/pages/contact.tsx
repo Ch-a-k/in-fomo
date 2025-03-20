@@ -17,18 +17,59 @@ const TELEGRAM_CONFIG = {
   }
 };
 
+// Функция для валидации email
+const isValidEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+// Функция для валидации телефона (упрощенная, принимает разные форматы)
+const isValidPhone = (phone) => {
+  // Удаляем все нецифровые символы для проверки
+  const digitsOnly = phone.replace(/\D/g, '');
+  // Проверяем, что после удаления символов осталось не менее 7 цифр
+  return digitsOnly.length >= 7;
+};
+
 const ContactForm = ({ formType, t }) => {
   const [formData, setFormData] = useState({ name: '', contact: '', message: '' })
   const [status, setStatus] = useState('')
+  const [contactError, setContactError] = useState('')
 
   const handleChange = (e) => {
     const { name, value } = e.target
     if (name === 'message' && value.length > 4000) return
+    
+    // Очищаем ошибку при изменении контактной информации
+    if (name === 'contact') {
+      setContactError('')
+    }
+    
     setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const validateContact = (contact) => {
+    if (!contact.trim()) {
+      setContactError(t('forms.fields.contact.required'))
+      return false
+    }
+    
+    if (!isValidEmail(contact) && !isValidPhone(contact)) {
+      setContactError(t('forms.fields.contact.invalid'))
+      return false
+    }
+    
+    return true
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
+    // Проверяем валидность контактной информации
+    if (!validateContact(formData.contact)) {
+      return
+    }
+    
     setStatus('sending')
 
     const config = TELEGRAM_CONFIG[formType]
@@ -87,7 +128,7 @@ const ContactForm = ({ formType, t }) => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-1 focus:ring-[#FF5a00] transition-colors placeholder-gray-500"
+                className="block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-[#FF5A00] transition-colors placeholder-gray-500"
                 placeholder={t('forms.fields.name.placeholder')}
               />
             </div>
@@ -96,15 +137,20 @@ const ContactForm = ({ formType, t }) => {
               <label className="block text-base text-gray-900 dark:text-white mb-2 whitespace-nowrap text-ellipsis overflow-hidden">
                 {t('forms.fields.contact.label')} <span className="text-[#FF5a00]">*</span>
               </label>
-              <input
-                type="text"
-                name="contact"
-                value={formData.contact}
-                onChange={handleChange}
-                required
-                className="block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-1 focus:ring-[#FF5a00] transition-colors placeholder-gray-500"
-                placeholder={t('forms.fields.contact.placeholder')}
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  name="contact"
+                  value={formData.contact}
+                  onChange={handleChange}
+                  required
+                  className={`block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border ${contactError ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'} rounded-lg focus:border-[#FF5A00] focus:ring-[#FF5a00] transition-colors placeholder-gray-500`}
+                  placeholder={t('forms.fields.contact.placeholder')}
+                />
+                {contactError && (
+                  <div className="text-red-500 text-sm mt-1">{contactError}</div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -119,11 +165,11 @@ const ContactForm = ({ formType, t }) => {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-1 focus:ring-[#FF5a00] transition-colors resize-none placeholder-gray-500"
+                className="block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-[#FF5a00] transition-colors resize-none placeholder-gray-500"
                 placeholder={t('forms.fields.message.placeholder')}
               />
               <div className="absolute bottom-3 right-3 text-sm text-gray-500">
-                {4000 - formData.message.length} {t('forms.feedback.charactersLeft')}
+                {3000 - formData.message.length} {t('forms.feedback.charactersLeft')}
               </div>
             </div>
           </div>

@@ -28,8 +28,6 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   experimental: {
-    optimizeFonts: true,
-    optimizeImages: true,
     scrollRestoration: true,
   },
   webpack(config, { dev, isServer }) {

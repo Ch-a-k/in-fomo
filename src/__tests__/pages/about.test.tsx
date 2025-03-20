@@ -63,7 +63,6 @@ describe('About Page', () => {
       "Volodymyr Zeleniuk",
       "Artur Voievoda",
       "Olha Berezenko",
-      "Eugene B",
       "Oleksandr Bodiul",
       "Oleksii Perevala",
       "Serhii Serhienko",
