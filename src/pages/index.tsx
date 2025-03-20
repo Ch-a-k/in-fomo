@@ -1,12 +1,11 @@
 import { GetStaticProps } from 'next/types';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import Head from 'next/head';
+import SEO from '../components/SEO';
 
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Partners from '../components/Partners';
-import SEO from '../components/SEO';
 
 export default function Home() {
   const { t } = useTranslation(['common', 'home']);
@@ -16,7 +15,6 @@ export default function Home() {
       <SEO 
         title={t('meta.title', { ns: 'home', defaultValue: 'IN-FOMO | Innovative IT Solutions' })}
         description={t('meta.description', { ns: 'home', defaultValue: 'IN-FOMO - leading IT company providing innovative software development, cloud solutions, and digital transformation services.' })}
-        ogImage="/images/og-image.png"
       />
 
       <main>
@@ -36,7 +34,6 @@ export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
       ...translations,
       title: 'IN-FOMO | Innovative IT Solutions',
       description: 'IN-FOMO - leading IT company providing innovative software development, cloud solutions, and digital transformation services.',
-      ogImage: '/images/og-image.png',
       footerVariant: 'design1'
     },
   };

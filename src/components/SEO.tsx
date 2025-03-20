@@ -6,9 +6,6 @@ interface SEOProps {
   title?: string;
   description?: string;
   keywords?: string;
-  ogImage?: string;
-  ogImageAlt?: string;
-  ogType?: string;
   noindex?: boolean;
   customStructuredData?: Record<string, any>;
 }
@@ -17,9 +14,6 @@ const SEO: React.FC<SEOProps> = ({
   title,
   description,
   keywords,
-  ogImage = '/images/og-image.png',
-  ogImageAlt,
-  ogType = 'website',
   noindex = false,
   customStructuredData,
 }) => {
@@ -31,19 +25,12 @@ const SEO: React.FC<SEOProps> = ({
   const defaultTitle = t('seo.defaultTitle');
   const defaultDescription = t('seo.defaultDescription');
   const defaultKeywords = t('seo.defaultKeywords');
-  const defaultOgImageAlt = t('seo.defaultOgImageAlt', 'In-Fomo branding image');
 
   const siteTitle = title ? `${title} | In-Fomo` : defaultTitle;
   const siteDescription = description || defaultDescription;
   const siteKeywords = keywords || defaultKeywords;
-  const imageAlt = ogImageAlt || defaultOgImageAlt;
 
   const canonicalUrl = `${siteUrl}${router.asPath}`;
-  const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
-
-  // Основные размеры OG изображения
-  const ogImageWidth = 1200;
-  const ogImageHeight = 630;
 
   // Базовая структура Schema.org для организации
   const baseStructuredData = {
@@ -80,35 +67,25 @@ const SEO: React.FC<SEOProps> = ({
       
       <link rel="canonical" href={canonicalUrl} />
       
-      {/* Open Graph - поддерживается Facebook, Instagram, Threads, WhatsApp, Telegram */}
-      <meta property="og:title" content={siteTitle} />
-      <meta property="og:description" content={siteDescription} />
-      <meta property="og:image" content={fullOgImage} />
-      <meta property="og:image:alt" content={imageAlt} />
-      <meta property="og:image:width" content={ogImageWidth.toString()} />
-      <meta property="og:image:height" content={ogImageHeight.toString()} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content="In-Fomo" />
-      <meta property="og:locale" content={locale === 'en' ? 'en_US' : `${locale}_${locale.toUpperCase()}`} />
+      {/* Статический Open Graph */}
+      <meta property="og:title" content="IN-FOMO | Innovative IT Solutions" />
+      <meta property="og:description" content="IN-FOMO - leading IT company providing innovative software development, cloud solutions, and digital transformation services." />
+      <meta property="og:image" content="https://in-fomo.com/images/og-image.png" />
+      <meta property="og:image:alt" content="IN-FOMO branding image" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:url" content="https://in-fomo.com" />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="IN-FOMO" />
       
-      {/* Альтернативные локали для Open Graph */}
-      {router.locales?.filter(l => l !== locale).map(loc => (
-        <meta 
-          key={`og-locale-alt-${loc}`} 
-          property="og:locale:alternate" 
-          content={loc === 'en' ? 'en_US' : `${loc}_${loc.toUpperCase()}`} 
-        />
-      ))}
-      
-      {/* Twitter/X.com специфичные мета-теги */}
+      {/* Статические Twitter/X.com мета-теги */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@in_fomo" />
       <meta name="twitter:creator" content="@in_fomo" />
-      <meta name="twitter:title" content={siteTitle} />
-      <meta name="twitter:description" content={siteDescription} />
-      <meta name="twitter:image" content={fullOgImage} />
-      <meta name="twitter:image:alt" content={imageAlt} />
+      <meta name="twitter:title" content="IN-FOMO | Innovative IT Solutions" />
+      <meta name="twitter:description" content="IN-FOMO - leading IT company providing innovative software development, cloud solutions, and digital transformation services." />
+      <meta name="twitter:image" content="https://in-fomo.com/images/og-image.png" />
+      <meta name="twitter:image:alt" content="IN-FOMO branding image" />
       
       {/* Альтернативные версии на разных языках */}
       <link rel="alternate" href={`${siteUrl}/en${router.asPath}`} hrefLang="en" />
@@ -116,15 +93,6 @@ const SEO: React.FC<SEOProps> = ({
       <link rel="alternate" href={`${siteUrl}/uk${router.asPath}`} hrefLang="uk" />
       <link rel="alternate" href={`${siteUrl}/kz${router.asPath}`} hrefLang="kz" />
       <link rel="alternate" href={canonicalUrl} hrefLang="x-default" />
-      
-      {/* WhatsApp и Viber используют Open Graph, но можно добавить специфичные теги */}
-      <meta property="al:ios:url" content={canonicalUrl} />
-      <meta property="al:ios:app_store_id" content="310633997" /> {/* ID WhatsApp в App Store */}
-      <meta property="al:ios:app_name" content="WhatsApp" />
-      
-      <meta property="al:android:url" content={canonicalUrl} />
-      <meta property="al:android:package" content="com.whatsapp" />
-      <meta property="al:android:app_name" content="WhatsApp" />
       
       {/* Schema.org разметка */}
       <script type="application/ld+json">
