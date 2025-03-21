@@ -78,7 +78,7 @@ export default function EnvCheck({ serverEnv }: EnvCheckProps) {
         <h3 className="text-lg font-semibold mb-2">Важно!</h3>
         <p>
           Переменная <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">NEXT_PUBLIC_SITE_URL</code>{' '}
-          должна быть задана в настройках проекта на Vercel в разделе "Environment Variables".
+          должна быть задана в настройках проекта на Vercel в разделе &quot;Environment Variables&quot;.
         </p>
         <p className="mt-2">
           Пример значения: <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded">https://in-fomo.com</code>
