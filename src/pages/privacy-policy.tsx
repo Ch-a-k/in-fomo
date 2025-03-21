@@ -1,9 +1,8 @@
 import { GetStaticProps } from 'next/types';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import Head from 'next/head';
 import { useTheme } from 'next-themes';
-
+import SEO from '../components/SEO';
 
 export default function PrivacyPolicy() {
   const { t } = useTranslation(['privacy', 'common']);
@@ -11,14 +10,10 @@ export default function PrivacyPolicy() {
 
   return (
     <>
-      <Head>
-        <title>{t('meta.title', { ns: 'privacy', defaultValue: 'IN-FOMO | Privacy Policy' })}</title>
-        <meta name="description" content={t('meta.description', { ns: 'privacy', defaultValue: 'Read our privacy policy to understand how IN-FOMO protects and handles your personal information.' })} />
-        <meta property="og:title" content={t('meta.title', { ns: 'privacy', defaultValue: 'IN-FOMO | Privacy Policy' })} />
-        <meta property="og:description" content={t('meta.description', { ns: 'privacy', defaultValue: 'Read our privacy policy to understand how IN-FOMO protects and handles your personal information.' })} />
-        <meta property="og:image" content="/images/og-image.png" />
-        <meta property="og:type" content="website" />
-      </Head>
+      <SEO 
+        title={t('meta.title', { ns: 'privacy', defaultValue: 'IN-FOMO | Privacy Policy' })}
+        description={t('meta.description', { ns: 'privacy', defaultValue: 'Read our privacy policy to understand how IN-FOMO protects and handles your personal information.' })}
+      />
 
       {/* Hero */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">

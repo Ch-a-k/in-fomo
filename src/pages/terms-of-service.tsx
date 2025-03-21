@@ -1,8 +1,8 @@
 import { GetStaticProps } from 'next/types'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Head from 'next/head'
 import { useTheme } from 'next-themes'
+import SEO from '../components/SEO'
 
 export default function TermsOfService() {
   const { t } = useTranslation(['terms', 'common'])
@@ -10,14 +10,10 @@ export default function TermsOfService() {
 
   return (
     <>
-      <Head>
-        <title>{t('meta.title', { ns: 'terms', defaultValue: 'IN-FOMO | Terms of Service' })}</title>
-        <meta name="description" content={t('meta.description', { ns: 'terms', defaultValue: 'Review our terms of service to understand the conditions for using IN-FOMO\'s services and products.' })} />
-        <meta property="og:title" content={t('meta.title', { ns: 'terms', defaultValue: 'IN-FOMO | Terms of Service' })} />
-        <meta property="og:description" content={t('meta.description', { ns: 'terms', defaultValue: 'Review our terms of service to understand the conditions for using IN-FOMO\'s services and products.' })} />
-        <meta property="og:image" content="/images/og-image.png" />
-        <meta property="og:type" content="website" />
-      </Head>
+      <SEO 
+        title={t('meta.title', { ns: 'terms', defaultValue: 'IN-FOMO | Terms of Service' })}
+        description={t('meta.description', { ns: 'terms', defaultValue: 'Review our terms of service to understand the conditions for using IN-FOMO\'s services and products.' })}
+      />
 
       {/* Hero */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">

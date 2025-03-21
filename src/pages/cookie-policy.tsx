@@ -1,21 +1,17 @@
 import { GetStaticProps } from 'next/types'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
-import Head from 'next/head'
+import SEO from '../components/SEO'
 
 const CookiePolicy = () => {
   const { t } = useTranslation('common')
 
   return (
     <>
-      <Head>
-        <title>{t('meta.title', { ns: 'common', defaultValue: 'IN-FOMO | Cookie Policy' })}</title>
-        <meta name="description" content={t('meta.description', { ns: 'common', defaultValue: 'Learn about how we use cookies and similar technologies on our website.' })} />
-        <meta property="og:title" content={t('meta.title', { ns: 'common', defaultValue: 'IN-FOMO | Cookie Policy' })} />
-        <meta property="og:description" content={t('meta.description', { ns: 'common', defaultValue: 'Learn about how we use cookies and similar technologies on our website.' })} />
-        <meta property="og:image" content="/images/og-image.png" />
-        <meta property="og:type" content="website" />
-      </Head>
+      <SEO 
+        title={t('meta.title', { ns: 'common', defaultValue: 'IN-FOMO | Cookie Policy' })}
+        description={t('meta.description', { ns: 'common', defaultValue: 'Learn about how we use cookies and similar technologies on our website.' })}
+      />
 
       <div className="bg-light-bg dark:bg-dark-bg min-h-screen">
         <div className="container mx-auto px-4 py-16">

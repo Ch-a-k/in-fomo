@@ -1,11 +1,11 @@
 import type { GetStaticProps } from 'next/types'
-import Head from 'next/head'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import SEO from '../components/SEO'
 
 // Данные (без переводов, так как они будут в i18n)
 const teamMembers = [
@@ -97,18 +97,12 @@ export default function About() {
   const { theme } = useTheme()
   const router = useRouter()
 
-
-
   return (
     <>
-      <Head>
-        <title>{t('meta.title')}</title>
-        <meta name="description" content={t('meta.description')} />
-        <meta property="og:title" content={t('meta.title')} />
-        <meta property="og:description" content={t('meta.description')} />
-        <meta property="og:image" content="/images/og-image.png" />
-        <meta property="og:type" content="website" />
-      </Head>
+      <SEO 
+        title={t('meta.title')}
+        description={t('meta.description')}
+      />
 
       {/* Hero */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">
@@ -247,7 +241,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       ...translations,
       title: 'IN-FOMO | About Us',
       description: 'Learn about IN-FOMO - our team, values, and mission to deliver innovative IT solutions.',
-      ogImage: '/images/og-image.png',
       footerVariant: 'design1'
     },
   };

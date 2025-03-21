@@ -5,7 +5,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import event from '../utils/analytics';
-import Head from 'next/head';
+import SEO from '../components/SEO';
 
 // Типы для проектов
 interface Project {
@@ -518,14 +518,10 @@ const Portfolio = () => {
 
   return (
     <>
-      <Head>
-        <title>{t('meta.title', { ns: 'portfolio', defaultValue: 'IN-FOMO | Portfolio' })}</title>
-        <meta name="description" content={t('meta.description', { ns: 'portfolio', defaultValue: 'Explore our portfolio of innovative IT solutions and successful projects across various industries.' })} />
-        <meta property="og:title" content={t('meta.title', { ns: 'portfolio', defaultValue: 'IN-FOMO | Portfolio' })} />
-        <meta property="og:description" content={t('meta.description', { ns: 'portfolio', defaultValue: 'Explore our portfolio of innovative IT solutions and successful projects across various industries.' })} />
-        <meta property="og:image" content="/images/og-image.png" />
-        <meta property="og:type" content="website" />
-      </Head>
+      <SEO 
+        title={t('meta.title', { ns: 'portfolio', defaultValue: 'IN-FOMO | Portfolio' })}
+        description={t('meta.description', { ns: 'portfolio', defaultValue: 'Explore our portfolio of innovative IT solutions and successful projects across various industries.' })}
+      />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">

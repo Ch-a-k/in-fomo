@@ -17,8 +17,6 @@ export default function Home() {
       <SEO 
         title="IN-FOMO | Innovative IT Solutions"
         description="Leading IT company providing innovative software development, cloud solutions, and digital transformation services."
-        ogImage="/images/og-image.png"
-        ogType="website"
       />
       <main>
         <Hero />

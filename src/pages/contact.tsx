@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { useTheme } from 'next-themes'
 import { useState } from 'react'
-import Head from 'next/head'
+import SEO from '../components/SEO'
 
 // Telegram bots configuration
 const TELEGRAM_CONFIG = {
@@ -217,10 +217,10 @@ export default function Contact() {
 
   return (
     <>
-      <Head>
-        <title>{t('meta.title')}</title>
-        <meta name="description" content={t('meta.description')} />
-      </Head>
+      <SEO 
+        title={t('meta.title')}
+        description={t('meta.description')}
+      />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">
@@ -308,7 +308,6 @@ export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
       ...translations,
       title: 'IN-FOMO | Contact Us',
       description: 'Get in touch with IN-FOMO for your IT project needs. We provide innovative solutions for businesses worldwide.',
-      ogImage: '/images/og-image.png',
       footerVariant: 'design1'
     },
   };
