@@ -29,11 +29,6 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/about" />
     <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/about" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://in-fomo.com/about" />
-
-    <image:image>
-      <image:loc>https://in-fomo.com/images/about/hero.jpg</image:loc>
-      <image:title>IN-FOMO About</image:title>
-    </image:image>
   </url>
 
   <url>
@@ -60,11 +55,6 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/portfolio" />
     <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/portfolio" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://in-fomo.com/portfolio" />
-
-    <image:image>
-      <image:loc>https://in-fomo.com/images/portfolio/hero.jpg</image:loc>
-      <image:title>IN-FOMO Portfolio</image:title>
-    </image:image>
   </url>
 
   <url>
@@ -91,5 +81,44 @@
     <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/terms-of-service" />
     <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/terms-of-service" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://in-fomo.com/terms-of-service" />
+  </url>
+
+  <url>
+    <loc>https://in-fomo.com/cookie-policy</loc>
+    <lastmod>2025-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+
+    <xhtml:link rel="alternate" hreflang="en" href="https://in-fomo.com/en/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://in-fomo.com/pl/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://in-fomo.com/cookie-policy" />
+  </url>
+
+  <url>
+    <loc>https://in-fomo.com/env-check</loc>
+    <lastmod>2025-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+
+    <xhtml:link rel="alternate" hreflang="en" href="https://in-fomo.com/en/env-check" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://in-fomo.com/pl/env-check" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/env-check" />
+    <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/env-check" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://in-fomo.com/env-check" />
+  </url>
+
+  <url>
+    <loc>https://in-fomo.com/test-seo</loc>
+    <lastmod>2025-03-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+
+    <xhtml:link rel="alternate" hreflang="en" href="https://in-fomo.com/en/test-seo" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://in-fomo.com/pl/test-seo" />
+    <xhtml:link rel="alternate" hreflang="uk" href="https://in-fomo.com/uk/test-seo" />
+    <xhtml:link rel="alternate" hreflang="kz" href="https://in-fomo.com/kz/test-seo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://in-fomo.com/test-seo" />
   </url>
 </urlset>

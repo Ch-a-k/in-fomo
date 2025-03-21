@@ -28,10 +28,8 @@ const SEO = ({
   // Получаем языковой префикс из маршрута
   const { locale } = router;
   
-  // Базовый URL сайта с проверкой и форматированием
-  let siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com';
-  // Убеждаемся, что URL не заканчивается слэшем
-  siteUrl = siteUrl.replace(/\/$/, '');
+  // Базовый URL сайта
+  const siteUrl = 'https://in-fomo.com';
   
   // Формируем канонический URL
   const path = router.asPath.split('?')[0].split('#')[0]; // Удаляем query параметры и хэши
