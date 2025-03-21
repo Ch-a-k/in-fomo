@@ -9,6 +9,13 @@ interface SEOProps {
   ogImage?: string;
 }
 
+const defaultMetadata = {
+  name: 'IN-FOMO',
+  description: 'Leading IT company providing innovative software development, cloud solutions, and digital transformation services.',
+  ogImage: '/og-image.png',
+  twitterHandle: '@infomo',
+};
+
 const SEO = ({
   title,
   description,
@@ -31,16 +38,15 @@ const SEO = ({
   const canonicalUrl = `${siteUrl}${path === '/' ? '' : path}`;
   
   // Получаем абсолютный URL для OG-изображения
-  const defaultImage = '/og-image.png'; // Изображение в корне public
   const ogImageUrl = ogImage 
     ? `${siteUrl}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}` 
-    : `${siteUrl}${defaultImage}`;
+    : `${siteUrl}${defaultMetadata.ogImage}`;
   
   // Формируем заголовок с поддержкой локализации
-  const pageTitle = title || t('meta.title', { ns: router.pathname.substring(1) || 'common', defaultValue: 'IN-FOMO | Innovative IT Solutions' });
+  const pageTitle = title || t('meta.title', { ns: router.pathname.substring(1) || 'common', defaultValue: `${defaultMetadata.name} | Innovative IT Solutions` });
   
   // Аналогично для описания
-  const pageDescription = description || t('meta.description', { ns: router.pathname.substring(1) || 'common', defaultValue: 'Leading IT company providing innovative software development, cloud solutions, and digital transformation services.' });
+  const pageDescription = description || t('meta.description', { ns: router.pathname.substring(1) || 'common', defaultValue: defaultMetadata.description });
 
   // Выводим отладочную информацию в консоль в режиме разработки
   if (process.env.NODE_ENV === 'development') {
@@ -70,7 +76,7 @@ const SEO = ({
       <meta property="og:image" content={ogImageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content="IN-FOMO" />
+      <meta property="og:site_name" content={defaultMetadata.name} />
       <meta property="og:locale" content={locale || 'en'} />
       
       {/* Telegram специфичные теги */}
@@ -81,8 +87,8 @@ const SEO = ({
       
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@infomo" />
-      <meta name="twitter:creator" content="@infomo" />
+      <meta name="twitter:site" content={defaultMetadata.twitterHandle} />
+      <meta name="twitter:creator" content={defaultMetadata.twitterHandle} />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:image" content={ogImageUrl} />
