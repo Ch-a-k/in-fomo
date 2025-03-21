@@ -1,11 +1,9 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import { SEO } from '../components/SEO'
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <SEO />
         <link
           rel="preload"
           href="/fonts/SofiaSans-Black.ttf"
