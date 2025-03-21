@@ -4,6 +4,14 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Базовые мета-теги */}
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="address=no" />
+        
+        {/* Предзагрузка шрифтов */}
         <link
           rel="preload"
           href="/fonts/SofiaSans-Black.ttf"
@@ -11,6 +19,8 @@ export default function Document() {
           type="font/ttf"
           crossOrigin="anonymous"
         />
+        
+        {/* Определение шрифта */}
         <style
           dangerouslySetInnerHTML={{
             __html: `

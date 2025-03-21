@@ -31,14 +31,12 @@ const SEO = ({
   const canonicalUrl = `${siteUrl}${path === '/' ? '' : path}`;
   
   // Получаем абсолютный URL для OG-изображения
-  // Используем изображение в корне, если оно существует, иначе в подпапке images
   const defaultImage = '/og-image.png'; // Изображение в корне public
   const ogImageUrl = ogImage 
     ? `${siteUrl}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}` 
     : `${siteUrl}${defaultImage}`;
   
   // Формируем заголовок с поддержкой локализации
-  // Если передан конкретный заголовок, используем его, иначе пытаемся получить из переводов
   const pageTitle = title || t('meta.title', { ns: router.pathname.substring(1) || 'common', defaultValue: 'IN-FOMO | Innovative IT Solutions' });
   
   // Аналогично для описания
@@ -64,7 +62,7 @@ const SEO = ({
       <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
       <meta name="theme-color" content="#ff5a00" />
       
-      {/* Open Graph / Facebook - сначала Open Graph теги для базового взаимодействия со всеми платформами */}
+      {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={pageTitle} />
@@ -75,11 +73,19 @@ const SEO = ({
       <meta property="og:site_name" content="IN-FOMO" />
       <meta property="og:locale" content={locale || 'en'} />
       
-      {/* Twitter Cards - специфичные теги для Twitter */}
+      {/* Telegram специфичные теги */}
+      <meta name="telegram:card" content="summary_large_image" />
+      <meta name="telegram:image" content={ogImageUrl} />
+      <meta name="telegram:title" content={pageTitle} />
+      <meta name="telegram:description" content={pageDescription} />
+      
+      {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@infomo" />
       <meta name="twitter:creator" content="@infomo" />
-      {/* Twitter использует og:title и другие og: теги как fallback, поэтому дублирование не обязательно */}
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      <meta name="twitter:image" content={ogImageUrl} />
       
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
