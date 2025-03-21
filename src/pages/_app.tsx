@@ -3,7 +3,6 @@ import { appWithTranslation } from 'next-i18next';
 import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
 import '../styles/globals.css';
 import nextI18NextConfig from '../../next-i18next.config.js';
 
@@ -24,7 +23,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <SEO />
       <Layout footerVariant={pageProps.footerVariant || 'design1'}>
         <Component {...pageProps} />
       </Layout>
