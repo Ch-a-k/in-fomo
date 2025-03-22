@@ -7,6 +7,7 @@ import Footer from './Footer'
 import CookieConsent from './CookieConsent'
 import Script from 'next/script'
 import Breadcrumbs from './Breadcrumbs'
+import Hotjar from './Hotjar'
 
 interface LayoutProps {
   children: ReactNode
@@ -63,6 +64,9 @@ const Layout = ({
           </Script>
         </>
       )}
+      
+      {/* Hotjar Tracking */}
+      <Hotjar hotjarId={5347229} />
       
       <div className="flex flex-col min-h-screen">
         <Navbar />
