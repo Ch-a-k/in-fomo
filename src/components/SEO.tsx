@@ -9,13 +9,6 @@ interface SEOProps {
   ogImage?: string;
 }
 
-const defaultMetadata = {
-  name: 'IN-FOMO',
-  description: 'Leading IT company providing innovative software development, cloud solutions, and digital transformation services.',
-  ogImage: '/og-image.png',
-  twitterHandle: '@infomo',
-};
-
 const SEO = ({
   title,
   description,
@@ -23,38 +16,36 @@ const SEO = ({
   ogImage,
 }: SEOProps) => {
   const router = useRouter();
-  const { t, i18n } = useTranslation();
-  
-  // Получаем языковой префикс из маршрута
-  const { locale } = router;
-  
+  const { t } = useTranslation();
+
   // Базовый URL сайта
   const siteUrl = 'https://in-fomo.com';
-  
-  // Формируем канонический URL
-  const path = router.asPath.split('?')[0].split('#')[0]; // Удаляем query параметры и хэши
-  const canonicalUrl = `${siteUrl}${path === '/' ? '' : path}`;
-  
-  // Получаем абсолютный URL для OG-изображения
-  const ogImageUrl = ogImage 
-    ? `${siteUrl}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}` 
-    : `${siteUrl}${defaultMetadata.ogImage}`;
-  
-  // Формируем заголовок с поддержкой локализации
-  const pageTitle = title || t('meta.title', { ns: router.pathname.substring(1) || 'common', defaultValue: `${defaultMetadata.name} | Innovative IT Solutions` });
-  
-  // Аналогично для описания
-  const pageDescription = description || t('meta.description', { ns: router.pathname.substring(1) || 'common', defaultValue: defaultMetadata.description });
 
-  // Выводим отладочную информацию в консоль в режиме разработки
-  if (process.env.NODE_ENV === 'development') {
-    console.log('SEO Component Debug:');
-    console.log('- Page Path:', router.pathname);
-    console.log('- Canonical URL:', canonicalUrl);
-    console.log('- OG Image URL:', ogImageUrl);
-    console.log('- Title:', pageTitle);
-    console.log('- Description:', pageDescription);
-  }
+  // Формируем канонический URL
+  const path = router.asPath.split('?')[0].split('#')[0]; // Удаляем query и хэш
+  const canonicalUrl = `${siteUrl}${path === '/' ? '' : path}`;
+
+  // Абсолютный URL для OG изображения
+  const ogImageUrl = ogImage
+    ? `${siteUrl}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`
+    : `${siteUrl}/og-image.png`;
+
+  // Заголовок с поддержкой локализации
+  const pageTitle =
+    title ||
+    t('meta.title', {
+      ns: router.pathname.substring(1) || 'common',
+      defaultValue: 'IN-FOMO | Innovative IT Solutions',
+    });
+
+  // Описание с поддержкой локализации
+  const pageDescription =
+    description ||
+    t('meta.description', {
+      ns: router.pathname.substring(1) || 'common',
+      defaultValue:
+        'Leading IT company providing innovative software development, cloud solutions, and digital transformation services.',
+    });
 
   return (
     <Head>
@@ -65,8 +56,8 @@ const SEO = ({
       <link rel="icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
       <meta name="theme-color" content="#ff5a00" />
-      
-      {/* Open Graph / Facebook */}
+
+      {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={pageTitle} />
@@ -74,43 +65,41 @@ const SEO = ({
       <meta property="og:image" content={ogImageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content={defaultMetadata.name} />
-      <meta property="og:locale" content={locale || 'en'} />
-      
-      {/* Telegram специфичные теги */}
+      <meta property="og:image:alt" content={pageTitle} /> {/* Добавлено для доступности */}
+      <meta property="og:site_name" content="IN-FOMO" />
+      <meta property="og:locale" content={router.locale || 'en'} />
+
+      {/* Telegram */}
       <meta name="telegram:card" content="summary_large_image" />
       <meta name="telegram:image" content={ogImageUrl} />
       <meta name="telegram:title" content={pageTitle} />
       <meta name="telegram:description" content={pageDescription} />
-      
+
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={defaultMetadata.twitterHandle} />
-      <meta name="twitter:creator" content={defaultMetadata.twitterHandle} />
+      <meta name="twitter:site" content="@infomo" />
+      <meta name="twitter:creator" content="@infomo" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
       <meta name="twitter:image" content={ogImageUrl} />
-      
-      {/* Canonical URL */}
+
+      {/* Канонический URL */}
       <link rel="canonical" href={canonicalUrl} />
-      
-      {/* Alternate language links */}
+
+      {/* Альтернативные языковые ссылки */}
       {router.locales?.map((loc) => (
-        <link 
+        <link
           key={`alternate-${loc}`}
-          rel="alternate" 
-          hrefLang={loc} 
-          href={`${siteUrl}/${loc === router.defaultLocale ? '' : loc}${path === '/' ? '' : path}`} 
+          rel="alternate"
+          hrefLang={loc}
+          href={`${siteUrl}/${loc === router.defaultLocale ? '' : loc}${path === '/' ? '' : path}`}
         />
       ))}
-      
-      {/* Robots */}
-      <meta 
-        name="robots" 
-        content={noIndex ? "noindex,nofollow" : "index,follow"} 
-      />
+
+      {/* Управление индексацией */}
+      <meta name="robots" content={noIndex ? 'noindex,nofollow' : 'index,follow'} />
     </Head>
   );
 };
 
-export default SEO; 
+export default SEO;

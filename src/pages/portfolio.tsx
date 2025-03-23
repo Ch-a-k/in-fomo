@@ -826,9 +826,6 @@ export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
       ...translations,
-      title: 'IN-FOMO | Portfolio',
-      description: 'Explore our portfolio of innovative IT solutions and successful projects across various industries.',
-      ogImage: '/images/og-image.png',
       footerVariant: 'design1'
     },
   };

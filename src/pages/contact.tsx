@@ -301,13 +301,9 @@ export default function Contact() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
-  const translations = await serverSideTranslations(locale, ['common', 'contact']);
-  
   return {
     props: {
-      ...translations,
-      title: 'IN-FOMO | Contact Us',
-      description: 'Get in touch with IN-FOMO for your IT project needs. We provide innovative solutions for businesses worldwide.',
+      ...(await serverSideTranslations(locale, ['common', 'contact'])),
       footerVariant: 'design1'
     },
   };

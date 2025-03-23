@@ -60,10 +60,7 @@ const CookiePolicy = () => {
 export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-      title: 'IN-FOMO | Cookie Policy',
-      description: 'Learn about how we use cookies and similar technologies on our website.',
-      ogImage: '/images/og-image.png'
+      ...(await serverSideTranslations(locale, ['common']))
     },
   }
 }

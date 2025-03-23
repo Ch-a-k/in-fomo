@@ -234,14 +234,10 @@ export default function About() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const translations = await serverSideTranslations(locale || 'en', ['common', 'about']);
-  
   return {
     props: {
-      ...translations,
-      title: 'IN-FOMO | About Us',
-      description: 'Learn about IN-FOMO - our team, values, and mission to deliver innovative IT solutions.',
-      footerVariant: 'design1'
+      ...(await serverSideTranslations(locale || 'en', ['common', 'about'])),
+      footerVariant: 'design2'
     },
   };
 };
