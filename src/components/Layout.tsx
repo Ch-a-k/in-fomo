@@ -8,7 +8,6 @@ import CookieConsent from './CookieConsent'
 import Script from 'next/script'
 import Breadcrumbs from './Breadcrumbs'
 import Hotjar from './Hotjar'
-import SEO from './SEO'
 
 interface LayoutProps {
   children: ReactNode
@@ -25,7 +24,6 @@ const Layout = ({
 
   return (
       <>
-      <SEO />
       {gtmId && (
         <>
           <Script id="google-tag-manager" strategy="afterInteractive">
