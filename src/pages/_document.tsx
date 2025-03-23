@@ -1,45 +1,47 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
-export default function Document() {
-  return (
-    <Html lang="en">
-      <Head>
-        {/* Базовые мета-теги */}
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="format-detection" content="address=no" />
-        
-        {/* Предзагрузка шрифтов */}
-        <link
-          rel="preload"
-          href="/fonts/SofiaSans-Black.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        
-        {/* Определение шрифта */}
-        <style
-          dangerouslySetInnerHTML={{
+// Этот компонент используется для настройки базовой HTML структуры
+class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps };
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head>
+          {/* Включаем только базовые мета-теги, остальные будут в SEO компоненте */}
+          <meta charSet="utf-8" />
+          
+          {/* Настройка шрифтов */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+          />
+          
+          {/* Кастомные настройки шрифта */}
+          <style dangerouslySetInnerHTML={{
             __html: `
               @font-face {
-                font-family: 'Sofia Sans';
+                font-family: 'Inter';
                 font-style: normal;
-                font-weight: 900;
+                font-weight: 400 700;
                 font-display: swap;
-                src: url('/fonts/SofiaSans-Black.ttf') format('truetype');
-                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+                src: url('/fonts/Inter-VariableFont.woff2') format('woff2');
               }
-            `,
-          }}
-        />
-      </Head>
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  )
-} 
+            `
+          }} />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+
+export default MyDocument; 

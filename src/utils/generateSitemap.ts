@@ -2,7 +2,7 @@ const fs = require('fs');
 const glob = require('glob');
 const prettier = require('prettier');
 
-const DOMAIN = 'https://in-fomo.com';
+const DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com';
 const LANGUAGES = ['en', 'pl', 'uk', 'kz'];
 
 async function generateSitemap() {
@@ -16,7 +16,7 @@ async function generateSitemap() {
     // Объединяем результаты поиска по всем паттернам
     let allPages: string[] = [];
     for (const pattern of pagePatterns) {
-      const pages = glob.sync(pattern) as string[];
+      const pages = glob.sync(pattern);
       if (pages.length > 0) {
         allPages = [...allPages, ...pages];
       }
@@ -24,40 +24,17 @@ async function generateSitemap() {
     
     console.log(`Found ${allPages.length} pages in codebase`);
     
-    // Дополнительные страницы, которые нужно добавить в sitemap
-    const additionalPages: string[] = [
-      'index',
-      'about',
-      'contact',
-      'portfolio',
-      'privacy-policy',
-      'terms-of-service',
-      'cookie-policy',
-      'env-check',
-      'test-seo'
-    ];
-    
-    // Если страницы не найдены или нужно дополнить список
     if (allPages.length === 0) {
       console.warn('⚠️ No pages found! Using fallback strategy for common pages');
-      allPages = additionalPages;
-    } else {
-      // Проверяем, есть ли все нужные страницы в найденных файлах
-      // и добавляем отсутствующие из additionalPages
-      const foundPaths = allPages.map(page => {
-        const path = page
-          .replace(/^(src\/pages|pages)/, '')
-          .replace(/\.(jsx|tsx)$/, '')
-          .replace('/index', '');
-        return path === '' ? 'index' : path.substr(1);
-      });
-      
-      for (const page of additionalPages) {
-        if (!foundPaths.includes(page) && page !== 'index') {
-          console.log(`Adding missing page to sitemap: ${page}`);
-          allPages.push(page);
-        }
-      }
+      // Если страницы не найдены, добавляем основные страницы вручную
+      allPages = [
+        'index',
+        'about',
+        'contact',
+        'portfolio',
+        'privacy-policy',
+        'terms-of-service'
+      ];
     }
 
     const currentDate = new Date().toISOString().split('T')[0];
@@ -127,7 +104,7 @@ async function generateSitemap() {
 }
 
 // Вспомогательная функция для генерации записи URL
-function generateUrlEntry(url: string, currentDate: string, route: string, priority: string, changefreq: string): string {
+function generateUrlEntry(url: string, currentDate: string, route: string, priority: string, changefreq: string) {
   return `
     <url>
       <loc>${url}</loc>
@@ -147,6 +124,17 @@ function generateUrlEntry(url: string, currentDate: string, route: string, prior
         hreflang="x-default" 
         href="${url}" 
       />
+      ${
+        route.includes('/about') || route.includes('/portfolio')
+          ? `
+        <image:image>
+          <image:loc>${DOMAIN}/images${route}/hero.jpg</image:loc>
+          <image:title>IN-FOMO ${
+            route.charAt(1).toUpperCase() + route.slice(2)
+          }</image:title>
+        </image:image>`
+          : ''
+      }
     </url>
   `;
 }

@@ -33,8 +33,6 @@ export const getStaticProps: GetStaticProps = async ({ locale = 'en' }) => {
   return {
     props: {
       ...translations,
-      title: 'IN-FOMO | Innovative IT Solutions',
-      description: 'Leading IT company providing innovative software development, cloud solutions, and digital transformation services.',
       footerVariant: 'design1'
     },
   };

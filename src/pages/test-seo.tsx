@@ -11,6 +11,7 @@ export default function TestSEO() {
       <SEO 
         title="IN-FOMO | Test SEO Page"
         description="This is a test page for SEO validation"
+        ogImage="/og-image.png"
       />
 
       <div className="container mx-auto py-8 px-4">
@@ -26,6 +27,7 @@ export default function TestSEO() {
           <ul className="list-disc pl-5">
             <li>title: IN-FOMO | Test SEO Page</li>
             <li>description: This is a test page for SEO validation</li>
+            <li>og:image: https://in-fomo.com/og-image.png</li>
           </ul>
         </div>
       </div>

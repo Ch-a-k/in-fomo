@@ -17,6 +17,44 @@ const languageMapping: Record<string, string> = {
   'be': 'kz', // белорусский - ближайший к украинскому
 }
 
+// Расширенный список User-Agent для социальных ботов
+const socialBots = [
+  'facebookexternalhit',
+  'Facebot',
+  'Facebook',
+  'fb_iab',
+  'fbid',
+  'XING-contenttabreceiver',
+  'LinkedInBot',
+  'Twitterbot',
+  'Pinterest',
+  'Instagram',
+  'WhatsApp',
+  'Slackbot',
+  'TelegramBot',
+  'Discordbot',
+  'Snapchat',
+  'vkShare',
+  'W3C_Validator',
+  'baiduspider',
+  'Yandex',
+  'YandexBot',
+  'YandexImages',
+  'SocialMediaBot',
+  'OGbot',
+  'ViberURLCrawler'
+];
+
+function isBot(userAgent: string): boolean {
+  if (!userAgent) return false;
+  
+  // Проверяем наличие строки "bot" в User-Agent (для generic ботов)
+  if (userAgent.toLowerCase().includes('bot')) return true;
+  
+  // Проверяем наличие известных социальных ботов
+  return socialBots.some(bot => userAgent.toLowerCase().includes(bot.toLowerCase()));
+}
+
 function getLocale(request: NextRequest): string {
   // 1. Проверяем сохраненную локаль в cookie
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value
@@ -58,6 +96,15 @@ function getLocale(request: NextRequest): string {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+  
+  // Получаем User-Agent
+  const userAgent = request.headers.get('user-agent') || '';
+  
+  // Проверяем, является ли запрос от бота или краулера
+  if (isBot(userAgent)) {
+    // Для ботов не делаем никакого перенаправления
+    return;
+  }
   
   // Пропускаем API роуты и статические файлы
   if (
