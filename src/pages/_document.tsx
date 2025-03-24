@@ -27,11 +27,11 @@ class MyDocument extends Document {
           <style dangerouslySetInnerHTML={{
             __html: `
               @font-face {
-                font-family: 'Inter';
+                font-family: 'Fredoka';
                 font-style: normal;
                 font-weight: 400 700;
                 font-display: swap;
-                src: url('/fonts/sofia-pro.woff2') format('woff2');
+                src: url('/fonts/FredokaOne-Regular.ttf') format('ttf');
               }
             `
           }} />
