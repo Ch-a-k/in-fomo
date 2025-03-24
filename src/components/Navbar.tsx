@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
@@ -74,7 +74,7 @@ const Logo = ({ roundedLogo, logo }: { roundedLogo: string; logo: string }) => (
 const ThemeToggle = ({ theme, toggleTheme }: { theme: string | undefined, toggleTheme: () => void }) => (
   <button
     onClick={toggleTheme}
-    className="p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-primary dark:hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+    className="p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
     aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
   >
     {theme === 'dark' ? (
@@ -95,36 +95,44 @@ const LanguageSelector = ({
   currentLanguage, 
   isLangMenuOpen, 
   toggleLangMenu, 
-  handleLanguageChange 
+  handleLanguageChange,
+  isMobile = false
 }: { 
   languages: Language[],
   currentLanguage: Language,
   isLangMenuOpen: boolean,
   toggleLangMenu: () => void,
-  handleLanguageChange: (code: string) => Promise<void>
+  handleLanguageChange: (code: string) => Promise<void>,
+  isMobile?: boolean
 }) => (
   <div className="relative lang-menu">
     <button
       onClick={toggleLangMenu}
-      className="flex items-center space-x-1 p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-primary dark:hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+      className="flex items-center space-x-1 p-1 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
       aria-expanded={isLangMenuOpen}
       aria-haspopup="true"
     >
-      <span className="text-lg">{currentLanguage.flag}</span>
-      <span className="hidden md:inline text-sm">{currentLanguage.code.toUpperCase()}</span>
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-      </svg>
+      <span className={`text-lg ${isMobile ? 'mr-0' : ''}`}>{currentLanguage.flag}</span>
+      {!isMobile && <span className="hidden md:inline text-sm">{currentLanguage.code.toUpperCase()}</span>}
+      {!isMobile && (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      )}
     </button>
 
     {isLangMenuOpen && (
-      <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-[#12121290] ring-1 ring-black ring-opacity-5 z-50">
+      <div className={`absolute ${isMobile ? 'right-0' : 'right-0'} mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-[#121212] border border-light-border dark:border-dark-border z-50`}>
         <div className="py-1" role="menu" aria-orientation="vertical">
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
-              className="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-primary dark:hover:bg-primary/80 flex items-center space-x-2"
+              className={`w-full text-left px-4 py-2 text-sm ${
+                lang.code === currentLanguage.code
+                  ? 'bg-primary/10 text-primary font-medium'
+                  : 'text-gray-700 dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/10'
+              } flex items-center space-x-2`}
               role="menuitem"
             >
               <span className="text-lg">{lang.flag}</span>
@@ -142,71 +150,55 @@ const MobileMenu = ({
   isMenuOpen, 
   navItems, 
   isActive,
-  languages,
-  currentLanguage,
-  handleLanguageChange,
-  theme,
-  toggleTheme
+  closeMenu
 }: { 
   isMenuOpen: boolean, 
   navItems: Array<{ href: string, label: string }>,
   isActive: (href: string) => boolean,
-  languages: Language[],
-  currentLanguage: Language,
-  handleLanguageChange: (code: string) => Promise<void>,
-  theme: string | undefined,
-  toggleTheme: () => void
+  closeMenu: () => void
 }) => {
-  if (!isMenuOpen) return null;
+  const [isVisible, setIsVisible] = useState(false);
+  
+  // Управление анимацией появления/исчезновения
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    
+    if (isMenuOpen) {
+      setIsVisible(true);
+    } else {
+      timer = setTimeout(() => {
+        setIsVisible(false);
+      }, 300); // Задержка для завершения анимации
+    }
+    
+    return () => clearTimeout(timer);
+  }, [isMenuOpen]);
+  
+  if (!isMenuOpen && !isVisible) return null;
   
   return (
-    <div className="absolute top-16 md:top-20 left-0 right-0 bg-white dark:bg-[#121212] border-b border-light-border dark:border-dark-border px-4 py-4 shadow-lg z-50">
-      <nav className="flex flex-col space-y-3">
+    <div 
+      className={`absolute top-16 md:top-20 left-0 right-0 bg-white dark:bg-[#121212] border-b border-light-border dark:border-dark-border px-4 py-4 shadow-lg z-50 transition-all duration-300 ${
+        isMenuOpen 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 -translate-y-4 pointer-events-none'
+      }`}
+    >
+      <nav className="flex flex-col space-y-2 mobile-menu-content">
         {navItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className={`text-sm font-heading font-black ${
+            className={`text-sm font-heading font-black py-3 px-2 rounded-md transition-colors active:bg-primary/10 ${
               isActive(item.href)
                 ? 'text-primary'
-                : 'text-gray-700 dark:text-gray-200'
+                : 'text-gray-700 dark:text-gray-200 hover:text-primary'
             }`}
-            onClick={() => {}}
+            onClick={closeMenu}
           >
             {item.label}
           </Link>
         ))}
-        
-        <div className="border-t border-gray-200 dark:border-gray-700 my-2 pt-2">
-          <div className="flex justify-between items-center">
-            <div className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Theme
-            </div>
-            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-          </div>
-        </div>
-        
-        <div className="border-t border-gray-200 dark:border-gray-700 my-2 pt-2">
-          <div className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Language
-          </div>
-          <div className="grid grid-cols-2 gap-2">
-            {languages.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => handleLanguageChange(lang.code)}
-                className={`flex items-center space-x-2 px-3 py-2 rounded-md ${
-                  lang.code === currentLanguage.code
-                    ? 'bg-gray-100 dark:bg-gray-800 text-primary'
-                    : 'text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800'
-                }`}
-              >
-                <span className="text-lg">{lang.flag}</span>
-                <span className="text-sm">{lang.name}</span>
-              </button>
-            ))}
-          </div>
-        </div>
       </nav>
     </div>
   );
@@ -219,6 +211,8 @@ const Navbar = () => {
   const { t, i18n } = useTranslation('common');
   const { resolvedTheme, setTheme } = useTheme();
   const router = useRouter();
+  const menuRef = useRef<HTMLDivElement>(null);
+  const burgerRef = useRef<HTMLButtonElement>(null);
 
   // Languages available
   const languages = [
@@ -232,11 +226,36 @@ const Navbar = () => {
     setMounted(true);
   }, []);
 
+  // Закрывать мобильное меню при переходе на другую страницу
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setIsMenuOpen(false);
+    };
+
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [router]);
+
+  // Обработчик клика вне мобильного меню
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
+      
+      // Закрыть меню языка, если клик был вне него
       if (!target.closest('.lang-menu') && isLangMenuOpen) {
         setIsLangMenuOpen(false);
+      }
+
+      // Закрыть мобильное меню, если клик был вне меню и вне кнопки бургера
+      if (
+        isMenuOpen && 
+        !menuRef.current?.contains(target) && 
+        !burgerRef.current?.contains(target) &&
+        !target.closest('.mobile-menu-content')
+      ) {
+        setIsMenuOpen(false);
       }
     };
 
@@ -244,11 +263,12 @@ const Navbar = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isLangMenuOpen]);
+  }, [isLangMenuOpen, isMenuOpen]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleLangMenu = () => setIsLangMenuOpen(!isLangMenuOpen);
   const toggleTheme = () => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+  const closeMenu = () => setIsMenuOpen(false);
 
   const getCurrentLanguage = () => {
     const currentLang = languages.find(lang => lang.code === i18n.language);
@@ -341,7 +361,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="flex items-center space-x-2 md:hidden">
+        <div className="flex items-center space-x-1 md:hidden">
           <ThemeToggle theme={resolvedTheme} toggleTheme={toggleTheme} />
           
           <LanguageSelector 
@@ -350,11 +370,13 @@ const Navbar = () => {
             isLangMenuOpen={isLangMenuOpen}
             toggleLangMenu={toggleLangMenu}
             handleLanguageChange={handleLanguageChange}
+            isMobile={true}
           />
           
           <button
+            ref={burgerRef}
             onClick={toggleMenu}
-            className="p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            className="p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
             aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
@@ -371,16 +393,14 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <MobileMenu 
-        isMenuOpen={isMenuOpen} 
-        navItems={navItems} 
-        isActive={isActive}
-        languages={languages}
-        currentLanguage={currentLanguage}
-        handleLanguageChange={handleLanguageChange}
-        theme={resolvedTheme}
-        toggleTheme={toggleTheme}
-      />
+      <div ref={menuRef} className="mobile-menu-container">
+        <MobileMenu 
+          isMenuOpen={isMenuOpen} 
+          navItems={navItems} 
+          isActive={isActive}
+          closeMenu={closeMenu}
+        />
+      </div>
     </header>
   );
 };
