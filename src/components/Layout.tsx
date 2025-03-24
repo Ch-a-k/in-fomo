@@ -9,6 +9,7 @@ import FloatingButton from './FloatingButton'
 import Script from 'next/script'
 import Breadcrumbs from './Breadcrumbs'
 import Hotjar from './Hotjar'
+import SEO from './SEO'
 
 interface LayoutProps {
   children: ReactNode
@@ -24,7 +25,9 @@ const Layout = ({
   const gaId = process.env.NEXT_PUBLIC_GA_ID
 
   return (
-      <>
+    <>  
+      <SEO title={t('meta.title')} description={t('meta.description')} />
+    
       {gtmId && (
         <>
           <Script id="google-tag-manager" strategy="afterInteractive">

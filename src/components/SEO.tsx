@@ -37,10 +37,6 @@ const SEO: FC<SEOComponentProps> = ({
   const router = useRouter();
   const { i18n } = useTranslation();
   
-  // Приоритетный заголовок и описание
-  const priorityTitle = "IN-FOMO. | Innovative IT Solutions";
-  const priorityDescription = "Leading IT company providing innovative software development, cloud solutions, and digital transformation services.";
-  
   // Используем locale из i18n, если не задан явно
   const seoLocale = locale || i18n.language || router.locale || 'en';
   
@@ -52,93 +48,97 @@ const SEO: FC<SEOComponentProps> = ({
     return getLocalizedUrl(path, seoLocale, baseUrl);
   }, [canonical, router.asPath, seoLocale, baseUrl]);
   
-  // Приоритетный URL изображения из требований пользователя
-  const priorityImageUrl = "https://opengraph.b-cdn.net/production/images/e9be6993-4e03-4ae5-977d-d5f7d2e2226b.png?token=frkI3hPu3sc-vDYsn36qRJQ4CANW3XK41QkyrfbQ5CA&height=630&width=1200&expires=33278785063";
-  
-  // Проверяем и устанавливаем абсолютный URL для изображения
-  const fullImageUrl = useMemo(() => {
-    // Используем приоритетное изображение из требований пользователя
-    if (!image) {
-      return priorityImageUrl;
-    }
-
-    // Если уже абсолютный URL, используем его
-    if (image.startsWith('http')) return image;
-    
-    // Если относительный URL, добавляем baseUrl
-    const imagePath = image.startsWith('/') ? image : `/${image}`;
-    return `${baseUrl}${imagePath}`;
-  }, [image, baseUrl]);
-  
-  // Приоритетный URL сайта
-  const priorityUrl = "https://in-fomo.com";
-  
   return (
     <Head>
       {/* Базовые SEO-теги (приоритетные) */}
-      <title>{priorityTitle}</title>
-      <meta name="description" content={priorityDescription} />
+      <title key="title">IN-FOMO. | Innovative IT Solutions</title>
+      <meta 
+        key="description" 
+        name="description" 
+        content="Leading IT company providing innovative software development, cloud solutions, and digital transformation services." 
+      />
       
       {/* Дополнительные мета-теги */}
       {keywords && keywords.length > 0 && (
-        <meta name="keywords" content={keywords.join(', ')} />
+        <meta key="keywords" name="keywords" content={keywords.join(', ')} />
       )}
       
-      {author && <meta name="author" content={author} />}
+      {author && <meta key="author" name="author" content={author} />}
       
       {/* Управление индексацией */}
       <meta 
+        key="robots"
         name="robots" 
         content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`} 
       />
       
       {/* Канонический URL */}
-      <link rel="canonical" href={canonicalUrl} />
+      <link key="canonical" rel="canonical" href={canonicalUrl} />
       
       {/* Open Graph мета-теги (приоритетные) */}
-      <meta property="og:url" content={priorityUrl} />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={priorityTitle} />
-      <meta property="og:description" content={priorityDescription} />
-      <meta property="og:image" content={priorityImageUrl} />
-      <meta property="og:image:secure_url" content={priorityImageUrl} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
-      <meta property="og:site_name" content={siteName} />
-      <meta property="og:locale" content={seoLocale.replace('-', '_')} />
+      <meta key="og:url" property="og:url" content="https://in-fomo.com" />
+      <meta key="og:type" property="og:type" content="website" />
+      <meta key="og:title" property="og:title" content="IN-FOMO. | Innovative IT Solutions" />
+      <meta 
+        key="og:description" 
+        property="og:description" 
+        content="Leading IT company providing innovative software development, cloud solutions, and digital transformation services." 
+      />
+      <meta 
+        key="og:image" 
+        property="og:image" 
+        content="https://opengraph.b-cdn.net/production/images/e9be6993-4e03-4ae5-977d-d5f7d2e2226b.png?token=frkI3hPu3sc-vDYsn36qRJQ4CANW3XK41QkyrfbQ5CA&height=630&width=1200&expires=33278785063" 
+      />
+      <meta 
+        key="og:image:secure_url" 
+        property="og:image:secure_url" 
+        content="https://opengraph.b-cdn.net/production/images/e9be6993-4e03-4ae5-977d-d5f7d2e2226b.png?token=frkI3hPu3sc-vDYsn36qRJQ4CANW3XK41QkyrfbQ5CA&height=630&width=1200&expires=33278785063" 
+      />
+      <meta key="og:image:width" property="og:image:width" content="1200" />
+      <meta key="og:image:height" property="og:image:height" content="630" />
+      {imageAlt && <meta key="og:image:alt" property="og:image:alt" content={imageAlt} />}
+      <meta key="og:site_name" property="og:site_name" content={siteName} />
+      <meta key="og:locale" property="og:locale" content={seoLocale.replace('-', '_')} />
 
       {/* Twitter Card мета-теги (приоритетные) */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta property="twitter:domain" content="in-fomo.com" />
-      <meta property="twitter:url" content={priorityUrl} />
-      <meta name="twitter:title" content={priorityTitle} />
-      <meta name="twitter:description" content={priorityDescription} />
-      <meta name="twitter:image" content={priorityImageUrl} />
-      {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
-      {twitterSite && <meta name="twitter:site" content={twitterSite} />}
-      {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
+      <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
+      <meta key="twitter:domain" property="twitter:domain" content="in-fomo.com" />
+      <meta key="twitter:url" property="twitter:url" content="https://in-fomo.com" />
+      <meta key="twitter:title" name="twitter:title" content="IN-FOMO. | Innovative IT Solutions" />
+      <meta 
+        key="twitter:description" 
+        name="twitter:description" 
+        content="Leading IT company providing innovative software development, cloud solutions, and digital transformation services." 
+      />
+      <meta 
+        key="twitter:image" 
+        name="twitter:image" 
+        content="https://opengraph.b-cdn.net/production/images/e9be6993-4e03-4ae5-977d-d5f7d2e2226b.png?token=frkI3hPu3sc-vDYsn36qRJQ4CANW3XK41QkyrfbQ5CA&height=630&width=1200&expires=33278785063" 
+      />
+      {imageAlt && <meta key="twitter:image:alt" name="twitter:image:alt" content={imageAlt} />}
+      {twitterSite && <meta key="twitter:site" name="twitter:site" content={twitterSite} />}
+      {twitterCreator && <meta key="twitter:creator" name="twitter:creator" content={twitterCreator} />}
       
       {/* Дополнительные теги для статей */}
       {type === 'article' && (
         <>
           {publishedTime && (
-            <meta property="article:published_time" content={publishedTime} />
+            <meta key="article:published_time" property="article:published_time" content={publishedTime} />
           )}
           {modifiedTime && (
-            <meta property="article:modified_time" content={modifiedTime} />
+            <meta key="article:modified_time" property="article:modified_time" content={modifiedTime} />
           )}
-          {author && <meta property="article:author" content={author} />}
-          {category && <meta property="article:section" content={category} />}
+          {author && <meta key="article:author" property="article:author" content={author} />}
+          {category && <meta key="article:section" property="article:section" content={category} />}
           
           {tags && tags.length > 0 && tags.map((tag, index) => (
-            <meta property="article:tag" content={tag} key={`tag-${index}`} />
+            <meta key={`article:tag:${index}`} property="article:tag" content={tag} />
           ))}
         </>
       )}
       
       {/* Facebook App ID если предоставлен */}
-      {facebookAppId && <meta property="fb:app_id" content={facebookAppId} />}
+      {facebookAppId && <meta key="fb:app_id" property="fb:app_id" content={facebookAppId} />}
     </Head>
   );
 };
