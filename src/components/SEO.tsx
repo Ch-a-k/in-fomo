@@ -35,6 +35,12 @@ const SEO: FC<SEOProps> = ({
       <meta key="og:image:height" property="og:image:height" content="630" />
       <meta key="og:site_name" property="og:site_name" content="IN-FOMO." />
       
+      {/* Facebook Instant Articles мета-теги */}
+      <meta key="ia:markup_url" property="ia:markup_url" content={`${siteUrl}/instant-articles/`} />
+      <meta key="ia:markup_url_dev" property="ia:markup_url_dev" content={`${siteUrl}/instant-articles-dev/`} />
+      <meta key="ia:rules_url" property="ia:rules_url" content={`${siteUrl}/instant-articles-rules/`} />
+      <meta key="ia:rules_url_dev" property="ia:rules_url_dev" content={`${siteUrl}/instant-articles-rules-dev/`} />
+
       {/* Telegram специфичные мета-теги */}
       <meta key="telegram:card" property="telegram:card" content="summary_large_image" />
       <meta key="telegram:image" property="telegram:image" content={ogImageUrl} />
