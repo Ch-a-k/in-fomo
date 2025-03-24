@@ -10,11 +10,7 @@ export default function PrivacyPolicy() {
 
   return (
     <>
-      <SEO 
-        title={t('meta.title', { ns: 'privacy', defaultValue: 'IN-FOMO | Privacy Policy' })}
-        description={t('meta.description', { ns: 'privacy', defaultValue: 'Read our privacy policy to understand how IN-FOMO protects and handles your personal information.' })}
-        image='/og-image.png'
-      />
+     <SEO />
 
       {/* Hero */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">
