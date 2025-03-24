@@ -7,13 +7,16 @@ const Hero = memo(() => {
 
   return (
     <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">
-      {/* Background geometric shapes - reduced blur for better performance */}
+      {/* Background geometric shapes - оптимизировано для предотвращения горизонтального скролла */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/10 blur-2xl"></div>
-        <div className="absolute top-1/3 -left-24 w-64 h-64 rounded-full bg-blue-500/10 blur-2xl"></div>
-        <div className="absolute -bottom-32 left-1/2 w-80 h-80 rounded-full bg-purple-500/10 blur-2xl"></div>
+        {/* Заменяем -right-24 на right-0 с transform */}
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/10 blur-2xl transform translate-x-1/4 -translate-y-1/4"></div>
+        {/* Заменяем -left-24 на left-0 с transform */}
+        <div className="absolute top-1/3 left-0 w-64 h-64 rounded-full bg-blue-500/10 blur-2xl transform -translate-x-1/2"></div>
+        {/* Исправляем -bottom-32 */}
+        <div className="absolute bottom-0 left-1/2 w-80 h-80 rounded-full bg-purple-500/10 blur-2xl transform -translate-x-1/2 translate-y-1/3"></div>
         
-        {/* Grid pattern with reduced opacity */}
+        {/* Grid pattern с уменьшенной прозрачностью для лучшей производительности */}
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
       </div>
 
@@ -40,17 +43,17 @@ const Hero = memo(() => {
             {t('hero_description')}
           </p>
           
-          <div className="flex flex-row sm:flex-row justify-center sm:space-y-0">
+          <div className="flex flex-col sm:flex-row justify-center items-center sm:space-y-0 space-y-4 sm:space-y-0">
             <Link 
               href="/contact" 
-              className="btn btn-primary mx-4"
+              className="btn btn-primary mx-4 w-full sm:w-auto mb-4 sm:mb-0"
               style={{ willChange: 'transform' }}
             >
               {t('get_started')}
             </Link>
             <Link 
               href="#services" 
-              className="btn btn-outline mx-4"
+              className="btn btn-outline mx-4 w-full sm:w-auto"
               style={{ willChange: 'transform' }}
             >
               {t('our_services')}

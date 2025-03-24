@@ -15,8 +15,8 @@ export default function Home() {
   return (
     <>
       <SEO />
-      <main>
-        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-orange-500/10 blur-3xl"></div>
+      <main className="overflow-x-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
         <Hero />
         <Services />
         <Partners />

@@ -66,7 +66,7 @@ const Layout = ({
       {/* Hotjar Tracking */}
       <Hotjar hotjarId={5347229} />
       
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen overflow-x-hidden">
         <Navbar />
         <div className="container mx-auto px-4">
           <Breadcrumbs />
