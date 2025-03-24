@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <SEO 
-        title="IN-FOMO | Innovative IT Solutions"
+        title="IN-FOMO. | Innovative IT Solutions"
         description="Leading IT company providing innovative software development, cloud solutions, and digital transformation services."
       />
       <main>

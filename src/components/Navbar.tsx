@@ -22,15 +22,13 @@ interface NavItemProps {
 const NavItem = ({ href, label, isActive }: NavItemProps) => (
   <Link
     href={href}
-    className={`text-sm font-heading font-black transition-all duration-200 transform-gpu hover:-translate-y-[2px] group ${
+    className={`text-sm font-heading font-black transition-transform transform-gpu hover:-translate-y-[2px] ${
       isActive
         ? 'text-primary'
-        : 'text-gray-700 dark:text-gray-200'
+        : 'text-gray-700 dark:text-gray-200 hover:text-primary'
     }`}
   >
-    <span className={`transition-colors duration-200 ${!isActive && 'group-hover:text-primary'}`}>
-      {label}
-    </span>
+    {label}
   </Link>
 );
 

@@ -3,17 +3,15 @@ import { useTranslation } from 'next-i18next';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 
 interface FooterProps {
   variant?: 'design1' | 'design2';
 }
 
 const Footer = ({ variant = 'design1' }: FooterProps) => {
-  const { t, i18n } = useTranslation('common');
+  const { t } = useTranslation('common');
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const router = useRouter();
   
   useEffect(() => {
     setMounted(true);
@@ -47,19 +45,6 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
   };
 
   const getRoundedLogo = () => '/images/partners/logorounded.avif';
-
-  // Функция для проверки активной страницы
-  const isActive = (href: string) => {
-    // Простая проверка активности ссылки
-    if (typeof window !== 'undefined') {
-      const path = window.location.pathname;
-      if (href === '/') {
-        return path === '/' || path === `/${i18n.language}`;
-      }
-      return path.startsWith(href) || path.startsWith(`/${i18n.language}${href}`);
-    }
-    return false;
-  };
 
   if (!mounted) {
     return (
@@ -160,16 +145,10 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
                     <Link
                       href={item.href}
                       aria-label="Items link"
-                      className={`text-sm font-heading transition-all duration-200 transform-gpu hover:-translate-y-[1px] group ${
-                        isActive(item.href)
-                          ? 'text-primary'
-                          : 'text-gray-700 dark:text-gray-200'
-                      }`}
+                      className="text-gray-700 dark:text-gray-200 text-sm hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
                       style={{ willChange: 'transform' }}
                     >
-                      <span className={`transition-colors duration-200 ${!isActive(item.href) && 'group-hover:text-primary'}`}>
-                        {item.name}
-                      </span>
+                      {item.name}
                     </Link>
                   </li>
                 ))}
@@ -184,32 +163,20 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
                   <Link
                     aria-label="Privacy Policy"
                     href="/privacy-policy"
-                    className={`text-sm uppercase font-heading transition-all duration-200 transform-gpu hover:-translate-y-[1px] group ${
-                      isActive('/privacy-policy')
-                        ? 'text-primary'
-                        : 'text-gray-700 dark:text-gray-200'
-                    }`}
+                    className="uppercase text-gray-700 dark:text-gray-200 text-sm hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
                     style={{ willChange: 'transform' }}
                   >
-                    <span className={`transition-colors duration-200 ${!isActive('/privacy-policy') && 'group-hover:text-primary'}`}>
-                      {t('privacy_policy')}
-                    </span>
+                    {t('privacy_policy')}
                   </Link>
                 </li>
                 <li>
                   <Link
                     aria-label="Terms of Service"
                     href="/terms-of-service"
-                    className={`text-sm uppercase font-heading transition-all duration-200 transform-gpu hover:-translate-y-[1px] group ${
-                      isActive('/terms-of-service')
-                        ? 'text-primary'
-                        : 'text-gray-700 dark:text-gray-200'
-                    }`}
+                    className="uppercase text-gray-700 dark:text-gray-200 text-sm hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
                     style={{ willChange: 'transform' }}
                   >
-                    <span className={`transition-colors duration-200 ${!isActive('/terms-of-service') && 'group-hover:text-primary'}`}>
-                      {t('terms_of_service')}
-                    </span>
+                    {t('terms_of_service')}
                   </Link>
                 </li>
               </ul>

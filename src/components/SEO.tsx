@@ -37,6 +37,10 @@ const SEO: FC<SEOComponentProps> = ({
   const router = useRouter();
   const { i18n } = useTranslation();
   
+  // Приоритетный заголовок и описание
+  const priorityTitle = "IN-FOMO. | Innovative IT Solutions";
+  const priorityDescription = "Leading IT company providing innovative software development, cloud solutions, and digital transformation services.";
+  
   // Используем locale из i18n, если не задан явно
   const seoLocale = locale || i18n.language || router.locale || 'en';
   
@@ -48,9 +52,15 @@ const SEO: FC<SEOComponentProps> = ({
     return getLocalizedUrl(path, seoLocale, baseUrl);
   }, [canonical, router.asPath, seoLocale, baseUrl]);
   
+  // Приоритетный URL изображения из требований пользователя
+  const priorityImageUrl = "https://opengraph.b-cdn.net/production/images/e9be6993-4e03-4ae5-977d-d5f7d2e2226b.png?token=frkI3hPu3sc-vDYsn36qRJQ4CANW3XK41QkyrfbQ5CA&height=630&width=1200&expires=33278785063";
+  
   // Проверяем и устанавливаем абсолютный URL для изображения
   const fullImageUrl = useMemo(() => {
-    if (!image) return `${baseUrl}/images/og-image.png`; // Дефолтное изображение
+    // Используем приоритетное изображение из требований пользователя
+    if (!image) {
+      return priorityImageUrl;
+    }
 
     // Если уже абсолютный URL, используем его
     if (image.startsWith('http')) return image;
@@ -60,20 +70,20 @@ const SEO: FC<SEOComponentProps> = ({
     return `${baseUrl}${imagePath}`;
   }, [image, baseUrl]);
   
-  // Форматируем заголовок страницы
-  const formattedTitle = formatPageTitle(title, siteName);
-  
-  // Стандартное описание, если не предоставлено
-  const safeDescription = description || `IN-FOMO. - leading IT company providing innovative software development services.`;
+  // Приоритетный URL сайта
+  const priorityUrl = "https://in-fomo.com";
   
   return (
     <Head>
-      {/* Базовые SEO-теги */}
-      <title>{formattedTitle}</title>
-      <meta name="description" content={safeDescription} />
+      {/* Базовые SEO-теги (приоритетные) */}
+      <title>{priorityTitle}</title>
+      <meta name="description" content={priorityDescription} />
+      
+      {/* Дополнительные мета-теги */}
       {keywords && keywords.length > 0 && (
         <meta name="keywords" content={keywords.join(', ')} />
       )}
+      
       {author && <meta name="author" content={author} />}
       
       {/* Управление индексацией */}
@@ -85,20 +95,29 @@ const SEO: FC<SEOComponentProps> = ({
       {/* Канонический URL */}
       <link rel="canonical" href={canonicalUrl} />
       
-      {/* Open Graph мета-теги - Обязательные */}
-      <meta property="og:title" content={formattedTitle} />
-      <meta property="og:description" content={safeDescription} />
-      <meta property="og:type" content={type} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:site_name" content={siteName} />
-      <meta property="og:locale" content={seoLocale.replace('-', '_')} />
-      
-      {/* Open Graph мета-теги - Изображение */}
-      <meta property="og:image" content={fullImageUrl} />
-      <meta property="og:image:secure_url" content={fullImageUrl} />
+      {/* Open Graph мета-теги (приоритетные) */}
+      <meta property="og:url" content={priorityUrl} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={priorityTitle} />
+      <meta property="og:description" content={priorityDescription} />
+      <meta property="og:image" content={priorityImageUrl} />
+      <meta property="og:image:secure_url" content={priorityImageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+      <meta property="og:site_name" content={siteName} />
+      <meta property="og:locale" content={seoLocale.replace('-', '_')} />
+
+      {/* Twitter Card мета-теги (приоритетные) */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:domain" content="in-fomo.com" />
+      <meta property="twitter:url" content={priorityUrl} />
+      <meta name="twitter:title" content={priorityTitle} />
+      <meta name="twitter:description" content={priorityDescription} />
+      <meta name="twitter:image" content={priorityImageUrl} />
+      {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+      {twitterSite && <meta name="twitter:site" content={twitterSite} />}
+      {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
       
       {/* Дополнительные теги для статей */}
       {type === 'article' && (
@@ -118,19 +137,8 @@ const SEO: FC<SEOComponentProps> = ({
         </>
       )}
       
-      {/* Twitter Card мета-теги */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={formattedTitle} />
-      <meta name="twitter:description" content={safeDescription} />
-      <meta name="twitter:image" content={fullImageUrl} />
-      {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
-      {twitterSite && <meta name="twitter:site" content={twitterSite} />}
-      {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
-      
       {/* Facebook App ID если предоставлен */}
       {facebookAppId && <meta property="fb:app_id" content={facebookAppId} />}
-      
-      {/* Настройки для favicon и apple-touch-icon могут быть добавлены здесь */}
     </Head>
   );
 };
