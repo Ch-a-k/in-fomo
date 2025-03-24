@@ -200,5 +200,9 @@
     "privacy-policy": "Політика конфіденційності",
     "terms-of-service": "Умови використання",
     "cookie-policy": "Політика cookies"
+  },
+  "floating_button": {
+    "show": "Показати кнопку звернення",
+    "hide": "Сховати кнопку звернення"
   }
 }

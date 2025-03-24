@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import event from '../utils/analytics';
+import { trackEvent } from '../utils/analytics';
 import SEO from '../components/SEO';
 
 // Типы для проектов
@@ -73,11 +73,10 @@ const Portfolio = () => {
       );
       
       // Отправляем событие в Google Analytics
-      event({
+      trackEvent({
         action: 'project_image_next',
         category: 'Portfolio',
         label: t(selectedProject.titleKey, { ns: 'portfolio' }),
-        value: selectedProject.id
       });
     }
   }, [selectedProject, t]);
@@ -89,11 +88,10 @@ const Portfolio = () => {
       );
       
       // Отправляем событие в Google Analytics
-      event({
+      trackEvent({
         action: 'project_image_prev',
         category: 'Portfolio',
         label: t(selectedProject.titleKey, { ns: 'portfolio' }),
-        value: selectedProject.id
       });
     }
   }, [selectedProject, t]);
@@ -491,11 +489,10 @@ const Portfolio = () => {
 
   // Функция для отслеживания кликов на проекты
   const trackProjectClick = (project: Project) => {
-    event({
+    trackEvent({
       action: 'project_click',
       category: 'Portfolio',
       label: t(project.titleKey, { ns: 'portfolio' }),
-      value: project.id
     });
     setSelectedProject(project);
   };
@@ -504,11 +501,10 @@ const Portfolio = () => {
   const trackProjectLinkClick = (project: Project, e: React.MouseEvent) => {
     e.stopPropagation();
     
-    event({
+    trackEvent({
       action: 'project_link_click',
       category: 'Portfolio',
       label: t(project.titleKey, { ns: 'portfolio' }),
-      value: project.id
     });
     
     if (project.link !== '#') {
@@ -527,7 +523,7 @@ const Portfolio = () => {
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl"></div>
-          <div className="absolute top-1/3 -left-24 w-64 h-64 rounded-full bg-blue-500/10 blur-3xl"></div>
+          <div className="absolute top-1/3 -left-24 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl"></div>
           <div className="absolute -bottom-32 left-1/2 w-80 h-80 rounded-full bg-purple-500/10 blur-3xl"></div>
           <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         </div>
@@ -563,7 +559,7 @@ const Portfolio = () => {
                 }`}
                 onClick={() => {
                   setActiveCategory(category.id);
-                  event({
+                  trackEvent({
                     action: 'category_filter',
                     category: 'Portfolio',
                     label: category.name,
@@ -645,11 +641,10 @@ const Portfolio = () => {
     className="fixed inset-0 z-[100] overflow-y-auto bg-black/90 animate-fade-in pt-[64px]"
     onClick={() => {
       if (selectedProject) {
-        event({
+        trackEvent({
           action: 'project_modal_close',
           category: 'Portfolio',
           label: t(selectedProject.titleKey, { ns: 'portfolio' }),
-          value: selectedProject.id
         });
       }
       setSelectedProject(null);
@@ -785,11 +780,10 @@ const Portfolio = () => {
                     selectedProject.link === '#' ? 'opacity-50 cursor-not-allowed' : ''
                   }`}
                   onClick={() => {
-                    event({
+                    trackEvent({
                       action: 'project_modal_link_click',
                       category: 'Portfolio',
                       label: t(selectedProject.titleKey, { ns: 'portfolio' }),
-                      value: selectedProject.id
                     });
                   }}
                 >

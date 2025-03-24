@@ -19,6 +19,7 @@ export default function Home() {
         description="Leading IT company providing innovative software development, cloud solutions, and digital transformation services."
       />
       <main>
+        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-orange-500/10 blur-3xl"></div>
         <Hero />
         <Services />
         <Partners />

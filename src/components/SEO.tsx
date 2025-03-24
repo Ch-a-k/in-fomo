@@ -1,128 +1,132 @@
+import { FC, useMemo } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
+import { SeoProps, formatPageTitle, getLocalizedUrl } from '../utils/seo';
 
-interface SEOProps {
-  title?: string;
-  description?: string;
-  noIndex?: boolean;
-  ogImage?: string;
+interface SEOComponentProps extends SeoProps {
+  siteName?: string;
+  baseUrl?: string;
+  twitterSite?: string;
+  twitterCreator?: string;
+  facebookAppId?: string;
 }
 
-const SEO = ({
+const SEO: FC<SEOComponentProps> = ({
   title,
   description,
-  noIndex = false,
-  ogImage
-}: SEOProps) => {
+  canonical,
+  locale,
+  image,
+  imageAlt,
+  type = 'website',
+  keywords,
+  author,
+  publishedTime,
+  modifiedTime,
+  category,
+  tags,
+  noindex = false,
+  nofollow = false,
+  siteName = 'IN-FOMO.',
+  baseUrl = process.env.NEXT_PUBLIC_DOMAIN || '',
+  twitterSite = '@in_4omo',
+  twitterCreator = '@in_4omo',
+  facebookAppId,
+}) => {
   const router = useRouter();
-  const { t } = useTranslation();
-
-  // Базовый URL сайта
-  const siteUrl = 'https://in-fomo.com';
+  const { i18n } = useTranslation();
   
-  // Формируем канонический URL
-  const path = router.asPath.split('?')[0].split('#')[0];
-  const canonicalUrl = `${siteUrl}${path === '/' ? '' : path}`;
+  // Используем locale из i18n, если не задан явно
+  const seoLocale = locale || i18n.language || router.locale || 'en';
   
-  // Заголовок
-  const pageTitle =
-    title ||
-    t('meta.title', {
-      ns: router.pathname.substring(1) || 'common',
-      defaultValue: 'IN-FOMO | Innovative IT Solutions',
-    });
-
-  // Описание
-  const pageDescription =
-    description ||
-    t('meta.description', {
-      ns: router.pathname.substring(1) || 'common',
-      defaultValue:
-        'Leading IT company providing innovative software development, cloud solutions, and digital transformation services.',
-    });
+  // Вычисляем канонический URL, если он не предоставлен явно
+  const canonicalUrl = useMemo(() => {
+    if (canonical) return canonical;
     
-  // OG изображение
-  const ogImageUrl = ogImage
-    ? ogImage.startsWith('http')
-      ? ogImage
-      : `${siteUrl}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`
-    : `${siteUrl}/og-image.png`;
-
+    const path = router.asPath.split('?')[0].split('#')[0]; // Удаляем query params и хэш
+    return getLocalizedUrl(path, seoLocale, baseUrl);
+  }, [canonical, router.asPath, seoLocale, baseUrl]);
+  
+  // Полный URL для изображения
+  const fullImageUrl = image && !image.startsWith('http') 
+    ? `${baseUrl}${image.startsWith('/') ? image : `/${image}`}`
+    : image;
+  
+  // Форматируем заголовок страницы
+  const formattedTitle = formatPageTitle(title, siteName);
+  
   return (
     <Head>
-      {/* Основные метатеги */}
-      <title>{pageTitle}</title>
-      <meta name="description" content={pageDescription} />
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/favicon.ico" />
-      <meta name="theme-color" content="#ff5a00" />
-
-      {/* Open Graph */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={pageDescription} />
-      <meta property="og:image" content={ogImageUrl} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={pageTitle} />
-      <meta property="og:site_name" content="IN-FOMO" />
-      <meta property="og:locale" content={router.locale || 'en'} />
-
-      {/* Twitter Cards - упрощенная версия */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={pageDescription} />
-      <meta name="twitter:image" content={ogImageUrl} />
-
+      {/* Базовые SEO-теги */}
+      <title>{formattedTitle}</title>
+      <meta name="description" content={description} />
+      {keywords && keywords.length > 0 && (
+        <meta name="keywords" content={keywords.join(', ')} />
+      )}
+      {author && <meta name="author" content={author} />}
+      
+      {/* Управление индексацией */}
+      <meta 
+        name="robots" 
+        content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`} 
+      />
+      
       {/* Канонический URL */}
       <link rel="canonical" href={canonicalUrl} />
-
-      {/* Альтернативные языковые ссылки */}
-      {router.locales?.map((loc) => (
-        <link
-          key={`alternate-${loc}`}
-          rel="alternate"
-          hrefLang={loc}
-          href={`${siteUrl}/${loc === router.defaultLocale ? '' : loc}${path === '/' ? '' : path}`}
-        />
-      ))}
-
-      {/* Управление индексацией */}
-      <meta name="robots" content={noIndex ? 'noindex,nofollow' : 'index,follow'} />
-
-      {/* Шрифты */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-
-      {/* Структурированные данные Schema.org - упрощенная версия */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: pageTitle,
-            url: siteUrl,
-            description: pageDescription,
-            publisher: {
-              '@type': 'Organization',
-              name: 'IN-FOMO',
-              logo: {
-                '@type': 'ImageObject',
-                url: `${siteUrl}/logo.png`
-              }
-            },
-            image: ogImageUrl
-          })
-        }}
-      />
+      
+      {/* Open Graph мета-теги */}
+      <meta property="og:title" content={title} />
+      {description && <meta property="og:description" content={description} />}
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:site_name" content={siteName} />
+      <meta property="og:locale" content={seoLocale.replace('-', '_')} />
+      
+      {fullImageUrl && (
+        <>
+          <meta property="og:image" content={fullImageUrl} />
+          {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+        </>
+      )}
+      
+      {/* Дополнительные теги для статей */}
+      {type === 'article' && (
+        <>
+          {publishedTime && (
+            <meta property="article:published_time" content={publishedTime} />
+          )}
+          {modifiedTime && (
+            <meta property="article:modified_time" content={modifiedTime} />
+          )}
+          {author && <meta property="article:author" content={author} />}
+          {category && <meta property="article:section" content={category} />}
+          
+          {tags && tags.length > 0 && tags.map((tag, index) => (
+            <meta property="article:tag" content={tag} key={`tag-${index}`} />
+          ))}
+        </>
+      )}
+      
+      {/* Twitter Card мета-теги */}
+      <meta name="twitter:card" content={fullImageUrl ? "summary_large_image" : "summary"} />
+      <meta name="twitter:title" content={title} />
+      {description && <meta name="twitter:description" content={description} />}
+      
+      {fullImageUrl && (
+        <>
+          <meta name="twitter:image" content={fullImageUrl} />
+          {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+        </>
+      )}
+      
+      {twitterSite && <meta name="twitter:site" content={twitterSite} />}
+      {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
+      
+      {/* Facebook App ID если предоставлен */}
+      {facebookAppId && <meta property="fb:app_id" content={facebookAppId} />}
+      
+      {/* Настройки для favicon и apple-touch-icon могут быть добавлены здесь */}
     </Head>
   );
 };

@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import CookieConsent from './CookieConsent'
+import FloatingButton from './FloatingButton'
 import Script from 'next/script'
 import Breadcrumbs from './Breadcrumbs'
 import Hotjar from './Hotjar'
@@ -77,6 +78,7 @@ const Layout = ({
         </main>
         <Footer variant={footerVariant} />
         <CookieConsent />
+        <FloatingButton />
       </div>
     </>
   )

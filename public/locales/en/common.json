@@ -11,7 +11,7 @@
   "careers": "CAREERS",
   
   "language": "Language",
-  "get_started": "Get started",
+  "get_started": "Get Started",
   
   "quick_links": "Quick Links",
   "footer_description": "We provide cutting-edge IT solutions to help businesses transform and thrive in the digital era.",
@@ -170,5 +170,9 @@
     "privacy-policy": "Privacy Policy",
     "terms-of-service": "Terms of Service",
     "cookie-policy": "Cookie Policy"
+  },
+  "floating_button": {
+    "show": "Show contact button",
+    "hide": "Hide contact button"
   }
 }

@@ -206,5 +206,10 @@
     "privacy-policy": "Polityka prywatności",
     "terms-of-service": "Warunki użytkowania",
     "cookie-policy": "Polityka cookies"
+  },
+  
+  "floating_button": {
+    "show": "Pokaż przycisk kontaktu",
+    "hide": "Ukryj przycisk kontaktu"
   }
 }
