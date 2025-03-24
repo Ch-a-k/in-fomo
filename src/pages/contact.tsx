@@ -220,6 +220,7 @@ export default function Contact() {
       <SEO 
         title={t('meta.title')}
         description={t('meta.description')}
+        image='/og-image.png'
       />
 
       {/* Hero Section */}

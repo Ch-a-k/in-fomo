@@ -11,6 +11,7 @@ const CookiePolicy = () => {
       <SEO 
         title={t('meta.title', { ns: 'common', defaultValue: 'IN-FOMO | Cookie Policy' })}
         description={t('meta.description', { ns: 'common', defaultValue: 'Learn about how we use cookies and similar technologies on our website.' })}
+        image='/og-image.png'
       />
 
       <div className="bg-light-bg dark:bg-dark-bg min-h-screen">

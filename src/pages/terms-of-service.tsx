@@ -13,6 +13,7 @@ export default function TermsOfService() {
       <SEO 
         title={t('meta.title', { ns: 'terms', defaultValue: 'IN-FOMO | Terms of Service' })}
         description={t('meta.description', { ns: 'terms', defaultValue: 'Review our terms of service to understand the conditions for using IN-FOMO\'s services and products.' })}
+        image='/og-image.png'
       />
 
       {/* Hero */}

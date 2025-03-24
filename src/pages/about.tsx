@@ -102,7 +102,9 @@ export default function About() {
       <SEO 
         title={t('meta.title')}
         description={t('meta.description')}
+        image='/og-image.png'
       />
+      
 
       {/* Hero */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">

@@ -517,6 +517,7 @@ const Portfolio = () => {
       <SEO 
         title={t('meta.title', { ns: 'portfolio', defaultValue: 'IN-FOMO | Portfolio' })}
         description={t('meta.description', { ns: 'portfolio', defaultValue: 'Explore our portfolio of innovative IT solutions and successful projects across various industries.' })}
+        image='/og-image.png'
       />
 
       {/* Hero Section */}

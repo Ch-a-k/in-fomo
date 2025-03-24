@@ -36,109 +36,84 @@ const SEO: FC<SEOComponentProps> = ({
 }) => {
   const router = useRouter();
   const { i18n } = useTranslation();
-  
-  // Используем locale из i18n, если не задан явно
+
   const seoLocale = locale || i18n.language || router.locale || 'en';
-  
-  // Вычисляем канонический URL, если он не предоставлен явно
+
   const canonicalUrl = useMemo(() => {
     if (canonical) return canonical;
-    
-    const path = router.asPath.split('?')[0].split('#')[0]; // Удаляем query params и хэш
+    const path = router.asPath.split('?')[0].split('#')[0];
     return getLocalizedUrl(path, seoLocale, baseUrl);
   }, [canonical, router.asPath, seoLocale, baseUrl]);
-  
+
+  const fullImageUrl = useMemo(() => {
+    if (!image) return `${baseUrl}/images/og-image.png`;
+    if (image.startsWith('http')) return image;
+    const imagePath = image.startsWith('/') ? image : `/${image}`;
+    return `${baseUrl}${imagePath}`;
+  }, [image, baseUrl]);
+
+  const formattedTitle = formatPageTitle(title, siteName);
+  const safeDescription = description || 'IN-FOMO. - leading IT company providing innovative software development services.';
+
   return (
     <Head>
-      {/* Базовые SEO-теги (приоритетные) */}
-      <title key="title">IN-FOMO. | Innovative IT Solutions</title>
-      <meta 
-        key="description" 
-        name="description" 
-        content="Leading IT company providing innovative software development, cloud solutions, and digital transformation services." 
-      />
-      
-      {/* Дополнительные мета-теги */}
+      {/* Базовые мета-теги */}
+      <title>{formattedTitle}</title>
+      <meta name="description" content={safeDescription} />
       {keywords && keywords.length > 0 && (
-        <meta key="keywords" name="keywords" content={keywords.join(', ')} />
+        <meta name="keywords" content={keywords.join(', ')} />
       )}
-      
-      {author && <meta key="author" name="author" content={author} />}
-      
-      {/* Управление индексацией */}
-      <meta 
-        key="robots"
-        name="robots" 
-        content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`} 
-      />
-      
-      {/* Канонический URL */}
-      <link key="canonical" rel="canonical" href={canonicalUrl} />
-      
-      {/* Open Graph мета-теги (приоритетные) */}
-      <meta key="og:url" property="og:url" content="https://in-fomo.com" />
-      <meta key="og:type" property="og:type" content="website" />
-      <meta key="og:title" property="og:title" content="IN-FOMO. | Innovative IT Solutions" />
-      <meta 
-        key="og:description" 
-        property="og:description" 
-        content="Leading IT company providing innovative software development, cloud solutions, and digital transformation services." 
-      />
-      <meta 
-        key="og:image" 
-        property="og:image" 
-        content="https://opengraph.b-cdn.net/production/images/e9be6993-4e03-4ae5-977d-d5f7d2e2226b.png?token=frkI3hPu3sc-vDYsn36qRJQ4CANW3XK41QkyrfbQ5CA&height=630&width=1200&expires=33278785063" 
-      />
-      <meta 
-        key="og:image:secure_url" 
-        property="og:image:secure_url" 
-        content="https://opengraph.b-cdn.net/production/images/e9be6993-4e03-4ae5-977d-d5f7d2e2226b.png?token=frkI3hPu3sc-vDYsn36qRJQ4CANW3XK41QkyrfbQ5CA&height=630&width=1200&expires=33278785063" 
-      />
-      <meta key="og:image:width" property="og:image:width" content="1200" />
-      <meta key="og:image:height" property="og:image:height" content="630" />
-      {imageAlt && <meta key="og:image:alt" property="og:image:alt" content={imageAlt} />}
-      <meta key="og:site_name" property="og:site_name" content={siteName} />
-      <meta key="og:locale" property="og:locale" content={seoLocale.replace('-', '_')} />
+      {author && <meta name="author" content={author} />}
 
-      {/* Twitter Card мета-теги (приоритетные) */}
-      <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
-      <meta key="twitter:domain" property="twitter:domain" content="in-fomo.com" />
-      <meta key="twitter:url" property="twitter:url" content="https://in-fomo.com" />
-      <meta key="twitter:title" name="twitter:title" content="IN-FOMO. | Innovative IT Solutions" />
-      <meta 
-        key="twitter:description" 
-        name="twitter:description" 
-        content="Leading IT company providing innovative software development, cloud solutions, and digital transformation services." 
+      {/* Управление индексацией */}
+      <meta
+        name="robots"
+        content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`}
       />
-      <meta 
-        key="twitter:image" 
-        name="twitter:image" 
-        content="https://opengraph.b-cdn.net/production/images/e9be6993-4e03-4ae5-977d-d5f7d2e2226b.png?token=frkI3hPu3sc-vDYsn36qRJQ4CANW3XK41QkyrfbQ5CA&height=630&width=1200&expires=33278785063" 
-      />
-      {imageAlt && <meta key="twitter:image:alt" name="twitter:image:alt" content={imageAlt} />}
-      {twitterSite && <meta key="twitter:site" name="twitter:site" content={twitterSite} />}
-      {twitterCreator && <meta key="twitter:creator" name="twitter:creator" content={twitterCreator} />}
-      
+
+      {/* Канонический URL */}
+      <link rel="canonical" href={canonicalUrl} />
+
+      {/* Open Graph теги */}
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:type" content={type} />
+      <meta property="og:title" content={formattedTitle} />
+      <meta property="og:description" content={safeDescription} />
+      <meta property="og:image" content={fullImageUrl} />
+      {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+      <meta property="og:site_name" content={siteName} />
+      {seoLocale && <meta property="og:locale" content={seoLocale} />}
+
+      {/* Twitter Card теги */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={formattedTitle} />
+      <meta name="twitter:description" content={safeDescription} />
+      <meta name="twitter:image" content={fullImageUrl} />
+      {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+      {twitterSite && <meta name="twitter:site" content={twitterSite} />}
+      {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
+
       {/* Дополнительные теги для статей */}
       {type === 'article' && (
         <>
           {publishedTime && (
-            <meta key="article:published_time" property="article:published_time" content={publishedTime} />
+            <meta property="article:published_time" content={publishedTime} />
           )}
           {modifiedTime && (
-            <meta key="article:modified_time" property="article:modified_time" content={modifiedTime} />
+            <meta property="article:modified_time" content={modifiedTime} />
           )}
-          {author && <meta key="article:author" property="article:author" content={author} />}
-          {category && <meta key="article:section" property="article:section" content={category} />}
-          
-          {tags && tags.length > 0 && tags.map((tag, index) => (
-            <meta key={`article:tag:${index}`} property="article:tag" content={tag} />
-          ))}
+          {author && <meta property="article:author" content={author} />}
+          {category && <meta property="article:section" content={category} />}
+          {tags &&
+            tags.length > 0 &&
+            tags.map((tag, index) => (
+              <meta property="article:tag" content={tag} key={`tag-${index}`} />
+            ))}
         </>
       )}
-      
-      {/* Facebook App ID если предоставлен */}
-      {facebookAppId && <meta key="fb:app_id" property="fb:app_id" content={facebookAppId} />}
+
+      {/* Facebook App ID */}
+      {facebookAppId && <meta property="fb:app_id" content={facebookAppId} />}
     </Head>
   );
 };
