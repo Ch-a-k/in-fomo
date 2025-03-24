@@ -29,7 +29,7 @@ const SEO: FC<SEOComponentProps> = ({
   noindex = false,
   nofollow = false,
   siteName = 'IN-FOMO.',
-  baseUrl = process.env.NEXT_PUBLIC_DOMAIN || '',
+  baseUrl = process.env.NEXT_PUBLIC_DOMAIN || 'https://in-fomo.com',
   twitterSite = '@in_4omo',
   twitterCreator = '@in_4omo',
   facebookAppId,
@@ -48,19 +48,29 @@ const SEO: FC<SEOComponentProps> = ({
     return getLocalizedUrl(path, seoLocale, baseUrl);
   }, [canonical, router.asPath, seoLocale, baseUrl]);
   
-  // Полный URL для изображения
-  const fullImageUrl = image && !image.startsWith('http') 
-    ? `${baseUrl}${image.startsWith('/') ? image : `/${image}`}`
-    : image;
+  // Проверяем и устанавливаем абсолютный URL для изображения
+  const fullImageUrl = useMemo(() => {
+    if (!image) return `${baseUrl}/images/og-image.png`; // Дефолтное изображение
+
+    // Если уже абсолютный URL, используем его
+    if (image.startsWith('http')) return image;
+    
+    // Если относительный URL, добавляем baseUrl
+    const imagePath = image.startsWith('/') ? image : `/${image}`;
+    return `${baseUrl}${imagePath}`;
+  }, [image, baseUrl]);
   
   // Форматируем заголовок страницы
   const formattedTitle = formatPageTitle(title, siteName);
+  
+  // Стандартное описание, если не предоставлено
+  const safeDescription = description || `IN-FOMO. - leading IT company providing innovative software development services.`;
   
   return (
     <Head>
       {/* Базовые SEO-теги */}
       <title>{formattedTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={safeDescription} />
       {keywords && keywords.length > 0 && (
         <meta name="keywords" content={keywords.join(', ')} />
       )}
@@ -75,20 +85,20 @@ const SEO: FC<SEOComponentProps> = ({
       {/* Канонический URL */}
       <link rel="canonical" href={canonicalUrl} />
       
-      {/* Open Graph мета-теги */}
-      <meta property="og:title" content={title} />
-      {description && <meta property="og:description" content={description} />}
+      {/* Open Graph мета-теги - Обязательные */}
+      <meta property="og:title" content={formattedTitle} />
+      <meta property="og:description" content={safeDescription} />
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content={seoLocale.replace('-', '_')} />
       
-      {fullImageUrl && (
-        <>
-          <meta property="og:image" content={fullImageUrl} />
-          {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
-        </>
-      )}
+      {/* Open Graph мета-теги - Изображение */}
+      <meta property="og:image" content={fullImageUrl} />
+      <meta property="og:image:secure_url" content={fullImageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
       
       {/* Дополнительные теги для статей */}
       {type === 'article' && (
@@ -109,17 +119,11 @@ const SEO: FC<SEOComponentProps> = ({
       )}
       
       {/* Twitter Card мета-теги */}
-      <meta name="twitter:card" content={fullImageUrl ? "summary_large_image" : "summary"} />
-      <meta name="twitter:title" content={title} />
-      {description && <meta name="twitter:description" content={description} />}
-      
-      {fullImageUrl && (
-        <>
-          <meta name="twitter:image" content={fullImageUrl} />
-          {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
-        </>
-      )}
-      
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={formattedTitle} />
+      <meta name="twitter:description" content={safeDescription} />
+      <meta name="twitter:image" content={fullImageUrl} />
+      {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
       {twitterSite && <meta name="twitter:site" content={twitterSite} />}
       {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
       
