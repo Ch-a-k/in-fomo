@@ -31,7 +31,7 @@ class MyDocument extends Document {
                 font-style: normal;
                 font-weight: 400 700;
                 font-display: swap;
-                src: url('/fonts/Inter-VariableFont.woff2') format('woff2');
+                src: url('/fonts/sofia-pro.woff2') format('woff2');
               }
             `
           }} />
