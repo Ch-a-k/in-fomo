@@ -1,33 +1,57 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/navigation';
+import { trackEvent } from '../utils/analytics';
+import { 
+  setItemWithTimestamp, 
+  getItemWithExpiration, 
+  isItemExpired,
+  EXPIRATION 
+} from '../utils/cookies';
+
+// Константы для ключей хранилища
+const COOKIE_CONSENT_KEY = 'cookieConsent';
 
 const CookieConsent = () => {
   const { t } = useTranslation('common');
-  const [isVisible, setIsVisible] = useState(true);
-  const [hasInteracted, setHasInteracted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
 
+  // Функция для сохранения согласия с меткой времени
+  const saveConsent = (value: string) => {
+    // Сохраняем с меткой времени
+    setItemWithTimestamp(COOKIE_CONSENT_KEY, value);
+    
+    // Отслеживаем согласие для аналитики
+    trackEvent({
+      action: `cookie_consent_${value}`,
+      category: 'user_preferences',
+      label: value
+    });
+  };
+
   useEffect(() => {
-    // Проверяем, было ли уже получено согласие
-    const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
-      setIsVisible(true);
-    }
+    // Проверяем, есть ли согласие и не истек ли срок его действия
+    const hasValidConsent = !isItemExpired(COOKIE_CONSENT_KEY, EXPIRATION.HOUR);
+    
+    // Показываем баннер только если согласие не дано или истек срок действия
+    setIsVisible(!hasValidConsent);
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem('cookieConsent', 'accepted');
+    saveConsent('accepted');
     setIsVisible(false);
   };
 
   const handleDecline = () => {
-    localStorage.setItem('cookieConsent', 'declined');
+    saveConsent('declined');
     setIsVisible(false);
     // Здесь можно добавить логику для отключения необязательных куки
   };
 
   const handleLearnMore = () => {
+    // Сохраняем, что пользователь интересовался политикой
+    saveConsent('viewed_policy');
     router.push('/cookie-policy');
     setIsVisible(false);
   };

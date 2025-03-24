@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { useTranslation } from 'next-i18next'
 import Navbar from './Navbar'
 import Footer from './Footer'
@@ -6,7 +6,13 @@ import CookieConsent from './CookieConsent'
 import FloatingButton from './FloatingButton'
 import Script from 'next/script'
 import Breadcrumbs from './Breadcrumbs'
-import Hotjar from './Hotjar'
+import dynamic from 'next/dynamic'
+
+// Ленивая загрузка Hotjar компонента
+const Hotjar = dynamic(() => import('./Hotjar'), { 
+  ssr: false,
+  loading: () => null 
+})
 
 interface LayoutProps {
   children: ReactNode
@@ -25,7 +31,7 @@ const Layout = ({
       <>
       {gtmId && (
         <>
-          <Script id="google-tag-manager" strategy="afterInteractive">
+          <Script id="google-tag-manager" strategy="lazyOnload">
             {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -50,20 +56,32 @@ const Layout = ({
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
-          <Script id="google-analytics" strategy="afterInteractive">
+          <Script id="google-analytics" strategy="lazyOnload">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${gaId}');
+              gtag('config', '${gaId}', {
+                'send_page_view': false, // Отключаем автоматическую отправку pageview
+                'transport_type': 'beacon' // Используем beacon API для отправки данных
+              });
+              
+              // Отложенная отправка pageview
+              setTimeout(() => {
+                gtag('event', 'page_view', {
+                  page_title: document.title,
+                  page_location: window.location.href,
+                  page_path: window.location.pathname
+                });
+              }, 1000);
             `}
           </Script>
         </>
       )}
       
-      {/* Hotjar Tracking */}
+      {/* Hotjar Tracking загружается динамически и неблокирующе */}
       <Hotjar hotjarId={5347229} />
       
       <div className="flex flex-col min-h-screen overflow-x-hidden">

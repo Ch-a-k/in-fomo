@@ -23,17 +23,21 @@ class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="IN-FOMO." />
           
-          {/* Настройка шрифтов */}
+          {/* Оптимизированная загрузка шрифтов с предзагрузкой и preconnect */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-            rel="stylesheet"
+          <link 
+            rel="preload" 
+            as="style" 
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
           />
           
-          {/* Кастомные настройки шрифта */}
+          {/* Используем кастомную загрузку через noscript для fallback и стили для оптимизации */}
           <style dangerouslySetInnerHTML={{
             __html: `
+              /* Загрузка шрифта без блокировки рендеринга */
+              @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+              
               @font-face {
                 font-family: 'Fredoka';
                 font-style: normal;
@@ -41,8 +45,20 @@ class MyDocument extends Document {
                 font-display: swap;
                 src: url('/fonts/FredokaOne-Regular.ttf') format('ttf');
               }
+              /* Предварительно объявляем стили шрифта, чтобы избежать FOUT */
+              @media not all and (prefers-reduced-motion) {
+                .font-sans {
+                  font-family: Inter, system-ui, sans-serif;
+                }
+              }
             `
           }} />
+          <noscript>
+            <link 
+              href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+              rel="stylesheet"
+            />
+          </noscript>
         </Head>
         <body>
           <Main />
