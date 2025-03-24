@@ -514,11 +514,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <SEO 
-        title={t('meta.title', { ns: 'portfolio', defaultValue: 'IN-FOMO | Portfolio' })}
-        description={t('meta.description', { ns: 'portfolio', defaultValue: 'Explore our portfolio of innovative IT solutions and successful projects across various industries.' })}
-        image='/og-image.png'
-      />
+      <SEO />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">

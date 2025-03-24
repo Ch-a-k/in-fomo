@@ -217,11 +217,7 @@ export default function Contact() {
 
   return (
     <>
-      <SEO 
-        title={t('meta.title')}
-        description={t('meta.description')}
-        image='/og-image.png'
-      />
+      <SEO />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">

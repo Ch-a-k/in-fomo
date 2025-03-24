@@ -1,4 +1,4 @@
-# Allow all web crawlers
+# Allow all user agents access to all content
 User-agent: *
 Allow: /
 Allow: /en/
@@ -15,6 +15,16 @@ Allow: /*.svg
 Allow: /*.ico
 Allow: /*.woff
 Allow: /*.woff2
+
+# Allow all user agents access to images
+User-agent: *
+Allow: /images/
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.avif$
+Allow: /*.webp$
 
 # Disallow specific paths
 Disallow: /api/

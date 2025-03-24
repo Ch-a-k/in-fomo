@@ -99,11 +99,7 @@ export default function About() {
 
   return (
     <>
-      <SEO 
-        title={t('meta.title')}
-        description={t('meta.description')}
-        image='/og-image.png'
-      />
+      <SEO />
       
 
       {/* Hero */}

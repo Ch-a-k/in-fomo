@@ -15,6 +15,14 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           
+          {/* Базовые Open Graph метатеги в _document для гарантированной загрузки при SSR */}
+          <meta property="og:title" content="IN-FOMO. | Innovative IT Solutions" />
+          <meta property="og:description" content="Leading IT company providing innovative software development, cloud solutions, and digital transformation services." />
+          <meta property="og:url" content="https://in-fomo.com" />
+          <meta property="og:image" content="https://in-fomo.com/og-image.png" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="IN-FOMO." />
+          
           {/* Настройка шрифтов */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
