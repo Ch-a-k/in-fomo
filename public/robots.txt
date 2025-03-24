@@ -21,7 +21,6 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 Disallow: /_next/
-Disallow: /*?*
 Disallow: /*.json$
 
 # Crawl delay
