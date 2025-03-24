@@ -35,6 +35,12 @@ const SEO: FC<SEOProps> = ({
       <meta key="og:image:height" property="og:image:height" content="630" />
       <meta key="og:site_name" property="og:site_name" content="IN-FOMO." />
       
+      {/* Telegram специфичные мета-теги */}
+      <meta key="telegram:card" property="telegram:card" content="summary_large_image" />
+      <meta key="telegram:image" property="telegram:image" content={ogImageUrl} />
+      <meta key="telegram:title" property="telegram:title" content={title} />
+      <meta key="telegram:description" property="telegram:description" content={description} />
+      
       {/* Twitter Card теги */}
       <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
       <meta key="twitter:domain" property="twitter:domain" content="in-fomo.com" />
