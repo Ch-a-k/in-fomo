@@ -122,11 +122,11 @@ const Services = () => {
             {t('our_services')}
           </div>
           
-          <h2 className="text-3xl font-bold mb-4 animate-fade-in [animation-delay:200ms]">
+          <h2 className="text-3xl font-bold mb-4 animate-fade-in [animation-delay:200ms] min-h-[2.5rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 40px' }}>
             {t('services_title')}
           </h2>
           
-          <p className="text-base text-gray-600 dark:text-gray-300 animate-fade-in [animation-delay:400ms]">
+          <p className="text-base text-gray-600 dark:text-gray-300 animate-fade-in [animation-delay:400ms] min-h-[3rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 48px' }}>
             {t('services_description')}
           </p>
         </div>
@@ -142,8 +142,8 @@ const Services = () => {
                   <div className="p-3 mb-3 rounded-lg bg-primary/10 inline-block text-primary">
                     {service.icon}
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-center break-words hyphens-auto" lang={t('language_code')}>{service.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 w-full text-left break-words hyphens-auto" lang={t('language_code')}>{service.description}</p>
+                  <h3 className="text-lg font-bold mb-2 text-center break-words hyphens-auto min-h-[3.5rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 56px' }} lang={t('language_code')}>{service.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 w-full text-left break-words hyphens-auto min-h-[4rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 64px' }} lang={t('language_code')}>{service.description}</p>
                 </div>
               </div>
           ))}

@@ -91,7 +91,7 @@ const Layout = ({
         <div className="container mx-auto px-4">
           <Breadcrumbs />
         </div>
-        <main className="flex-grow relative z-10">
+        <main className="flex-grow relative z-10 min-h-[50vh]">
           {children}
         </main>
         <Footer variant={footerVariant} />

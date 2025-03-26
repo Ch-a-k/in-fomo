@@ -5,6 +5,8 @@
   font-weight: 400;
   font-display: swap;
   src: local('Fredoka'), url('/fonts/FredokaOne-Regular.ttf') format('truetype');
+  font-synthesis: none;
+  size-adjust: 100%;
 }
 
 @font-face {
@@ -13,6 +15,8 @@
   font-weight: 600;
   font-display: swap;
   src: local('Fredoka'), url('/fonts/FredokaOne-Regular.ttf') format('truetype');
+  font-synthesis: none;
+  size-adjust: 100%;
 }
 
 @font-face {
@@ -21,4 +25,6 @@
   font-weight: 700;
   font-display: swap;
   src: local('Fredoka'), url('/fonts/FredokaOne-Regular.ttf') format('truetype');
+  font-synthesis: none;
+  size-adjust: 100%;
 }

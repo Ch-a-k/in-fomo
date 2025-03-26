@@ -5,7 +5,6 @@ import Image from 'next/image';
 
 const Hero = memo(() => {
   const { t } = useTranslation('home');
-  const [isLoaded, setIsLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
@@ -18,9 +17,6 @@ const Hero = memo(() => {
     
     // Запускаем при монтировании
     checkDevice();
-    
-    // Сообщаем, что компонент загружен
-    setIsLoaded(true);
     
     // Регистрируем LCP элемент
     if (headingRef.current && window.performance && 'observe' in window.performance) {
@@ -44,52 +40,48 @@ const Hero = memo(() => {
 
   return (
     <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">
-      {/* Упрощенный фон для мобильных устройств */}
-      {isMobile ? (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/10 blur-xl"></div>
-        </div>
-      ) : (
-        /* Полный фон для десктоп */
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/10 blur-2xl transform translate-x-1/4 -translate-y-1/4"></div>
-          <div className="absolute top-1/3 left-0 w-64 h-64 rounded-full bg-blue-500/10 blur-2xl transform -translate-x-1/2"></div>
-          <div className="absolute bottom-0 left-1/2 w-80 h-80 rounded-full bg-purple-500/10 blur-2xl transform -translate-x-1/2 translate-y-1/3"></div>
-          <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
-        </div>
-      )}
+      {/* Упрощенный фон с фиксированными размерами */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/10 blur-xl"></div>
+        {!isMobile && (
+          <>
+            <div className="absolute top-1/3 left-0 w-64 h-64 rounded-full bg-blue-500/10 blur-2xl transform -translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-1/2 w-80 h-80 rounded-full bg-purple-500/10 blur-2xl transform -translate-x-1/2 translate-y-1/3"></div>
+            <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
+          </>
+        )}
+      </div>
 
       <div className="container relative z-10 py-8 md:py-16 lg:py-24">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge - отключен для мобильных */}
-          {!isMobile && (
-            <div 
-              className="inline-block px-6 py-2 mb-4 text-sm font-medium rounded-full bg-primary text-white"
-              role="banner"
-            >
-              {t('hero_badge')}
-            </div>
-          )}
+          {/* Badge с фиксированной высотой */}
+          <div 
+            className={`${!isMobile ? 'inline-block px-6 py-2 mb-4 text-sm font-medium rounded-full bg-primary text-white' : 'h-0 overflow-hidden'}`}
+            role="banner"
+            style={{ minHeight: isMobile ? '0' : '32px' }}
+          >
+            {t('hero_badge')}
+          </div>
           
-          {/* LCP элемент - Главный заголовок */}
+          {/* LCP элемент - Главный заголовок с фиксированными размерами */}
           <h1 
             ref={headingRef}
-            className={`font-bold mb-4 min-h-[3.5rem] text-gray-900 dark:text-white ${isMobile ? 'text-3xl' : 'text-4xl sm:text-5xl md:text-6xl'}`}
+            className={`font-bold mb-4 text-gray-900 dark:text-white ${isMobile ? 'text-3xl min-h-[4rem]' : 'text-4xl sm:text-5xl md:text-6xl min-h-[5rem]'}`}
             id="hero-heading"
             style={{ 
               contentVisibility: 'auto',
-              containIntrinsicSize: '0 50px'
+              containIntrinsicSize: isMobile ? '0 64px' : '0 80px'
             }}
           >
             {t('hero_title_1')}{' '}
-            <span className="text-primary dark:text-primary-light">{t('hero_title_highlight')}</span>{' '}
+            <span className="text-primary dark:text-primary">{t('hero_title_highlight')}</span>{' '}
             {t('hero_title_2')}
           </h1>
           
-          <p className={`mb-6 min-h-[2rem] ${isMobile ? 'text-base' : 'text-lg md:text-xl'} text-gray-800 dark:text-gray-100`}
+          <p className={`mb-6 ${isMobile ? 'text-base min-h-[4rem]' : 'text-lg md:text-xl min-h-[3rem]'} text-gray-800 dark:text-gray-100`}
              style={{ 
                contentVisibility: 'auto',
-               containIntrinsicSize: '0 24px'
+               containIntrinsicSize: isMobile ? '0 64px' : '0 48px'
              }}
           >
             {t('hero_description')}
@@ -114,23 +106,21 @@ const Hero = memo(() => {
             )}
           </div>
           
-          {/* Отложенный контент загружается только после основного контента или на десктоп */}
-          {(!isMobile || isLoaded) && (
-            <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
-              <div className="flex items-center justify-center">
-                <div className="h-8 text-gray-700 dark:text-gray-300 font-medium text-lg">Blastly bot</div>
-              </div>
-              <div className="flex items-center justify-center">
-                <div className="h-8 text-gray-700 dark:text-gray-300 font-medium text-lg">Cats & Dogs</div>
-              </div>
-              <div className="flex items-center justify-center">
-                <div className="h-8 text-gray-700 dark:text-gray-300 font-medium text-lg">Heimdal AI</div>
-              </div>
-              <div className="flex items-center justify-center">
-                <div className="h-8 text-gray-700 dark:text-gray-300 font-medium text-lg">Memhash</div>
-              </div>
+          {/* Всегда отображаем лого-секцию, но с zero height на мобильных устройствах, если не нужно */}
+          <div className={`mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 ${isMobile ? 'h-0 overflow-hidden' : ''}`}>
+            <div className="flex items-center justify-center">
+              <div className="h-8 text-gray-700 dark:text-gray-300 font-medium text-lg">Blastly bot</div>
             </div>
-          )}
+            <div className="flex items-center justify-center">
+              <div className="h-8 text-gray-700 dark:text-gray-300 font-medium text-lg">Cats & Dogs</div>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="h-8 text-gray-700 dark:text-gray-300 font-medium text-lg">Heimdal AI</div>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="h-8 text-gray-700 dark:text-gray-300 font-medium text-lg">Memhash</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

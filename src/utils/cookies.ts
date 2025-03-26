@@ -27,7 +27,14 @@ export const getStorageItem = <T>(key: string, defaultValue: T): T => {
   try {
     const value = localStorage.getItem(key);
     if (value === null) return defaultValue;
-    return JSON.parse(value) as T;
+    
+    try {
+      // Пытаемся распарсить значение как JSON
+      return JSON.parse(value) as T;
+    } catch (parseError) {
+      console.warn(`Could not parse value for ${key} as JSON, returning default value`);
+      return defaultValue;
+    }
   } catch (e) {
     console.error(`Error reading ${key} from localStorage:`, e);
     return defaultValue;
@@ -91,18 +98,36 @@ export const getItemWithExpiration = <T>(
   const now = Date.now();
   
   try {
-    const data = getStorageItem<{ value: T, timestamp: number } | null>(key, null);
+    // Получаем сырое значение из localStorage
+    const rawValue = localStorage.getItem(key);
     
-    if (!data) return defaultValue;
+    // Если значение отсутствует, возвращаем значение по умолчанию
+    if (!rawValue) return defaultValue;
     
-    // Проверяем, не истекло ли время жизни
-    if (now - data.timestamp > expiration) {
-      // Если истекло, удаляем устаревшие данные
-      removeStorageItem(key);
-      return defaultValue;
+    try {
+      // Пытаемся распарсить значение как JSON
+      const parsedValue = JSON.parse(rawValue);
+      
+      // Проверяем, что parsedValue имеет формат {value, timestamp}
+      if (parsedValue && typeof parsedValue === 'object' && 'timestamp' in parsedValue) {
+        // Проверяем, не истекло ли время жизни
+        if (now - parsedValue.timestamp > expiration) {
+          // Если истекло, удаляем устаревшие данные
+          removeStorageItem(key);
+          return defaultValue;
+        }
+        
+        return parsedValue.value;
+      }
+      
+      // Если это не объект с timestamp, возвращаем его как есть
+      // (для обратной совместимости)
+      return parsedValue as unknown as T;
+    } catch (parseError) {
+      // Если не удалось распарсить как JSON, возвращаем сырое значение
+      console.warn(`Could not parse value for ${key} as JSON, returning raw value`);
+      return rawValue as unknown as T;
     }
-    
-    return data.value;
   } catch (e) {
     console.error(`Error getting ${key} with expiration:`, e);
     return defaultValue;
@@ -135,11 +160,28 @@ export const isItemExpired = (key: string, expiration: number): boolean => {
   const now = Date.now();
   
   try {
-    const data = getStorageItem<{ value: any, timestamp: number } | null>(key, null);
+    // Сначала получаем сырое значение из localStorage
+    const rawValue = localStorage.getItem(key);
     
-    if (!data) return true;
+    // Если значение отсутствует, считаем его истекшим
+    if (!rawValue) return true;
     
-    return now - data.timestamp > expiration;
+    try {
+      // Пытаемся распарсить значение как JSON
+      const parsedValue = JSON.parse(rawValue);
+      
+      // Проверяем, что parsedValue имеет формат {value, timestamp}
+      if (parsedValue && typeof parsedValue === 'object' && 'timestamp' in parsedValue) {
+        return now - parsedValue.timestamp > expiration;
+      }
+      
+      // Если это не объект с timestamp, считаем его истекшим (требуется обновление)
+      return true;
+    } catch (parseError) {
+      // Если не удалось распарсить как JSON, считаем что значение устарело
+      console.warn(`Could not parse value for ${key} as JSON, considering it expired`);
+      return true;
+    }
   } catch (e) {
     console.error(`Error checking expiration for ${key}:`, e);
     return true;

@@ -23,39 +23,74 @@ class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="IN-FOMO." />
           
-          {/* Оптимизированная загрузка шрифтов с предзагрузкой и preconnect */}
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          {/* Оптимизированная загрузка шрифтов с предзагрузкой для уменьшения CLS */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          
+          {/* Предзагрузка локальных шрифтов */}
+          <link rel="preload" href="/fonts/FredokaOne-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+          
+          {/* Предзагрузка Google шрифтов */}
           <link 
             rel="preload" 
             as="style" 
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sofia+Sans:wght@400;600;700&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" 
           />
           
-          {/* Используем кастомную загрузку через noscript для fallback и стили для оптимизации */}
+          {/* Используем стандартный CSS с отложенной загрузкой для Google шрифтов */}
+          <link 
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sofia+Sans:wght@400;600;700&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" 
+            rel="stylesheet"
+            media="print"
+            // @ts-ignore - используем строковый onload для HTML атрибута, это стандартная практика
+            onload="this.media='all'"
+          />
+          
+          {/* Используем стили для оптимизации и минимизации Layout Shifts */}
           <style dangerouslySetInnerHTML={{
             __html: `
-              /* Загрузка шрифта без блокировки рендеринга */
-              @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+              /* Устанавливаем дефолтные размеры для элементов до загрузки шрифтов */
+              :root {
+                --font-fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+              }
               
+              /* Предотвращаем CLS с использованием size-adjust */
               @font-face {
                 font-family: 'Fredoka';
                 font-style: normal;
                 font-weight: 400 700;
                 font-display: swap;
-                src: url('/fonts/FredokaOne-Regular.ttf') format('ttf');
+                src: local('Fredoka'), url('/fonts/FredokaOne-Regular.ttf') format('truetype');
+                size-adjust: 100%;
+                font-synthesis: none;
               }
-              /* Предварительно объявляем стили шрифта, чтобы избежать FOUT */
-              @media not all and (prefers-reduced-motion) {
-                .font-sans {
-                  font-family: Inter, system-ui, sans-serif;
-                }
+              
+              /* Fallback для всех шрифтов */
+              body {
+                font-family: var(--font-fallback);
+              }
+              
+              /* Задаем резервное место для заголовков */
+              h1, h2, h3, h4, h5, h6 {
+                font-family: 'Fredoka', var(--font-fallback);
+                font-size-adjust: 0.5;
+              }
+              
+              /* Использование font-display: swap для всех шрифтов */
+              .font-sans {
+                font-family: 'Inter', var(--font-fallback);
+                font-display: swap;
+              }
+              
+              .font-heading {
+                font-family: 'Sofia Sans', var(--font-fallback);
+                font-display: swap;
               }
             `
           }} />
           <noscript>
             <link 
-              href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+              href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sofia+Sans:wght@400;600;700&display=swap" 
               rel="stylesheet"
             />
           </noscript>

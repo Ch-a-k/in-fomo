@@ -20,8 +20,14 @@ const CookieConsent = memo(() => {
 
   // Функция для сохранения согласия с меткой времени
   const saveConsent = (value: string) => {
-    // Сохраняем с меткой времени
-    setItemWithTimestamp(COOKIE_CONSENT_KEY, value);
+    // Сохраняем с меткой времени в правильном формате {value, timestamp}
+    // setItemWithTimestamp ожидает объект, который потом обернет еще раз
+    const consentValue = { 
+      status: value,
+      date: new Date().toISOString()
+    };
+    
+    setItemWithTimestamp(COOKIE_CONSENT_KEY, consentValue);
     
     // Отслеживаем согласие для аналитики
     trackEvent({
@@ -33,14 +39,15 @@ const CookieConsent = memo(() => {
 
   useEffect(() => {
     setIsMounted(true);
+    
     // Проверяем, есть ли согласие и не истек ли срок его действия
     const hasValidConsent = !isItemExpired(COOKIE_CONSENT_KEY, EXPIRATION.HOUR);
     
     // Показываем баннер только если согласие не дано или истек срок действия
-    // Добавляем небольшую задержку для улучшения производительности при загрузке
+    // Увеличиваем задержку, чтобы снизить CLS и не мешать LCP
     const timer = setTimeout(() => {
       setIsVisible(!hasValidConsent);
-    }, 1500);
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -72,7 +79,8 @@ const CookieConsent = memo(() => {
         transform: 'translate3d(0, 0, 0)',
         willChange: 'transform',
         containIntrinsicSize: '0 200px',
-        contentVisibility: 'auto'
+        contentVisibility: 'auto',
+        contain: 'layout size'
       }}
       role="dialog"
       aria-labelledby="cookie-title"
@@ -81,10 +89,10 @@ const CookieConsent = memo(() => {
       <div className="container mx-auto px-4 py-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex-1 pointer-events-auto">
-            <h3 id="cookie-title" className="text-lg font-heading mb-2 text-gray-900 dark:text-white">
+            <h3 id="cookie-title" className="text-lg font-heading mb-2 text-gray-900 dark:text-white min-h-[28px]">
               {t('cookie_consent.title')}
             </h3>
-            <p id="cookie-description" className="text-sm text-gray-800 dark:text-gray-100 mb-2">
+            <p id="cookie-description" className="text-sm text-gray-800 dark:text-gray-100 mb-2 min-h-[40px]">
               {t('cookie_consent.description')}
             </p>
             <button
