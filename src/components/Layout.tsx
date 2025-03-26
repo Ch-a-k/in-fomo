@@ -31,7 +31,7 @@ const Layout = ({
       <>
       {gtmId && (
         <>
-          <Script id="google-tag-manager" strategy="lazyOnload">
+          <Script id="google-tag-manager" strategy="worker">
             {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -56,26 +56,28 @@ const Layout = ({
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-            strategy="lazyOnload"
+            strategy="worker"
           />
-          <Script id="google-analytics" strategy="lazyOnload">
+          <Script id="google-analytics" strategy="worker">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${gaId}', {
-                'send_page_view': false, // Отключаем автоматическую отправку pageview
-                'transport_type': 'beacon' // Используем beacon API для отправки данных
+                'send_page_view': false,
+                'transport_type': 'beacon',
+                'optimize_id': 'OPT-XXXXXX'
               });
               
-              // Отложенная отправка pageview
+              // Отложенная отправка pageview на 2 секунды
               setTimeout(() => {
                 gtag('event', 'page_view', {
                   page_title: document.title,
                   page_location: window.location.href,
-                  page_path: window.location.pathname
+                  page_path: window.location.pathname,
+                  non_interaction: true
                 });
-              }, 1000);
+              }, 2000);
             `}
           </Script>
         </>

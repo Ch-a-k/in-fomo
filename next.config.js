@@ -29,11 +29,16 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 7, // 7 дней
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    domains: ['static.hotjar.com', 'script.hotjar.com', 'www.googletagmanager.com'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   experimental: {
+    optimizeCss: true,
+    optimizeImages: true,
     scrollRestoration: true,
   },
   webpack(config, { dev, isServer }) {
@@ -44,29 +49,21 @@ const nextConfig = {
         runtimeChunk: 'single',
         splitChunks: {
           chunks: 'all',
-          maxInitialRequests: 25,
           minSize: 20000,
-          maxSize: 244000, // Максимальный размер чанка
+          maxSize: 244000,
+          minChunks: 1,
+          maxAsyncRequests: 30,
+          maxInitialRequests: 30,
           cacheGroups: {
-            default: false,
-            vendors: false,
-            commons: {
-              name: 'commons',
-              chunks: 'all',
-              minChunks: 2,
+            defaultVendors: {
+              test: /[\\/]node_modules[\\/]/,
+              priority: -10,
               reuseExistingChunk: true,
             },
-            lib: {
-              test: /[\\/]node_modules[\\/]/,
-              name(module) {
-                const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-                return `npm.${packageName.replace('@', '')}`;
-              },
-              chunks: 'all',
-              minChunks: 1,
+            default: {
+              minChunks: 2,
+              priority: -20,
               reuseExistingChunk: true,
-              enforce: true,
-              priority: 1,
             },
           },
         },
@@ -89,15 +86,37 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/:all*(svg|jpg|png)',
+        locale: false,
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         source: '/:path*',
         headers: [
           {
-            key: 'X-Robots-Tag',
-            value: 'index, follow',
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
           },
           {
             key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            value: 'nosniff'
+          },
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow',
           },
           {
             key: 'Strict-Transport-Security',

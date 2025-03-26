@@ -45,6 +45,8 @@ const FloatingButton = memo(() => {
       <div 
         className={`transform transition-all duration-300 ease-in-out ${isExpanded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}
         aria-hidden={!isExpanded}
+        role="region"
+        aria-label={t('floating_button.menu')}
       >
         <Link 
           href="/contact" 
@@ -67,6 +69,8 @@ const FloatingButton = memo(() => {
           overflow: 'hidden'
         }}
         aria-label={isExpanded ? t('floating_button.hide') : t('floating_button.show')}
+        aria-expanded={isExpanded}
+        aria-controls="floating-menu"
       >
         {/* Светящийся эффект для кнопки как в btn-primary */}
         <div 

@@ -106,7 +106,7 @@ const Partners = memo(() => {
                   onError={(e) => handleImageError(e, partner.name)}
                 />
               ) : (
-                <div className="text-center text-sm font-medium text-gray-700 dark:text-gray-300">
+                <div className="text-center text-sm font-medium text-gray-800 dark:text-gray-100">
                   {partner.name}
                 </div>
               )}
