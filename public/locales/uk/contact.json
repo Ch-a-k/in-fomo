@@ -33,6 +33,21 @@
       "message": {
         "label": "Ваше повідомлення",
         "placeholder": "Розкажіть про ваш проект або питання"
+      },
+      "source": {
+        "label": "Як ви дізналися про нас?",
+        "placeholder": "Оберіть варіант",
+        "options": {
+          "google": "Google",
+          "linkedin": "LinkedIn",
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "threads": "Threads",
+          "email": "Email розсилка",
+          "advertising": "Реклама",
+          "other": "Інше"
+        },
+        "otherPlaceholder": "Будь ласка, уточніть"
       }
     },
     "actions": {

@@ -176,7 +176,7 @@ const ContactForm = ({ formType, t }) => {
                 value={formData.source}
                 onChange={handleChange}
                 required
-                className="appearance-none outline-none block w-full px-4 py-3 text-base text-gray-900 dark:text-gray-500 bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-[#FF5a00] transition-colors placeholder-gray-500"
+                className="appearance-none outline-none block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-[#FF5a00] transition-colors placeholder-gray-500"
               >
                 <option value="" disabled>{t('forms.fields.source.placeholder')}</option>
                 <option value="google">{t('forms.fields.source.options.google')}</option>
