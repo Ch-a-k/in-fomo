@@ -1,7 +1,14 @@
 import { useTranslation } from 'next-i18next';
+import { memo } from 'react';
 
-const Services = () => {
+const Services = memo(() => {
   const { t } = useTranslation('home');
+
+  // Predefine fixed aspect ratio and sizes
+  const iconSizeClass = "h-10 w-10";
+  const cardHeightClass = "h-full min-h-[16rem]";
+  const titleHeightClass = "min-h-[3.5rem]";
+  const descHeightClass = "min-h-[4rem]";
 
   const services = [
     {
@@ -115,42 +122,139 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-12 md:py-16 bg-light-surface dark:bg-dark-surface">
-      <div className="container max-w-7xl mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <div className="inline-block px-4 py-1.5 mb-4 text-xs font-medium rounded-full bg-primary/10 text-primary animate-fade-in">
+    <section 
+      id="services" 
+      className="py-12 md:py-16 bg-light-surface dark:bg-dark-surface"
+      style={{ 
+        contain: 'content',
+        contentVisibility: 'auto',
+        containIntrinsicSize: '0 50vh',
+        minHeight: '50vh'
+      }}
+    >
+      <div 
+        className="container max-w-7xl mx-auto px-4"
+        style={{
+          contain: 'layout style'
+        }}
+      >
+        <div 
+          className="max-w-3xl mx-auto text-center mb-10"
+          style={{
+            contain: 'layout style',
+            minHeight: '12rem'
+          }}
+        >
+          <div 
+            className="inline-block px-4 py-1.5 mb-4 text-xs font-medium rounded-full bg-primary/10 text-primary"
+            style={{
+              height: '2rem',
+              contain: 'layout paint style'
+            }}
+          >
             {t('our_services')}
           </div>
           
-          <h2 className="text-3xl font-bold mb-4 animate-fade-in [animation-delay:200ms] min-h-[2.5rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 40px' }}>
+          <h2 
+            className="text-3xl font-bold mb-4 min-h-[2.5rem]" 
+            style={{ 
+              contentVisibility: 'auto', 
+              containIntrinsicSize: '0 40px',
+              fontSize: 'var(--h2-size, 2rem)',
+              lineHeight: 'var(--h2-lh, 1.3)'
+            }}
+          >
             {t('services_title')}
           </h2>
           
-          <p className="text-base text-gray-600 dark:text-gray-300 animate-fade-in [animation-delay:400ms] min-h-[3rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 48px' }}>
+          <p 
+            className="text-base text-gray-600 dark:text-gray-300 min-h-[3rem]" 
+            style={{ 
+              contentVisibility: 'auto', 
+              containIntrinsicSize: '0 48px',
+              contain: 'layout style'
+            }}
+          >
             {t('services_description')}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div 
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
+          style={{
+            contain: 'layout style',
+            contentVisibility: 'auto',
+            containIntrinsicSize: '0 80vh',
+            minHeight: '50vh'
+          }}
+        >
           {services.map((service, index) => (
             <div
               key={index}
-              className="w-full animate-fade-in"
-              style={{ animationDelay: `${600 + index * 100}ms` }}
+              className="w-full"
+              style={{ 
+                contain: 'layout style',
+                contentVisibility: 'auto',
+                transform: 'translateZ(0)'
+              }}
             >
-              <div className="flex flex-col items-center p-4 h-full rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-primary dark:hover:border-primary transition-colors duration-300">
-                  <div className="p-3 mb-3 rounded-lg bg-primary/10 inline-block text-primary">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-lg font-bold mb-2 text-center break-words hyphens-auto min-h-[3.5rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 56px' }} lang={t('language_code')}>{service.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 w-full text-left break-words hyphens-auto min-h-[4rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 64px' }} lang={t('language_code')}>{service.description}</p>
+              <div 
+                className={`flex flex-col items-center p-4 ${cardHeightClass} rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-primary dark:hover:border-primary transition-colors duration-300`}
+                style={{ 
+                  contain: 'layout style',
+                  height: '100%',
+                  minHeight: '16rem'
+                }}
+              >
+                <div 
+                  className="p-3 mb-3 rounded-lg bg-primary/10 inline-block text-primary"
+                  style={{ 
+                    contain: 'layout style',
+                    height: '4rem',
+                    width: '4rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transform: 'translateZ(0)'
+                  }}
+                >
+                  {service.icon}
                 </div>
+                
+                <h3 
+                  className={`text-lg font-bold mb-2 text-center break-words hyphens-auto ${titleHeightClass}`} 
+                  style={{ 
+                    contentVisibility: 'auto', 
+                    containIntrinsicSize: '0 56px',
+                    contain: 'layout style',
+                    minHeight: '3.5rem'
+                  }} 
+                  lang={t('language_code')}
+                >
+                  {service.title}
+                </h3>
+                
+                <p 
+                  className={`text-sm text-gray-600 dark:text-gray-400 w-full text-left break-words hyphens-auto ${descHeightClass}`} 
+                  style={{ 
+                    contentVisibility: 'auto', 
+                    containIntrinsicSize: '0 64px',
+                    contain: 'layout style',
+                    minHeight: '4rem'
+                  }} 
+                  lang={t('language_code')}
+                >
+                  {service.description}
+                </p>
               </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
-};
+});
+
+Services.displayName = 'Services';
 
 export default Services;
