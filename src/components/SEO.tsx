@@ -7,7 +7,6 @@ interface SEOProps {
   description?: string;
   image?: string;
   imageAlt?: string;
-  priority?: boolean; // Добавляем флаг priority для LCP изображений
 }
 
 // Компонент SEO теперь принимает опциональные пропсы
@@ -15,8 +14,7 @@ const SEO: FC<SEOProps> = ({
   title = "IN-FOMO. | Innovative IT Solutions", 
   description = "Leading IT company providing innovative software development, cloud solutions, and digital transformation services.",
   image = "/og-image.png",
-  imageAlt = "IN-FOMO - Innovative IT Solutions",
-  priority = false
+  imageAlt = "IN-FOMO - Innovative IT Solutions"
 }) => {
   // Проверяем и форматируем URL сайта
   const siteUrl = "https://in-fomo.com";
@@ -24,42 +22,10 @@ const SEO: FC<SEOProps> = ({
   
   return (
     <Head>
-      {/* Базовые мета-теги с оптимизацией для Next.js 15 */}
+      {/* Базовые мета-теги */}
       <title key="title">{title}</title>
       <meta key="description" name="description" content={description} />
-      <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <link key="canonical" rel="canonical" href={siteUrl} />
-      
-      {/* Мета-теги для оптимизации CLS и LCP */}
-      <meta key="format-detection" name="format-detection" content="telephone=no" />
-      <meta key="theme-color" name="theme-color" content="#111827" />
-      
-      {/* Предзагрузка критических ресурсов для страницы */}
-      {priority && (
-        <>
-          <link
-            key="preload-hero"
-            rel="preload"
-            href={ogImageUrl}
-            as="image"
-            type="image/png"
-          />
-        </>
-      )}
-      
-      {/* Оптимизация шрифтов для Next.js 15 */}
-      <link
-        key="preconnect-google-fonts"
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-        crossOrigin="anonymous"
-      />
-      <link
-        key="preconnect-gstatic"
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossOrigin="anonymous"
-      />
       
       {/* Open Graph теги - КРИТИЧЕСКИ ВАЖНЫ для Telegram */}
       <meta key="og:type" property="og:type" content="website" />
@@ -96,11 +62,6 @@ const SEO: FC<SEOProps> = ({
       <meta key="twitter:image:alt" name="twitter:image:alt" content={imageAlt} />
       <meta key="twitter:creator" name="twitter:creator" content="@in_4omo" />
       <meta key="twitter:site" name="twitter:site" content="@in_4omo" />
-      
-      {/* HTML Meta Tags для оптимизации */}
-      <meta key="apple-mobile-web-app-capable" name="apple-mobile-web-app-capable" content="yes" />
-      <meta key="apple-mobile-web-app-status-bar-style" name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      <meta key="apple-mobile-web-app-title" name="apple-mobile-web-app-title" content="IN-FOMO." />
     </Head>
   );
 };

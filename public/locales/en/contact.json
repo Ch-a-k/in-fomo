@@ -33,21 +33,6 @@
       "message": {
         "label": "Your Message",
         "placeholder": "Tell us about your project or question"
-      },
-      "source": {
-        "label": "How did you hear about us?",
-        "placeholder": "Select an option",
-        "options": {
-          "google": "Google",
-          "linkedin": "LinkedIn",
-          "facebook": "Facebook",
-          "instagram": "Instagram",
-          "threads": "Threads",
-          "email": "Email Marketing",
-          "advertising": "Advertising",
-          "other": "Other"
-        },
-        "otherPlaceholder": "Please specify"
       }
     },
     "actions": {
