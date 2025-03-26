@@ -33,6 +33,21 @@
       "message": {
         "label": "Twoja wiadomość",
         "placeholder": "Opowiedz nam o swoim projekcie lub pytaniu"
+      },
+      "source": {
+        "label": "Skąd się o nas dowiedziałeś?",
+        "placeholder": "Wybierz opcję",
+        "options": {
+          "google": "Google",
+          "linkedin": "LinkedIn",
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "threads": "Threads",
+          "email": "Email Marketing",
+          "advertising": "Reklama",
+          "other": "Inne"
+        },
+        "otherPlaceholder": "Proszę określić"
       }
     },
     "actions": {

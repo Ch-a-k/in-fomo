@@ -25,6 +25,7 @@ const SEO: FC<SEOProps> = ({
       {/* Базовые мета-теги */}
       <title key="title">{title}</title>
       <meta key="description" name="description" content={description} />
+      <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />
       <link key="canonical" rel="canonical" href={siteUrl} />
       
       {/* Open Graph теги - КРИТИЧЕСКИ ВАЖНЫ для Telegram */}

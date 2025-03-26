@@ -13,7 +13,6 @@ class MyDocument extends Document {
         <Head>
           {/* Включаем только базовые мета-теги, остальные будут в SEO компоненте */}
           <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
           
           {/* Базовые Open Graph метатеги в _document для гарантированной загрузки при SSR */}
           <meta property="og:title" content="IN-FOMO. | Innovative IT Solutions" />
@@ -39,11 +38,26 @@ class MyDocument extends Document {
           
           {/* Используем стандартный CSS с отложенной загрузкой для Google шрифтов */}
           <link 
+            id="google-fonts"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sofia+Sans:wght@400;600;700&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789" 
             rel="stylesheet"
             media="print"
-            // @ts-ignore - используем строковый onload для HTML атрибута, это стандартная практика
-            onload="this.media='all'"
+          />
+          
+          {/* Script для отложенной загрузки шрифтов */}
+          <script 
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  var fontLink = document.getElementById('google-fonts');
+                  if (fontLink) {
+                    fontLink.addEventListener('load', function() {
+                      this.media = 'all';
+                    });
+                  }
+                })();
+              `,
+            }}
           />
           
           {/* Используем стили для оптимизации и минимизации Layout Shifts */}

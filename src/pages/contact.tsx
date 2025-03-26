@@ -32,7 +32,13 @@ const isValidPhone = (phone) => {
 };
 
 const ContactForm = ({ formType, t }) => {
-  const [formData, setFormData] = useState({ name: '', contact: '', message: '' })
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    contact: '', 
+    message: '',
+    source: '',
+    otherSource: ''
+  })
   const [status, setStatus] = useState('')
   const [contactError, setContactError] = useState('')
 
@@ -79,10 +85,16 @@ const ContactForm = ({ formType, t }) => {
       return
     }
 
+    // Подготовка информации об источнике
+    const sourceInfo = formData.source === 'other' && formData.otherSource 
+      ? `${t('forms.fields.source.options.other')} (${formData.otherSource})` 
+      : formData.source ? t(`forms.fields.source.options.${formData.source}`) : 'Not specified';
+
     const messageText = `
 🔔 ${t('forms.feedback.newMessage')} (${t(`forms.${formType}.title`)})
 👤 ${t('forms.fields.name.label')}: ${formData.name}
 📞 ${t('forms.fields.contact.label')}: ${formData.contact}
+📊 ${t('forms.fields.source.label')}: ${sourceInfo}
 💬 ${t('forms.fields.message.label')}: ${formData.message}
     `
 
@@ -104,7 +116,7 @@ const ContactForm = ({ formType, t }) => {
       }
 
       setStatus('success')
-      setFormData({ name: '', contact: '', message: '' })
+      setFormData({ name: '', contact: '', message: '', source: '', otherSource: '' })
       setTimeout(() => setStatus(''), 5000)
     } catch (error) {
       console.error('Error sending message:', error)
@@ -128,7 +140,7 @@ const ContactForm = ({ formType, t }) => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-[#FF5A00] transition-colors placeholder-gray-500"
+                className="outline-none block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-[#FF5A00] transition-colors placeholder-gray-500 "
                 placeholder={t('forms.fields.name.placeholder')}
               />
             </div>
@@ -144,7 +156,7 @@ const ContactForm = ({ formType, t }) => {
                   value={formData.contact}
                   onChange={handleChange}
                   required
-                  className={`block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border ${contactError ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'} rounded-lg focus:border-[#FF5A00] focus:ring-[#FF5a00] transition-colors placeholder-gray-500`}
+                  className={`outline-none block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border ${contactError ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'} rounded-lg focus:border-[#FF5A00] focus:ring-[#FF5a00] transition-colors placeholder-gray-500`}
                   placeholder={t('forms.fields.contact.placeholder')}
                 />
                 {contactError && (
@@ -153,6 +165,48 @@ const ContactForm = ({ formType, t }) => {
               </div>
             </div>
           </div>
+
+          <div>
+            <label className="block text-base text-gray-900 dark:text-white mb-2">
+              {t('forms.fields.source.label')} <span className="text-[#FF5a00]">*</span>
+            </label>
+            <div className="relative">
+              <select
+                name="source"
+                value={formData.source}
+                onChange={handleChange}
+                required
+                className="appearance-none outline-none block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-[#FF5a00] transition-colors placeholder-gray-500"
+              >
+                <option value="" disabled>{t('forms.fields.source.placeholder')}</option>
+                <option value="google">{t('forms.fields.source.options.google')}</option>
+                <option value="linkedin">{t('forms.fields.source.options.linkedin')}</option>
+                <option value="facebook">{t('forms.fields.source.options.facebook')}</option>
+                <option value="instagram">{t('forms.fields.source.options.instagram')}</option>
+                <option value="threads">{t('forms.fields.source.options.threads')}</option>
+                <option value="email">{t('forms.fields.source.options.email')}</option>
+                <option value="advertising">{t('forms.fields.source.options.advertising')}</option>
+                <option value="other">{t('forms.fields.source.options.other')}</option>
+              </select>
+            </div>
+          </div>
+
+          {formData.source === 'other' && (
+            <div>
+              <label className="block text-base text-gray-900 dark:text-white mb-2">
+                {t('forms.fields.source.options.other')} <span className="text-[#FF5a00]">*</span>
+              </label>
+              <input
+                type="text"
+                name="otherSource"
+                value={formData.otherSource}
+                onChange={handleChange}
+                required
+                className="outline-none block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-[#FF5a00] transition-colors placeholder-gray-500"
+                placeholder={t('forms.fields.source.otherPlaceholder')}
+              />
+            </div>
+          )}
 
           <div>
             <label className="block text-base text-gray-900 dark:text-white mb-2">
@@ -165,7 +219,7 @@ const ContactForm = ({ formType, t }) => {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-[#FF5a00] transition-colors resize-none placeholder-gray-500"
+                className="outline-none block w-full px-4 py-3 text-base text-gray-900 dark:text-white bg-white dark:bg-[#090909] border border-gray-200 dark:border-gray-700 rounded-lg focus:border-[#FF5a00] focus:ring-[#FF5a00] transition-colors resize-none placeholder-gray-500"
                 placeholder={t('forms.fields.message.placeholder')}
               />
               <div className="absolute bottom-3 right-3 text-sm text-gray-500">
