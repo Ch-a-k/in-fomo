@@ -294,7 +294,7 @@ const Navbar = () => {
       : '/images/partners/logo.avif';
   };
 
-  const getRoundedLogo = () => '/images/partners/logorounded.avif';
+  const getRoundedLogo = () => '/images/partners/logorounded-v2.avif';
 
   const handleLanguageChange = async (langCode: string) => {
     try {

@@ -7,6 +7,7 @@ import FloatingButton from './FloatingButton'
 import Script from 'next/script'
 import Breadcrumbs from './Breadcrumbs'
 import dynamic from 'next/dynamic'
+import { Analytics } from "@vercel/analytics/react"
 
 // Ленивая загрузка Hotjar компонента
 const Hotjar = dynamic(() => import('./Hotjar'), { 
@@ -85,7 +86,8 @@ const Layout = ({
       
       {/* Hotjar Tracking загружается динамически и неблокирующе */}
       <Hotjar hotjarId={5347229} />
-      
+      {/* Vercel Analytics */}
+      <Analytics />
       <div className="flex flex-col min-h-screen overflow-x-hidden">
         <Navbar />
         <div className="container mx-auto px-4">

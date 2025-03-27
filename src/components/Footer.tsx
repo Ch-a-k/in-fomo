@@ -44,7 +44,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
     return resolvedTheme === 'dark' ? '/images/partners/logowhite.avif' : '/images/partners/logo.avif';
   };
 
-  const getRoundedLogo = () => '/images/partners/logorounded.avif';
+  const getRoundedLogo = () => '/images/partners/logorounded-v2.avif';
 
   if (!mounted) {
     return (
