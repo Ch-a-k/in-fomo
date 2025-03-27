@@ -20,6 +20,8 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Добавляем padding-bottom для предотвращения перекрытия cookie-consent */
+    padding-bottom: env(safe-area-inset-bottom, 0);
   }
   
   /* Предотвращаем CLS для заголовков с резервированием места */
@@ -52,9 +54,54 @@
     @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
   }
   
+  /* Хелпер-класс для отступов на iOS */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 10px);
+  }
+  
+  .mb-safe {
+    margin-bottom: env(safe-area-inset-bottom, 10px);
+  }
+  
   .btn {
     @apply inline-flex items-center justify-center px-5 py-3 font-medium transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2;
     contain: layout style;
+  }
+  
+  /* Компонент для cookie-consent */
+  .cookie-consent-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    margin-bottom: env(safe-area-inset-bottom, 0);
+    max-height: 50vh;
+    overflow-y: auto;
+    box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Обеспечиваем корректное отображение в тёмной теме */
+  .dark .cookie-consent-wrapper {
+    box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Добавляем отступ для основного контента при наличии cookie-consent */
+  .has-cookie-consent main {
+    margin-bottom: calc(max(200px, env(safe-area-inset-bottom, 0) + 200px));
+    transition: margin 0.3s ease-out;
+  }
+  
+  @media (min-width: 640px) {
+    .has-cookie-consent main {
+      margin-bottom: calc(max(150px, env(safe-area-inset-bottom, 0) + 150px));
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .has-cookie-consent main {
+      margin-bottom: calc(max(100px, env(safe-area-inset-bottom, 0) + 100px));
+    }
   }
   
   .btn-primary {

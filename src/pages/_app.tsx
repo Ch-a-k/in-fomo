@@ -24,15 +24,61 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     
-    if ('connection' in navigator) {
-      const conn = (navigator as any).connection;
-      if (conn && conn.saveData) {
-        // Устанавливаем метатег для экономии данных
-        const meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, initial-scale=1, maximum-scale=1';
-        document.head.appendChild(meta);
+    const prefersReducedData = () => {
+      if ('connection' in navigator) {
+        const conn = (navigator as any).connection;
+        if (conn && conn.saveData) {
+          document.documentElement.classList.add('save-data');
+          return true;
+        }
       }
+      return false;
+    };
+    
+    // Проверяем, является ли устройство iOS с нижней панелью навигации
+    const isIOSWithSafeArea = () => {
+      // Проверка на iOS
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+      
+      // Проверка на поддержку safe-area-inset
+      if (isIOS) {
+        // Если iOS, добавляем спец. класс для viewport-fit
+        document.documentElement.classList.add('ios-device');
+        
+        // Для iPhone X и выше
+        const aspectRatio = window.screen.width / window.screen.height;
+        return isIOS && (
+          // iPhone X/XS, iPhone 12/13 Mini
+          aspectRatio.toFixed(2) === (9 / 19.5).toFixed(2) ||
+          // iPhone XS Max, iPhone XR, iPhone 11/12/13
+          aspectRatio.toFixed(2) === (9 / 19.5).toFixed(2) ||
+          // iPhone 12/13 Pro Max
+          aspectRatio.toFixed(2) === (9 / 19.5).toFixed(2)
+        );
+      }
+      
+      return false;
+    };
+    
+    // Применяем нужные классы
+    if (isIOSWithSafeArea()) {
+      document.documentElement.classList.add('has-safe-area');
+    }
+    
+    // Применяем оптимизации для экономии данных
+    if (prefersReducedData()) {
+      // Удаляем анимации и тяжелые эффекты для экономии данных
+      // Но не добавляем дублирующий viewport мета-тег
+      const style = document.createElement('style');
+      style.textContent = `
+        @media (prefers-reduced-data: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.001ms !important;
+            transition-duration: 0.001ms !important;
+          }
+        }
+      `;
+      document.head.appendChild(style);
     }
   }, []);
 

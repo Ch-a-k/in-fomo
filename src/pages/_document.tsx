@@ -13,7 +13,7 @@ class MyDocument extends Document {
         <Head>
           {/* Включаем только базовые мета-теги, остальные будут в SEO компоненте */}
           <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
           
           {/* Базовые Open Graph метатеги в _document для гарантированной загрузки при SSR */}
           <meta property="og:title" content="IN-FOMO. | Innovative IT Solutions" />
