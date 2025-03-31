@@ -28,9 +28,9 @@ const SEO: FC<SEOProps> = ({
       <link key="canonical" rel="canonical" href={siteUrl} />
       
       {/* Favicon с параметром версии для принудительного обновления */}
-      <link key="icon" rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
-      <link key="shortcut-icon" rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon" />
-      <link key="apple-touch-icon" rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
+      <link key="icon" rel="icon" href="/favicon-new.ico" type="image/x-icon" />
+      <link key="shortcut-icon" rel="shortcut icon" href="/favicon-new.ico" type="image/x-icon" />
+      <link key="apple-touch-icon" rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
       
       {/* Open Graph теги - КРИТИЧЕСКИ ВАЖНЫ для Telegram */}
       <meta key="og:type" property="og:type" content="website" />

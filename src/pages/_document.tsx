@@ -16,9 +16,9 @@ class MyDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
           
           {/* Favicon с параметром версии для принудительного обновления */}
-          <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
-          <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon" />
-          <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
+          <link rel="icon" href="/favicon-new.ico" type="image/x-icon" />
+          <link rel="shortcut icon" href="/favicon-new.ico" type="image/x-icon" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
           
           {/* Базовые Open Graph метатеги в _document для гарантированной загрузки при SSR */}
           <meta property="og:title" content="IN-FOMO. | Innovative IT Solutions" />
