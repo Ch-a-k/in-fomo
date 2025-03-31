@@ -41,10 +41,6 @@ const ClutchWidget = () => {
       style={{ 
         minHeight: '100px', // Задаем минимальную высоту
         backgroundColor: 'transparent',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        
       }}
     />
   );
