@@ -40,7 +40,11 @@ const ClutchWidget = () => {
       data-clutchcompany-id="2459746"
       style={{ 
         minHeight: '100px', // Задаем минимальную высоту
-        border: '1px solid red', // Временная рамка для видимости
+        backgroundColor: 'transparent',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        
       }}
     />
   );
