@@ -3,7 +3,6 @@ import { useTranslation } from 'next-i18next';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import ClutchWidget from './ClutchWidget';
 
 interface FooterProps {
   variant?: 'design1' | 'design2';
@@ -123,7 +122,6 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
               ))}
             </div>
           </div>
-          <ClutchWidget />
           {/* Links Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {/* Contact Us */}
