@@ -139,5 +139,5 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Matcher игнорирует файлы в public и _next
-  matcher: ['/((?!api|_next/static|_next/image|images|favicon-v2.ico|sw.js).*)']
+  matcher: ['/((?!api|_next/static|_next/image|images|favicon.ico|sw.js).*)']
 } 
