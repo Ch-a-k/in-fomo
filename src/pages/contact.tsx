@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next'
 import { useTheme } from 'next-themes'
 import { useState } from 'react'
 import SEO from '../components/SEO'
+import SalesCareersSection from '../components/SalesCareersSection'
 
 // Telegram bots configuration
 const TELEGRAM_CONFIG = {
@@ -323,9 +324,11 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      
+      
 
       {/* Careers Form Section */}
-      <section className="py-12 bg-white dark:bg-[#0a0a0a]">
+      <section id="careers-form" className="py-12 bg-white dark:bg-[#0a0a0a]">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             {/* Left Column - Description */}
@@ -347,6 +350,8 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      {/* Sales Careers Section */}
+      <SalesCareersSection />
     </>
   )
 }

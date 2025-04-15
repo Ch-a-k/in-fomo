@@ -60,5 +60,62 @@
       "charactersLeft": "characters left",
       "newMessage": "New message"
     }
+  },
+  
+  "salesCareers": {
+    "title": "Sales Careers",
+    "subtitle": "Join our dynamic sales team",
+    "description": "We're looking for passionate sales professionals who can help our clients leverage cutting-edge IT solutions for their businesses. Our commission-based compensation structure offers great earning potential for motivated individuals.",
+    "howToApply": "Interested in applying? Fill out the form below with your qualifications and experience.",
+    "applyNow": "Apply Now",
+    "requirements": "Requirements",
+    "compensation": "Compensation",
+    "benefits": {
+      "title": "Benefits",
+      "items": [
+        "Remote work opportunities",
+        "Flexible working hours",
+        "Professional development",
+        "Innovative team environment"
+      ]
+    },
+    "positions": {
+      "salesRep": {
+        "title": "Sales Representative",
+        "description": "Sales Representatives are the primary contact point for our clients, helping them understand how our services can solve their business challenges.",
+        "requirements": [
+          "1-2 years of experience in B2B sales (IT industry experience is a plus)",
+          "Strong communication and presentation skills",
+          "Good understanding of technology trends",
+          "Self-motivated with a positive attitude",
+          "Bachelor's degree or equivalent experience"
+        ],
+        "compensation": "10% commission from successful sales"
+      },
+      "salesManager": {
+        "title": "Sales Manager",
+        "description": "Sales Managers lead our sales team, develop sales strategies, and help maximize the team's performance while maintaining key client relationships.",
+        "requirements": [
+          "3+ years of experience in sales management, preferably in the IT sector",
+          "Proven track record of meeting or exceeding sales targets",
+          "Experience building and managing sales teams",
+          "Strategic thinking and excellent leadership skills",
+          "Bachelor's degree in Business, Marketing, or related field"
+        ],
+        "compensation": "10% commission from successful sales"
+      },
+      "accountManager": {
+        "title": "Key Account Manager",
+        "description": "Key Account Managers build and maintain relationships with our most valuable clients, ensuring their continued satisfaction and identifying opportunities for growth.",
+        "requirements": [
+          "3+ years of account management experience in the IT industry",
+          "Strong understanding of client relationship management",
+          "Excellent problem-solving and negotiation skills",
+          "Ability to understand complex technical concepts and translate them for clients",
+          "Bachelor's degree or equivalent experience"
+        ],
+        "compensation": "10% commission from successful sales"
+      }
+    }
   }
 }

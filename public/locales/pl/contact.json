@@ -60,5 +60,62 @@
       "charactersLeft": "pozostało znaków",
       "newMessage": "Nowa wiadomość"
     }
+  },
+  
+  "salesCareers": {
+    "title": "Kariera w sprzedaży",
+    "subtitle": "Dołącz do naszego dynamicznego zespołu sprzedaży",
+    "description": "Szukamy pasjonatów sprzedaży, którzy pomogą naszym klientom wykorzystać najnowocześniejsze rozwiązania IT dla ich firm. Nasz system wynagrodzenia oparty na prowizjach oferuje duży potencjał zarobkowy dla zmotywowanych osób.",
+    "howToApply": "Zainteresowany aplikacją? Wypełnij poniższy formularz z informacjami o Twoich kwalifikacjach i doświadczeniu.",
+    "applyNow": "Aplikuj teraz",
+    "requirements": "Wymagania",
+    "compensation": "Wynagrodzenie",
+    "benefits": {
+      "title": "Korzyści",
+      "items": [
+        "Możliwość pracy zdalnej",
+        "Elastyczne godziny pracy",
+        "Rozwój zawodowy",
+        "Innowacyjne środowisko zespołowe"
+      ]
+    },
+    "positions": {
+      "salesRep": {
+        "title": "Przedstawiciel handlowy",
+        "description": "Przedstawiciele handlowi są głównym punktem kontaktowym dla naszych klientów, pomagając im zrozumieć, jak nasze usługi mogą rozwiązać ich wyzwania biznesowe.",
+        "requirements": [
+          "1-2 lata doświadczenia w sprzedaży B2B (doświadczenie w branży IT jest dodatkowym atutem)",
+          "Silne umiejętności komunikacyjne i prezentacyjne",
+          "Dobre zrozumienie trendów technologicznych",
+          "Samomotywacja i pozytywne nastawienie",
+          "Wykształcenie wyższe lub równoważne doświadczenie"
+        ],
+        "compensation": "10% prowizji od udanych sprzedaży"
+      },
+      "salesManager": {
+        "title": "Kierownik sprzedaży",
+        "description": "Kierownicy sprzedaży prowadzą nasz zespół sprzedaży, opracowują strategie sprzedaży i pomagają zmaksymalizować efektywność zespołu, jednocześnie utrzymując kluczowe relacje z klientami.",
+        "requirements": [
+          "3+ lata doświadczenia w zarządzaniu sprzedażą, najlepiej w sektorze IT",
+          "Udokumentowane osiągnięcia w realizacji lub przekraczaniu celów sprzedażowych",
+          "Doświadczenie w budowaniu i zarządzaniu zespołami sprzedaży",
+          "Myślenie strategiczne i doskonałe umiejętności przywódcze",
+          "Wykształcenie wyższe w dziedzinie biznesu, marketingu lub pokrewnej"
+        ],
+        "compensation": "10% prowizji od udanych sprzedaży"
+      },
+      "accountManager": {
+        "title": "Menedżer ds. kluczowych klientów",
+        "description": "Menedżerowie ds. kluczowych klientów budują i utrzymują relacje z naszymi najcenniejszymi klientami, zapewniając ich stałe zadowolenie i identyfikując możliwości rozwoju.",
+        "requirements": [
+          "3+ lata doświadczenia w zarządzaniu kontami w branży IT",
+          "Silne zrozumienie zarządzania relacjami z klientami",
+          "Doskonałe umiejętności rozwiązywania problemów i negocjacji",
+          "Zdolność do zrozumienia złożonych koncepcji technicznych i przełożenia ich dla klientów",
+          "Wykształcenie wyższe lub równoważne doświadczenie"
+        ],
+        "compensation": "10% prowizji od udanych sprzedaży"
+      }
+    }
   }
 }
