@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.0",
+    "@headlessui/react": "^2.2.1",
     "@next/third-parties": "^15.2.1",
     "@types/react-icons": "^3.0.0",
     "@vercel/analytics": "^1.5.0",
