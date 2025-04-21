@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { trackEvent } from '../utils/analytics';
 import SEO from '../components/SEO';
 
 // Типы для проектов
@@ -71,30 +70,16 @@ const Portfolio = () => {
       setCurrentImageIndex((prev) => 
         prev === selectedProject.images.length - 1 ? 0 : prev + 1
       );
-      
-      // Отправляем событие в Google Analytics
-      trackEvent({
-        action: 'project_image_next',
-        category: 'Portfolio',
-        label: t(selectedProject.titleKey, { ns: 'portfolio' }),
-      });
     }
-  }, [selectedProject, t]);
+  }, [selectedProject]);
 
   const prevImage = useCallback(() => {
     if (selectedProject) {
       setCurrentImageIndex((prev) => 
         prev === 0 ? selectedProject.images.length - 1 : prev - 1
       );
-      
-      // Отправляем событие в Google Analytics
-      trackEvent({
-        action: 'project_image_prev',
-        category: 'Portfolio',
-        label: t(selectedProject.titleKey, { ns: 'portfolio' }),
-      });
     }
-  }, [selectedProject, t]);
+  }, [selectedProject]);
 
   // Handle keyboard navigation for modal
   useEffect(() => {
@@ -487,29 +472,15 @@ const Portfolio = () => {
     }
   }, [activeCategory, projects]);
 
-  // Функция для отслеживания кликов на проекты
+  // Функция для отслеживания клика по проекту
   const trackProjectClick = (project: Project) => {
-    trackEvent({
-      action: 'project_click',
-      category: 'Portfolio',
-      label: t(project.titleKey, { ns: 'portfolio' }),
-    });
     setSelectedProject(project);
+    setCurrentImageIndex(0);
   };
-
-  // Функция для отслеживания кликов на ссылки проектов
+  
+  // Функция для отслеживания клика по ссылке проекта
   const trackProjectLinkClick = (project: Project, e: React.MouseEvent) => {
-    e.stopPropagation();
-    
-    trackEvent({
-      action: 'project_link_click',
-      category: 'Portfolio',
-      label: t(project.titleKey, { ns: 'portfolio' }),
-    });
-    
-    if (project.link !== '#') {
-      window.open(project.link, '_blank', 'noopener,noreferrer');
-    }
+    e.stopPropagation(); // Предотвращаем всплытие клика
   };
 
   return (
@@ -556,11 +527,6 @@ const Portfolio = () => {
                 }`}
                 onClick={() => {
                   setActiveCategory(category.id);
-                  trackEvent({
-                    action: 'category_filter',
-                    category: 'Portfolio',
-                    label: category.name,
-                  });
                 }}
               >
                 {category.name}
@@ -638,13 +604,8 @@ const Portfolio = () => {
     className="fixed inset-0 z-[100] overflow-y-auto bg-black/90 animate-fade-in pt-[64px]"
     onClick={() => {
       if (selectedProject) {
-        trackEvent({
-          action: 'project_modal_close',
-          category: 'Portfolio',
-          label: t(selectedProject.titleKey, { ns: 'portfolio' }),
-        });
+        setSelectedProject(null);
       }
-      setSelectedProject(null);
     }}
   >
     <div className="min-h-[calc(100vh-64px)] px-4 flex items-center justify-center">
@@ -776,12 +737,7 @@ const Portfolio = () => {
                   className={`inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-full transition-colors ${
                     selectedProject.link === '#' ? 'opacity-50 cursor-not-allowed' : ''
                   }`}
-                  onClick={() => {
-                    trackEvent({
-                      action: 'project_modal_link_click',
-                      category: 'Portfolio',
-                      label: t(selectedProject.titleKey, { ns: 'portfolio' }),
-                    });
+                  onClick={(e) => {
                   }}
                 >
                   {t('view_project', { ns: 'portfolio' })}

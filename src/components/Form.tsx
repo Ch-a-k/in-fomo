@@ -1,7 +1,6 @@
 import { useState, FormEvent, ReactNode } from 'react';
 import { useTranslation } from 'next-i18next';
 import { sanitizeFormData } from '../utils/security';
-import { trackEvent } from '../utils/analytics';
 
 // Типы
 export type FormField = {
@@ -143,13 +142,6 @@ const Form = ({
       // Успешная отправка
       setSubmitSuccess(true);
       
-      // Добавим трекинг события
-      trackEvent({
-        action: 'form_submit',
-        category: 'forms',
-        label: formId || 'form'
-      });
-      
       // Опционально - сброс формы
       if (showReset) {
         resetForm();
@@ -160,13 +152,6 @@ const Form = ({
         errorMessage || 
         (error instanceof Error ? error.message : t('form_error'))
       );
-      
-      // Трекинг ошибки
-      trackEvent({
-        action: 'form_error',
-        category: 'forms',
-        label: formId || 'form'
-      });
     } finally {
       setIsSubmitting(false);
     }

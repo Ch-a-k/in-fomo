@@ -1,7 +1,6 @@
 import { useState, useEffect, memo, useRef } from 'react';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/navigation';
-import { trackEvent } from '../utils/analytics';
 import { 
   setItemWithTimestamp, 
   getItemWithExpiration, 
@@ -31,13 +30,6 @@ const CookieConsent = memo(() => {
     };
     
     setItemWithTimestamp(COOKIE_CONSENT_KEY, consentValue);
-    
-    // Отслеживаем согласие для аналитики
-    trackEvent({
-      action: `cookie_consent_${value}`,
-      category: 'user_preferences',
-      label: value
-    });
   };
 
   // Определяем устройство iOS для учета safe-area-inset
