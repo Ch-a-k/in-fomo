@@ -59,5 +59,11 @@
   "language_code": "pl",
   
   "our_partners": "Nasi zaufani partnerzy",
-  "partners_description": "Współpracujemy z wiodącymi firmami z różnych branż, aby dostarczać innowacyjne rozwiązania dostosowane do potrzeb Twojego biznesu."
+  "partners_description": "Współpracujemy z wiodącymi firmami z różnych branż, aby dostarczać innowacyjne rozwiązania dostosowane do potrzeb Twojego biznesu.",
+
+  "our_awards": "Nasze nagrody",
+  "our_awards_title": "Nasze nagrody i wyróżnienia",
+  "awards_description": "Z dumą prezentujemy naszą wiedzę specjalistyczną i wysokiej jakości usługi uznane prestiżowymi nagrodami od Clutch - wiodącej platformy do oceny i recenzji firm B2B. Nasze nagrody w dziedzinie rozwoju blockchain, audytu inteligentnych kontraktów, tokenizacji i DeFi potwierdzają naszą pozycję jako jednego z liderów branży w Polsce i Warszawie.",
+  "clutch_widget_description": "Sprawdź opinie naszych klientów na Clutch",
+  "view_clutch_profile": "Zobacz nasz profil na Clutch"
 }

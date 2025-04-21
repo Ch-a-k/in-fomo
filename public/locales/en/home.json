@@ -53,5 +53,11 @@
   "language_code": "en",
   
   "our_partners": "Our Trusted Partners",
-  "partners_description": "We collaborate with leading companies across various industries to deliver innovative solutions tailored to your business needs."
+  "partners_description": "We collaborate with leading companies across various industries to deliver innovative solutions tailored to your business needs.",
+
+  "our_awards": "Our Awards",
+  "our_awards_title": "Our Awards and Recognition",
+  "awards_description": "We proudly showcase our expertise and high-quality services recognized with prestigious awards from Clutch - the leading platform for B2B company reviews and ratings. Our awards in blockchain development, smart contract auditing, tokenization, and DeFi validate our position as one of the industry leaders in Poland and Warsaw.",
+  "clutch_widget_description": "Check out our client reviews on Clutch. Our high ratings and positive feedback reflect our commitment to quality and customer satisfaction.",
+  "view_clutch_profile": "View Our Clutch Profile"
 }

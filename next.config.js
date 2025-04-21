@@ -6,7 +6,7 @@ const nextConfig = {
     scrollRestoration: true
   },
   i18n: {
-    locales: ['en', 'uk'],
+    locales: ['en', 'uk', 'pl', 'kz'],
     defaultLocale: 'en',
     localeDetection: true
   }

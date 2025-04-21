@@ -6,6 +6,7 @@ import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Partners from '../components/Partners';
+import Awards from '../components/Awards';
 
 export default function Home() {
   const { t } = useTranslation(['common', 'home']);
@@ -19,6 +20,7 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
         <Hero />
         <Services />
+        <Awards />
         <Partners />
       </main>
     </>
