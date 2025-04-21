@@ -1,11 +1,17 @@
 import { useTranslation } from 'next-i18next';
-import { useEffect, useState, memo } from 'react';
+import { useEffect, useState, memo, useRef, MouseEvent, TouchEvent } from 'react';
 import Script from 'next/script';
 import Image from 'next/image';
 
 const Awards = memo(() => {
   const { t, i18n } = useTranslation('home');
   const [mounted, setMounted] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Устанавливаем флаг монтирования для SSR
   useEffect(() => {
@@ -64,7 +70,66 @@ const Awards = memo(() => {
   ];
 
   // Дублируем баджи для бесконечной бегущей строки
-  const duplicatedBadges = [...awardBadges, ...awardBadges];
+  const duplicatedBadges = [...awardBadges, ...awardBadges, ...awardBadges];
+
+  // Обработчик начала перетаскивания мышью
+  const handleMouseDown = (e: MouseEvent) => {
+    if (!marqueeRef.current) return;
+    
+    setIsDragging(true);
+    setIsAutoScrollPaused(true);
+    setStartX(e.pageX - marqueeRef.current.offsetLeft);
+    setScrollLeft(marqueeRef.current.scrollLeft);
+  };
+
+  // Обработчик движения мыши при перетаскивании
+  const handleMouseMove = (e: MouseEvent) => {
+    if (!isDragging || !marqueeRef.current) return;
+    
+    e.preventDefault();
+    const x = e.pageX - marqueeRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Множитель скорости прокрутки
+    marqueeRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Обработчик окончания перетаскивания мышью
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    
+    // Возобновляем автоскролл через небольшую задержку
+    setTimeout(() => {
+      setIsAutoScrollPaused(false);
+    }, 1000);
+  };
+
+  // Обработчик начала перетаскивания касанием
+  const handleTouchStart = (e: TouchEvent) => {
+    if (!marqueeRef.current) return;
+    
+    setIsDragging(true);
+    setIsAutoScrollPaused(true);
+    setStartX(e.touches[0].pageX - marqueeRef.current.offsetLeft);
+    setScrollLeft(marqueeRef.current.scrollLeft);
+  };
+
+  // Обработчик движения при перетаскивании касанием
+  const handleTouchMove = (e: TouchEvent) => {
+    if (!isDragging || !marqueeRef.current) return;
+    
+    const x = e.touches[0].pageX - marqueeRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    marqueeRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Обработчик окончания перетаскивания касанием
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    
+    // Возобновляем автоскролл через небольшую задержку
+    setTimeout(() => {
+      setIsAutoScrollPaused(false);
+    }, 1000);
+  };
 
   return (
     <section className="py-16 md:py-20 bg-light-bg dark:bg-dark-bg overflow-hidden">
@@ -88,8 +153,8 @@ const Awards = memo(() => {
             <div 
               className="clutch-widget" 
               data-url="https://widget.clutch.co" 
-              data-widget-type="1" 
-              data-height="40" 
+              data-widget-type="14" 
+              data-height="50" 
               data-nofollow="true" 
               data-expandifr="true" 
               data-scale="100" 
@@ -112,9 +177,23 @@ const Awards = memo(() => {
         {/* Градиент справа */}
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-light-bg dark:from-dark-bg to-transparent z-10"></div>
         
-        {/* Контейнер для бегущей строки */}
-        <div className="marquee-container">
-          <div className="marquee">
+        {/* Контейнер для бегущей строки с поддержкой перетаскивания */}
+        <div 
+          ref={containerRef}
+          className="marquee-container cursor-grab"
+          onMouseLeave={handleMouseUp}
+        >
+          <div 
+            ref={marqueeRef}
+            className={`marquee ${isAutoScrollPaused ? 'pause-animation' : ''}`}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             {duplicatedBadges.map((badge, index) => (
               <div 
                 key={`${badge.id}-${index}`} 
@@ -127,6 +206,7 @@ const Awards = memo(() => {
                   width={240}
                   height={240}
                   className="object-contain transition-transform hover:scale-105"
+                  draggable={false}
                 />
               </div>
             ))}
@@ -152,17 +232,34 @@ const Awards = memo(() => {
         </div>
       </div>
 
-      {/* CSS для бегущей строки */}
+      {/* CSS для бегущей строки с поддержкой перетаскивания */}
       <style jsx>{`
         .marquee-container {
           width: 100%;
           overflow: hidden;
+          -webkit-overflow-scrolling: touch;
         }
         
         .marquee {
           display: inline-block;
           white-space: nowrap;
           animation: marquee 30s linear infinite;
+          cursor: grab;
+          overflow-x: auto;
+          scrollbar-width: none; /* Для Firefox */
+          -ms-overflow-style: none; /* Для IE и Edge */
+        }
+        
+        .marquee::-webkit-scrollbar {
+          display: none; /* Для Chrome, Safari и Opera */
+        }
+        
+        .marquee.pause-animation {
+          animation-play-state: paused;
+        }
+        
+        .marquee:active {
+          cursor: grabbing;
         }
         
         @keyframes marquee {

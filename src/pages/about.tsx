@@ -302,7 +302,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {techStack.map((category, index) => (
               <div key={index} className="animate-fade-in-up stagger-delay-1">
                 <Popover as="div" className="relative">
@@ -368,13 +368,13 @@ export default function About() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {companyValues.map((value, index) => (
               <div
                 key={value.titleKey}
                 className="animate-fade-in-up stagger-delay-1"
               >
-                <div className="h-[230px] p-6 rounded-lg backdrop-blur-md bg-light-bg/15 dark:bg-dark-bg/15 border border-white/20 dark:border-white/5 hover:border-[#ff5a00] dark:hover:border-[#ff5a00] transition-colors flex flex-col">
+                <div className="h-[190px] p-6 rounded-lg backdrop-blur-md bg-light-bg/15 dark:bg-dark-bg/15 border border-white/20 dark:border-white/5 hover:border-[#ff5a00] dark:hover:border-[#ff5a00] transition-colors flex flex-col">
                   <div className="p-3 mb-4 w-fit rounded-lg bg-primary/15 inline-block text-primary">
                     <svg
                       className="h-6 w-6"
@@ -414,7 +414,7 @@ export default function About() {
                 key={member.name}
                 className={`animate-fade-in-up stagger-delay-${index + 1}`}
               >
-                <div className="min-h-[200px] p-6 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-[#ff5a00] dark:hover:border-[#ff5a00] transition-colors text-center flex flex-col items-center justify-center">
+                <div className="h-[230px] p-6 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-[#ff5a00] dark:hover:border-[#ff5a00] transition-colors text-center flex flex-col items-center justify-center">
                   <div className="w-16 h-16 mb-4 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg shrink-0">
                     {member.name
                       .split(" ")
