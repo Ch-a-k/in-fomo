@@ -5,7 +5,7 @@
  * Отображает награды в виде горизонтальной бегущей строки с эффектом бесконечной прокрутки.
  * Поддерживает мультиязычность через систему i18n (next-i18next).
  * 
- * @version 2.1.0
+ * @version 2.3.0
  * @author IN-FOMO Team
  */
 
@@ -164,28 +164,42 @@ const Awards = memo(() => {
               {hasTranslations ? t('our_awards_title') : 'Лидирующие позиции в рейтингах'}
             </h2>
             
-            {/* Кнопка перехода на профиль Clutch */}
-            <a 
-              href="https://clutch.co/profile/fomo-0" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-primary border border-primary/30 hover:bg-primary/20 rounded-lg transition-colors duration-200"
-            >
-              <span className="flex items-center">
-                {hasTranslations ? t('view_profile') : 'Посмотреть профиль'} 
-                <span className="relative w-16 h-4 ml-1 inline-block">
-                  <Image
-                    src="/images/badges/clutch.svg"
-                    alt="Clutch"
-                    fill
-                    className="object-contain"
-                  />
+            <div className="flex flex-wrap items-center gap-3">
+              {/* Кнопка перехода на профиль Clutch */}
+              <a 
+                href="https://clutch.co/profile/fomo-0" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-primary border border-primary/30 hover:bg-primary/20 rounded-lg transition-colors duration-200"
+              >
+                <span className="flex items-center">
+                  {hasTranslations ? t('view_profile') : 'Посмотреть профиль'} 
+                  <span className="relative w-16 h-4 ml-1 inline-block">
+                    <Image
+                      src="/images/badges/clutch.svg"
+                      alt="Clutch"
+                      fill
+                      className="object-contain"
+                    />
+                  </span>
                 </span>
-              </span>
-              <svg className="ml-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </a>
+                <svg className="ml-1 w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </a>
+              
+              {/* Добавляем стикер Clutch вместо звезд */}
+              <div 
+                className="clutch-widget" 
+                data-url="https://widget.clutch.co" 
+                data-widget-type="1" 
+                data-height="40" 
+                data-nofollow="true" 
+                data-expandifr="true" 
+                data-scale="100" 
+                data-clutchcompany-id="2459746"
+              ></div>
+            </div>
           </div>
           
           {/* Правая колонка - награды в виде бегущей строки */}
@@ -244,12 +258,6 @@ const Awards = memo(() => {
                 data-scale="80" 
                 data-clutchcompany-id="2459746">
               </div>
-              {/* Скрипт для загрузки виджета Clutch */}
-              <Script 
-                type="text/javascript" 
-                src="https://widget.clutch.co/static/js/widget.js" 
-                strategy="afterInteractive"
-              />
             </div>
           </div>
         </div>
@@ -328,6 +336,13 @@ const Awards = memo(() => {
           overflow: hidden;
         }
       `}</style>
+    
+      {/* Скрипт для загрузки виджета Clutch */}
+      <Script 
+        type="text/javascript" 
+        src="https://widget.clutch.co/static/js/widget.js" 
+        strategy="afterInteractive"
+      />
     </section>
   );
 });
