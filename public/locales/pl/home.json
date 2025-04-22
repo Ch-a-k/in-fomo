@@ -1,59 +1,53 @@
 {
   "meta": {
-    "title": "IN-FOMO | Zaawansowane rozwiązania IT",
-    "description": "IN-FOMO - wiodąca firma IT dostarczająca zaawansowane rozwiązania IT, które przekształcają biznesy w cyfrowym świecie."
+    "title": "IN-FOMO | Innowacyjne rozwiązania IT",
+    "description": "IN-FOMO - wiodąca firma IT oferująca innowacyjne usługi tworzenia oprogramowania, rozwiązania chmurowe i usługi transformacji cyfrowej."
   },
   "hero_badge": "Zaawansowane rozwiązania IT",
-  "hero_title_1": "Przekształć swój biznes dzięki",
-  "hero_title_highlight": "Innowacyjnym",
-  "hero_title_2": "Technologiom",
-  "hero_description": "Pomagamy firmom wdrażać najnowsze technologie, aby zwiększyć wydajność, obniżyć koszty i napędzać wzrost w dzisiejszym cyfrowym świecie.",
-  "get_started": "Rozpocznij",
+  "hero_title_1": "Transformuj swój biznes za pomocą",
+  "hero_title_highlight": "Innowacyjnych",
+  "hero_title_2": "Technologii",
+  "hero_description": "Pomagamy firmom wdrażać najnowsze technologie w celu zwiększenia wydajności, zmniejszenia kosztów i napędzania wzrostu w dzisiejszym cyfrowym świecie.",
+  "get_started": "Rozpocznij współpracę",
   "our_services": "Nasze usługi",
   
   "services_title": "Rozwiązania, które oferujemy",
-  "services_description": "Oferujemy kompleksowy zakres usług IT, aby sprostać potrzebom Twojej firmy i wspierać cyfrową transformację.",
+  "services_description": "Oferujemy kompleksowy zakres usług IT, aby zaspokoić potrzeby Twojego biznesu i napędzać transformację cyfrową.",
   
   "web_development": "Tworzenie stron internetowych",
-  "web_development_desc": "Niestandardowe strony internetowe i aplikacje webowe z wykorzystaniem nowoczesnych technologii, takich jak React, Next.js i inne.",
+  "web_development_desc": "Niestandardowe strony internetowe i aplikacje internetowe z wykorzystaniem nowoczesnych technologii, takich jak React, Next.js i inne.",
   
   "mobile_development": "Tworzenie aplikacji mobilnych",
   "mobile_development_desc": "Natywne i wieloplatformowe aplikacje mobilne dla iOS i Android, które angażują Twoich użytkowników.",
   
   "cloud_solutions": "Rozwiązania chmurowe",
-  "cloud_solutions_desc": "Skalowalna infrastruktura chmurowa i rozwiązania wdrożeniowe, aby zoptymalizować operacje i obniżyć koszty.",
-  
-  "data_analytics": "Analiza danych",
-  "data_analytics_desc": "Rozwiązania do analizy danych i business intelligence, które pomogą Ci podejmować świadome decyzje.",
+  "cloud_solutions_desc": "Skalowalna infrastruktura chmurowa i usługi migracji w celu optymalizacji operacji.",
   
   "cybersecurity": "Cyberbezpieczeństwo",
-  "cybersecurity_desc": "Kompleksowa ochrona przed zagrożeniami i rozwiązania bezpieczeństwa chroniące Twoje dane i infrastrukturę.",
-  
-  "it_consulting": "Doradztwo IT",
-  "it_consulting_desc": "Strategiczne porady i mapy drogowe technologii, aby pomóc Ci osiągnąć cele biznesowe.",
+  "cybersecurity_desc": "Chroń swój biznes przed zagrożeniami dzięki naszym kompleksowym rozwiązaniom bezpieczeństwa.",
   
   "ai_solutions": "Rozwiązania AI",
-  "ai_solutions_desc": "Wykorzystaj moc sztucznej inteligencji i uczenia maszynowego do uzyskiwania analiz i automatyzacji procesów.",
+  "ai_solutions_desc": "Wykorzystaj moc sztucznej inteligencji i uczenia maszynowego, aby uzyskać informacje i zautomatyzować procesy.",
   
   "ui_ux_design": "Projektowanie UI/UX",
-  "ui_ux_design_desc": "Piękne, intuicyjne interfejsy, które poprawiają doświadczenie użytkownika i zwiększają zaangażowanie.",
+  "ui_ux_design_desc": "Piękne, intuicyjne interfejsy, które zwiększają wrażenia użytkownika i stymulują zaangażowanie.",
   
-  "bot_development": "Rozwój botów",
+  "bot_development": "Tworzenie botów",
   "bot_development_desc": "Niestandardowe chatboty i boty automatyzacji dla różnych platform, które usprawniają interakcje i poprawiają obsługę klienta.",
   
-  "crm_development": "Rozwój systemów CRM",
-  "crm_development_desc": "Dostosowane systemy zarządzania relacjami z klientami do optymalizacji procesów sprzedaży i poprawy relacji z klientami.",
+  "crm_development": "Tworzenie CRM",
+  "crm_development_desc": "Dostosowane systemy zarządzania relacjami z klientami w celu optymalizacji procesów sprzedaży i poprawy relacji z klientami.",
   
   "business_consulting": "Doradztwo biznesowe",
-  "business_consulting_desc": "Strategiczne wskazówki pomagające Twojej firmie rozwijać się, wdrażać nowe technologie i poprawiać efektywność operacyjną.",
+  "business_consulting_desc": "Strategiczne wskazówki, które pomogą Twojej firmie rozwijać się, wdrażać nowe technologie i poprawiać wydajność operacyjną.",
   
   "web3_blockchain": "Web3 i Blockchain",
-  "web3_blockchain_desc": "Zdecentralizowane aplikacje, inteligentne kontrakty i rozwiązania blockchain wykorzystujące najnowsze technologie web3 do bezpiecznych i przejrzystych aktywów cyfrowych.",
+  "web3_blockchain_desc": "Zdecentralizowane aplikacje, inteligentne kontrakty i rozwiązania blockchain wykorzystujące najnowsze technologie web3 dla bezpiecznych i przejrzystych aktywów cyfrowych.",
   
-  "telegram_mini_apps": "Aplikacje mini Telegram",
-  "telegram_mini_apps_desc": "Niestandardowe mini aplikacje dla Telegrama, które rozszerzają możliwości Twojego biznesu i docierają do użytkowników w ich ulubionym komunikatorze.",
+  "telegram_mini_apps": "Mini aplikacje Telegram",
+  "telegram_mini_apps_desc": "Niestandardowe mini aplikacje dla Telegramu, które rozszerzają możliwości Twojego biznesu i docierają do użytkowników w ich ulubionym komunikatorze.",
   
-  "parsers_scrapers": "Parsery i Scrapery",
+  "parsers_scrapers": "Parsery i scrapery",
   "parsers_scrapers_desc": "Narzędzia do zbierania danych, które automatycznie gromadzą, przetwarzają i analizują informacje z różnych źródeł internetowych.",
   
   "language_code": "pl",
@@ -63,7 +57,35 @@
 
   "our_awards": "Nasze nagrody",
   "our_awards_title": "Nasze nagrody i wyróżnienia",
-  "awards_description": "Z dumą prezentujemy naszą wiedzę specjalistyczną i wysokiej jakości usługi uznane prestiżowymi nagrodami od Clutch - wiodącej platformy do oceny i recenzji firm B2B. Nasze nagrody w dziedzinie rozwoju blockchain, audytu inteligentnych kontraktów, tokenizacji i DeFi potwierdzają naszą pozycję jako jednego z liderów branży w Polsce i Warszawie.",
-  "clutch_widget_description": "Sprawdź opinie naszych klientów na Clutch",
-  "view_clutch_profile": "Zobacz nasz profil na Clutch"
+  "awards_description": "Z dumą prezentujemy naszą wiedzę i usługi wysokiej jakości, które zostały docenione prestiżowymi nagrodami od Clutch - wiodącej platformy do recenzji i ocen firm B2B. Nasze nagrody w dziedzinie rozwoju blockchain, audytu inteligentnych kontraktów, tokenizacji i DeFi potwierdzają naszą pozycję jako jednego z liderów branży w Polsce i Warszawie.",
+  "clutch_widget_description": "Sprawdź opinie naszych klientów w Clutch. Nasze wysokie oceny i pozytywne opinie odzwierciedlają nasze zaangażowanie w jakość i zadowolenie klientów.",
+  "view_clutch_profile": "Zobacz nasz profil w Clutch",
+  "view_profile": "Zobacz profil",
+  
+  "award_1_title": "Najlepsza firma audytorska kontraktów inteligentnych",
+  "award_1_desc": "Uznana za najlepszą w audycie inteligentnych kontraktów",
+  
+  "award_2_title": "Najlepsza firma rozwoju metaverse",
+  "award_2_desc": "Lider w rozwoju rozwiązań metaverse",
+  
+  "award_3_title": "Najlepsza firma tokenizacyjna",
+  "award_3_desc": "Ekspert w dziedzinie technologii tokenizacji aktywów",
+  
+  "award_4_title": "Najlepsza firma DeFi",
+  "award_4_desc": "Uznana w dziedzinie zdecentralizowanych finansów",
+  
+  "award_5_title": "Najlepsza firma projektowania stron internetowych",
+  "award_5_desc": "Najlepsza w projektowaniu stron internetowych do produktów gamingowych",
+  
+  "award_6_title": "Najlepsza firma audytorska kontraktów inteligentnych w Warszawie",
+  "award_6_desc": "Lider audytu inteligentnych kontraktów w Warszawie",
+  
+  "award_7_title": "Najlepsza firma deweloperska",
+  "award_7_desc": "Wiodąca firma w usługach deweloperskich",
+  
+  "award_8_title": "Najlepsza firma rozwoju blockchain",
+  "award_8_desc": "Uznana za rozwiązania do rozwoju blockchain",
+  
+  "award_9_title": "Najlepsza firma rozwoju oprogramowania",
+  "award_9_desc": "Liderzy w rozwoju oprogramowania"
 }

@@ -59,5 +59,51 @@
   "our_awards_title": "Our Awards and Recognition",
   "awards_description": "We proudly showcase our expertise and high-quality services recognized with prestigious awards from Clutch - the leading platform for B2B company reviews and ratings. Our awards in blockchain development, smart contract auditing, tokenization, and DeFi validate our position as one of the industry leaders in Poland and Warsaw.",
   "clutch_widget_description": "Check out our client reviews on Clutch. Our high ratings and positive feedback reflect our commitment to quality and customer satisfaction.",
-  "view_clutch_profile": "View Our Clutch Profile"
+  "view_clutch_profile": "View Our Clutch Profile",
+  "view_profile": "View Our Profile",
+  
+  "award_ux_company_np_poland_title": "Top User Experience Company (Non-profit Poland)",
+  "award_ux_company_np_poland_desc": "Recognized for excellence in user experience design for non-profit organizations in Poland",
+  
+  "award_digital_design_np_warsaw_title": "Top Digital Design Company (Non-profit Warsaw)",
+  "award_digital_design_np_warsaw_desc": "Leading digital design services for non-profit sector in Warsaw",
+  
+  "award_web_design_gambling_poland_title": "Top Web Design Company (Gambling Poland)",
+  "award_web_design_gambling_poland_desc": "Best in web design for gambling industry in Poland",
+  
+  "award_web_design_np_poland_title": "Top Web Design Company (Non-profit Poland)",
+  "award_web_design_np_poland_desc": "Leading web design services for non-profit organizations across Poland",
+  
+  "award_blockchain_food_beverage_title": "Top Blockchain Company (Food & Beverage 2025)",
+  "award_blockchain_food_beverage_desc": "Leading blockchain solutions provider for food & beverage industry in 2025",
+  
+  "award_digital_design_np_poland_title": "Top Digital Design Company (Non-profit Poland)",
+  "award_digital_design_np_poland_desc": "Leading provider of digital design services for non-profit sector in Poland",
+  
+  "award_smart_contract_poland_2025_title": "Top Smart Contract Auditing Company (Poland 2025)",
+  "award_smart_contract_poland_2025_desc": "Leading smart contract auditing services across Poland for 2025",
+  
+  "award_smart_contract_warsaw_2025_title": "Top Smart Contract Auditing Company (Warsaw 2025)",
+  "award_smart_contract_warsaw_2025_desc": "Leading smart contract auditing services in Warsaw region for 2025",
+  
+  "award_tokenization_warsaw_2025_title": "Top Tokenization Company (Warsaw 2025)",
+  "award_tokenization_warsaw_2025_desc": "Expert in asset tokenization technologies in Warsaw for 2025",
+  
+  "award_ux_company_np_warsaw_title": "Top User Experience Company (Non-profit Warsaw)",
+  "award_ux_company_np_warsaw_desc": "Recognized for excellence in user experience design for non-profit organizations in Warsaw",
+  
+  "award_defi_poland_2025_title": "Top Decentralized Finance Company (Poland 2025)",
+  "award_defi_poland_2025_desc": "Leading provider of decentralized finance solutions across Poland for 2025",
+  
+  "award_web_dev_gambling_poland_title": "Top Web Developers (Gambling Poland)",
+  "award_web_dev_gambling_poland_desc": "Recognized as top web development team for gambling industry in Poland",
+  
+  "award_metaverse_poland_2025_title": "Top Metaverse Development Company (Poland 2025)",
+  "award_metaverse_poland_2025_desc": "Leading innovator in metaverse development solutions across Poland for 2025",
+  
+  "award_tokenization_poland_2025_title": "Top Tokenization Company (Poland 2025)",
+  "award_tokenization_poland_2025_desc": "Expert in asset tokenization technologies across Poland for 2025",
+  
+  "award_defi_warsaw_2025_title": "Top Decentralized Finance Company (Warsaw 2025)",
+  "award_defi_warsaw_2025_desc": "Leading provider of decentralized finance solutions in Warsaw for 2025"
 }
