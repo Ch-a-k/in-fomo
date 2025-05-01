@@ -18,10 +18,11 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
   }, []);
   
   const navItems = [
-    { name: t('home'), href: '/' },
-    { name: t('portfolio'), href: '/portfolio' },
-    { name: t('about'), href: '/about' },
-    { name: t('contact'), href: '/contact' }
+    { href: '/', label: t('home') },
+    { href: '/portfolio', label: t('portfolio') },
+    { href: '/about', label: t('about') },
+    { href: '/careers', label: t('careers') },
+    { href: '/contact', label: t('contact') },
   ];
 
   const socialLinks = [
@@ -148,7 +149,7 @@ const Footer = ({ variant = 'design1' }: FooterProps) => {
                       className="text-gray-700 dark:text-gray-200 text-sm hover:text-primary transition-transform transform-gpu hover:-translate-y-[1px] transition-colors"
                       style={{ willChange: 'transform' }}
                     >
-                      {item.name}
+                      {item.label}
                     </Link>
                   </li>
                 ))}

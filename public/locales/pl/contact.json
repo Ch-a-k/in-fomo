@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "IN-FOMO | Kontakt",
-    "description": "Skontaktuj się z IN-FOMO, aby uzyskać innowacyjne rozwiązania IT i eksperckie konsultacje dla Twojej firmy."
+    "description": "Skontaktuj się z IN-FOMO. Informacje kontaktowe dotyczące naszych usług IT, partnerstw lub możliwości pracy."
   },
 
   "hero": {
     "badge": "Kontakt",
     "title": "Skontaktuj się z nami",
-    "subtitle": "Masz pytania lub chcesz z nami współpracować? Chętnie Cię wysłuchamy!"
+    "subtitle": "Masz pytanie lub chcesz z nami współpracować? Chętnie Cię wysłuchamy!"
   },
 
   "forms": {
@@ -17,25 +17,25 @@
     },
     "careers": {
       "title": "Możliwości kariery",
-      "description": "Chcesz dołączyć do naszego zespołu? Niezależnie od tego, czy jesteś doświadczonym programistą, projektantem czy początkującym talentem, zawsze szukamy pasjonatów do wspólnego rozwoju."
+      "description": "Chcesz dołączyć do naszego zespołu? Niezależnie od tego, czy jesteś doświadczonym programistą, projektantem czy też początkującym talentem, zawsze szukamy pasjonatów, którzy będą rozwijać się razem z nami."
     },
     "fields": {
       "name": {
         "label": "Twoje imię",
-        "placeholder": "Wpisz swoje pełne imię"
+        "placeholder": "Wprowadź swoje pełne imię i nazwisko"
       },
       "contact": {
         "label": "Informacje kontaktowe",
         "placeholder": "Email lub numer telefonu",
         "required": "Informacje kontaktowe są wymagane",
-        "invalid": "Proszę podać prawidłowy adres email lub numer telefonu"
+        "invalid": "Wprowadź prawidłowy adres email lub numer telefonu"
       },
       "message": {
         "label": "Twoja wiadomość",
         "placeholder": "Opowiedz nam o swoim projekcie lub pytaniu"
       },
       "source": {
-        "label": "Skąd się o nas dowiedziałeś?",
+        "label": "Skąd dowiedziałeś się o nas?",
         "placeholder": "Wybierz opcję",
         "options": {
           "google": "Google",
@@ -43,7 +43,7 @@
           "facebook": "Facebook",
           "instagram": "Instagram",
           "threads": "Threads",
-          "email": "Email Marketing",
+          "email": "Marketing e-mail",
           "advertising": "Reklama",
           "other": "Inne"
         },
@@ -52,12 +52,12 @@
     },
     "actions": {
       "submit": "Wyślij wiadomość",
-      "sending": "Wysyłanie wiadomości..."
+      "sending": "Wysyłanie..."
     },
     "feedback": {
-      "success": "Dziękujemy! Otrzymaliśmy Twoją wiadomość i wkrótce się z Tobą skontaktujemy.",
-      "error": "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie.",
-      "charactersLeft": "pozostało znaków",
+      "success": "Dziękujemy! Odezwiemy się wkrótce.",
+      "error": "Coś poszło nie tak. Spróbuj ponownie.",
+      "charactersLeft": "znaków pozostało",
       "newMessage": "Nowa wiadomość"
     }
   },
@@ -65,8 +65,8 @@
   "salesCareers": {
     "title": "Kariera w sprzedaży",
     "subtitle": "Dołącz do naszego dynamicznego zespołu sprzedaży",
-    "description": "Szukamy pasjonatów sprzedaży, którzy pomogą naszym klientom wykorzystać najnowocześniejsze rozwiązania IT dla ich firm. Nasz system wynagrodzenia oparty na prowizjach oferuje duży potencjał zarobkowy dla zmotywowanych osób.",
-    "howToApply": "Zainteresowany aplikacją? Wypełnij poniższy formularz z informacjami o Twoich kwalifikacjach i doświadczeniu.",
+    "description": "Poszukujemy zaangażowanych specjalistów ds. sprzedaży, którzy pomogą naszym klientom wykorzystać najnowocześniejsze rozwiązania IT dla ich firm. Nasz system wynagradzania oparty na prowizjach oferuje duży potencjał zarobkowy dla zmotywowanych osób.",
+    "howToApply": "Zainteresowany aplikacją? Wypełnij poniższy formularz, podając swoje kwalifikacje i doświadczenie.",
     "applyNow": "Aplikuj teraz",
     "requirements": "Wymagania",
     "compensation": "Wynagrodzenie",
@@ -82,7 +82,7 @@
     "positions": {
       "salesRep": {
         "title": "Przedstawiciel handlowy",
-        "description": "Przedstawiciele handlowi są głównym punktem kontaktowym dla naszych klientów, pomagając im zrozumieć, jak nasze usługi mogą rozwiązać ich wyzwania biznesowe.",
+        "description": "Przedstawiciele handlowi są głównym punktem kontaktowym dla naszych klientów, pomagając im zrozumieć, w jaki sposób nasze usługi mogą rozwiązać ich wyzwania biznesowe.",
         "requirements": [
           "1-2 lata doświadczenia w sprzedaży B2B (doświadczenie w branży IT jest dodatkowym atutem)",
           "Silne umiejętności komunikacyjne i prezentacyjne",
@@ -94,7 +94,7 @@
       },
       "salesManager": {
         "title": "Kierownik sprzedaży",
-        "description": "Kierownicy sprzedaży prowadzą nasz zespół sprzedaży, opracowują strategie sprzedaży i pomagają zmaksymalizować efektywność zespołu, jednocześnie utrzymując kluczowe relacje z klientami.",
+        "description": "Kierownicy sprzedaży prowadzą nasz zespół sprzedaży, opracowują strategie sprzedaży i pomagają zmaksymalizować wydajność zespołu, jednocześnie utrzymując kluczowe relacje z klientami.",
         "requirements": [
           "3+ lata doświadczenia w zarządzaniu sprzedażą, najlepiej w sektorze IT",
           "Udokumentowane osiągnięcia w realizacji lub przekraczaniu celów sprzedażowych",
@@ -105,13 +105,13 @@
         "compensation": "10% prowizji od udanych sprzedaży"
       },
       "accountManager": {
-        "title": "Menedżer ds. kluczowych klientów",
-        "description": "Menedżerowie ds. kluczowych klientów budują i utrzymują relacje z naszymi najcenniejszymi klientami, zapewniając ich stałe zadowolenie i identyfikując możliwości rozwoju.",
+        "title": "Kierownik ds. kluczowych klientów",
+        "description": "Kierownicy ds. kluczowych klientów budują i utrzymują relacje z naszymi najbardziej wartościowymi klientami, zapewniając ich stałe zadowolenie i identyfikując możliwości rozwoju.",
         "requirements": [
           "3+ lata doświadczenia w zarządzaniu kontami w branży IT",
           "Silne zrozumienie zarządzania relacjami z klientami",
           "Doskonałe umiejętności rozwiązywania problemów i negocjacji",
-          "Zdolność do zrozumienia złożonych koncepcji technicznych i przełożenia ich dla klientów",
+          "Zdolność do zrozumienia złożonych koncepcji technicznych i przekazania ich klientom",
           "Wykształcenie wyższe lub równoważne doświadczenie"
         ],
         "compensation": "10% prowizji od udanych sprzedaży"

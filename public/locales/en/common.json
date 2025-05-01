@@ -169,10 +169,25 @@
     "contact": "Contact",
     "privacy-policy": "Privacy Policy",
     "terms-of-service": "Terms of Service",
-    "cookie-policy": "Cookie Policy"
+    "cookie-policy": "Cookie Policy",
+    "careers": "Careers",
+    "blog": "Blog",
+    "services": "Services",
+    "projects": "Projects",
+    "blog-post": "Article",
+    "portfolio-item": "Project",
+    "service-item": "Service"
   },
   "floating_button": {
     "show": "Show contact button",
     "hide": "Hide contact button"
+  },
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "careers": "Careers",
+    "contact": "Contact"
   }
 }

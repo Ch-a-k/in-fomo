@@ -199,10 +199,25 @@
     "contact": "Контакти",
     "privacy-policy": "Політика конфіденційності",
     "terms-of-service": "Умови використання",
-    "cookie-policy": "Політика cookies"
+    "cookie-policy": "Політика cookies",
+    "careers": "Кар'єра",
+    "blog": "Блог",
+    "services": "Послуги",
+    "projects": "Проекти",
+    "blog-post": "Стаття",
+    "portfolio-item": "Проект",
+    "service-item": "Послуга"
   },
   "floating_button": {
     "show": "Показати кнопку звернення",
     "hide": "Сховати кнопку звернення"
+  },
+  "menu": {
+    "home": "Головна",
+    "about": "Про нас",
+    "services": "Послуги",
+    "projects": "Проекти",
+    "careers": "Вакансії",
+    "contact": "Контакти"
   }
 }

@@ -1,0 +1,124 @@
+{
+  "careers_badge": "Присоединяйтесь к нашей команде",
+  "careers_title": "Открытые вакансии",
+  "careers_description": "Мы ищем талантливых специалистов для работы над интересными проектами. Присоединяйтесь к нашей команде профессионалов!",
+  
+  "categories": {
+    "all": "Все позиции",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "fullstack": "Fullstack",
+    "specialized": "Специализированные",
+    "sales": "Продажи"
+  },
+  
+  "vacancies": {
+    "please_include": "Пожалуйста, укажите данные о себе:",
+    "response_format": "Перейдите по ссылке и заполните форму.",
+    
+    "angular_node": {
+      "title": "Angular/Node.js разработчик",
+      "skills": {
+        "frontend": "Frontend: Angular 14",
+        "backend": "Backend: Node.js + Express, TypeORM",
+        "database": "База данных: PostgreSQL - PGAdmin 16",
+        "websocket": "WebSocket сервис: Socket.io",
+        "integrations": "Интеграции:",
+        "wordpress": "WordPress разработка, опыт работы с Gravity forms, системами электронного обучения, разработкой пользовательских плагинов"
+      }
+    },
+    
+    "ros_python": {
+      "title": "ROS Python разработчик (робототехника и распознавание изображений)",
+      "skills": {
+        "specialization": "ROS Python разработчик, специализирующийся на робототехнике и распознавании изображений",
+        "projects": "Для правительственных проектов (США)",
+        "focus": "Работа с камерами, трекинг, сегментация изображений, ROS2"
+      }
+    },
+    
+    "dotnet_migration": {
+      "title": "Специалист по миграции .NET",
+      "skills": {
+        "main": "Опыт миграции приложений с .NET Framework 4.8 на .NET 5 или новее",
+        "experience": "Уверенность и подтвержденный опыт выполнения таких миграций"
+      }
+    },
+    
+    "wordpress_react": {
+      "title": "WordPress + React разработчик",
+      "skills": {
+        "wordpress": "WordPress разработка",
+        "headless": "Headless CMS + WordPress",
+        "frontend": "React/Next.js",
+        "basics": "HTML/CSS/JS",
+        "php": "Базовые знания PHP"
+      }
+    },
+    
+    "python_django": {
+      "title": "Python/Django разработчик",
+      "skills": {
+        "python": "Python 3.x",
+        "frameworks": "Django, Flask, FastAPI",
+        "databases": "PostgreSQL, MySQL, MongoDB",
+        "tools": "Git, Docker, Celery, Redis",
+        "api": "REST, GraphQL",
+        "optional": "Дополнительно: Pandas, NumPy, Jupyter (для data/ML), AWS/GCP/Azure"
+      }
+    },
+    
+    "mern": {
+      "title": "Fullstack MERN разработчик",
+      "skills": {
+        "frontend": "Frontend: React, Next.js, JavaScript/TypeScript, HTML, CSS, SASS/Tailwind CSS",
+        "backend": "Backend: Node.js, Express.js",
+        "database": "База данных: MongoDB",
+        "api": "API: REST, GraphQL",
+        "tools": "Инструменты: Git, Docker, Webpack/Vite, Vercel",
+        "additional": "Дополнительно: Redux, JWT, WebSocket, AWS/Vercel, интеграции, вебхуки и т.д."
+      }
+    },
+    
+    "sales_representative": {
+      "title": "Сату өкілі",
+      "skills": {
+        "experience": "Сату саласындағы 1-2 жыл тәжірибе (ИТ саласындағы тәжірибе артықшылық болып табылады)",
+        "communication": "Мықты коммуникациялық және келіссөз жүргізу дағдылары",
+        "languages": "Ағылшын тілін еркін білу, қосымша тілдер артықшылық болып табылады",
+        "tech": "ИТ қызметтері мен шешімдердің негізгі түсінігі",
+        "relationships": "Клиенттермен қарым-қатынас құру және оны сақтау қабілеті",
+        "compensation": "Сыйақы: Негізгі жалақы + сәтті сатудан 10% комиссия"
+      }
+    },
+    
+    "sales_manager": {
+      "title": "Сату менеджері",
+      "skills": {
+        "experience": "ИТ/технологиялық саласындағы сатылым бойынша 3+ жыл тәжірибе",
+        "leadership": "Көшбасшылық және команда басқару дағдылары",
+        "strategies": "Сату стратегияларын әзірлеу және жүзеге асыру қабілеті",
+        "crm": "CRM жүйелері мен сату аналитикасымен жұмыс тәжірибесі",
+        "targets": "Сату мақсаттарына жету және асыру қабілеті дәлелденген",
+        "compensation": "Сыйақы: Негізгі жалақы + сәтті сатудан 15% комиссия"
+      }
+    },
+    
+    "key_account_manager": {
+      "title": "Негізгі клиенттермен жұмыс менеджері",
+      "skills": {
+        "experience": "ИТ/технологиялық саласындағы клиенттермен қарым-қатынасты басқару бойынша 5+ жыл тәжірибе",
+        "enterprise": "Корпоративтік клиенттермен жұмыс істеу тәжірибесі",
+        "relationships": "Қарым-қатынастарды құру және басқару дағдылары мықты",
+        "negotiations": "Жетілген келіссөздер жүргізу және келісімшарттарды басқару дағдылары",
+        "technical": "ИТ қызметтері мен шешімдердің берік техникалық түсінігі",
+        "compensation": "Сыйақы: Негізгі жалақы + сәтті сатудан 20% комиссия"
+      }
+    }
+  },
+  
+  "apply_now": "Откликнуться",
+  "no_vacancies": "Нет доступных вакансий в этой категории",
+  "not_found_suitable": "Не нашли подходящую вакансию? Отправьте нам ваше резюме, и мы свяжемся с вами, когда появится подходящая позиция.",
+  "contact_us": "Связаться с нами"
+} 

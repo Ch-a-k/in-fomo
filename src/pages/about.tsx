@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import SEO from "../components/SEO";
 import { Popover } from "@headlessui/react";
+import Awards from "../components/Awards";
 
 // Данные (без переводов, так как они будут в i18n)
 const teamMembers = [
@@ -288,7 +289,8 @@ export default function About() {
               </div>
             </div>
           </div>
-
+          {/* Awards */}
+          <Awards />
           {/* Tech Stack */}
           <div className="max-w-3xl mx-auto text-center mb-10 animate-fade-in-up">
             <div className="inline-block px-4 py-1.5 mb-4 text-xs font-medium rounded-full bg-primary/10 text-primary">

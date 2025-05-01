@@ -205,11 +205,27 @@
     "contact": "Kontakt",
     "privacy-policy": "Polityka prywatności",
     "terms-of-service": "Warunki użytkowania",
-    "cookie-policy": "Polityka cookies"
+    "cookie-policy": "Polityka cookies",
+    "careers": "Kariera",
+    "blog": "Blog",
+    "services": "Usługi",
+    "projects": "Projekty",
+    "blog-post": "Artykuł",
+    "portfolio-item": "Projekt",
+    "service-item": "Usługa"
   },
   
   "floating_button": {
     "show": "Pokaż przycisk kontaktu",
     "hide": "Ukryj przycisk kontaktu"
+  },
+  
+  "menu": {
+    "home": "Strona główna",
+    "about": "O nas",
+    "services": "Usługi",
+    "projects": "Projekty",
+    "careers": "Kariera",
+    "contact": "Kontakt"
   }
 }

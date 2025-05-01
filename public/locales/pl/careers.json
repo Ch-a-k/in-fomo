@@ -1,0 +1,124 @@
+{
+  "careers_badge": "Dołącz do naszego zespołu",
+  "careers_title": "Otwarte stanowiska",
+  "careers_description": "Szukamy utalentowanych specjalistów do pracy nad ciekawymi projektami. Dołącz do naszego zespołu profesjonalistów!",
+  
+  "categories": {
+    "all": "Wszystkie stanowiska",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "fullstack": "Fullstack",
+    "specialized": "Specjalistyczne",
+    "sales": "Sprzedaż"
+  },
+  
+  "vacancies": {
+    "please_include": "Proszę podać swoje dane:",
+    "response_format": "Kliknij link i wypełnij formularz.",
+    
+    "angular_node": {
+      "title": "Angular/Node.js Developer",
+      "skills": {
+        "frontend": "Frontend: Angular 14",
+        "backend": "Backend: Node.js + Express, TypeORM",
+        "database": "Baza danych: PostgreSQL - PGAdmin 16",
+        "websocket": "Usługa WebSocket: Socket.io",
+        "integrations": "Integracje:",
+        "wordpress": "Rozwój WordPress, doświadczenie z Gravity forms, systemami e-learningowymi, tworzeniem niestandardowych wtyczek"
+      }
+    },
+    
+    "ros_python": {
+      "title": "ROS Python Developer (Robotyka i rozpoznawanie obrazu)",
+      "skills": {
+        "specialization": "Deweloper ROS Python specjalizujący się w robotyce i rozpoznawaniu obrazu",
+        "projects": "Dla projektów rządowych (USA)",
+        "focus": "Praca z kamerami, śledzenie, segmentacja obrazu, ROS2"
+      }
+    },
+    
+    "dotnet_migration": {
+      "title": "Specjalista ds. migracji .NET",
+      "skills": {
+        "main": "Doświadczenie w migracji aplikacji z .NET Framework 4.8 do .NET 5 lub nowszego",
+        "experience": "Pewność siebie i udokumentowane doświadczenie w przeprowadzaniu takich migracji"
+      }
+    },
+    
+    "wordpress_react": {
+      "title": "WordPress + React Developer",
+      "skills": {
+        "wordpress": "Rozwój WordPress",
+        "headless": "Headless CMS + WordPress",
+        "frontend": "React/Next.js",
+        "basics": "HTML/CSS/JS",
+        "php": "Podstawowa znajomość PHP"
+      }
+    },
+    
+    "python_django": {
+      "title": "Python/Django Developer",
+      "skills": {
+        "python": "Python 3.x",
+        "frameworks": "Django, Flask, FastAPI",
+        "databases": "PostgreSQL, MySQL, MongoDB",
+        "tools": "Git, Docker, Celery, Redis",
+        "api": "REST, GraphQL",
+        "optional": "Dodatkowo: Pandas, NumPy, Jupyter (dla data/ML), AWS/GCP/Azure"
+      }
+    },
+    
+    "mern": {
+      "title": "Fullstack MERN Developer",
+      "skills": {
+        "frontend": "Frontend: React, Next.js, JavaScript/TypeScript, HTML, CSS, SASS/Tailwind CSS",
+        "backend": "Backend: Node.js, Express.js",
+        "database": "Baza danych: MongoDB",
+        "api": "API: REST, GraphQL",
+        "tools": "Narzędzia: Git, Docker, Webpack/Vite, Vercel",
+        "additional": "Dodatkowo: Redux, JWT, WebSocket, AWS/Vercel, integracje, webhooks, itp."
+      }
+    },
+    
+    "sales_representative": {
+      "title": "Przedstawiciel handlowy",
+      "skills": {
+        "experience": "1-2 lata doświadczenia w sprzedaży B2B (doświadczenie w branży IT jest dodatkowym atutem)",
+        "communication": "Doskonałe umiejętności komunikacyjne i negocjacyjne",
+        "languages": "Biegła znajomość języka angielskiego, dodatkowe języki są atutem",
+        "tech": "Podstawowa znajomość usług i rozwiązań IT",
+        "relationships": "Umiejętność budowania i utrzymywania relacji z klientami",
+        "compensation": "Wynagrodzenie: Podstawowa pensja + 10% prowizji od udanych sprzedaży"
+      }
+    },
+    
+    "sales_manager": {
+      "title": "Kierownik sprzedaży",
+      "skills": {
+        "experience": "3+ lata doświadczenia w sprzedaży w branży IT/technologicznej",
+        "leadership": "Umiejętności przywódcze i zarządzania zespołem",
+        "strategies": "Umiejętność opracowywania i wdrażania strategii sprzedaży",
+        "crm": "Doświadczenie z systemami CRM i analityką sprzedaży",
+        "targets": "Udowodniona zdolność do osiągania i przekraczania celów sprzedażowych",
+        "compensation": "Wynagrodzenie: Podstawowa pensja + 15% prowizji od udanych sprzedaży"
+      }
+    },
+    
+    "key_account_manager": {
+      "title": "Kierownik ds. kluczowych klientów",
+      "skills": {
+        "experience": "5+ lat doświadczenia w zarządzaniu relacjami z klientami w branży IT/technologicznej",
+        "enterprise": "Doświadczenie w pracy z klientami korporacyjnymi",
+        "relationships": "Silne umiejętności budowania i zarządzania relacjami",
+        "negotiations": "Zaawansowane umiejętności negocjacyjne i zarządzania umowami",
+        "technical": "Solidne zrozumienie techniczne usług i rozwiązań IT",
+        "compensation": "Wynagrodzenie: Podstawowa pensja + 20% prowizji od udanych sprzedaży"
+      }
+    }
+  },
+  
+  "apply_now": "Aplikuj teraz",
+  "no_vacancies": "Brak dostępnych stanowisk w tej kategorii",
+  "not_found_suitable": "Nie znalazłeś odpowiedniego stanowiska? Wyślij nam swoje CV, a skontaktujemy się z Tobą, gdy pojawi się odpowiednia pozycja.",
+  "contact_us": "Skontaktuj się z nami"
+} 

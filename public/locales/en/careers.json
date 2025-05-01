@@ -1,0 +1,137 @@
+{
+  "careers_badge": "Join Our Team",
+  "careers_title": "Open Positions",
+  "careers_description": "We're looking for talented professionals to work on exciting projects. Join our team of experts!",
+  
+  "categories": {
+    "all": "All Positions",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "fullstack": "Fullstack",
+    "specialized": "Specialized",
+    "sales": "Sales"
+  },
+  
+  "vacancies": {
+      "please_include": "Please provide your details:",
+      "response_format": "Follow the link and fill out the form.",
+    
+    "frontend_react": {
+      "title": "Frontend React Developer",
+      "skills": {
+        "main": "Strong experience with React 18+ and Next.js",
+        "typescript": "Advanced TypeScript knowledge",
+        "styling": "CSS-in-JS (Styled Components, Emotion), Tailwind CSS",
+        "state": "State management with Redux Toolkit, React Query",
+        "testing": "Testing with Jest, React Testing Library",
+        "tools": "Experience with build tools (Webpack, Vite) and modern workflows",
+        "plus": "Experience with micro-frontends and module federation is a plus"
+      }
+    },
+    
+    "angular_node": {
+      "title": "Angular/Node.js Developer",
+      "skills": {
+        "frontend": "Frontend: Angular 14",
+        "backend": "Backend: Node.js + Express, TypeORM",
+        "database": "Database: PostgreSQL - PGAdmin 16",
+        "websocket": "WebSocket Service: Socket.io",
+        "integrations": "Integrations:",
+        "wordpress": "WordPress dev, experience with Gravity forms, eLearning, custom plugins"
+      }
+    },
+    
+    "ros_python": {
+      "title": "ROS Python Developer (Robotics & Image Recognition)",
+      "skills": {
+        "specialization": "ROS Python developer specializing in robotics and image recognition",
+        "projects": "For government projects (USA)",
+        "focus": "Working with cameras, tracking, image segmentation, ROS2"
+      }
+    },
+    
+    "dotnet_migration": {
+      "title": ".NET Migration Specialist",
+      "skills": {
+        "main": "Experience migrating applications from .NET Framework 4.8 to .NET 5 or newer",
+        "experience": "Confidence and proven experience in performing such migrations"
+      }
+    },
+    
+    "wordpress_react": {
+      "title": "WordPress + React Developer",
+      "skills": {
+        "wordpress": "WordPress development",
+        "headless": "Headless CMS + WordPress",
+        "frontend": "React/Next.js",
+        "basics": "HTML/CSS/JS",
+        "php": "Basic PHP knowledge"
+      }
+    },
+    
+    "python_django": {
+      "title": "Python/Django Developer",
+      "skills": {
+        "python": "Python 3.x",
+        "frameworks": "Django, Flask, FastAPI",
+        "databases": "PostgreSQL, MySQL, MongoDB",
+        "tools": "Git, Docker, Celery, Redis",
+        "api": "REST, GraphQL",
+        "optional": "Optional: Pandas, NumPy, Jupyter (for data/ML), AWS/GCP/Azure"
+      }
+    },
+    
+    "mern": {
+      "title": "Fullstack MERN Developer",
+      "skills": {
+        "frontend": "Frontend: React, Next.js, JavaScript/TypeScript, HTML, CSS, SASS/Tailwind CSS",
+        "backend": "Backend: Node.js, Express.js",
+        "database": "Database: MongoDB",
+        "api": "API: REST, GraphQL",
+        "tools": "Tools: Git, Docker, Webpack/Vite, Vercel",
+        "additional": "Additional: Redux, JWT, WebSocket, AWS/Vercel, integrations, webhooks, etc."
+      }
+    },
+    
+    "sales_representative": {
+      "title": "Sales Representative",
+      "skills": {
+        "experience": "1-2 years of experience in sales (experience in the IT industry will be an advantage)",
+        "communication": "Excellent communication and negotiation skills",
+        "languages": "Fluent in English, additional languages are a plus",
+        "tech": "Basic understanding of IT services and solutions",
+        "relationships": "Ability to build and maintain client relationships",
+        "compensation": "Compensation: Base salary + 10% commission from successful sales"
+      }
+    },
+    
+    "sales_manager": {
+      "title": "Sales Manager",
+      "skills": {
+        "experience": "3+ years of experience in sales in the IT/tech industry",
+        "leadership": "Leadership and team management skills",
+        "strategies": "Ability to develop and implement sales strategies",
+        "crm": "Experience with CRM systems and sales analytics",
+        "targets": "Proven ability to meet and exceed sales targets",
+        "compensation": "Compensation: Base salary + 15% commission from successful sales"
+      }
+    },
+    
+    "key_account_manager": {
+      "title": "Key Account Manager",
+      "skills": {
+        "experience": "5+ years of experience in client relationship management in IT/tech industry",
+        "enterprise": "Experience working with enterprise clients",
+        "relationships": "Strong relationship building and management skills",
+        "negotiations": "Advanced negotiation and contract management skills",
+        "technical": "Solid technical understanding of IT services and solutions",
+        "compensation": "Compensation: Base salary + 20% commission from successful sales"
+      }
+    }
+  },
+  
+  "apply_now": "Apply Now",
+  "no_vacancies": "No vacancies available in this category",
+  "not_found_suitable": "Haven't found a suitable position? Send us your resume, and we'll contact you when a matching position becomes available.",
+  "contact_us": "Contact Us"
+} 

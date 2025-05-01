@@ -1,0 +1,124 @@
+{
+  "careers_badge": "Приєднуйтесь до нашої команди",
+  "careers_title": "Відкриті вакансії",
+  "careers_description": "Ми шукаємо талановитих фахівців для роботи над цікавими проектами. Приєднуйтесь до нашої команди професіоналів!",
+  
+  "categories": {
+    "all": "Всі позиції",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "fullstack": "Fullstack",
+    "specialized": "Спеціалізовані",
+    "sales": "Продажі"
+  },
+  
+  "vacancies": {
+      "please_include": "Будь ласка, вкажіть дані про себе:",
+      "response_format": "Перейдіть за посиланням і заповніть форму.",
+    
+    "angular_node": {
+      "title": "Angular/Node.js розробник",
+      "skills": {
+        "frontend": "Frontend: Angular 14",
+        "backend": "Backend: Node.js + Express, TypeORM",
+        "database": "База даних: PostgreSQL - PGAdmin 16",
+        "websocket": "WebSocket сервіс: Socket.io",
+        "integrations": "Інтеграції:",
+        "wordpress": "WordPress розробка, досвід роботи з Gravity forms, системами електронного навчання, розробкою користувацьких плагінів"
+      }
+    },
+    
+    "ros_python": {
+      "title": "ROS Python розробник (робототехніка та розпізнавання зображень)",
+      "skills": {
+        "specialization": "ROS Python розробник, що спеціалізується на робототехніці та розпізнаванні зображень",
+        "projects": "Для урядових проектів (США)",
+        "focus": "Робота з камерами, трекінг, сегментація зображень, ROS2"
+      }
+    },
+    
+    "dotnet_migration": {
+      "title": "Спеціаліст з міграції .NET",
+      "skills": {
+        "main": "Досвід міграції додатків з .NET Framework 4.8 на .NET 5 або новіше",
+        "experience": "Впевненість та підтверджений досвід виконання таких міграцій"
+      }
+    },
+    
+    "wordpress_react": {
+      "title": "WordPress + React розробник",
+      "skills": {
+        "wordpress": "WordPress розробка",
+        "headless": "Headless CMS + WordPress",
+        "frontend": "React/Next.js",
+        "basics": "HTML/CSS/JS",
+        "php": "Базові знання PHP"
+      }
+    },
+    
+    "python_django": {
+      "title": "Python/Django розробник",
+      "skills": {
+        "python": "Python 3.x",
+        "frameworks": "Django, Flask, FastAPI",
+        "databases": "PostgreSQL, MySQL, MongoDB",
+        "tools": "Git, Docker, Celery, Redis",
+        "api": "REST, GraphQL",
+        "optional": "Додатково: Pandas, NumPy, Jupyter (для data/ML), AWS/GCP/Azure"
+      }
+    },
+    
+    "mern": {
+      "title": "Fullstack MERN розробник",
+      "skills": {
+        "frontend": "Frontend: React, Next.js, JavaScript/TypeScript, HTML, CSS, SASS/Tailwind CSS",
+        "backend": "Backend: Node.js, Express.js",
+        "database": "База даних: MongoDB",
+        "api": "API: REST, GraphQL",
+        "tools": "Інструменти: Git, Docker, Webpack/Vite, Vercel",
+        "additional": "Додатково: Redux, JWT, WebSocket, AWS/Vercel, інтеграції, вебхуки тощо"
+      }
+    },
+    
+    "sales_representative": {
+      "title": "Представник з продажів",
+      "skills": {
+        "experience": "1-2 роки досвіду в B2B продажах (досвід в ІТ-індустрії буде перевагою)",
+        "communication": "Відмінні комунікативні та переговорні навички",
+        "languages": "Вільне володіння англійською мовою, додаткові мови будуть перевагою",
+        "tech": "Базове розуміння ІТ-послуг та рішень",
+        "relationships": "Здатність будувати та підтримувати відносини з клієнтами",
+        "compensation": "Винагорода: Базова заробітна плата + 10% комісії від успішних продажів"
+      }
+    },
+    
+    "sales_manager": {
+      "title": "Менеджер з продажів",
+      "skills": {
+        "experience": "3+ роки досвіду в продажах в ІТ/технологічній галузі",
+        "leadership": "Навички лідерства та управління командою",
+        "strategies": "Здатність розробляти та впроваджувати стратегії продажів",
+        "crm": "Досвід роботи з CRM-системами та аналітикою продажів",
+        "targets": "Підтверджена здатність досягати та перевищувати цілі продажів",
+        "compensation": "Винагорода: Базова заробітна плата + 15% комісії від успішних продажів"
+      }
+    },
+    
+    "key_account_manager": {
+      "title": "Менеджер з роботи з ключовими клієнтами",
+      "skills": {
+        "experience": "5+ років досвіду управління відносинами з клієнтами в ІТ/технологічній галузі",
+        "enterprise": "Досвід роботи з корпоративними клієнтами",
+        "relationships": "Сильні навички побудови та управління відносинами",
+        "negotiations": "Просунуті навички ведення переговорів та управління контрактами",
+        "technical": "Тверде технічне розуміння ІТ-послуг та рішень",
+        "compensation": "Винагорода: Базова заробітна плата + 20% комісії від успішних продажів"
+      }
+    }
+  },
+  
+  "apply_now": "Відгукнутися",
+  "no_vacancies": "Немає доступних вакансій у цій категорії",
+  "not_found_suitable": "Не знайшли підходящу вакансію? Надішліть нам своє резюме, і ми зв'яжемося з вами, коли з'явиться підходяща позиція.",
+  "contact_us": "Зв'язатися з нами"
+} 

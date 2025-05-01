@@ -161,10 +161,25 @@
     "contact": "Контакты",
     "privacy-policy": "Политика конфиденциальности",
     "terms-of-service": "Условия использования",
-    "cookie-policy": "Политика cookies"
+    "cookie-policy": "Политика cookies",
+    "careers": "Вакансии",
+    "blog": "Блог",
+    "services": "Услуги",
+    "projects": "Проекты",
+    "blog-post": "Статья",
+    "portfolio-item": "Проект",
+    "service-item": "Услуга"
   },
   "floating_button": {
     "show": "Байланыс батырмасын көрсету",
     "hide": "Байланыс батырмасын жасыру"
+  },
+  "menu": {
+    "home": "Главная",
+    "about": "О нас",
+    "services": "Услуги",
+    "projects": "Проекты",
+    "careers": "Вакансии",
+    "contact": "Контакты"
   }
 }

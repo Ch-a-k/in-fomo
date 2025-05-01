@@ -1,0 +1,137 @@
+{
+  "careers_badge": "Присоединяйтесь к нам",
+  "careers_title": "Открытые вакансии",
+  "careers_description": "Мы ищем талантливых специалистов для работы над интересными проектами. Присоединяйтесь к нашей команде профессионалов!",
+  
+  "categories": {
+    "all": "Все вакансии",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "fullstack": "Fullstack",
+    "specialized": "Специализированные",
+    "sales": "Продажи"
+  },
+  
+  "vacancies": {
+    "response_format": "Резюме, ссылка на LinkedIn, ваше местоположение, уровень английского, текущая и предыдущая почасовая ставка в $ (если применимо).",
+    "please_include": "Пожалуйста, укажите:",
+    
+    "frontend_react": {
+      "title": "Frontend React Разработчик",
+      "skills": {
+        "main": "Сильный опыт работы с React 18+ и Next.js",
+        "typescript": "Продвинутые знания TypeScript",
+        "styling": "CSS-in-JS (Styled Components, Emotion), Tailwind CSS",
+        "state": "Управление состоянием с Redux Toolkit, React Query",
+        "testing": "Тестирование с Jest, React Testing Library",
+        "tools": "Опыт работы с инструментами сборки (Webpack, Vite) и современными рабочими процессами",
+        "plus": "Опыт работы с микрофронтендами и федерацией модулей будет плюсом"
+      }
+    },
+    
+    "angular_node": {
+      "title": "Angular/Node.js разработчик",
+      "skills": {
+        "frontend": "Frontend: Angular 14",
+        "backend": "Backend: Node.js + Express, TypeORM",
+        "database": "База данных: PostgreSQL - PGAdmin 16",
+        "websocket": "WebSocket сервис: Socket.io",
+        "integrations": "Интеграции:",
+        "wordpress": "WordPress разработка, опыт с Gravity forms, системами eLearning, разработкой пользовательских плагинов"
+      }
+    },
+    
+    "ros_python": {
+      "title": "ROS Python разработчик (Робототехника и распознавание изображений)",
+      "skills": {
+        "specialization": "ROS Python разработчик со специализацией в робототехнике и распознавании изображений",
+        "projects": "Для государственных проектов (США)",
+        "focus": "Работа с камерами, отслеживанием, сегментацией изображений, ROS2"
+      }
+    },
+    
+    "dotnet_migration": {
+      "title": "Специалист по миграции .NET",
+      "skills": {
+        "main": "Опыт миграции приложений с .NET Framework 4.8 на .NET 5 или новее",
+        "experience": "Уверенность и подтвержденный опыт в выполнении таких миграций"
+      }
+    },
+    
+    "wordpress_react": {
+      "title": "WordPress + React разработчик",
+      "skills": {
+        "wordpress": "WordPress разработка",
+        "headless": "Headless CMS + WordPress",
+        "frontend": "React/Next.js",
+        "basics": "HTML/CSS/JS",
+        "php": "Базовые знания PHP"
+      }
+    },
+    
+    "python_django": {
+      "title": "Python/Django разработчик",
+      "skills": {
+        "python": "Python 3.x",
+        "frameworks": "Django, Flask, FastAPI",
+        "databases": "PostgreSQL, MySQL, MongoDB",
+        "tools": "Git, Docker, Celery, Redis",
+        "api": "REST, GraphQL",
+        "optional": "Дополнительно: Pandas, NumPy, Jupyter (для данных/ML), AWS/GCP/Azure"
+      }
+    },
+    
+    "mern": {
+      "title": "Fullstack MERN разработчик",
+      "skills": {
+        "frontend": "Frontend: React, Next.js, JavaScript/TypeScript, HTML, CSS, SASS/Tailwind CSS",
+        "backend": "Backend: Node.js, Express.js",
+        "database": "База данных: MongoDB",
+        "api": "API: REST, GraphQL",
+        "tools": "Инструменты: Git, Docker, Webpack/Vite, Vercel",
+        "additional": "Дополнительно: Redux, JWT, WebSocket, AWS/Vercel, интеграции, вебхуки и т.д."
+      }
+    },
+    
+    "sales_representative": {
+      "title": "Менеджер по продажам",
+      "skills": {
+        "experience": "1-2 года опыта в продажах (опыт в ИТ-индустрии будет преимуществом)",
+        "communication": "Отличные коммуникативные и навыки ведения переговоров",
+        "languages": "Свободное владение английским, дополнительные языки являются плюсом",
+        "tech": "Базовое понимание ИТ-услуг и решений",
+        "relationships": "Способность строить и поддерживать отношения с клиентами",
+        "compensation": "Компенсация: Базовая зарплата + 10% комиссии от успешных продаж"
+      }
+    },
+    
+    "sales_manager": {
+      "title": "Менеджер по продажам",
+      "skills": {
+        "experience": "3+ лет опыта в продажах в ИТ/технологической индустрии",
+        "leadership": "Навыки лидерства и управления командой",
+        "strategies": "Способность разрабатывать и внедрять стратегии продаж",
+        "crm": "Опыт работы с CRM-системами и аналитикой продаж",
+        "targets": "Доказанная способность достигать и превышать цели по продажам",
+        "compensation": "Компенсация: Базовая зарплата + 15% комиссии от успешных продаж"
+      }
+    },
+    
+    "key_account_manager": {
+      "title": "Менеджер по работе с ключевыми клиентами",
+      "skills": {
+        "experience": "5+ лет опыта в управлении отношениями с клиентами в ИТ/технологической индустрии",
+        "enterprise": "Опыт работы с корпоративными клиентами",
+        "relationships": "Сильные навыки построения и управления отношениями",
+        "negotiations": "Продвинутые навыки ведения переговоров и управления контрактами",
+        "technical": "Прочное техническое понимание ИТ-услуг и решений",
+        "compensation": "Компенсация: Базовая зарплата + 20% комиссии от успешных продаж"
+      }
+    }
+  },
+  
+  "apply_now": "Откликнуться",
+  "no_vacancies": "Нет доступных вакансий в этой категории",
+  "not_found_suitable": "Не нашли подходящей вакансии? Отправьте нам свое резюме, и мы свяжемся с вами, когда появится подходящая позиция.",
+  "contact_us": "Связаться с нами"
+} 
