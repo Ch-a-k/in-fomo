@@ -144,7 +144,7 @@ const Careers = memo(() => {
         hasTranslations ? t('vacancies.sales_manager.skills.strategies', { ns: 'careers' }) : 'Ability to develop and implement sales strategies',
         hasTranslations ? t('vacancies.sales_manager.skills.crm', { ns: 'careers' }) : 'Experience with CRM systems and sales analytics',
         hasTranslations ? t('vacancies.sales_manager.skills.targets', { ns: 'careers' }) : 'Proven ability to meet and exceed sales targets',
-        hasTranslations ? t('vacancies.sales_manager.skills.compensation', { ns: 'careers' }) : 'Compensation: Base salary + 15% commission from successful sales'
+        hasTranslations ? t('vacancies.sales_manager.skills.compensation', { ns: 'careers' }) : 'Compensation: Base salary + 10% commission from successful sales'
       ],
       responseFormat: hasTranslations ? t('vacancies.response_format', { ns: 'careers' }) : 'CV, ссылка на LinkedIn, где находитесь, уровень английского языка, последний и предпоследний рейт в час в $ (если есть).'
     },
@@ -158,7 +158,7 @@ const Careers = memo(() => {
         hasTranslations ? t('vacancies.key_account_manager.skills.relationships', { ns: 'careers' }) : 'Strong relationship building and management skills',
         hasTranslations ? t('vacancies.key_account_manager.skills.negotiations', { ns: 'careers' }) : 'Advanced negotiation and contract management skills',
         hasTranslations ? t('vacancies.key_account_manager.skills.technical', { ns: 'careers' }) : 'Solid technical understanding of IT services and solutions',
-        hasTranslations ? t('vacancies.key_account_manager.skills.compensation', { ns: 'careers' }) : 'Compensation: Base salary + 20% commission from successful sales'
+        hasTranslations ? t('vacancies.key_account_manager.skills.compensation', { ns: 'careers' }) : 'Compensation: Base salary + 10% commission from successful sales'
       ],
       responseFormat: hasTranslations ? t('vacancies.response_format', { ns: 'careers' }) : 'CV, ссылка на LinkedIn, где находитесь, уровень английского языка, последний и предпоследний рейт в час в $ (если есть).'
     },
@@ -274,7 +274,7 @@ const Careers = memo(() => {
                   rel="noopener noreferrer" 
                   className="block w-full text-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-[#FF5a00] hover:bg-[#FF5a00]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF5a00] transition-colors mt-auto"
                 >
-                  {hasTranslations ? t('apply_now', { ns: 'careers' }) : 'Откликнуться'}
+                  {hasTranslations ? t('apply_now', { ns: 'careers' }) : 'Подать заявку'}
                 </a>
               </div>
             </motion.div>
