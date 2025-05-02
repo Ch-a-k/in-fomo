@@ -88,14 +88,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   if (!mounted) {
     return (
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
         <div className="min-h-screen bg-white dark:bg-[#121212]" />
       </ThemeProvider>
     );
   }
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
