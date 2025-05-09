@@ -11,6 +11,7 @@
   "get_started": "Get Started",
   "contact_us": "Contact Us",
   
+  "features_subtitle": "Our Features",
   "features_title": "Why Choose Our Bot Development Services",
   "features_description": "We deliver comprehensive bot development solutions tailored to your specific business needs with a focus on innovation and performance.",
   
@@ -32,9 +33,11 @@
   "feature_6_title": "Ongoing Support",
   "feature_6_desc": "We provide continuous maintenance, updates, and support to ensure your bots perform optimally at all times.",
   
+  "choose_your_bot": "Choose Your Bot",
   "bot_types_title": "Types of Bots We Develop",
   "bot_types_description": "Our team specializes in developing a wide range of bot solutions to meet various business needs and use cases.",
   
+  "popular": "Popular",
   "bot_type_1_title": "Customer Service Chatbots",
   "bot_type_1_desc": "Automated assistants that handle customer inquiries, provide information, and resolve common issues.",
   "bot_type_1_feature_1": "24/7 availability for instant responses",
@@ -53,10 +56,12 @@
   "bot_type_3_feature_2": "Integration with Telegram payments",
   "bot_type_3_feature_3": "Rich media content sharing",
   
+  "pricing_badge": "Pricing Options",
   "pricing_title": "Our Pricing Plans",
   "pricing_description": "Transparent pricing options designed to accommodate businesses of all sizes, from startups to enterprises.",
   "pricing_updated": "Last updated: May 15, 2023",
   
+  "popular_choice": "Popular Choice",
   "price_1_title": "BASIC PACKAGE",
   "price_1_desc": "Complete development of a static bot with up to 100 blocks, including flowchart creation.",
   "price_1_amount": "299",
@@ -100,6 +105,10 @@
   "subscription_telegram": "One Telegram or Viber bot account: $12/month",
   "subscription_both": "Both Telegram and Viber bot accounts: $20/month",
   
-  "cta_title": "Ready to Transform Your Business with Intelligent Bots?",
-  "cta_description": "Contact our team today to discuss your bot development project and get a personalized quote based on your specific requirements."
+  "ready_to_start": "Ready to Get Started?",
+  "cta_title": "Ready to Transform Your Business with",
+  "cta_highlight": "Intelligent Bots?",
+  "cta_description": "Contact our team today to discuss your bot development project and get a personalized quote based on your specific requirements.",
+  "support_247": "24/7 Support",
+  "quick_response": "Quick Response Time"
 } 

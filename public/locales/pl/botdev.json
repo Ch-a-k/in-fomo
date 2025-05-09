@@ -11,6 +11,7 @@
   "get_started": "Rozpocznij",
   "contact_us": "Skontaktuj się z nami",
   
+  "features_subtitle": "Nasze funkcje",
   "features_title": "Dlaczego warto wybrać nasze usługi tworzenia botów",
   "features_description": "Oferujemy kompleksowe rozwiązania w zakresie tworzenia botów dostosowane do konkretnych potrzeb biznesowych, skupiając się na innowacjach i wydajności.",
   
@@ -32,9 +33,11 @@
   "feature_6_title": "Ciągłe wsparcie",
   "feature_6_desc": "Zapewniamy ciągłą konserwację, aktualizacje i wsparcie, aby Twoje boty zawsze działały optymalnie.",
   
+  "choose_your_bot": "Wybierz swojego bota",
   "bot_types_title": "Rodzaje botów, które tworzymy",
   "bot_types_description": "Nasz zespół specjalizuje się w tworzeniu szerokiej gamy rozwiązań botowych, aby sprostać różnym potrzebom biznesowym i przypadkom użycia.",
   
+  "popular": "Popularny",
   "bot_type_1_title": "Chatboty do obsługi klienta",
   "bot_type_1_desc": "Zautomatyzowani asystenci, którzy obsługują zapytania klientów, dostarczają informacje i rozwiązują typowe problemy.",
   "bot_type_1_feature_1": "Dostępność 24/7 dla natychmiastowych odpowiedzi",
@@ -53,10 +56,12 @@
   "bot_type_3_feature_2": "Integracja z płatnościami Telegram",
   "bot_type_3_feature_3": "Udostępnianie bogatych treści multimedialnych",
   
+  "pricing_badge": "Opcje cenowe",
   "pricing_title": "Nasze plany cenowe",
   "pricing_description": "Przejrzyste opcje cenowe zaprojektowane dla firm każdej wielkości, od startupów po duże przedsiębiorstwa.",
   "pricing_updated": "Ostatnia aktualizacja: 15 maja 2023 r.",
   
+  "popular_choice": "Popularny wybór",
   "price_1_title": "PAKIET PODSTAWOWY",
   "price_1_desc": "Pełne opracowanie statycznego bota do 100 bloków, w tym stworzenie schematu blokowego.",
   "price_1_amount": "299",
@@ -100,6 +105,10 @@
   "subscription_telegram": "Jedno konto bota Telegram lub Viber: $12/miesiąc",
   "subscription_both": "Konta botów Telegram i Viber: $20/miesiąc",
   
-  "cta_title": "Gotowy na transformację biznesu dzięki inteligentnym botom?",
-  "cta_description": "Skontaktuj się z naszym zespołem już dziś, aby omówić projekt tworzenia bota i otrzymać spersonalizowaną ofertę na podstawie Twoich konkretnych wymagań."
+  "ready_to_start": "Gotowy do rozpoczęcia?",
+  "cta_title": "Gotowy na transformację biznesu dzięki",
+  "cta_highlight": "Inteligentnym botom?",
+  "cta_description": "Skontaktuj się z naszym zespołem już dziś, aby omówić projekt tworzenia bota i otrzymać spersonalizowaną ofertę na podstawie Twoich konkretnych wymagań.",
+  "support_247": "Wsparcie 24/7",
+  "quick_response": "Szybki czas reakcji"
 } 
