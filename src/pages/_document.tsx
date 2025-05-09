@@ -83,8 +83,8 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sofia+Sans:wght@400;600;700&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
             rel="stylesheet"
             media="print"
-            // @ts-ignore - используем строковый onload для HTML атрибута, это стандартная практика
-            onload="this.media='all'"
+            // @ts-ignore - используем onLoad для React-совместимого атрибута
+            onLoad="this.media='all'"
           />
 
           {/* Используем стили для оптимизации и минимизации Layout Shifts */}

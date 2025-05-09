@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "title": "IN-FOMO | Profesjonalne usługi tworzenia chatbotów",
+    "description": "Przekształć swój biznes dzięki inteligentnym chatbotom, asystentom AI i botom Telegram. Nasze profesjonalne usługi deweloperskie tworzą niestandardowe rozwiązania automatyzujące zadania i zwiększające zaangażowanie klientów."
+  },
+  "hero_badge": "Zaawansowany rozwój botów",
+  "hero_title_1": "Rozwiń swój biznes dzięki",
+  "hero_title_highlight": "Inteligentnym",
+  "hero_title_2": "rozwiązaniom botowym",
+  "hero_description": "Tworzymy niestandardowe chatboty i asystentów opartych na sztucznej inteligencji, które pomagają firmom automatyzować zadania, poprawiać obsługę klienta i zwiększać zaangażowanie we wszystkich kanałach cyfrowych.",
+  "get_started": "Rozpocznij",
+  "contact_us": "Skontaktuj się z nami",
+  
+  "features_title": "Dlaczego warto wybrać nasze usługi tworzenia botów",
+  "features_description": "Oferujemy kompleksowe rozwiązania w zakresie tworzenia botów dostosowane do konkretnych potrzeb biznesowych, skupiając się na innowacjach i wydajności.",
+  
+  "feature_1_title": "Rozwój niestandardowy",
+  "feature_1_desc": "W pełni konfigurowalne boty zaprojektowane od podstaw, aby pasowały do tożsamości Twojej marki i konkretnych wymagań biznesowych.",
+  
+  "feature_2_title": "Integracja AI",
+  "feature_2_desc": "Wykorzystaj moc sztucznej inteligencji i uczenia maszynowego, aby tworzyć inteligentniejsze i bardziej responsywne interakcje z botem.",
+  
+  "feature_3_title": "Obsługa wielu platform",
+  "feature_3_desc": "Wdrażaj boty na wielu platformach, w tym na stronach internetowych, aplikacjach do przesyłania wiadomości i kanałach mediów społecznościowych.",
+  
+  "feature_4_title": "Analityka i wgląd",
+  "feature_4_desc": "Uzyskaj cenne informacje na temat interakcji i zachowań użytkowników dzięki kompleksowym narzędziom analitycznym i raportującym.",
+  
+  "feature_5_title": "Bezproblemowa integracja",
+  "feature_5_desc": "Połącz swoje boty z istniejącymi systemami biznesowymi, takimi jak CRM, ERP i inne oprogramowanie, aby uzyskać ujednolicony przepływ pracy.",
+  
+  "feature_6_title": "Ciągłe wsparcie",
+  "feature_6_desc": "Zapewniamy ciągłą konserwację, aktualizacje i wsparcie, aby Twoje boty zawsze działały optymalnie.",
+  
+  "bot_types_title": "Rodzaje botów, które tworzymy",
+  "bot_types_description": "Nasz zespół specjalizuje się w tworzeniu szerokiej gamy rozwiązań botowych, aby sprostać różnym potrzebom biznesowym i przypadkom użycia.",
+  
+  "bot_type_1_title": "Chatboty do obsługi klienta",
+  "bot_type_1_desc": "Zautomatyzowani asystenci, którzy obsługują zapytania klientów, dostarczają informacje i rozwiązują typowe problemy.",
+  "bot_type_1_feature_1": "Dostępność 24/7 dla natychmiastowych odpowiedzi",
+  "bot_type_1_feature_2": "Inteligentne kierowanie zgłoszeń do agentów ludzkich",
+  "bot_type_1_feature_3": "Możliwości obsługi wielu języków",
+  
+  "bot_type_2_title": "Asystenci z AI",
+  "bot_type_2_desc": "Zaawansowane boty wykorzystujące AI do dostarczania spersonalizowanych rekomendacji i inteligentnych odpowiedzi.",
+  "bot_type_2_feature_1": "Zrozumienie języka naturalnego",
+  "bot_type_2_feature_2": "Kontekstowa pamięć rozmów",
+  "bot_type_2_feature_3": "Analiza nastrojów i inteligencja emocjonalna",
+  
+  "bot_type_3_title": "Rozwiązania botów Telegram",
+  "bot_type_3_desc": "Niestandardowe boty Telegram, które rozszerzają możliwości Twojego biznesu w ramach jednej z najpopularniejszych platform komunikacyjnych na świecie.",
+  "bot_type_3_feature_1": "Zapytania i polecenia inline",
+  "bot_type_3_feature_2": "Integracja z płatnościami Telegram",
+  "bot_type_3_feature_3": "Udostępnianie bogatych treści multimedialnych",
+  
+  "pricing_title": "Nasze plany cenowe",
+  "pricing_description": "Przejrzyste opcje cenowe zaprojektowane dla firm każdej wielkości, od startupów po duże przedsiębiorstwa.",
+  "pricing_updated": "Ostatnia aktualizacja: 15 maja 2023 r.",
+  
+  "price_1_title": "PAKIET PODSTAWOWY",
+  "price_1_desc": "Pełne opracowanie statycznego bota do 100 bloków, w tym stworzenie schematu blokowego.",
+  "price_1_amount": "299",
+  
+  "price_2_title": "INTEGRACJA SYSTEMOWA",
+  "price_2_desc": "Integracja z jednym systemem zewnętrznym, w tym badanie API i opracowanie specyfikacji technicznej.",
+  "price_2_amount": "65",
+  
+  "price_3_title": "JEDNOSTKA FUNKCJONALNA",
+  "price_3_desc": "Połączenia API i zapytania do bazy danych zaznaczone na schemacie blokowym, cena za jednostkę zależy od złożoności.",
+  "price_3_amount": "30",
+  
+  "price_4_title": "OBSŁUGA WIELU JĘZYKÓW",
+  "price_4_desc": "Wdrożenie modułu tłumaczeniowego w każdym bloku zawartości, nieograniczona liczba obsługiwanych języków.",
+  "price_4_amount": "15",
+  
+  "price_5_title": "STYLIZOWANE KLAWIATURY",
+  "price_5_desc": "Implementacja niestandardowego projektu dla klawiatur Viber (opracowanie projektu nie jest zawarte).",
+  "price_5_amount": "15",
+  
+  "price_6_title": "MODUŁ SKLEPU",
+  "price_6_desc": "Gotowy do użycia komponent webowy do funkcjonalności e-commerce w Twoim bocie.",
+  "price_6_amount": "60",
+  
+  "additional_services_title": "Usługi dodatkowe",
+  
+  "additional_1_title": "REWIZJE TREŚCI",
+  "additional_1_desc": "Zmiany w blokach zawartości po dostarczeniu projektu, płatne za jednostkę przy więcej niż 10 rewizjach.",
+  "additional_1_amount": "15",
+  
+  "additional_2_title": "REWIZJE INTEGRACJI",
+  "additional_2_desc": "Zmiany w blokach integracyjnych po dostarczeniu projektu, płatne za jednostkę.",
+  "additional_2_amount": "30",
+  
+  "additional_3_title": "OBSŁUGA TECHNICZNA",
+  "additional_3_desc": "Stawka godzinowa za diagnozowanie i naprawianie problemów nieobjętych gwarancją lub subskrypcją.",
+  "additional_3_amount": "30",
+  
+  "subscription_title": "ABONAMENT MIESIĘCZNY",
+  "subscription_desc": "Hosting w chmurze, dostęp do panelu administratora z dialogami, newsletterami i statystykami. Obejmuje wsparcie techniczne platformy.",
+  "subscription_telegram": "Jedno konto bota Telegram lub Viber: $12/miesiąc",
+  "subscription_both": "Konta botów Telegram i Viber: $20/miesiąc",
+  
+  "cta_title": "Gotowy na transformację biznesu dzięki inteligentnym botom?",
+  "cta_description": "Skontaktuj się z naszym zespołem już dziś, aby omówić projekt tworzenia bota i otrzymać spersonalizowaną ofertę na podstawie Twoich konkretnych wymagań."
+} 

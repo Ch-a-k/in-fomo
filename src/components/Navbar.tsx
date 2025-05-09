@@ -219,7 +219,7 @@ const Navbar = () => {
     { code: 'en', name: 'English', flag: '🇬🇧' },
     { code: 'uk', name: 'Українська', flag: '🇺🇦' },
     { code: 'pl', name: 'Polski', flag: '🇵🇱' },
-    { code: 'kz', name: 'Казахский', flag: '🇰🇿' }
+    { code: 'ru', name: 'Казахский', flag: '🇰🇿' }
   ];
 
   useEffect(() => {

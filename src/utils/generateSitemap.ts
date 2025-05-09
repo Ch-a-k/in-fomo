@@ -3,7 +3,7 @@ const glob = require('glob');
 const prettier = require('prettier');
 
 const DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com';
-const LANGUAGES = ['en', 'pl', 'uk', 'kz'];
+const LANGUAGES = ['en', 'pl', 'uk', 'ru'];
 
 async function generateSitemap() {
   try {

@@ -22,7 +22,7 @@ const Breadcrumbs = () => {
   // Специальные случаи для определенных страниц
   const getSegmentLabel = (segment: string, fullPath: string) => {
     // Игнорируем языковые префиксы в URL
-    const langs = ['en', 'uk', 'pl', 'kz'];
+    const langs = ['en', 'uk', 'pl', 'ru'];
     if (langs.includes(segment)) {
       return ''; // Для языковых префиксов возвращаем пустую строку
     }

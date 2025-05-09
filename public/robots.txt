@@ -4,7 +4,7 @@ Allow: /
 Allow: /en/
 Allow: /pl/
 Allow: /uk/
-Allow: /kz/
+Allow: /ru/
 Allow: /*.js
 Allow: /*.css
 Allow: /*.png

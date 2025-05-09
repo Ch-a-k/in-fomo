@@ -4,7 +4,7 @@ import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 
 // Поддерживаемые языки
-const locales = ['en', 'uk', 'pl', 'kz']
+const locales = ['en', 'uk', 'pl', 'ru']
 const defaultLocale = 'en'
 
 // Сопоставление кодов языков для mapping двухбуквенных кодов языка к нашим локалям
@@ -12,9 +12,9 @@ const languageMapping: Record<string, string> = {
   'en': 'en', // английский
   'uk': 'uk', // украинский
   'pl': 'pl', // польский
-  'kk': 'kz', // казахский - стандартный код 'kk', но наша локаль 'kz'
-  'ru': 'kz', // русский - ближайший к украинскому, если нет казахского
-  'be': 'kz', // белорусский - ближайший к украинскому
+  'kk': 'ru', // казахский - маппится на русский, т.к. теперь используем русский вместо казахского
+  'ru': 'ru', // русский
+  'be': 'ru', // белорусский - ближайший к русскому
 }
 
 // Расширенный список User-Agent для социальных ботов
