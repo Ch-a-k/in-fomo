@@ -284,5 +284,15 @@
     "success_title": "Zapytanie wysłane!",
     "success_message": "Otrzymaliśmy Twoje zapytanie i wkrótce się z Tobą skontaktujemy.",
     "error_message": "Wystąpił problem z wysłaniem zapytania. Spróbuj ponownie."
+  },
+  "countdown_days": "dni",
+  "countdown_hours": "godzin",
+  "countdown_minutes": "minut",
+  "countdown_seconds": "sekund",
+  "chart": {
+    "months_after_implementation": "Miesiące po wdrożeniu bota",
+    "metrics": "Wskaźniki (%)",
+    "profit_growth": "Wzrost zysków",
+    "time_spent": "Poświęcony czas"
   }
 } 

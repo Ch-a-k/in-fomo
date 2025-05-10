@@ -284,5 +284,15 @@
     "success_title": "Запит надіслано!",
     "success_message": "Ми отримали ваш запит і зв'яжемося з вами найближчим часом.",
     "error_message": "Виникла помилка при надсиланні запиту. Будь ласка, спробуйте ще раз."
+  },
+  "countdown_days": "днів",
+  "countdown_hours": "годин",
+  "countdown_minutes": "хвилин",
+  "countdown_seconds": "секунд",
+  "chart": {
+    "months_after_implementation": "Місяці після впровадження бота",
+    "metrics": "Показники (%)",
+    "profit_growth": "Зростання прибутку",
+    "time_spent": "Витрати часу"
   }
 } 

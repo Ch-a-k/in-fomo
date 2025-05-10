@@ -284,5 +284,15 @@
     "success_title": "Запрос отправлен!",
     "success_message": "Мы получили ваш запрос и свяжемся с вами в ближайшее время.",
     "error_message": "Произошла ошибка при отправке запроса. Пожалуйста, попробуйте еще раз."
+  },
+  "countdown_days": "дней",
+  "countdown_hours": "часов",
+  "countdown_minutes": "минут",
+  "countdown_seconds": "секунд",
+  "chart": {
+    "months_after_implementation": "Месяцы после внедрения бота",
+    "metrics": "Показатели (%)",
+    "profit_growth": "Рост прибыли",
+    "time_spent": "Затраты времени"
   }
 } 

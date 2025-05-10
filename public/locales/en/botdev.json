@@ -284,5 +284,15 @@
     "success_title": "Request Sent!",
     "success_message": "We've received your request and will contact you shortly.",
     "error_message": "There was a problem sending your request. Please try again."
+  },
+  "countdown_days": "days",
+  "countdown_hours": "hours",
+  "countdown_minutes": "minutes",
+  "countdown_seconds": "seconds",
+  "chart": {
+    "months_after_implementation": "Months after bot implementation",
+    "metrics": "Metrics (%)",
+    "profit_growth": "Profit Growth",
+    "time_spent": "Time Spent"
   }
 } 

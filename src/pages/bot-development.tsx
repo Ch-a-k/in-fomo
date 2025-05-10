@@ -134,6 +134,8 @@ function CountdownTimer({ targetDate, className = "" }) {
 
 // Component for animated profit growth chart
 function ProfitGrowthChart({ isVisible }) {
+  const { t } = useTranslation(['botdev']);
+  
   // Chart data
   const data = [
     { month: 1, profit: 10, timeSpent: 10 },
@@ -171,8 +173,8 @@ function ProfitGrowthChart({ isVisible }) {
         <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="currentColor" strokeWidth="2" opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 0.5s ease", transitionDelay: "0.2s" }} />
         
         {/* Axis labels */}
-        <text x={width / 2} y={height - 10} textAnchor="middle" className="text-xs fill-current" opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 0.5s ease", transitionDelay: "0.4s" }}>Месяцы после внедрения бота</text>
-        <text x={10} y={height / 2} textAnchor="middle" transform={`rotate(-90, 10, ${height / 2})`} className="text-xs fill-current" opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 0.5s ease", transitionDelay: "0.4s" }}>Показатели (%)</text>
+        <text x={width / 2} y={height - 10} textAnchor="middle" className="text-xs fill-current" opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 0.5s ease", transitionDelay: "0.4s" }}>{t('botdev:chart.months_after_implementation')}</text>
+        <text x={10} y={height / 2} textAnchor="middle" transform={`rotate(-90, 10, ${height / 2})`} className="text-xs fill-current" opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 0.5s ease", transitionDelay: "0.4s" }}>{t('botdev:chart.metrics')}</text>
         
         {/* Grid lines */}
         {[0, 25, 50, 75, 100].map((tick, i) => (
@@ -269,9 +271,9 @@ function ProfitGrowthChart({ isVisible }) {
         <g transform={`translate(${width - 150}, 20)`} opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 1s ease", transitionDelay: "1s" }}>
           <rect x="0" y="0" width="130" height="50" rx="5" fill="rgba(255,255,255,0.1)" />
           <circle cx="15" cy="15" r="5" fill="#FF5A00" />
-          <text x="30" y="18" className="text-xs fill-current">Рост прибыли</text>
+          <text x="30" y="18" className="text-xs fill-current" opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 0.5s ease", transitionDelay: "1s" }}>{t('botdev:chart.profit_growth')}</text>
           <circle cx="15" cy="35" r="5" fill="#3B82F6" />
-          <text x="30" y="38" className="text-xs fill-current">Затраты времени</text>
+          <text x="30" y="38" className="text-xs fill-current" opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 0.5s ease", transitionDelay: "1.2s" }}>{t('botdev:chart.time_spent')}</text>
         </g>
       </svg>
     </div>
