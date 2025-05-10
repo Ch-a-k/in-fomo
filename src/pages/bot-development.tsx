@@ -311,7 +311,7 @@ export default function BotDevelopment() {
       />
       <main className="overflow-x-hidden">
         {/* Hero Section */}
-        <section ref={heroAnim.ref} className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-dark-bg dark:bg-dark-bg text-white overflow-hidden">
+        <section ref={heroAnim.ref} className="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-[#111827] text-white overflow-hidden">
           {/* Animated background elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/20 blur-3xl transform translate-x-1/3 -translate-y-1/3 animate-pulse-slow"></div>
@@ -926,7 +926,7 @@ export default function BotDevelopment() {
         </section>
 
         {/* CTA Section */}
-        <section className="relative py-16 md:py-24 bg-dark-bg dark:bg-dark-bg text-white overflow-hidden">
+        <section className="relative py-16 md:py-24 bg-[#111827] text-white overflow-hidden">
           {/* Animated background elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/15 blur-3xl transform translate-x-1/3 -translate-y-1/3 animate-pulse-slow"></div>
