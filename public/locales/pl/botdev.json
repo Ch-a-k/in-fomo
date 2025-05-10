@@ -270,5 +270,19 @@
     "button": "Skontaktuj się z nami",
     "support_247": "Wsparcie 24/7",
     "quick_response": "Szybki czas reakcji"
+  },
+  "contact_form": {
+    "title": "Skontaktuj się z nami",
+    "selected_package": "Wybrany pakiet",
+    "name": "Twoje imię",
+    "contact_type": "Metoda kontaktu",
+    "contact": "Dane kontaktowe",
+    "message": "Wiadomość",
+    "optional": "opcjonalnie",
+    "submit": "Wyślij zapytanie",
+    "submitting": "Wysyłanie...",
+    "success_title": "Zapytanie wysłane!",
+    "success_message": "Otrzymaliśmy Twoje zapytanie i wkrótce się z Tobą skontaktujemy.",
+    "error_message": "Wystąpił problem z wysłaniem zapytania. Spróbuj ponownie."
   }
 } 

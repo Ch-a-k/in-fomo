@@ -270,5 +270,19 @@
     "button": "Contact Us",
     "support_247": "24/7 Support",
     "quick_response": "Quick Response Time"
+  },
+  "contact_form": {
+    "title": "Contact Us",
+    "selected_package": "Selected Package",
+    "name": "Your Name",
+    "contact_type": "Contact Method",
+    "contact": "Contact Details",
+    "message": "Message",
+    "optional": "optional",
+    "submit": "Send Request",
+    "submitting": "Sending...",
+    "success_title": "Request Sent!",
+    "success_message": "We've received your request and will contact you shortly.",
+    "error_message": "There was a problem sending your request. Please try again."
   }
 } 

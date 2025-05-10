@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { packagePricing, addOnPricing } from '../config/pricing';
 import { motion } from 'framer-motion';
+import ContactForm from '../components/ContactForm';
 
 // Custom hook for animation on scroll
 function useAnimateOnScroll(threshold = 0.1) {
@@ -285,6 +286,16 @@ export default function BotDevelopment() {
   const botTypesAnim = useAnimateOnScroll(0.1);
   const pricingAnim = useAnimateOnScroll(0.1);
   const chartAnim = useAnimateOnScroll(0.1);
+  
+  // Состояние для модального окна
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<string>('');
+  
+  // Функция для открытия модального окна с выбранным пакетом
+  const openContactForm = (packageName: string) => {
+    setSelectedPackage(packageName);
+    setIsContactFormOpen(true);
+  };
   
   // Set countdown target date to 7 days from now
   const targetDate = new Date();
@@ -770,10 +781,13 @@ export default function BotDevelopment() {
                     </div>
                   </div>
                   
-                  <Link href="/contact" className="block text-center px-6 py-3 bg-primary hover:bg-primary-dark transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-primary/25 relative overflow-hidden">
+                  <button
+                    onClick={() => openContactForm('starter')}
+                    className="block w-full text-center px-6 py-3 bg-primary hover:bg-primary-dark transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-primary/25 relative overflow-hidden"
+                  >
                     <span className="relative z-10">{t('botdev:packages.starter.cta')}</span>
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary-dark transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                  </Link>
+                  </button>
                 </div>
               </div>
               
@@ -815,10 +829,13 @@ export default function BotDevelopment() {
                   </div>
                   </div>
                   
-                  <Link href="/contact" className="block text-center px-6 py-3 bg-blue-500 hover:bg-blue-600 transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-blue-500/25 relative overflow-hidden">
+                  <button
+                    onClick={() => openContactForm('professional')}
+                    className="block w-full text-center px-6 py-3 bg-blue-500 hover:bg-blue-600 transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-blue-500/25 relative overflow-hidden"
+                  >
                     <span className="relative z-10">{t('botdev:packages.professional.cta')}</span>
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                  </Link>
+                  </button>
                 </div>
               </div>
               
@@ -856,10 +873,13 @@ export default function BotDevelopment() {
                 </div>
               </div>
               
-                  <Link href="/contact" className="block text-center px-6 py-3 bg-purple-500 hover:bg-purple-600 transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-purple-500/25 relative overflow-hidden">
+                  <button
+                    onClick={() => openContactForm('enterprise')}
+                    className="block w-full text-center px-6 py-3 bg-purple-500 hover:bg-purple-600 transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-purple-500/25 relative overflow-hidden"
+                  >
                     <span className="relative z-10">{t('botdev:packages.enterprise.cta')}</span>
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -972,6 +992,13 @@ export default function BotDevelopment() {
           </div>
         </section>
       </main>
+      
+      {/* Модальное окно с формой обратной связи */}
+      <ContactForm
+        isOpen={isContactFormOpen}
+        onClose={() => setIsContactFormOpen(false)}
+        selectedPackage={selectedPackage}
+      />
     </>
   );
 }
