@@ -93,28 +93,28 @@ function CountdownTimer({ targetDate, className = "" }) {
   return (
     <div className={`flex items-center justify-center space-x-3 ${className}`}>
       <div className="flex flex-col items-center">
-        <div className="text-3xl md:text-4xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-3 py-2 text-white">
+        <div className="text-2xl md:text-3xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-2 py-1 text-white">
           {String(timeLeft.days).padStart(2, '0')}
         </div>
         <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_days')}</span>
       </div>
-      <span className="text-2xl font-bold text-white">:</span>
+      <span className="text-xl font-bold text-white">:</span>
       <div className="flex flex-col items-center">
-        <div className="text-3xl md:text-4xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-3 py-2 text-white">
+        <div className="text-2xl md:text-3xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-2 py-1 text-white">
           {String(timeLeft.hours).padStart(2, '0')}
         </div>
         <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_hours')}</span>
       </div>
-      <span className="text-2xl font-bold text-white">:</span>
+      <span className="text-xl font-bold text-white">:</span>
       <div className="flex flex-col items-center">
-        <div className="text-3xl md:text-4xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-3 py-2 text-white">
+        <div className="text-2xl md:text-3xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-2 py-1 text-white">
           {String(timeLeft.minutes).padStart(2, '0')}
         </div>
         <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_minutes')}</span>
       </div>
-      <span className="text-2xl font-bold text-white">:</span>
+      <span className="text-xl font-bold text-white">:</span>
       <div className="flex flex-col items-center">
-        <div className="text-3xl md:text-4xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-3 py-2 text-white animate-pulse">
+        <div className="text-2xl md:text-3xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-2 py-1 text-white animate-pulse">
           {String(timeLeft.seconds).padStart(2, '0')}
         </div>
         <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_seconds')}</span>
@@ -158,12 +158,12 @@ function ProfitGrowthChart({ isVisible }) {
     <div className="relative w-full max-w-3xl mx-auto">
       <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-auto">
         {/* X and Y axis */}
-        <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="currentColor" strokeWidth="2" />
-        <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="currentColor" strokeWidth="2" />
+        <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="currentColor" strokeWidth="2" opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 0.5s ease" }} />
+        <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="currentColor" strokeWidth="2" opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 0.5s ease", transitionDelay: "0.2s" }} />
         
         {/* Axis labels */}
-        <text x={width / 2} y={height - 10} textAnchor="middle" className="text-xs fill-current">Месяцы после внедрения бота</text>
-        <text x={10} y={height / 2} textAnchor="middle" transform={`rotate(-90, 10, ${height / 2})`} className="text-xs fill-current">Показатели (%)</text>
+        <text x={width / 2} y={height - 10} textAnchor="middle" className="text-xs fill-current" opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 0.5s ease", transitionDelay: "0.4s" }}>Месяцы после внедрения бота</text>
+        <text x={10} y={height / 2} textAnchor="middle" transform={`rotate(-90, 10, ${height / 2})`} className="text-xs fill-current" opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 0.5s ease", transitionDelay: "0.4s" }}>Показатели (%)</text>
         
         {/* Grid lines */}
         {[0, 25, 50, 75, 100].map((tick, i) => (
@@ -176,7 +176,8 @@ function ProfitGrowthChart({ isVisible }) {
               stroke="currentColor" 
               strokeWidth="0.5" 
               strokeDasharray="5,5" 
-              opacity="0.3"
+              opacity={isVisible ? "0.3" : "0"} 
+              style={{ transition: "opacity 0.5s ease", transitionDelay: `${0.2 + i * 0.1}s` }}
             />
             <text 
               x={padding - 10} 
@@ -184,6 +185,8 @@ function ProfitGrowthChart({ isVisible }) {
               textAnchor="end" 
               dominantBaseline="middle" 
               className="text-xs fill-current"
+              opacity={isVisible ? "1" : "0"} 
+              style={{ transition: "opacity 0.5s ease", transitionDelay: `${0.3 + i * 0.1}s` }}
             >
               {100 - tick}%
             </text>
@@ -198,6 +201,8 @@ function ProfitGrowthChart({ isVisible }) {
             y={height - padding + 20} 
             textAnchor="middle" 
             className="text-xs fill-current"
+            opacity={isVisible ? "1" : "0"} 
+            style={{ transition: "opacity 0.5s ease", transitionDelay: `${0.5 + i * 0.1}s` }}
           >
             {d.month}
           </text>
@@ -252,7 +257,7 @@ function ProfitGrowthChart({ isVisible }) {
         ))}
         
         {/* Legend */}
-        <g transform={`translate(${width - 150}, 20)`}>
+        <g transform={`translate(${width - 150}, 20)`} opacity={isVisible ? "1" : "0"} style={{ transition: "opacity 1s ease", transitionDelay: "1s" }}>
           <rect x="0" y="0" width="130" height="50" rx="5" fill="rgba(255,255,255,0.1)" />
           <circle cx="15" cy="15" r="5" fill="#FF5A00" />
           <text x="30" y="18" className="text-xs fill-current">Рост прибыли</text>
@@ -322,35 +327,42 @@ export default function BotDevelopment() {
                 <TypedText text={t('botdev:hero_description')} speed={10} />
               </p>
               
-              {/* Special Offer and Countdown Timer */}
+              {/* Redesigned Special Offer and Countdown Timer */}
               <div className={`w-full max-w-3xl mx-auto mb-8 relative transition-all duration-1000 delay-500 ${heroAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-blue-600/20 to-purple-500/20 rounded-xl blur-md"></div>
-                <div className="absolute inset-0 bg-dark-bg/50 backdrop-blur-sm rounded-xl"></div>
+                {/* Multi-layered background with gradient and blur effects */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-blue-600/15 to-purple-500/15 rounded-xl blur-md"></div>
+                <div className="absolute inset-0 bg-dark-bg/60 backdrop-blur-sm rounded-xl"></div>
                 
-                {/* Decorative elements */}
+                {/* Animated decorative elements */}
                 <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-primary/30 blur-xl animate-pulse-slow"></div>
                 <div className="absolute -bottom-3 -left-3 w-10 h-10 rounded-full bg-blue-500/30 blur-xl animate-float-slow"></div>
+                
+                {/* Floating dots */}
                 <div className="absolute top-1/2 right-4 w-2 h-2 bg-primary/50 rounded-full animate-ping-slow"></div>
                 <div className="absolute bottom-1/4 left-1/4 w-3 h-3 bg-blue-500/30 rounded-full animate-float-reverse"></div>
+                <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-purple-500/40 rounded-full animate-pulse-subtle"></div>
                 
-                <div className="relative z-10 p-5 rounded-xl border border-primary/20 overflow-hidden">
-                  {/* Top ribbon */}
+                <div className="relative z-10 p-6 rounded-xl border border-primary/20 overflow-hidden">
+                  {/* Diagonal ribbon in corner */}
                   <div className="absolute -top-6 -right-6 w-24 h-24 rotate-45">
                     <div className="absolute bottom-0 w-full h-12 bg-primary flex items-end justify-center pb-1">
                       <span className="text-xs font-bold text-white">{t('botdev:special_offer_badge')}</span>
                     </div>
                   </div>
                   
+                  {/* Two-column layout */}
                   <div className="flex flex-col md:flex-row items-center gap-6">
-                    <div className="w-full md:w-1/2 text-center md:text-left">
-                      <h3 className="text-xl md:text-2xl font-bold text-white mb-2 text-shadow-sm">
+                    {/* Left column: Title, timer, benefits */}
+                    <div className="w-full md:w-3/5 text-center md:text-left">
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
                         {t('botdev:special_offer_title')}
                       </h3>
-                      <p className="text-gray-200 text-sm mb-3">{t('botdev:special_offer_countdown')}</p>
+                      <p className="text-gray-300 text-sm mb-3">{t('botdev:special_offer_countdown')}</p>
                       
                       <CountdownTimer targetDate={targetDate} className="mb-4" />
                       
-                      <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-3">
+                      {/* Benefits as compact badges */}
+                      <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
                         <div className="inline-flex items-center px-2 py-1 bg-primary/20 rounded-full">
                           <svg className="w-3 h-3 text-green-400 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -372,31 +384,28 @@ export default function BotDevelopment() {
                       </div>
                     </div>
                     
-                    <div className="w-full md:w-1/2 flex flex-col items-center justify-center">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-primary/20 rounded-full blur-md"></div>
+                    {/* Right column: CTA button */}
+                    <div className="w-full md:w-2/5 flex flex-col items-center justify-center">
+                      <div className="relative group">
+                        <div className="absolute inset-0 bg-primary/30 rounded-full blur-md group-hover:bg-primary/40 transition-all"></div>
                         <Link 
                           href="#pricing" 
-                          className="relative z-10 px-6 py-3 bg-primary hover:bg-primary-dark hover:scale-105 active:scale-95 transition-all duration-300 rounded-full font-medium group overflow-hidden flex items-center"
+                          className="relative z-10 px-6 py-3 bg-primary hover:bg-primary-dark rounded-full font-medium group flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
                         >
-                          <span className="relative z-10 flex items-center">
-                            {t('botdev:get_started')}
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                            </svg>
-                          </span>
-                          <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary-dark transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                          <span className="mr-2">{t('botdev:get_started')}</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                          </svg>
                         </Link>
                       </div>
                       
+                      {/* Secure payment badge */}
                       <div className="mt-3 text-center">
-                        <div className="inline-block px-3 py-1 bg-dark-surface/50 rounded-full">
-                          <span className="text-xs text-gray-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                            </svg>
-                            {t('botdev:special_offer_secure_payment')}
-                          </span>
+                        <div className="inline-flex items-center px-3 py-1 bg-dark-surface/50 rounded-full">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                          </svg>
+                          <span className="text-xs text-gray-300">{t('botdev:special_offer_secure_payment')}</span>
                         </div>
                       </div>
                     </div>
