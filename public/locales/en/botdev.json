@@ -17,6 +17,11 @@
   "special_offer_discount": "15% discount on all packages",
   "special_offer_setup": "Free setup",
   "special_offer_support": "One month of support as a gift",
+  "special_offer_secure_payment": "Secure payment",
+  "countdown_days": "days",
+  "countdown_hours": "hours",
+  "countdown_minutes": "min",
+  "countdown_seconds": "sec",
   
   "features_subtitle": "Our Features",
   "features_title": "Why Choose Our Bot Development Services",

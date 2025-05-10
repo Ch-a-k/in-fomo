@@ -60,6 +60,7 @@ function TypedText({ text, speed = 50 }) {
 
 // Component for countdown timer
 function CountdownTimer({ targetDate, className = "" }) {
+  const { t } = useTranslation(['botdev']);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -95,28 +96,28 @@ function CountdownTimer({ targetDate, className = "" }) {
         <div className="text-3xl md:text-4xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-3 py-2 text-white">
           {String(timeLeft.days).padStart(2, '0')}
         </div>
-        <span className="text-xs mt-1 text-gray-300">дней</span>
+        <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_days')}</span>
       </div>
       <span className="text-2xl font-bold text-white">:</span>
       <div className="flex flex-col items-center">
         <div className="text-3xl md:text-4xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-3 py-2 text-white">
           {String(timeLeft.hours).padStart(2, '0')}
         </div>
-        <span className="text-xs mt-1 text-gray-300">часов</span>
+        <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_hours')}</span>
       </div>
       <span className="text-2xl font-bold text-white">:</span>
       <div className="flex flex-col items-center">
         <div className="text-3xl md:text-4xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-3 py-2 text-white">
           {String(timeLeft.minutes).padStart(2, '0')}
         </div>
-        <span className="text-xs mt-1 text-gray-300">минут</span>
+        <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_minutes')}</span>
       </div>
       <span className="text-2xl font-bold text-white">:</span>
       <div className="flex flex-col items-center">
         <div className="text-3xl md:text-4xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-3 py-2 text-white animate-pulse">
           {String(timeLeft.seconds).padStart(2, '0')}
         </div>
-        <span className="text-xs mt-1 text-gray-300">секунд</span>
+        <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_seconds')}</span>
       </div>
     </div>
   );
@@ -126,12 +127,12 @@ function CountdownTimer({ targetDate, className = "" }) {
 function ProfitGrowthChart({ isVisible }) {
   // Chart data
   const data = [
-    { month: 1, profit: 10, timeSpent: 100 },
-    { month: 2, profit: 15, timeSpent: 90 },
-    { month: 3, profit: 25, timeSpent: 70 },
-    { month: 4, profit: 40, timeSpent: 50 },
-    { month: 5, profit: 60, timeSpent: 30 },
-    { month: 6, profit: 85, timeSpent: 20 }
+    { month: 1, profit: 10, timeSpent: 10 },
+    { month: 2, profit: 25, timeSpent: 50 },
+    { month: 3, profit: 45, timeSpent: 60 },
+    { month: 4, profit: 55, timeSpent: 70 },
+    { month: 5, profit: 65, timeSpent: 75 },
+    { month: 6, profit: 85, timeSpent: 75 }
   ];
   
   // Chart dimensions
@@ -322,35 +323,83 @@ export default function BotDevelopment() {
               </p>
               
               {/* Special Offer and Countdown Timer */}
-              <div className={`w-full max-w-3xl mx-auto mb-8 p-5 bg-gradient-to-r from-primary/30 to-blue-600/30 backdrop-blur-sm rounded-xl border border-primary/20 transition-all duration-1000 delay-500 ${heroAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                <div className="text-center mb-4">
-                  <div className="inline-block px-3 py-1 bg-primary text-white text-sm font-bold rounded-full mb-2 animate-pulse">
-                    {t('botdev:special_offer_badge')}
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">{t('botdev:special_offer_title')}</h3>
-                  <p className="text-gray-200 mt-2">{t('botdev:special_offer_countdown')}</p>
-                </div>
+              <div className={`w-full max-w-3xl mx-auto mb-8 relative transition-all duration-1000 delay-500 ${heroAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-blue-600/20 to-purple-500/20 rounded-xl blur-md"></div>
+                <div className="absolute inset-0 bg-dark-bg/50 backdrop-blur-sm rounded-xl"></div>
                 
-                <CountdownTimer targetDate={targetDate} className="mb-4" />
+                {/* Decorative elements */}
+                <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-primary/30 blur-xl animate-pulse-slow"></div>
+                <div className="absolute -bottom-3 -left-3 w-10 h-10 rounded-full bg-blue-500/30 blur-xl animate-float-slow"></div>
+                <div className="absolute top-1/2 right-4 w-2 h-2 bg-primary/50 rounded-full animate-ping-slow"></div>
+                <div className="absolute bottom-1/4 left-1/4 w-3 h-3 bg-blue-500/30 rounded-full animate-float-reverse"></div>
                 
-                <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-4">
-                  <div className="flex items-center space-x-2">
-                    <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-200">{t('botdev:special_offer_discount')}</span>
+                <div className="relative z-10 p-5 rounded-xl border border-primary/20 overflow-hidden">
+                  {/* Top ribbon */}
+                  <div className="absolute -top-6 -right-6 w-24 h-24 rotate-45">
+                    <div className="absolute bottom-0 w-full h-12 bg-primary flex items-end justify-center pb-1">
+                      <span className="text-xs font-bold text-white">{t('botdev:special_offer_badge')}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-200">{t('botdev:special_offer_setup')}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-200">{t('botdev:special_offer_support')}</span>
+                  
+                  <div className="flex flex-col md:flex-row items-center gap-6">
+                    <div className="w-full md:w-1/2 text-center md:text-left">
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-2 text-shadow-sm">
+                        {t('botdev:special_offer_title')}
+                      </h3>
+                      <p className="text-gray-200 text-sm mb-3">{t('botdev:special_offer_countdown')}</p>
+                      
+                      <CountdownTimer targetDate={targetDate} className="mb-4" />
+                      
+                      <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-3">
+                        <div className="inline-flex items-center px-2 py-1 bg-primary/20 rounded-full">
+                          <svg className="w-3 h-3 text-green-400 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className="text-gray-200 text-xs">{t('botdev:special_offer_discount')}</span>
+                        </div>
+                        <div className="inline-flex items-center px-2 py-1 bg-blue-500/20 rounded-full">
+                          <svg className="w-3 h-3 text-green-400 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className="text-gray-200 text-xs">{t('botdev:special_offer_setup')}</span>
+                        </div>
+                        <div className="inline-flex items-center px-2 py-1 bg-purple-500/20 rounded-full">
+                          <svg className="w-3 h-3 text-green-400 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className="text-gray-200 text-xs">{t('botdev:special_offer_support')}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="w-full md:w-1/2 flex flex-col items-center justify-center">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-primary/20 rounded-full blur-md"></div>
+                        <Link 
+                          href="#pricing" 
+                          className="relative z-10 px-6 py-3 bg-primary hover:bg-primary-dark hover:scale-105 active:scale-95 transition-all duration-300 rounded-full font-medium group overflow-hidden flex items-center"
+                        >
+                          <span className="relative z-10 flex items-center">
+                            {t('botdev:get_started')}
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </span>
+                          <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary-dark transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                        </Link>
+                      </div>
+                      
+                      <div className="mt-3 text-center">
+                        <div className="inline-block px-3 py-1 bg-dark-surface/50 rounded-full">
+                          <span className="text-xs text-gray-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                            {t('botdev:special_offer_secure_payment')}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

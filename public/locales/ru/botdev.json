@@ -17,6 +17,11 @@
   "special_offer_discount": "Скидка 15% на все пакеты",
   "special_offer_setup": "Бесплатная настройка",
   "special_offer_support": "Месяц поддержки в подарок",
+  "special_offer_secure_payment": "Безопасная оплата",
+  "countdown_days": "дней",
+  "countdown_hours": "часов",
+  "countdown_minutes": "мин",
+  "countdown_seconds": "сек",
   
   "features_subtitle": "Наши возможности",
   "features_title": "Почему стоит выбрать наши услуги по разработке ботов",
