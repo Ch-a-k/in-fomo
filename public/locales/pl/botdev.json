@@ -1,114 +1,274 @@
 {
   "meta": {
-    "title": "IN-FOMO | Profesjonalne usługi tworzenia chatbotów",
-    "description": "Przekształć swój biznes dzięki inteligentnym chatbotom, asystentom AI i botom Telegram. Nasze profesjonalne usługi deweloperskie tworzą niestandardowe rozwiązania automatyzujące zadania i zwiększające zaangażowanie klientów."
+    "title": "Profesjonalne usługi tworzenia chatbotów",
+    "description": "Niestandardowe rozwiązania do tworzenia chatbotów dostosowane do potrzeb Twojej firmy. Zwiększ zaangażowanie klientów dzięki chatbotom opartym na sztucznej inteligencji na wielu platformach."
   },
-  "hero_badge": "Zaawansowany rozwój botów",
-  "hero_title_1": "Rozwiń swój biznes dzięki",
-  "hero_title_highlight": "Inteligentnym",
-  "hero_title_2": "rozwiązaniom botowym",
-  "hero_description": "Tworzymy niestandardowe chatboty i asystentów opartych na sztucznej inteligencji, które pomagają firmom automatyzować zadania, poprawiać obsługę klienta i zwiększać zaangażowanie we wszystkich kanałach cyfrowych.",
-  "get_started": "Rozpocznij",
-  "contact_us": "Skontaktuj się z nami",
-  
-  "features_subtitle": "Nasze funkcje",
-  "features_title": "Dlaczego warto wybrać nasze usługi tworzenia botów",
-  "features_description": "Oferujemy kompleksowe rozwiązania w zakresie tworzenia botów dostosowane do konkretnych potrzeb biznesowych, skupiając się na innowacjach i wydajności.",
-  
-  "feature_1_title": "Rozwój niestandardowy",
-  "feature_1_desc": "W pełni konfigurowalne boty zaprojektowane od podstaw, aby pasowały do tożsamości Twojej marki i konkretnych wymagań biznesowych.",
-  
-  "feature_2_title": "Integracja AI",
-  "feature_2_desc": "Wykorzystaj moc sztucznej inteligencji i uczenia maszynowego, aby tworzyć inteligentniejsze i bardziej responsywne interakcje z botem.",
-  
-  "feature_3_title": "Obsługa wielu platform",
-  "feature_3_desc": "Wdrażaj boty na wielu platformach, w tym na stronach internetowych, aplikacjach do przesyłania wiadomości i kanałach mediów społecznościowych.",
-  
-  "feature_4_title": "Analityka i wgląd",
-  "feature_4_desc": "Uzyskaj cenne informacje na temat interakcji i zachowań użytkowników dzięki kompleksowym narzędziom analitycznym i raportującym.",
-  
-  "feature_5_title": "Bezproblemowa integracja",
-  "feature_5_desc": "Połącz swoje boty z istniejącymi systemami biznesowymi, takimi jak CRM, ERP i inne oprogramowanie, aby uzyskać ujednolicony przepływ pracy.",
-  
-  "feature_6_title": "Ciągłe wsparcie",
-  "feature_6_desc": "Zapewniamy ciągłą konserwację, aktualizacje i wsparcie, aby Twoje boty zawsze działały optymalnie.",
-  
-  "choose_your_bot": "Wybierz swojego bota",
-  "bot_types_title": "Rodzaje botów, które tworzymy",
-  "bot_types_description": "Nasz zespół specjalizuje się w tworzeniu szerokiej gamy rozwiązań botowych, aby sprostać różnym potrzebom biznesowym i przypadkom użycia.",
-  
-  "popular": "Popularny",
-  "bot_type_1_title": "Chatboty do obsługi klienta",
-  "bot_type_1_desc": "Zautomatyzowani asystenci, którzy obsługują zapytania klientów, dostarczają informacje i rozwiązują typowe problemy.",
-  "bot_type_1_feature_1": "Dostępność 24/7 dla natychmiastowych odpowiedzi",
-  "bot_type_1_feature_2": "Inteligentne kierowanie zgłoszeń do agentów ludzkich",
-  "bot_type_1_feature_3": "Możliwości obsługi wielu języków",
-  
-  "bot_type_2_title": "Asystenci z AI",
-  "bot_type_2_desc": "Zaawansowane boty wykorzystujące AI do dostarczania spersonalizowanych rekomendacji i inteligentnych odpowiedzi.",
-  "bot_type_2_feature_1": "Zrozumienie języka naturalnego",
-  "bot_type_2_feature_2": "Kontekstowa pamięć rozmów",
-  "bot_type_2_feature_3": "Analiza nastrojów i inteligencja emocjonalna",
-  
-  "bot_type_3_title": "Rozwiązania botów Telegram",
-  "bot_type_3_desc": "Niestandardowe boty Telegram, które rozszerzają możliwości Twojego biznesu w ramach jednej z najpopularniejszych platform komunikacyjnych na świecie.",
-  "bot_type_3_feature_1": "Zapytania i polecenia inline",
-  "bot_type_3_feature_2": "Integracja z płatnościami Telegram",
-  "bot_type_3_feature_3": "Udostępnianie bogatych treści multimedialnych",
-  
-  "pricing_badge": "Opcje cenowe",
-  "pricing_title": "Nasze plany cenowe",
-  "pricing_description": "Przejrzyste opcje cenowe zaprojektowane dla firm każdej wielkości, od startupów po duże przedsiębiorstwa.",
-  "pricing_updated": "Ostatnia aktualizacja: 15 maja 2023 r.",
-  
-  "popular_choice": "Popularny wybór",
-  "price_1_title": "PAKIET PODSTAWOWY",
-  "price_1_desc": "Pełne opracowanie statycznego bota do 100 bloków, w tym stworzenie schematu blokowego.",
-  "price_1_amount": "299",
-  
-  "price_2_title": "INTEGRACJA SYSTEMOWA",
-  "price_2_desc": "Integracja z jednym systemem zewnętrznym, w tym badanie API i opracowanie specyfikacji technicznej.",
-  "price_2_amount": "65",
-  
-  "price_3_title": "JEDNOSTKA FUNKCJONALNA",
-  "price_3_desc": "Połączenia API i zapytania do bazy danych zaznaczone na schemacie blokowym, cena za jednostkę zależy od złożoności.",
-  "price_3_amount": "30",
-  
-  "price_4_title": "OBSŁUGA WIELU JĘZYKÓW",
-  "price_4_desc": "Wdrożenie modułu tłumaczeniowego w każdym bloku zawartości, nieograniczona liczba obsługiwanych języków.",
-  "price_4_amount": "15",
-  
-  "price_5_title": "STYLIZOWANE KLAWIATURY",
-  "price_5_desc": "Implementacja niestandardowego projektu dla klawiatur Viber (opracowanie projektu nie jest zawarte).",
-  "price_5_amount": "15",
-  
-  "price_6_title": "MODUŁ SKLEPU",
-  "price_6_desc": "Gotowy do użycia komponent webowy do funkcjonalności e-commerce w Twoim bocie.",
-  "price_6_amount": "60",
-  
-  "additional_services_title": "Usługi dodatkowe",
-  
-  "additional_1_title": "REWIZJE TREŚCI",
-  "additional_1_desc": "Zmiany w blokach zawartości po dostarczeniu projektu, płatne za jednostkę przy więcej niż 10 rewizjach.",
-  "additional_1_amount": "15",
-  
-  "additional_2_title": "REWIZJE INTEGRACJI",
-  "additional_2_desc": "Zmiany w blokach integracyjnych po dostarczeniu projektu, płatne za jednostkę.",
-  "additional_2_amount": "30",
-  
-  "additional_3_title": "OBSŁUGA TECHNICZNA",
-  "additional_3_desc": "Stawka godzinowa za diagnozowanie i naprawianie problemów nieobjętych gwarancją lub subskrypcją.",
-  "additional_3_amount": "30",
-  
-  "subscription_title": "ABONAMENT MIESIĘCZNY",
-  "subscription_desc": "Hosting w chmurze, dostęp do panelu administratora z dialogami, newsletterami i statystykami. Obejmuje wsparcie techniczne platformy.",
-  "subscription_telegram": "Jedno konto bota Telegram lub Viber: $12/miesiąc",
-  "subscription_both": "Konta botów Telegram i Viber: $20/miesiąc",
-  
-  "ready_to_start": "Gotowy do rozpoczęcia?",
-  "cta_title": "Gotowy na transformację biznesu dzięki",
-  "cta_highlight": "Inteligentnym botom?",
-  "cta_description": "Skontaktuj się z naszym zespołem już dziś, aby omówić projekt tworzenia bota i otrzymać spersonalizowaną ofertę na podstawie Twoich konkretnych wymagań.",
-  "support_247": "Wsparcie 24/7",
-  "quick_response": "Szybki czas reakcji"
+  "hero": {
+    "title": "Inteligentne rozwiązania botów dla Twojej firmy",
+    "subtitle": "Zwiększ zaangażowanie klientów i usprawnij operacje",
+    "description": "Tworzymy niestandardowe chatboty i wirtualnych asystentów, którzy pomagają firmom automatyzować obsługę klienta, zwiększać sprzedaż i poprawiać wydajność operacyjną.",
+    "cta": "Rozpocznij"
+  },
+  "special_offer": {
+    "title": "Oferta specjalna",
+    "subtitle": "Ograniczony czas",
+    "discount": "20% ZNIŻKI",
+    "description": "Na wszystkie usługi tworzenia botów",
+    "ends_in": "Oferta kończy się za:",
+    "free_setup": "Darmowa konfiguracja",
+    "free_setup_description": "Brak opłat za konfigurację dla nowych klientów",
+    "free_support": "Darmowe wsparcie",
+    "free_support_description": "30 dni bezpłatnego wsparcia w zestawie",
+    "cta": "Skorzystaj z oferty"
+  },
+  "features": {
+    "title": "Dlaczego warto wybrać nasze usługi tworzenia botów",
+    "features_subtitle": "Nasze funkcje",
+    "description": "Skupiamy się na innowacjach i produktywności, aby dostarczyć najlepsze rozwiązania chatbotów dla potrzeb Twojej firmy.",
+    "feature1": {
+      "title": "Niestandardowy rozwój",
+      "description": "Dostosowane rozwiązania zaprojektowane specjalnie dla wymagań i celów Twojej firmy."
+    },
+    "feature2": {
+      "title": "Integracja AI",
+      "description": "Zaawansowane możliwości sztucznej inteligencji do przetwarzania i rozumienia języka naturalnego."
+    },
+    "feature3": {
+      "title": "Obsługa wielu platform",
+      "description": "Wdrażaj swojego bota na wielu platformach, w tym Telegram, Viber, WhatsApp i innych."
+    },
+    "feature4": {
+      "title": "Ciągłe wsparcie",
+      "description": "Ciągłe wsparcie techniczne i konserwacja w celu zapewnienia optymalnej wydajności."
+    }
+  },
+  "types": {
+    "title": "Typy botów, które tworzymy",
+    "choose_your_bot": "Wybierz swojego bota",
+    "description": "Specjalizujemy się w tworzeniu różnych typów botów, aby zaspokoić różne potrzeby biznesowe.",
+    "type1": {
+      "title": "Chatboty obsługi klienta",
+      "description": "Automatyzuj obsługę klienta za pomocą inteligentnych chatbotów, które mogą obsługiwać zapytania, dostarczać informacje i rozwiązywać problemy 24/7.",
+      "features": [
+        "Obsługa klienta 24/7",
+        "Automatyczne odpowiedzi",
+        "Tworzenie zgłoszeń",
+        "Integracja FAQ"
+      ]
+    },
+    "type2": {
+      "title": "Asystenci napędzani AI",
+      "popular": "Popularny",
+      "description": "Zaawansowani wirtualni asystenci z możliwościami przetwarzania języka naturalnego, zapewniający spersonalizowane doświadczenia użytkownika.",
+      "features": [
+        "Przetwarzanie języka naturalnego",
+        "Zrozumienie kontekstowe",
+        "Spersonalizowane odpowiedzi",
+        "Możliwości uczenia się"
+      ]
+    },
+    "type3": {
+      "title": "Rozwiązania botów Telegram",
+      "description": "Niestandardowe boty Telegram do automatyzacji biznesu, zaangażowania klientów i kampanii marketingowych.",
+      "features": [
+        "Obsługa multimediów",
+        "Integracja z czatami grupowymi",
+        "Zapytania inline",
+        "Niestandardowe polecenia"
+      ]
+    }
+  },
+  "roi": {
+    "title": "Zwrot z inwestycji",
+    "description": "Nasi klienci widzą znaczącą poprawę wskaźników biznesowych po wdrożeniu naszych rozwiązań botów.",
+    "stat1": {
+      "value": "35%",
+      "label": "Wzrost satysfakcji klientów"
+    },
+    "stat2": {
+      "value": "50%",
+      "label": "Redukcja kosztów wsparcia"
+    },
+    "stat3": {
+      "value": "24/7",
+      "label": "Dostępność obsługi klienta"
+    },
+    "stat4": {
+      "value": "3x",
+      "label": "Szybsze czasy odpowiedzi"
+    }
+  },
+  "pricing": {
+    "title": "Cennik",
+    "pricing_badge": "Opcje cenowe",
+    "description": "Przejrzyste ceny naszych usług tworzenia botów.",
+    "option1": {
+      "title": "PAKIET PODSTAWOWY",
+      "price": "299",
+      "description": "Prosty bot z podstawową funkcjonalnością",
+      "features": [
+        "Bot obsługi klienta",
+        "Podstawowe odpowiedzi",
+        "Pojedyncza platforma",
+        "30 dni wsparcia"
+      ],
+      "cta": "Rozpocznij"
+    },
+    "option2": {
+      "title": "INTEGRACJA SYSTEMOWA",
+      "popular_choice": "Popularny wybór",
+      "price": "65",
+      "description": "Za integrację z systemem zewnętrznym",
+      "features": [
+        "Połączenia API",
+        "Synchronizacja danych",
+        "Zautomatyzowane przepływy pracy",
+        "Dokumentacja techniczna"
+      ],
+      "cta": "Rozpocznij"
+    },
+    "option3": {
+      "title": "JEDNOSTKI FUNKCJONALNE",
+      "price": "30",
+      "description": "Za blok funkcjonalny",
+      "features": [
+        "Niestandardowe polecenia",
+        "Przetwarzanie danych",
+        "Implementacja logiki",
+        "Testowanie i walidacja"
+      ],
+      "cta": "Rozpocznij"
+    },
+    "additional_services": {
+      "title": "Dodatkowe usługi",
+      "service1": {
+        "title": "Wsparcie wielojęzyczne",
+        "price": "15",
+        "description": "Za język"
+      },
+      "service2": {
+        "title": "Stylizowane klawiatury",
+        "price": "15",
+        "description": "Niestandardowy design"
+      },
+      "service3": {
+        "title": "Moduł sklepu",
+        "price": "60",
+        "description": "Funkcjonalność e-commerce"
+      }
+    },
+    "subscription": {
+      "title": "Miesięczna subskrypcja",
+      "description": "Na hosting i utrzymanie",
+      "price": "od 12",
+      "period": "miesięcznie"
+    }
+  },
+  "packages": {
+    "title": "Pakiety usług",
+    "description": "Wybierz pakiet, który najlepiej odpowiada potrzebom Twojej firmy",
+    "starter": {
+      "title": "Pakiet startowy",
+      "price": "499",
+      "description": "Idealny dla małych firm rozpoczynających automatyzację",
+      "features": [
+        "Bot obsługi klienta",
+        "Integracja z 1 systemem",
+        "Wdrożenie na jednej platformie",
+        "Podstawowy panel analityczny",
+        "1 miesiąc wsparcia w zestawie",
+        "Do 100 bloków"
+      ],
+      "monthly_fee": "29",
+      "cta": "Wybierz Startowy"
+    },
+    "professional": {
+      "title": "Pakiet profesjonalny",
+      "popular": "Najpopularniejszy",
+      "price": "999",
+      "description": "Kompleksowe rozwiązanie dla rozwijających się firm",
+      "features": [
+        "Bot asystent z AI",
+        "Integracja z 3 systemami",
+        "Wdrożenie na dwóch platformach",
+        "Zaawansowana analityka z wglądami",
+        "3 miesiące wsparcia w zestawie",
+        "Niestandardowy design UI",
+        "Do 250 bloków"
+      ],
+      "monthly_fee": "49",
+      "cta": "Wybierz Profesjonalny"
+    },
+    "enterprise": {
+      "title": "Pakiet Enterprise",
+      "price": "1999",
+      "description": "Pełnoskalowe rozwiązanie dla dużych firm o złożonych potrzebach",
+      "features": [
+        "Wszystkie typy botów w zestawie",
+        "Nieograniczone integracje systemowe",
+        "Wdrożenie na wszystkich platformach",
+        "Premium analityka z prognozami AI",
+        "6 miesięcy wsparcia w zestawie",
+        "Priorytetowe wsparcie 24/7",
+        "Niestandardowy design UI",
+        "Dedykowany manager projektu",
+        "Nieograniczona liczba bloków"
+      ],
+      "monthly_fee": "99",
+      "cta": "Wybierz Enterprise"
+    }
+  },
+  "add_ons": {
+    "title": "Opcjonalne dodatki",
+    "description": "Rozszerz swojego bota o te dodatkowe usługi",
+    "system_integration": {
+      "title": "Integracja systemowa",
+      "price": "65",
+      "description": "Za integrację z jednym systemem zewnętrznym"
+    },
+    "functional_unit": {
+      "title": "Jednostka funkcjonalna",
+      "price": "30",
+      "description": "Połączenia API i zapytania do bazy danych"
+    },
+    "multilingual": {
+      "title": "Wsparcie wielojęzyczne",
+      "price": "15",
+      "description": "Za język"
+    },
+    "styled_keyboards": {
+      "title": "Stylizowane klawiatury",
+      "price": "15",
+      "description": "Niestandardowy design dla klawiatur w aplikacjach do wiadomości"
+    },
+    "shop_module": {
+      "title": "Moduł sklepu",
+      "price": "60",
+      "description": "Funkcjonalność e-commerce"
+    },
+    "content_revisions": {
+      "title": "Rewizje treści",
+      "price": "15",
+      "description": "Za blok treści po dostarczeniu"
+    },
+    "integration_revisions": {
+      "title": "Rewizje integracji",
+      "price": "30",
+      "description": "Za blok integracji po dostarczeniu"
+    },
+    "technical_maintenance": {
+      "title": "Konserwacja techniczna",
+      "price": "30",
+      "description": "Za godzinę"
+    }
+  },
+  "cta": {
+    "title": "Gotowy do rozpoczęcia?",
+    "ready_to_start": "Gotowy do rozpoczęcia?",
+    "cta_highlight": "Z inteligentnymi botami?",
+    "description": "Skontaktuj się z naszym zespołem, aby otrzymać spersonalizowaną wycenę i konsultację.",
+    "button": "Skontaktuj się z nami",
+    "support_247": "Wsparcie 24/7",
+    "quick_response": "Szybki czas reakcji"
+  }
 } 

@@ -5,6 +5,8 @@ import SEO from '../components/SEO';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
+import { packagePricing, addOnPricing } from '../config/pricing';
+import { motion } from 'framer-motion';
 
 // Custom hook for animation on scroll
 function useAnimateOnScroll(threshold = 0.1) {
@@ -333,13 +335,18 @@ export default function BotDevelopment() {
                 <TypedText text={t('botdev:hero_description')} speed={10} />
               </p>
               
-              <div className={`transition-all duration-1000 delay-500 ${heroAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                <Link href="#pricing" className="px-8 py-3 bg-primary hover:bg-primary-dark hover:scale-105 active:scale-95 transition-all duration-300 rounded-full font-medium relative group overflow-hidden">
-                  <span className="relative z-10">{t('botdev:get_started')}</span>
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary-dark transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                  <span className="absolute inset-0 w-0 h-0 bg-white rounded-full opacity-20 transform translate-x-1/2 translate-y-1/2 group-hover:w-56 group-hover:h-56 transition-all duration-500"></span>
-                </Link>
-              </div>
+              <motion.div 
+              className="flex flex-wrap justify-center gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <a href="#packages" className="px-8 py-3 bg-primary hover:bg-primary-dark hover:scale-105 active:scale-95 transition-all duration-300 rounded-full font-medium relative group overflow-hidden">
+                <span className="relative z-10">{t('botdev:get_started')}</span>
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                <span className="absolute inset-0 w-0 h-0 bg-white rounded-full opacity-20 transform translate-x-1/2 translate-y-1/2 group-hover:w-96 group-hover:h-96 transition-all duration-500"></span>
+              </a>
+            </motion.div>
             </div>
           </div>
           
@@ -691,7 +698,7 @@ export default function BotDevelopment() {
             </div>
             
             <div className={`mt-12 text-center transition-all duration-1000 delay-700 ${chartAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <Link href="#pricing" className="inline-block px-8 py-3 bg-primary hover:bg-primary-dark hover:scale-105 active:scale-95 transition-all duration-300 rounded-full font-medium relative group overflow-hidden">
+              <Link href="#packages" className="inline-block px-8 py-3 bg-primary hover:bg-primary-dark hover:scale-105 active:scale-95 transition-all duration-300 rounded-full font-medium relative group overflow-hidden">
                 <span className="relative z-10">{t('botdev:roi_cta')}</span>
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary-dark transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 <span className="absolute inset-0 w-0 h-0 bg-white rounded-full opacity-20 transform translate-x-1/2 translate-y-1/2 group-hover:w-56 group-hover:h-56 transition-all duration-500"></span>
@@ -701,7 +708,7 @@ export default function BotDevelopment() {
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" ref={pricingAnim.ref} className="relative py-16 md:py-24 bg-light-surface dark:bg-dark-surface overflow-hidden">
+        <section id="packages" ref={pricingAnim.ref} className="relative py-16 md:py-24 bg-light-surface dark:bg-dark-surface overflow-hidden">
           {/* Animated background elements */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
           <div className="absolute top-40 right-20 w-64 h-64 rounded-full bg-gradient-to-br from-primary/5 to-blue-500/5 blur-3xl animate-blob"></div>
@@ -722,20 +729,14 @@ export default function BotDevelopment() {
               </div>
               <br></br>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white relative inline-block">
-                {t('botdev:pricing_title')}
+                {t('botdev:packages.title')}
                 <span className="absolute -bottom-1 left-0 h-1 w-full bg-gradient-to-r from-primary via-blue-500 to-purple-500 rounded-full"></span>
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">{t('botdev:pricing_description')}</p>
-              <div className="text-sm text-gray-500 dark:text-gray-400 mt-2 inline-flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
-                </svg>
-                {t('botdev:pricing_updated')}
-              </div>
+              <p className="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">{t('botdev:packages.description')}</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Price 1 */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              {/* Starter Package */}
               <div 
                 className={`bg-light-bg dark:bg-dark-bg p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 border border-light-border dark:border-dark-border group hover:border-primary/30 dark:hover:border-primary/30 relative overflow-hidden ${pricingAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                 style={{ transitionDelay: '100ms' }}
@@ -744,50 +745,84 @@ export default function BotDevelopment() {
                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-80 group-hover:translate-y-8 transition-all duration-1000"></div>
                 
                 <div className="relative">
-                  <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-primary transition-colors">{t('botdev:price_1_title')}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">{t('botdev:price_1_desc')}</p>
-                  <div className="text-3xl font-bold text-primary mb-6 flex items-end">
+                  <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-primary transition-colors">{t('botdev:packages.starter.title')}</h3>
+                  <div className="text-3xl font-bold text-primary mb-4 flex items-end">
                     <span className="text-sm mr-1">$</span>
-                    <span className="group-hover:scale-110 transition-transform inline-block">{t('botdev:price_1_amount')}</span>
-                    <span className="text-gray-400 text-base font-normal ml-2"></span>
+                    <span className="group-hover:scale-110 transition-transform inline-block">{packagePricing.starter.price}</span>
                   </div>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">{t('botdev:packages.starter.description')}</p>
+                  
+                  <ul className="space-y-3 mb-6">
+                    {(t('botdev:packages.starter.features', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
+                      <li key={index} className="flex items-start">
+                        <svg className="w-5 h-5 text-green-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className="py-4 border-t border-gray-100 dark:border-gray-700 mb-6">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-600 dark:text-gray-400">{t('botdev:pricing.subscription.title')}</span>
+                      <span className="text-sm font-medium text-gray-900 dark:text-gray-200">${packagePricing.starter.monthlyFee}/{t('botdev:pricing.subscription.period')}</span>
+                    </div>
+                  </div>
+                  
                   <Link href="/contact" className="block text-center px-6 py-3 bg-primary hover:bg-primary-dark transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-primary/25 relative overflow-hidden">
-                    <span className="relative z-10">{t('botdev:get_started')}</span>
+                    <span className="relative z-10">{t('botdev:packages.starter.cta')}</span>
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-primary-dark transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                   </Link>
                 </div>
               </div>
               
-              {/* Price 2 */}
+              {/* Professional Package */}
               <div 
-                className={`bg-light-bg dark:bg-dark-bg p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 border border-light-border dark:border-dark-border group hover:border-blue-500/30 dark:hover:border-blue-500/30 relative  ${pricingAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                className={`bg-light-bg dark:bg-dark-bg p-8 rounded-xl shadow-xl transition-all duration-500 border-2 border-blue-500 dark:border-blue-500 group relative transform scale-105 ${pricingAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                 style={{ transitionDelay: '200ms' }}
               >
+                <div className="absolute top-0 left-0 right-0 bg-blue-500 text-white text-center py-2 text-sm font-bold">
+                  {t('botdev:packages.professional.popular')}
+                </div>
+                
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-80 group-hover:translate-y-8 transition-all duration-1000"></div>
                 
-                <div className="absolute top-0 right-0 -mt-2 -mr-2">
-                  <div className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse-subtle">
-                    {t('botdev:popular_choice')}
-                  </div>
-                </div>
-                
-                <div className="relative">
-                  <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-blue-500 transition-colors">{t('botdev:price_2_title')}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">{t('botdev:price_2_desc')}</p>
-                  <div className="text-3xl font-bold text-blue-500 mb-6 flex items-end">
+                <div className="relative pt-6">
+                  <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-blue-500 transition-colors">{t('botdev:packages.professional.title')}</h3>
+                  <div className="text-3xl font-bold text-blue-500 mb-4 flex items-end">
                     <span className="text-sm mr-1">$</span>
-                    <span className="group-hover:scale-110 transition-transform inline-block">{t('botdev:price_2_amount')}</span>
-                    <span className="text-gray-400 text-base font-normal ml-2"></span>
+                    <span className="group-hover:scale-110 transition-transform inline-block">{packagePricing.professional.price}</span>
                   </div>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">{t('botdev:packages.professional.description')}</p>
+                  
+                  <ul className="space-y-3 mb-6">
+                    {(t('botdev:packages.professional.features', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
+                      <li key={index} className="flex items-start">
+                        <svg className="w-5 h-5 text-green-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className="py-4 border-t border-gray-100 dark:border-gray-700 mb-6">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-600 dark:text-gray-400">{t('botdev:pricing.subscription.title')}</span>
+                      <span className="text-sm font-medium text-gray-900 dark:text-gray-200">${packagePricing.professional.monthlyFee}/{t('botdev:pricing.subscription.period')}</span>
+                  </div>
+                  </div>
+                  
                   <Link href="/contact" className="block text-center px-6 py-3 bg-blue-500 hover:bg-blue-600 transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-blue-500/25 relative overflow-hidden">
-                    <span className="relative z-10">{t('botdev:get_started')}</span>
+                    <span className="relative z-10">{t('botdev:packages.professional.cta')}</span>
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-500 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                   </Link>
                 </div>
               </div>
               
-              {/* Price 3 */}
+              {/* Enterprise Package */}
               <div 
                 className={`bg-light-bg dark:bg-dark-bg p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 border border-light-border dark:border-dark-border group hover:border-purple-500/30 dark:hover:border-purple-500/30 relative overflow-hidden ${pricingAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                 style={{ transitionDelay: '300ms' }}
@@ -796,132 +831,72 @@ export default function BotDevelopment() {
                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-80 group-hover:translate-y-8 transition-all duration-1000"></div>
                 
                 <div className="relative">
-                  <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-purple-500 transition-colors">{t('botdev:price_3_title')}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">{t('botdev:price_3_desc')}</p>
-                  <div className="text-3xl font-bold text-purple-500 mb-6 flex items-end">
+                  <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-purple-500 transition-colors">{t('botdev:packages.enterprise.title')}</h3>
+                  <div className="text-3xl font-bold text-purple-500 mb-4 flex items-end">
                     <span className="text-sm mr-1">$</span>
-                    <span className="group-hover:scale-110 transition-transform inline-block">{t('botdev:price_3_amount')}</span>
-                    <span className="text-gray-400 text-base font-normal ml-2"></span>
+                    <span className="group-hover:scale-110 transition-transform inline-block">{packagePricing.enterprise.price}</span>
                   </div>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">{t('botdev:packages.enterprise.description')}</p>
+                  
+                  <ul className="space-y-3 mb-6">
+                    {(t('botdev:packages.enterprise.features', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
+                      <li key={index} className="flex items-start">
+                        <svg className="w-5 h-5 text-green-500 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className="py-4 border-t border-gray-100 dark:border-gray-700 mb-6">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-600 dark:text-gray-400">{t('botdev:pricing.subscription.title')}</span>
+                      <span className="text-sm font-medium text-gray-900 dark:text-gray-200">${packagePricing.enterprise.monthlyFee}/{t('botdev:pricing.subscription.period')}</span>
+                </div>
+              </div>
+              
                   <Link href="/contact" className="block text-center px-6 py-3 bg-purple-500 hover:bg-purple-600 transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-purple-500/25 relative overflow-hidden">
-                    <span className="relative z-10">{t('botdev:get_started')}</span>
+                    <span className="relative z-10">{t('botdev:packages.enterprise.cta')}</span>
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                  </Link>
-                </div>
-              </div>
-              
-              {/* Price 4 */}
-              <div 
-                className={`bg-light-bg dark:bg-dark-bg p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 border border-light-border dark:border-dark-border group hover:border-indigo-500/30 dark:hover:border-indigo-500/30 relative overflow-hidden ${pricingAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-                style={{ transitionDelay: '400ms' }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute -top-20 -right-20 w-40 h-40 bg-indigo-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-80 group-hover:translate-y-8 transition-all duration-1000"></div>
-                
-                <div className="relative">
-                  <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-indigo-500 transition-colors">{t('botdev:price_4_title')}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">{t('botdev:price_4_desc')}</p>
-                  <div className="text-3xl font-bold text-indigo-500 mb-6 flex items-end">
-                    <span className="text-sm mr-1">$</span>
-                    <span className="group-hover:scale-110 transition-transform inline-block">{t('botdev:price_4_amount')}</span>
-                    <span className="text-gray-400 text-base font-normal ml-2"></span>
-                  </div>
-                  <Link href="/contact" className="block text-center px-6 py-3 bg-indigo-500 hover:bg-indigo-600 transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-indigo-500/25 relative overflow-hidden">
-                    <span className="relative z-10">{t('botdev:get_started')}</span>
-                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-500 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                  </Link>
-                </div>
-              </div>
-              
-              {/* Price 5 */}
-              <div 
-                className={`bg-light-bg dark:bg-dark-bg p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 border border-light-border dark:border-dark-border group hover:border-pink-500/30 dark:hover:border-pink-500/30 relative overflow-hidden ${pricingAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-                style={{ transitionDelay: '500ms' }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute -top-20 -right-20 w-40 h-40 bg-pink-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-80 group-hover:translate-y-8 transition-all duration-1000"></div>
-                
-                <div className="relative">
-                  <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-pink-500 transition-colors">{t('botdev:price_5_title')}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">{t('botdev:price_5_desc')}</p>
-                  <div className="text-3xl font-bold text-pink-500 mb-6 flex items-end">
-                    <span className="text-sm mr-1">$</span>
-                    <span className="group-hover:scale-110 transition-transform inline-block">{t('botdev:price_5_amount')}</span>
-                    <span className="text-gray-400 text-base font-normal ml-2"></span>
-                  </div>
-                  <Link href="/contact" className="block text-center px-6 py-3 bg-pink-500 hover:bg-pink-600 transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-pink-500/25 relative overflow-hidden">
-                    <span className="relative z-10">{t('botdev:get_started')}</span>
-                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-pink-500 to-pink-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                  </Link>
-                </div>
-              </div>
-              
-              {/* Price 6 */}
-              <div 
-                className={`bg-light-bg dark:bg-dark-bg p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 border border-light-border dark:border-dark-border group hover:border-green-500/30 dark:hover:border-green-500/30 relative overflow-hidden ${pricingAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-                style={{ transitionDelay: '600ms' }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute -top-20 -right-20 w-40 h-40 bg-green-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-80 group-hover:translate-y-8 transition-all duration-1000"></div>
-                
-                <div className="relative">
-                  <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-green-500 transition-colors">{t('botdev:price_6_title')}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">{t('botdev:price_6_desc')}</p>
-                  <div className="text-3xl font-bold text-green-500 mb-6 flex items-end">
-                    <span className="text-sm mr-1">$</span>
-                    <span className="group-hover:scale-110 transition-transform inline-block">{t('botdev:price_6_amount')}</span>
-                    <span className="text-gray-400 text-base font-normal ml-2"></span>
-                  </div>
-                  <Link href="/contact" className="block text-center px-6 py-3 bg-green-500 hover:bg-green-600 transition-all duration-300 text-white rounded-lg font-medium group-hover:shadow-lg group-hover:shadow-green-500/25 relative overflow-hidden">
-                    <span className="relative z-10">{t('botdev:get_started')}</span>
-                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-500 to-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                   </Link>
                 </div>
               </div>
             </div>
 
-            {/* Additional Services */}
+            {/* Add-ons */}
             <div className={`mt-16 transition-all duration-1000 delay-300 ${pricingAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h3 className="text-2xl font-bold mb-8 text-center dark:text-white relative inline-block">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">{t('botdev:additional_services_title')}</span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">{t('botdev:add_ons.title')}</span>
                 <div className="absolute -bottom-1 left-0 h-0.5 w-full bg-gradient-to-r from-primary via-blue-500 to-transparent"></div>
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Additional Service 1 */}
-                <div className="bg-light-bg dark:bg-dark-bg p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-light-border dark:border-dark-border hover:border-primary/30 dark:hover:border-primary/30 relative group overflow-hidden">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-primary/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-blue-500/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <h4 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-primary transition-colors">{t('botdev:additional_1_title')}</h4>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{t('botdev:additional_1_desc')}</p>
-                  <div className="text-2xl font-bold text-primary flex items-end">
-                    <span className="text-sm mr-1">$</span>
-                    <span className="group-hover:scale-105 transition-transform inline-block">{t('botdev:additional_1_amount')}</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* System Integration */}
+                <div className="bg-light-bg dark:bg-dark-bg p-5 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <h4 className="font-medium text-gray-900 dark:text-white">{t('botdev:add_ons.system_integration.title')}</h4>
+                  <div className="mt-2 text-xl font-semibold text-primary dark:text-primary">${addOnPricing.systemIntegration.price}</div>
+                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{t('botdev:add_ons.system_integration.description')}</p>
                   </div>
+                
+                {/* Functional Unit */}
+                <div className="bg-light-bg dark:bg-dark-bg p-5 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <h4 className="font-medium text-gray-900 dark:text-white">{t('botdev:add_ons.functional_unit.title')}</h4>
+                  <div className="mt-2 text-xl font-semibold text-blue-500 dark:text-blue-400">${addOnPricing.functionalUnit.price}</div>
+                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{t('botdev:add_ons.functional_unit.description')}</p>
                 </div>
                 
-                {/* Additional Service 2 */}
-                <div className="bg-light-bg dark:bg-dark-bg p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-light-border dark:border-dark-border hover:border-blue-500/30 dark:hover:border-blue-500/30 relative group overflow-hidden">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-blue-500/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-indigo-500/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <h4 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-blue-500 transition-colors">{t('botdev:additional_2_title')}</h4>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{t('botdev:additional_2_desc')}</p>
-                  <div className="text-2xl font-bold text-blue-500 flex items-end">
-                    <span className="text-sm mr-1">$</span>
-                    <span className="group-hover:scale-105 transition-transform inline-block">{t('botdev:additional_2_amount')}</span>
-                  </div>
+                {/* Multilingual Support */}
+                <div className="bg-light-bg dark:bg-dark-bg p-5 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <h4 className="font-medium text-gray-900 dark:text-white">{t('botdev:add_ons.multilingual.title')}</h4>
+                  <div className="mt-2 text-xl font-semibold text-purple-500 dark:text-purple-400">${addOnPricing.multilingualSupport.price}</div>
+                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{t('botdev:add_ons.multilingual.description')}</p>
                 </div>
                 
-                {/* Additional Service 3 */}
-                <div className="bg-light-bg dark:bg-dark-bg p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-light-border dark:border-dark-border hover:border-purple-500/30 dark:hover:border-purple-500/30 relative group overflow-hidden">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-purple-500/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-pink-500/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <h4 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-purple-500 transition-colors">{t('botdev:additional_3_title')}</h4>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{t('botdev:additional_3_desc')}</p>
-                  <div className="text-2xl font-bold text-purple-500 flex items-end">
-                    <span className="text-sm mr-1">$</span>
-                    <span className="group-hover:scale-105 transition-transform inline-block">{t('botdev:additional_3_amount')}</span>
-                    <span className="text-gray-400 text-base font-normal ml-2"></span>
-                  </div>
+                {/* Shop Module */}
+                <div className="bg-light-bg dark:bg-dark-bg p-5 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <h4 className="font-medium text-gray-900 dark:text-white">{t('botdev:add_ons.shop_module.title')}</h4>
+                  <div className="mt-2 text-xl font-semibold text-green-500 dark:text-green-400">${addOnPricing.shopModule.price}</div>
+                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{t('botdev:add_ons.shop_module.description')}</p>
                 </div>
               </div>
             </div>
@@ -953,24 +928,24 @@ export default function BotDevelopment() {
           <div className="container mx-auto px-4 text-center relative z-10">
             <div className="max-w-4xl mx-auto">
               <div className="inline-block px-4 py-1 rounded-full bg-primary/20 text-white text-sm font-medium mb-4 backdrop-blur-sm">
-                {t('botdev:ready_to_start')}
+                {t('botdev:cta.ready_to_start')}
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                {t('botdev:cta_title')}
+                {t('botdev:cta.title')}
                 <span className="text-primary relative inline-block ml-2">
-                  <span className="relative z-10">{t('botdev:cta_highlight')}</span>
+                  <span className="relative z-10">{t('botdev:cta.cta_highlight')}</span>
                   <span className="absolute -inset-1 bg-primary/20 rounded blur-sm -z-10"></span>
                 </span>
               </h2>
               <p className="text-lg text-gray-200 max-w-3xl mx-auto mb-8 leading-relaxed">
-                {t('botdev:cta_description')}
+                {t('botdev:cta.description')}
               </p>
               <Link 
                 href="/contact" 
                 className="inline-block px-8 py-4 bg-primary hover:bg-primary-dark hover:scale-105 active:scale-95 transition-all duration-300 rounded-xl font-medium text-lg shadow-lg shadow-primary/25 group relative overflow-hidden"
               >
                 <span className="relative z-10 flex items-center justify-center">
-                  {t('botdev:contact_us')}
+                  {t('botdev:cta.button')}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
@@ -984,13 +959,13 @@ export default function BotDevelopment() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span>{t('botdev:support_247')}</span>
+                  <span>{t('botdev:cta.support_247')}</span>
                 </div>
                 <div className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span>{t('botdev:quick_response')}</span>
+                  <span>{t('botdev:cta.quick_response')}</span>
                 </div>
               </div>
             </div>
