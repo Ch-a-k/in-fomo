@@ -91,30 +91,36 @@ function CountdownTimer({ targetDate, className = "" }) {
   }, [targetDate]);
   
   return (
-    <div className={`flex items-center justify-center space-x-3 ${className}`}>
+    <div className={`flex items-center justify-center gap-2 ${className}`}>
       <div className="flex flex-col items-center">
-        <div className="text-2xl md:text-3xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-2 py-1 text-white">
+        <div className="text-2xl md:text-3xl font-bold text-white bg-black/30 backdrop-blur-md w-14 h-14 rounded-lg flex items-center justify-center border-b-2 border-primary">
           {String(timeLeft.days).padStart(2, '0')}
         </div>
         <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_days')}</span>
       </div>
-      <span className="text-xl font-bold text-white">:</span>
+      <div className="flex flex-col items-center justify-center h-14">
+        <span className="text-xl font-bold text-primary">:</span>
+      </div>
       <div className="flex flex-col items-center">
-        <div className="text-2xl md:text-3xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-2 py-1 text-white">
+        <div className="text-2xl md:text-3xl font-bold text-white bg-black/30 backdrop-blur-md w-14 h-14 rounded-lg flex items-center justify-center border-b-2 border-primary">
           {String(timeLeft.hours).padStart(2, '0')}
         </div>
         <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_hours')}</span>
       </div>
-      <span className="text-xl font-bold text-white">:</span>
+      <div className="flex flex-col items-center justify-center h-14">
+        <span className="text-xl font-bold text-primary">:</span>
+      </div>
       <div className="flex flex-col items-center">
-        <div className="text-2xl md:text-3xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-2 py-1 text-white">
+        <div className="text-2xl md:text-3xl font-bold text-white bg-black/30 backdrop-blur-md w-14 h-14 rounded-lg flex items-center justify-center border-b-2 border-primary">
           {String(timeLeft.minutes).padStart(2, '0')}
         </div>
         <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_minutes')}</span>
       </div>
-      <span className="text-xl font-bold text-white">:</span>
+      <div className="flex flex-col items-center justify-center h-14">
+        <span className="text-xl font-bold text-primary">:</span>
+      </div>
       <div className="flex flex-col items-center">
-        <div className="text-2xl md:text-3xl font-bold bg-primary/20 backdrop-blur-sm rounded-lg px-2 py-1 text-white animate-pulse">
+        <div className="text-2xl md:text-3xl font-bold text-white bg-black/30 backdrop-blur-md w-14 h-14 rounded-lg flex items-center justify-center border-b-2 border-primary animate-pulse">
           {String(timeLeft.seconds).padStart(2, '0')}
         </div>
         <span className="text-xs mt-1 text-gray-300">{t('botdev:countdown_seconds')}</span>
@@ -327,85 +333,100 @@ export default function BotDevelopment() {
                 <TypedText text={t('botdev:hero_description')} speed={10} />
               </p>
               
-              {/* Redesigned Special Offer and Countdown Timer */}
-              <div className={`w-full max-w-3xl mx-auto mb-8 relative transition-all duration-1000 delay-500 ${heroAnim.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                {/* Multi-layered background with gradient and blur effects */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-blue-600/15 to-purple-500/15 rounded-xl blur-md"></div>
-                <div className="absolute inset-0 bg-dark-bg/60 backdrop-blur-sm rounded-xl"></div>
-                
-                {/* Animated decorative elements */}
-                <div className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-primary/30 blur-xl animate-pulse-slow"></div>
-                <div className="absolute -bottom-3 -left-3 w-10 h-10 rounded-full bg-blue-500/30 blur-xl animate-float-slow"></div>
-                
-                {/* Floating dots */}
-                <div className="absolute top-1/2 right-4 w-2 h-2 bg-primary/50 rounded-full animate-ping-slow"></div>
-                <div className="absolute bottom-1/4 left-1/4 w-3 h-3 bg-blue-500/30 rounded-full animate-float-reverse"></div>
-                <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-purple-500/40 rounded-full animate-pulse-subtle"></div>
-                
-                <div className="relative z-10 p-6 rounded-xl border border-primary/20 overflow-hidden">
-                  {/* Diagonal ribbon in corner */}
-                  <div className="absolute -top-6 -right-6 w-24 h-24 rotate-45">
-                    <div className="absolute bottom-0 w-full h-12 bg-primary flex items-end justify-center pb-1">
-                      <span className="text-xs font-bold text-white">{t('botdev:special_offer_badge')}</span>
-                    </div>
+              {/* Completely Redesigned Special Offer Banner */}
+              <div className={`w-full max-w-4xl mx-auto mb-12 transition-all duration-1000 delay-500 ${heroAnim.isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-black via-gray-900 to-gray-800 shadow-2xl shadow-primary/10">
+                  {/* Animated background elements */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,90,0,0.15),transparent_50%)]"></div>
+                    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.15),transparent_50%)]"></div>
+                    
+                    {/* Animated particles */}
+                    <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-primary rounded-full animate-ping-slow opacity-70"></div>
+                    <div className="absolute bottom-1/3 right-1/3 w-2 h-2 bg-blue-500 rounded-full animate-ping-slow opacity-50"></div>
+                    <div className="absolute top-2/3 left-1/3 w-1 h-1 bg-purple-500 rounded-full animate-ping-slow opacity-60"></div>
+                    <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-yellow-500 rounded-full animate-ping-slow opacity-70"></div>
+                    
+                    {/* Glowing lines */}
+                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
                   </div>
                   
-                  {/* Two-column layout */}
-                  <div className="flex flex-col md:flex-row items-center gap-6">
-                    {/* Left column: Title, timer, benefits */}
-                    <div className="w-full md:w-3/5 text-center md:text-left">
-                      <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-                        {t('botdev:special_offer_title')}
+                  <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 p-8">
+                    {/* Left content area - 7 columns */}
+                    <div className="md:col-span-7 space-y-6">
+                      {/* Header with badge */}
+                      <div className="flex items-center space-x-3">
+                        <div className="bg-primary px-3 py-1 rounded text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-primary/20 animate-pulse-subtle">
+                          {t('botdev:special_offer_badge')}
+                        </div>
+                        <div className="h-[1px] flex-grow bg-gradient-to-r from-primary/80 to-transparent"></div>
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="text-2xl md:text-3xl font-bold text-white">
+                        <span className="block mb-1">🚀 {t('botdev:special_offer_title')}</span>
+                        <span className="text-lg md:text-xl text-gray-300 font-normal">{t('botdev:special_offer_countdown')}</span>
                       </h3>
-                      <p className="text-gray-300 text-sm mb-3">{t('botdev:special_offer_countdown')}</p>
                       
-                      <CountdownTimer targetDate={targetDate} className="mb-4" />
+                      {/* Timer */}
+                      <CountdownTimer targetDate={targetDate} />
                       
-                      {/* Benefits as compact badges */}
-                      <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
-                        <div className="inline-flex items-center px-2 py-1 bg-primary/20 rounded-full">
-                          <svg className="w-3 h-3 text-green-400 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      {/* Features */}
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                        <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2 border-l-2 border-primary">
+                          <svg className="w-5 h-5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
-                          <span className="text-gray-200 text-xs">{t('botdev:special_offer_discount')}</span>
+                          <span className="text-sm text-gray-200">{t('botdev:special_offer_discount')}</span>
                         </div>
-                        <div className="inline-flex items-center px-2 py-1 bg-blue-500/20 rounded-full">
-                          <svg className="w-3 h-3 text-green-400 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                        <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2 border-l-2 border-blue-500">
+                          <svg className="w-5 h-5 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                           </svg>
-                          <span className="text-gray-200 text-xs">{t('botdev:special_offer_setup')}</span>
+                          <span className="text-sm text-gray-200">{t('botdev:special_offer_setup')}</span>
                         </div>
-                        <div className="inline-flex items-center px-2 py-1 bg-purple-500/20 rounded-full">
-                          <svg className="w-3 h-3 text-green-400 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                        <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2 border-l-2 border-purple-500">
+                          <svg className="w-5 h-5 text-purple-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.5 9.5c.96-1.35 2.755-1.772 4.2-.925 1.45.85 1.913 2.729.962 4.081-1.04 1.48-2.647 1.064-3.682.684M12 17.25v.75" />
                           </svg>
-                          <span className="text-gray-200 text-xs">{t('botdev:special_offer_support')}</span>
+                          <span className="text-sm text-gray-200">{t('botdev:special_offer_support')}</span>
                         </div>
                       </div>
                     </div>
                     
-                    {/* Right column: CTA button */}
-                    <div className="w-full md:w-2/5 flex flex-col items-center justify-center">
-                      <div className="relative group">
-                        <div className="absolute inset-0 bg-primary/30 rounded-full blur-md group-hover:bg-primary/40 transition-all"></div>
-                        <Link 
-                          href="#pricing" 
-                          className="relative z-10 px-6 py-3 bg-primary hover:bg-primary-dark rounded-full font-medium group flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
-                        >
-                          <span className="mr-2">{t('botdev:get_started')}</span>
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                          </svg>
-                        </Link>
-                      </div>
-                      
-                      {/* Secure payment badge */}
-                      <div className="mt-3 text-center">
-                        <div className="inline-flex items-center px-3 py-1 bg-dark-surface/50 rounded-full">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                          </svg>
-                          <span className="text-xs text-gray-300">{t('botdev:special_offer_secure_payment')}</span>
+                    {/* Right content area - 5 columns */}
+                    <div className="md:col-span-5 flex flex-col justify-center items-center md:items-start">
+                      <div className="w-full max-w-xs bg-black/30 backdrop-blur-md p-6 rounded-xl border border-white/10 relative overflow-hidden">
+                        {/* Background glow */}
+                        <div className="absolute -top-10 -right-10 w-20 h-20 bg-primary/20 rounded-full blur-xl"></div>
+                        <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl"></div>
+                        
+                        {/* Content */}
+                        <div className="relative z-10">
+                          <h4 className="text-lg font-bold text-white mb-4 flex items-center">
+                            <svg className="w-5 h-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            {t('botdev:get_started')}
+                          </h4>
+                          
+                          <Link 
+                            href="#pricing" 
+                            className="block w-full bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white font-medium py-3 px-4 rounded-lg text-center transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/40 transform hover:-translate-y-1 active:translate-y-0"
+                          >
+                            {t('botdev:contact_us')}
+                          </Link>
+                          
+                          <div className="mt-4 text-center">
+                            <div className="inline-flex items-center text-xs text-gray-400">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                              </svg>
+                              {t('botdev:special_offer_secure_payment')}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
