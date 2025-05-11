@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "title": "Bot Development Services | Professional Custom Bot Creation",
+    "description": "Professional bot development services for Telegram, web chatbots, and AI-powered bots. Get a custom solution for your business needs."
+  },
+  "hero": {
+    "badge": "Bot Development",
+    "title": "Custom Bot Solutions For Your Business",
+    "description": "Elevate your customer experience with intelligent, custom-built bots designed to meet your specific needs",
+    "cta_pricing": "View Pricing",
+    "cta_contact": "Contact Us"
+  },
+  "chart_section": {
+    "badge": "Performance Analytics",
+    "title": "How Bots Transform Your Business",
+    "description": "Decrease in manager time spent and revenue growth after chatbot implementation",
+    "before_bot": "Before Bot Implementation",
+    "after_bot": "After Bot Implementation",
+    "manager_time": "Manager Time (%)",
+    "revenue": "Revenue (%)",
+    "key_benefits": {
+      "title": "Key Benefits",
+      "benefits": [
+        "Reduction in time spent by managers on routine tasks",
+        "Significant revenue growth through process automation",
+        "Quick return on investment in bot development and implementation"
+      ]
+    }
+  },
+  "roi_graph": {
+    "badge": "ROI Analysis",
+    "title": "How Bots Transform Your Business Metrics",
+    "description": "See the direct impact of implementing a chatbot on manager time spent and revenue growth",
+    "before_chart_title": "Manager Time vs. Revenue",
+    "after_chart_title": "After Bot Implementation",
+    "time_spent": "Time Spent",
+    "revenue": "Revenue",
+    "benefits": {
+      "reduced_time": {
+        "title": "Reduced Response Time",
+        "description": "Immediate 24/7 responses to customer inquiries without manager intervention"
+      },
+      "increased_conversion": {
+        "title": "Increased Conversion",
+        "description": "Higher conversion rates through instant engagement and personalized interactions"
+      },
+      "scalable_operations": {
+        "title": "Scalable Operations",
+        "description": "Handle increasing customer volume without proportionally increasing staff costs"
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Bot Development Packages",
+    "title": "Choose the Right Bot for Your Needs",
+    "description": "Select from our carefully designed packages or customize a solution that fits your requirements perfectly",
+    "packages": {
+      "telegram_bot": {
+        "title": "Telegram Bot",
+        "description": "Custom Telegram bot development with all the features you need"
+      },
+      "chatbot": {
+        "title": "Web Chatbot",
+        "description": "Embed an intelligent chatbot on your website to help your customers"
+      },
+      "ai_bot": {
+        "title": "AI Bot",
+        "description": "Advanced AI-powered bot with natural language understanding"
+      }
+    },
+    "services": {
+      "title": "Additional Services",
+      "integration": "Integration (1 unit)",
+      "payment_processing": "Payment Processing",
+      "custom_analytics": "Custom Analytics",
+      "multi_language": "Multi-language Support",
+      "cloud_hosting": "Cloud Hosting (3 months)",
+      "ai_training": "AI/ML Custom Training",
+      "voice_recognition": "Voice Recognition Integration",
+      "crm_integration": "CRM System Integration",
+      "chatbot_templates": "Premium Conversation Templates",
+      "messenger_sync": "Multi-messenger Synchronization",
+      "bot_maintenance": "Monthly Bot Maintenance",
+      "user_behavior_analysis": "User Behavior Analysis"
+    },
+    "total_price": "Total Price"
+  },
+  "contact_form": {
+    "title": "Contact Information",
+    "success_message": "Thank you for your submission! We'll contact you shortly.",
+    "error_message": "Error submitting form. Please try again.",
+    "fields": {
+      "name": {
+        "label": "Your Name",
+        "placeholder": "Enter your name"
+      },
+      "contact_method": {
+        "label": "Contact Method",
+        "options": {
+          "telegram": "Telegram",
+          "whatsapp": "WhatsApp",
+          "phone": "Phone"
+        }
+      },
+      "contact": {
+        "label": "Contact Information",
+        "placeholder": {
+          "telegram": "Your Telegram username or phone",
+          "whatsapp": "Your WhatsApp number",
+          "phone": "Your phone number"
+        }
+      },
+      "message": {
+        "label": "Message (Optional)",
+        "placeholder": "Additional details about your project requirements"
+      }
+    },
+    "buttons": {
+      "select": "Select Package",
+      "selected": "Selected",
+      "submit": "Submit Request",
+      "sending": "Sending..."
+    }
+  }
+} 

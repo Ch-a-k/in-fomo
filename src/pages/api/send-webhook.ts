@@ -18,7 +18,15 @@ export default async function handler(
 
   try {
     // Получаем данные из тела запроса
-    const { name, contact, contactType, message, selectedPackage } = req.body;
+    const { 
+      name, 
+      contact, 
+      contactType, 
+      message, 
+      selectedPackage, 
+      additionalServices = [],
+      totalPrice = ''
+    } = req.body;
 
     // Проверяем обязательные поля
     if (!name || !contact || !contactType) {
@@ -26,25 +34,56 @@ export default async function handler(
     }
 
     // Формируем текст сообщения для Telegram
-    const telegramMessage = `
+    let telegramMessage = `
 🔔 *Новая заявка на разработку бота*
-
-📦 *Выбранный пакет*: ${selectedPackage || 'Не указан'}
 
 👤 *Имя*: ${name}
 📞 *Способ связи*: ${contactType}
 📱 *Контакт*: ${contact}
-${message ? `💬 *Сообщение*: ${message}` : ''}
+`;
 
-⏰ *Дата заявки*: ${new Date().toLocaleString('ru-RU')}
-    `.trim();
+    // Добавляем информацию о выбранном пакете, если есть
+    if (selectedPackage) {
+      telegramMessage += `\n📦 *Выбранный пакет*: ${selectedPackage}`;
+    }
 
-    // URL вебхука Telegram бота (нужно будет заменить на реальный)
-    const webhookUrl = process.env.TELEGRAM_WEBHOOK_URL;
+    // Добавляем информацию о дополнительных услугах, если есть
+    if (additionalServices && additionalServices.length > 0) {
+      telegramMessage += `\n\n🔧 *Дополнительные услуги*:`;
+      additionalServices.forEach(service => {
+        telegramMessage += `\n- ${service}`;
+      });
+    }
+
+    // Добавляем общую стоимость, если есть
+    if (totalPrice) {
+      telegramMessage += `\n\n💰 *Общая стоимость*: ${totalPrice}`;
+    }
+
+    // Добавляем сообщение пользователя, если есть
+    if (message) {
+      telegramMessage += `\n\n💬 *Сообщение*:\n${message}`;
+    }
+
+    // Добавляем дату заявки
+    telegramMessage += `\n\n⏰ *Дата заявки*: ${new Date().toLocaleString('ru-RU')}`;
+
+    // URL вебхука Telegram бота
+    const webhookUrl = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN 
+      ? `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN}/sendMessage`
+      : process.env.TELEGRAM_WEBHOOK_URL;
     
     if (!webhookUrl) {
-      console.error('TELEGRAM_WEBHOOK_URL not configured');
+      console.error('Telegram webhook URL not configured');
       return res.status(500).json({ success: false, message: 'Webhook URL not configured' });
+    }
+
+    // Получаем ID чата для отправки
+    const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID || process.env.TELEGRAM_CHAT_ID;
+
+    if (!chatId) {
+      console.error('Telegram chat ID not configured');
+      return res.status(500).json({ success: false, message: 'Chat ID not configured' });
     }
 
     // Отправляем запрос к API Telegram
@@ -54,7 +93,7 @@ ${message ? `💬 *Сообщение*: ${message}` : ''}
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        chat_id: process.env.TELEGRAM_CHAT_ID,
+        chat_id: chatId,
         text: telegramMessage,
         parse_mode: 'Markdown',
       }),

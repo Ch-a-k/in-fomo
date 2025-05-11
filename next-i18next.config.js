@@ -7,7 +7,11 @@ module.exports = {
   },
   defaultNS: 'common',
   localePath: './public/locales',
-  react: { useSuspense: false },
+  react: { 
+    useSuspense: false,
+    transSupportBasicHtmlNodes: true,
+    transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p', 'span']
+  },
   interpolation: {
     escapeValue: false
   },
@@ -16,5 +20,7 @@ module.exports = {
     order: ['path', 'cookie', 'localStorage', 'navigator'],
     caches: ['cookie', 'localStorage']
   },
-  reloadOnPrerender: process.env.NODE_ENV === 'development'
+  reloadOnPrerender: process.env.NODE_ENV === 'development',
+  serializeConfig: false,
+  debug: process.env.NODE_ENV === 'development'
 };
