@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "title": "Usługi tworzenia botów | Profesjonalne tworzenie botów na zamówienie",
+    "description": "Profesjonalne usługi tworzenia botów dla Telegram, czatbotów webowych i botów opartych na AI. Tworzymy indywidualne rozwiązania dla Twojego biznesu."
+  },
+  "hero": {
+    "badge": "Tworzenie botów",
+    "title": "Indywidualne rozwiązania botów dla Twojego biznesu",
+    "description": "Polepszaj doświadczenia klientów dzięki inteligentnym botom stworzonym specjalnie pod Twoje potrzeby",
+    "cta_pricing": "Zobacz cennik",
+    "cta_contact": "Skontaktuj się z nami"
+  },
+  "chart_section": {
+    "badge": "Analityka wydajności",
+    "title": "Jak boty transformują Twój biznes",
+    "description": "Zmniejszenie czasu poświęcanego przez menedżerów i wzrost przychodów po wdrożeniu chatbota",
+    "before_bot": "Przed wdrożeniem bota",
+    "after_bot": "Po wdrożeniu bota",
+    "manager_time": "Czas menedżera (%)",
+    "revenue": "Przychód (%)",
+    "key_benefits": {
+      "title": "Kluczowe korzyści",
+      "benefits": [
+        "Redukcja czasu poświęcanego przez menedżerów na rutynowe zadania",
+        "Znaczący wzrost przychodów dzięki automatyzacji procesów",
+        "Szybki zwrot z inwestycji w rozwój i wdrożenie bota"
+      ]
+    }
+  },
+  "roi_graph": {
+    "badge": "Analiza ROI",
+    "title": "Jak boty poprawiają wyniki Twojego biznesu",
+    "description": "Zobacz bezpośredni wpływ wdrożenia chatbota na czas spędzany przez menedżera i wzrost przychodów",
+    "before_chart_title": "Czas menedżera vs. Przychód",
+    "after_chart_title": "Po wdrożeniu bota",
+    "time_spent": "Czas poświęcony",
+    "revenue": "Przychód",
+    "benefits": {
+      "reduced_time": {
+        "title": "Skrócony czas odpowiedzi",
+        "description": "Natychmiastowe odpowiedzi na zapytania klientów 24/7 bez udziału menedżera"
+      },
+      "increased_conversion": {
+        "title": "Zwiększona konwersja",
+        "description": "Wyższe wskaźniki konwersji dzięki natychmiastowemu zaangażowaniu i spersonalizowanym interakcjom"
+      },
+      "scalable_operations": {
+        "title": "Skalowalność operacji",
+        "description": "Obsługa rosnącej liczby klientów bez proporcjonalnego zwiększania kosztów personelu"
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Pakiety tworzenia botów",
+    "title": "Wybierz odpowiedniego bota dla swoich potrzeb",
+    "description": "Wybieraj z naszych starannie zaprojektowanych pakietów lub dostosuj rozwiązanie, które idealnie odpowiada Twoim wymaganiom",
+    "packages": {
+      "telegram_bot": {
+        "title": "Bot Telegram",
+        "description": "Tworzenie bota Telegram ze wszystkimi potrzebnymi funkcjami"
+      },
+      "chatbot": {
+        "title": "Czatbot webowy",
+        "description": "Wbudowany inteligentny czatbot na Twoją stronę do pomocy klientom"
+      },
+      "ai_bot": {
+        "title": "Bot AI",
+        "description": "Zaawansowany bot oparty na sztucznej inteligencji z rozumieniem języka naturalnego"
+      }
+    },
+    "services": {
+      "title": "Usługi dodatkowe",
+      "integration": "Integracja (1 jednostka)",
+      "payment_processing": "Przetwarzanie płatności",
+      "custom_analytics": "Niestandardowa analityka",
+      "multi_language": "Wsparcie wielu języków",
+      "cloud_hosting": "Hosting w chmurze (3 miesiące)",
+      "ai_training": "Niestandardowe szkolenie AI/ML",
+      "voice_recognition": "Integracja rozpoznawania głosu",
+      "crm_integration": "Integracja z systemami CRM",
+      "chatbot_templates": "Premium szablony konwersacji",
+      "messenger_sync": "Synchronizacja z komunikatorami",
+      "bot_maintenance": "Miesięczna konserwacja bota",
+      "user_behavior_analysis": "Analiza zachowań użytkowników"
+    },
+    "total_price": "Cena całkowita"
+  },
+  "contact_form": {
+    "title": "Informacje kontaktowe",
+    "success_message": "Dziękujemy za Twoje zgłoszenie! Skontaktujemy się wkrótce.",
+    "error_message": "Błąd podczas wysyłania formularza. Spróbuj ponownie.",
+    "fields": {
+      "name": {
+        "label": "Twoje imię",
+        "placeholder": "Wprowadź swoje imię"
+      },
+      "contact_method": {
+        "label": "Metoda kontaktu",
+        "options": {
+          "telegram": "Telegram",
+          "whatsapp": "WhatsApp",
+          "phone": "Telefon"
+        }
+      },
+      "contact": {
+        "label": "Informacje kontaktowe",
+        "placeholder": {
+          "telegram": "Twoja nazwa użytkownika Telegram lub telefon",
+          "whatsapp": "Twój numer WhatsApp",
+          "phone": "Twój numer telefonu"
+        }
+      },
+      "message": {
+        "label": "Wiadomość (Opcjonalnie)",
+        "placeholder": "Dodatkowe szczegóły dotyczące wymagań projektu"
+      }
+    },
+    "buttons": {
+      "select": "Wybierz pakiet",
+      "selected": "Wybrano",
+      "submit": "Wyślij zapytanie",
+      "sending": "Wysyłanie..."
+    }
+  }
+} 
