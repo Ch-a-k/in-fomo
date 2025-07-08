@@ -15,7 +15,10 @@ export default function Home() {
   
   return (
     <>
-      <SEO />
+      <SEO
+      title={t("meta_title", { defaultValue: "IN-FOMO. | TOP-1 in Europe by Clutch" })}
+      description={t("meta_description", { defaultValue: "We are a team of experienced developers and designers who are passionate about creating innovative IT solutions."})}
+      />
       <main className="overflow-x-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
         <Hero />

@@ -11,10 +11,11 @@ export default function CareersPage() {
 
   return (
     <>
-      <SEO 
-        title={t('careers_title', { ns: 'careers' })}
-        description={t('careers_description', { ns: 'careers' })}
+      <SEO
+      title={t("meta_title", { defaultValue: "IN-FOMO | Careers" })}
+      description={t("meta_description", { defaultValue: "Learn about IN-FOMO - our team, values, and mission to deliver innovative IT solutions."})}
       />
+
 
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">

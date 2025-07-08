@@ -485,7 +485,10 @@ const Portfolio = () => {
 
   return (
     <>
-      <SEO />
+      <SEO
+      title={t("meta_title", { defaultValue: "IN-FOMO | Portfolio" })}
+      description={t("meta_description", { defaultValue: "Learn about IN-FOMO - our team, values, and mission to deliver innovative IT solutions."})}
+      />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">

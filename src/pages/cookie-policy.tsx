@@ -8,7 +8,10 @@ const CookiePolicy = () => {
 
   return (
     <>
-      <SEO />
+      <SEO
+      title={t("meta_title", { defaultValue: "IN-FOMO | Cookie Policy" })}
+      description={t("meta_description", { defaultValue: "Learn about IN-FOMO - our team, values, and mission to deliver innovative IT solutions."})}
+      />
 
       <div className="bg-light-bg dark:bg-dark-bg min-h-screen">
         <div className="container mx-auto px-4 py-16">

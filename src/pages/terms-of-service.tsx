@@ -10,7 +10,10 @@ export default function TermsOfService() {
 
   return (
     <>
-      <SEO />
+      <SEO
+      title={t("meta_title", { defaultValue: "IN-FOMO | Terms of Service" })}
+      description={t("meta_description", { defaultValue: "Learn about IN-FOMO - our team, values, and mission to deliver innovative IT solutions."})}
+      />
 
       {/* Hero */}
       <div className="relative overflow-hidden bg-light-bg dark:bg-dark-bg">

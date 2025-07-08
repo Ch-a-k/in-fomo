@@ -321,6 +321,11 @@ export default function BotDev() {
   
   return (
     <>
+      <SEO
+      title={t("meta_title", { defaultValue: "IN-FOMO | Bot Development" })}
+      description={t("meta_description", { defaultValue: "Learn about IN-FOMO - our team, values, and mission to deliver innovative IT solutions."})}
+      />
+
       <Head>
         <title>{t('bot-dev:meta.title')}</title>
         <meta name="description" content={t('bot-dev:meta.description')} />
