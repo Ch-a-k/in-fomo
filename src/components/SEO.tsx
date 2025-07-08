@@ -12,10 +12,10 @@ interface SEOProps {
 
 // Компонент SEO теперь принимает опциональные пропсы
 const SEO: FC<SEOProps> = ({ 
-  title = "IN-FOMO. | Innovative IT Solutions", 
+  title = "IN-FOMO. | TOP-1 IT Company in Europe by Clutch", 
   description = "Leading IT company providing innovative software development, cloud solutions, and digital transformation services.",
   image = "/og-image.png",
-  imageAlt = "IN-FOMO - Innovative IT Solutions"
+  imageAlt = "IN-FOMO. | TOP-1 IT Company in Europe by Clutch"
 }) => {
   // Проверяем и форматируем URL сайта
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com').replace(/\/$/, '');
