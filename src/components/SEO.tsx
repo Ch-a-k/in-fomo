@@ -18,7 +18,7 @@ const SEO: FC<SEOProps> = ({
   imageAlt = "IN-FOMO - Innovative IT Solutions"
 }) => {
   // Проверяем и форматируем URL сайта
-  const siteUrl = "https://in-fomo.com";
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://in-fomo.com').replace(/\/$/, '');
   const ogImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
   
   return (
