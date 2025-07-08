@@ -36,7 +36,7 @@ class MyDocument extends Document {
           {/* Базовые Open Graph метатеги в _document для гарантированной загрузки при SSR */}
           <meta
             property="og:title"
-            content="IN-FOMO. | Innovative IT Solutions"
+            content="IN-FOMO. | TOP-1 IT Company in Europe by Clutch"
           />
           <meta
             property="og:description"
