@@ -454,6 +454,21 @@ const Portfolio = () => {
         link: 'https://pharmprostir.com.ua/',
         year: 2024
       },
+      {
+        id: 25,
+        titleKey: 'project_cryptocourse_title',
+        descriptionKey: 'project_cryptocourse_description',
+        categories: ['Blockchain', 'Web dev'],
+        images: [
+          '/images/projects/cryptocourse.avif',
+          '/images/projects/cryptocourse-2.avif',
+          '/images/projects/cryptocourse-3.avif',
+          '/images/projects/cryptocourse-4.avif',
+        ],
+        technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Responsive Design'],
+        link: 'https://www.dhcd.xyz',
+        year: 2025
+      },
       // ... остальные проекты ...
     ];
     
