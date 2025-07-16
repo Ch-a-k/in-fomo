@@ -7,6 +7,7 @@ import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Partners from '../components/Partners';
 import Awards from '../components/Awards';
+import MilestonesSection from '../components/MilestonesSection';
 
 export default function Home() {
   const { t } = useTranslation(['common', 'home']);
@@ -24,6 +25,7 @@ export default function Home() {
         <Hero />
         <Awards />
         <Services />
+        <MilestonesSection />
         <Partners />
       </main>
     </>

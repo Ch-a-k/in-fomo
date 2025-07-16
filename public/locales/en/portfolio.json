@@ -106,5 +106,6 @@
     "title_highlight": "Projects",
     "description": "Browse through our diverse portfolio of projects spanning various domains and technologies."
   },
-  "no_projects_found": "No projects found in this category."
+  "no_projects_found": "No projects found in this category.",
+  "milestone_nodes": "Received and operated validator nodes worth over $300,000 from leading blockchains such as Velos and FreeTON, contributing to their network security and decentralization."
 }

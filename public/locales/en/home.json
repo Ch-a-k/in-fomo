@@ -105,5 +105,15 @@
   "award_tokenization_poland_2025_desc": "Expert in asset tokenization technologies across Poland for 2025",
   
   "award_defi_warsaw_2025_title": "Top Decentralized Finance Company (Warsaw 2025)",
-  "award_defi_warsaw_2025_desc": "Leading provider of decentralized finance solutions in Warsaw for 2025"
+  "award_defi_warsaw_2025_desc": "Leading provider of decentralized finance solutions in Warsaw for 2025",
+
+  "milestones_title": "Milestones & Recognition.",
+  "milestones_subtitle": "Our achievements",
+  "milestone_top1": "In 2025, we became the #1 company in Europe and Poland for blockchain and smart contract development.",
+  "milestone_investment": "Received $200,000 in venture investment from Admitad.",
+  "milestone_clients_investment": "Secured investments for our clients from Admitad, European Funds, and AngelList (including angel, venture, and government grants).",
+  "milestone_blockchain": "We have created and developed blockchains, participated in ICOs, IDOs, and contributed to the growth of the Web3 ecosystem (including unique, confidential cases).",
+  "milestone_enterprise": "Implemented unique blockchain solutions for major enterprise clients (under NDA).",
+  "milestone_extra2": "Recognized by Clutch as a top IT company in Europe.",
+  "milestone_nodes": "Received and operated validator nodes worth over $300,000 from leading blockchains such as Velos and FreeTON, contributing to their network security and decentralization."
 }

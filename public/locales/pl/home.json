@@ -87,5 +87,15 @@
   "award_8_desc": "Uznana za rozwiązania do rozwoju blockchain",
   
   "award_9_title": "Najlepsza firma rozwoju oprogramowania",
-  "award_9_desc": "Liderzy w rozwoju oprogramowania"
+  "award_9_desc": "Liderzy w rozwoju oprogramowania",
+
+  "milestones_title": "Nasze osiągnięcia i uznanie.",
+  "milestones_subtitle": "Nasze osiągnięcia",
+  "milestone_top1": "W 2025 roku zostaliśmy numerem 1 w Europie i Polsce w zakresie rozwoju blockchain i smart kontraktów.",
+  "milestone_investment": "Otrzymaliśmy inwestycję venture od Admitad w wysokości 200 000 USD.",
+  "milestone_clients_investment": "Pozyskaliśmy inwestycje dla naszych klientów od Admitad, Funduszy Europejskich i AngelList (anielskie, venture oraz granty rządowe).",
+  "milestone_blockchain": "Tworzyliśmy i rozwijaliśmy blockchainy, uczestniczyliśmy w ICO, IDO, wspieraliśmy rozwój ekosystemu Web3 (w tym unikalne, poufne przypadki).",
+  "milestone_enterprise": "Zrealizowaliśmy unikalne rozwiązania dla dużych klientów (bez ujawniania NDA).",
+  "milestone_extra2": "Jesteśmy wśród najlepszych firm IT w Europie według Clutch.",
+  "milestone_nodes": "Otrzymaliśmy i walidowaliśmy nody o wartości ponad 300 000 USD od wiodących projektów blockchain Velos i FreeTON, przyczyniając się do bezpieczeństwa i decentralizacji ich sieci."
 }
