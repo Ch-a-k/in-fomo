@@ -1,14 +1,14 @@
 import { useTranslation } from 'next-i18next';
 import { memo } from 'react';
-import { FaTrophy, FaRocket, FaHandshake, FaCubes, FaShieldAlt, FaUserSecret } from 'react-icons/fa';
+import { GiLaurelCrown, GiMoneyStack, GiCubeforce, GiSpawnNode, GiCash, GiShieldReflect } from "react-icons/gi";
 
 const milestones = [
-  { key: 'milestone_top1', icon: FaTrophy },
-  { key: 'milestone_investment', icon: FaRocket },
-  { key: 'milestone_clients_investment', icon: FaHandshake },
-  { key: 'milestone_blockchain', icon: FaCubes },
-  { key: 'milestone_nodes', icon: FaShieldAlt },
-  { key: 'milestone_enterprise', icon: FaUserSecret },
+  { key: 'milestone_top1', icon: GiLaurelCrown },
+  { key: 'milestone_investment', icon: GiMoneyStack },
+  { key: 'milestone_clients_investment', icon: GiCash },
+  { key: 'milestone_blockchain', icon: GiCubeforce },
+  { key: 'milestone_nodes', icon: GiSpawnNode },
+  { key: 'milestone_enterprise', icon: GiShieldReflect },
 ];
 
 const MilestonesSection = memo(() => {
@@ -16,6 +16,18 @@ const MilestonesSection = memo(() => {
 
   return (
     <section className="py-10 md:py-16 bg-primary relative overflow-hidden">
+      {/* Фоновый паттерн */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        zIndex: 1,
+        pointerEvents: 'none',
+        backgroundColor: '#ff5a00',
+        backgroundImage: 'linear-gradient(#000 1.1px, transparent 1.1px), linear-gradient(90deg, #000 1.1px, transparent 1.1px), linear-gradient(#4f4f4f 1.1px, transparent 1.1px), linear-gradient(90deg, #4f4f4f 1.1px, #ff5a00 1.1px)',
+        backgroundSize: '50px 50px, 50px 50px, 50px 50px, 50px 50px',
+        backgroundPosition: '0 0, 0 0, 0 0, 0 0',
+        opacity: 0.5,
+      }} />
       <div className="container max-w-7xl mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row md:items-center mb-8">
           <div className="md:w-1/3 mb-6 md:mb-0 md:pr-8">
