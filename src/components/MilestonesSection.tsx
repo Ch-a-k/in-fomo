@@ -36,7 +36,7 @@ const MilestonesSection = memo(() => {
                   className="animate-fadein"
                   style={{ animationDelay: `${idx * 100}ms` }}
                 >
-                  <div className="flex flex-col items-center p-4 h-full min-h-[180px] flex-1 rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-primary dark:hover:border-primary transition-colors duration-300">
+                  <div className="flex flex-col items-center p-4 h-full min-h-[180px] flex-1 rounded-lg bg-light-bg dark:bg-dark-bg border border-gray-300 dark:border-gray-700 hover:border-[#181828] dark:hover:border-white transition-colors duration-300">
                     <div className="p-3 mb-3 rounded-lg bg-primary/10 inline-block text-primary">
                       <Icon className="w-7 h-7" />
                     </div>
