@@ -15,7 +15,7 @@
   "careers": "KARIERA",
   
   "language": "Język",
-  "get_started": "Rozpocznij",
+  "get_started": "Integruj ERP/CRM",
   "get_in_touch": "Skontaktuj się",
   "toggle_theme": "Przełącz motyw",
   
@@ -219,6 +219,7 @@
     "show": "Pokaż przycisk kontaktu",
     "hide": "Ukryj przycisk kontaktu"
   },
+  "order_action": "Zamówić",
   
   "menu": {
     "home": "Strona główna",
@@ -227,5 +228,8 @@
     "projects": "Projekty",
     "careers": "Kariera",
     "contact": "Kontakt"
-  }
+  },
+  "kpi_thanks": "Osiągnięcia naszych klientów dzięki naszym rozwiązaniom",
+  "kpi_earned": "Przychód wygenerowany dzięki naszym rozwiązaniom",
+  "kpi_saved": "Oszczędności dzięki automatyzacji"
 }

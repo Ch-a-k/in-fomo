@@ -8,6 +8,9 @@ import Services from '../components/Services';
 import Partners from '../components/Partners';
 import Awards from '../components/Awards';
 import MilestonesSection from '../components/MilestonesSection';
+import dynamic from 'next/dynamic';
+
+const InteractiveDashboard = dynamic(() => import('../components/InteractiveDashboard'), { ssr: false });
 
 export default function Home() {
   const { t } = useTranslation(['common', 'home']);
@@ -23,6 +26,7 @@ export default function Home() {
       <main className="overflow-x-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
         <Hero />
+        <InteractiveDashboard />
         <Awards />
         <Services />
         <MilestonesSection />

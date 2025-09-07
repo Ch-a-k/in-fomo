@@ -1,12 +1,10 @@
 'use client';
 
 import { memo, useState, useEffect, useRef } from 'react';
-import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
+import KPIWidget from './KPIWidget';
 
 const FloatingButton = memo(() => {
-  const { t } = useTranslation('common');
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   const [hasPulsed, setHasPulsed] = useState(false);
   const clickSoundRef = useRef<HTMLAudioElement | null>(null);
 
@@ -41,24 +39,14 @@ const FloatingButton = memo(() => {
 
   return (
     <div className="fixed bottom-8 right-0 z-50 flex items-center">
-      {/* Выезжающая кнопка */}
       <div 
         className={`transform transition-all duration-300 ease-in-out ${isExpanded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}
         aria-hidden={!isExpanded}
-        role="region"
-        aria-label={t('floating_button.menu')}
       >
-        <Link 
-          href="/contact" 
-          className="btn btn-primary shadow-lg hover:shadow-xl mr-3"
-          style={{ willChange: 'transform' }}
-          aria-label={t('get_started')}
-        >
-          {t('get_started')}
-        </Link>
+        <div className="mr-3">
+          <KPIWidget />
+        </div>
       </div>
-      
-      {/* Стрелка для переключения */}
       <button 
         onClick={toggleExpand} 
         className={`w-10 h-10 flex items-center justify-center text-white rounded-l-lg shadow-lg overflow-hidden relative transition-all duration-300 hover:shadow-[0_0_10px_rgba(255,90,0,0.6)] ${!hasPulsed ? 'animate-pulse' : ''}`}
@@ -68,52 +56,9 @@ const FloatingButton = memo(() => {
           zIndex: 1,
           overflow: 'hidden'
         }}
-        aria-label={isExpanded ? t('floating_button.hide') : t('floating_button.show')}
+        aria-label={isExpanded ? 'Hide' : 'Show'}
         aria-expanded={isExpanded}
-        aria-controls="floating-menu"
       >
-        {/* Светящийся эффект для кнопки как в btn-primary */}
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            content: '""',
-            position: 'absolute',
-            top: '-2px',
-            left: '-2px',
-            right: '-2px',
-            bottom: '-2px',
-            background: 'linear-gradient(90deg, #ff5a00, #ff0000, #ff5a00)',
-            backgroundSize: '200% 100%',
-            borderRadius: '10px',
-            zIndex: -1,
-            animation: 'movingBorder 2s infinite linear'
-          }}
-        />
-        
-        {/* Светящийся эффект */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 left-0 right-0 bottom-0 z-0">
-            <div 
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                left: '-50%',
-                right: '-50%',
-                bottom: 0,
-                background: 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%)',
-                width: '50%',
-                height: '100%',
-                transform: 'skewX(-30deg)',
-                animation: 'borderLight 3s infinite linear',
-                zIndex: 2
-              }}
-            />
-          </div>
-        </div>
-        
-        {/* Стрелка */}
         <svg 
           className={`w-5 h-5 text-white transform transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'} relative z-10`} 
           fill="none" 

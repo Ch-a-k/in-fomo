@@ -1,4 +1,8 @@
 import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+const CursorOrderTooltip = dynamic(() => import('./CursorOrderTooltip'), { ssr: false });
 
 const Services = () => {
   const { t } = useTranslation('home');
@@ -115,39 +119,61 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-12 md:py-16 bg-light-surface dark:bg-dark-surface">
+    <section id="services" className="relative overflow-hidden py-16 md:py-24 bg-light-surface dark:bg-dark-surface">
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute -top-24 left-[12%] w-80 h-80 rounded-full bg-orange-500/10 blur-3xl" />
+        <div className="absolute -top-24 right-[12%] w-80 h-80 rounded-full bg-purple-500/10 blur-3xl" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.05]" />
+      </div>
       <div className="container max-w-7xl mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-10">
+        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-14">
           <div className="inline-block px-4 py-1.5 mb-4 text-xs font-medium rounded-full bg-primary/10 text-primary animate-fade-in">
             {t('our_services')}
           </div>
           
-          <h2 className="text-3xl font-bold mb-4 animate-fade-in [animation-delay:200ms] min-h-[2.5rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 40px' }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 tracking-tight animate-fade-in [animation-delay:200ms]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 44px' }}>
             {t('services_title')}
           </h2>
-          
-          <p className="text-base text-gray-600 dark:text-gray-300 animate-fade-in [animation-delay:400ms] min-h-[3rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 48px' }}>
+          <div className="mx-auto h-px w-24 md:w-28 bg-gradient-to-r from-transparent via-primary/40 to-transparent mb-4 md:mb-5" />
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 animate-fade-in [animation-delay:400ms]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 48px' }}>
             {t('services_description')}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="w-full animate-fade-in"
-              style={{ animationDelay: `${600 + index * 100}ms` }}
-            >
-              <div className="flex flex-col items-center p-4 h-full rounded-lg bg-light-bg dark:bg-dark-bg border border-light-border dark:border-dark-border hover:border-primary dark:hover:border-primary transition-colors duration-300">
-                  <div className="p-3 mb-3 rounded-lg bg-primary/10 inline-block text-primary">
-                    {service.icon}
+            <div key={index} className="w-full animate-fade-in" style={{ animationDelay: `${600 + index * 100}ms` }}>
+              <Link href="/contact#from-services" data-order-tooltip="true" className="block h-full group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 rounded-2xl">
+                <div className="relative h-full rounded-2xl p-[1px] bg-gradient-to-r from-primary/30 via-transparent to-primary/30 transition-transform duration-300 group-hover:scale-[1.01]">
+                  <div className="relative h-full rounded-2xl border border-light-border/60 dark:border-dark-border/60 bg-white/70 dark:bg-[#0b0b0b]/70 backdrop-blur-md overflow-hidden flex flex-col items-stretch">
+                    <div className="absolute inset-0 pointer-events-none opacity-[0.08] bg-[radial-gradient(120%_100%_at_50%_-10%,rgba(255,90,0,0.6),transparent_35%)]" />
+                    <div className="relative z-10 flex flex-col items-center px-5 pt-6 pb-5 grow">
+                      <div className="mb-4 inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-primary/15 to-primary/5 text-primary ring-1 ring-primary/25 shadow-sm">
+                        {service.icon}
+                      </div>
+                      <h3 className="text-base md:text-lg font-semibold mb-2 text-center break-words hyphens-auto min-h-[2.5rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 40px' }} lang={t('language_code')}>
+                        {service.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 text-center break-words hyphens-auto min-h-[3.25rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 52px' }} lang={t('language_code')}>
+                        {service.description}
+                      </p>
+                      <div className="mt-auto pt-4 inline-flex items-center text-primary font-medium text-sm opacity-95 group-hover:opacity-100 transition-opacity">
+                        <span className="mr-1">{t('get_started')}</span>
+                        <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-center break-words hyphens-auto min-h-[3.5rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 56px' }} lang={t('language_code')}>{service.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 w-full text-left break-words hyphens-auto min-h-[4rem]" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 64px' }} lang={t('language_code')}>{service.description}</p>
                 </div>
-              </div>
+              </Link>
+            </div>
           ))}
         </div>
+        {/* Локальное подключение курсорного шильдика только для секции Services */}
+        <CursorOrderTooltip />
       </div>
     </section>
   );

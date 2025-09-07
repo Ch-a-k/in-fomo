@@ -2,7 +2,7 @@ import type { GetStaticProps } from 'next/types'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { useTheme } from 'next-themes'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SEO from '../components/SEO'
 
 // Telegram bots configuration
@@ -268,6 +268,21 @@ const ContactForm = ({ formType, t }) => {
 export default function Contact() {
   const { t } = useTranslation(['contact', 'common'])
   const { theme } = useTheme()
+  
+  // Автофокус на инпут имени при переходе с секции услуг
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const hash = window.location.hash
+    if (hash === '#from-services') {
+      setTimeout(() => {
+        const firstInput: HTMLInputElement | null = document.querySelector('input[name="name"]')
+        if (firstInput) {
+          firstInput.scrollIntoView({ behavior: 'smooth', block: 'center' })
+          firstInput.focus()
+        }
+      }, 250)
+    }
+  }, [])
 
   return (
     <>
@@ -304,7 +319,7 @@ export default function Contact() {
       </div>
 
       {/* General Contact Form Section */}
-      <section className="py-12 bg-light-bg dark:bg-dark-bg">
+      <section id="from-services" className="py-12 bg-light-bg dark:bg-dark-bg">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             {/* Left Column - Description */}

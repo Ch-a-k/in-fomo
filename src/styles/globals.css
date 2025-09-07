@@ -24,6 +24,18 @@
     padding-bottom: env(safe-area-inset-bottom, 0);
   }
   
+  /* Глобальный стиль выделения текста */
+  ::selection {
+    background-color: #FF3a00;
+    color: #ffffff;
+  }
+  
+  /* Firefox */
+  ::-moz-selection {
+    background-color: #FF3a00;
+    color: #ffffff;
+  }
+  
   /* Предотвращаем CLS для заголовков с резервированием места */
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;

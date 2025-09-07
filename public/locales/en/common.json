@@ -12,7 +12,7 @@
   "careers": "CAREERS",
   
   "language": "Language",
-  "get_started": "Get Started",
+  "get_started": "Integrate ERP/CRM",
   
   "quick_links": "Quick Links",
   "footer_description": "We provide cutting-edge IT solutions to help businesses transform and thrive in the digital era.",
@@ -183,6 +183,7 @@
     "show": "Show contact button",
     "hide": "Hide contact button"
   },
+  "order_action": "Order",
   "menu": {
     "home": "Home",
     "about": "About",
@@ -190,5 +191,8 @@
     "projects": "Projects",
     "careers": "Careers",
     "contact": "Contact"
-  }
+  },
+  "kpi_thanks": "Our clients' achievements thanks to our solutions",
+  "kpi_earned": "Revenue generated thanks to our solutions",
+  "kpi_saved": "Costs saved thanks to automation"
 }

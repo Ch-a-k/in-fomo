@@ -15,11 +15,12 @@ const teamMembers = [
   { name: "Arsen Dumbadze", roleKey: "bdm_cis" },
   { name: "Volodymyr Zeleniuk", roleKey: "bdm_us" },
   { name: "Artur Voievoda", roleKey: "coo" },
-  { name: "Oleksandr Bodiul", roleKey: "full_stack_developer" },
+  // { name: "Oleksandr Bodiul", roleKey: "full_stack_developer" },
   { name: "Oleksii Perevala", roleKey: "marketing_director" },
   { name: "Serhii Serhienko", roleKey: "business_consultant" },
   { name: "Pawel B", roleKey: "backend_developer" },
   { name: "Dmitry Klim", roleKey: "web3_director" },
+  { name: "Maria Spesyvtseva", roleKey: "designer" },
 ];
 
 const companyValues = [
@@ -277,7 +278,7 @@ export default function About() {
               </div>
               
               <div className="text-center animate-fade-in-up stagger-delay-2">
-                <div className="text-4xl font-bold text-primary mb-2">50+</div>
+                <div className="text-4xl font-bold text-primary mb-2">90+</div>
                 <div className="text-sm font-medium text-gray-600 dark:text-gray-400">{t("happy_clients")}</div>
               </div>
               
@@ -287,7 +288,7 @@ export default function About() {
               </div>
               
               <div className="text-center animate-fade-in-up stagger-delay-4">
-                <div className="text-4xl font-bold text-primary mb-2">15+</div>
+                <div className="text-4xl font-bold text-primary mb-2">30+</div>
                 <div className="text-sm font-medium text-gray-600 dark:text-gray-400">{t("countries_served")}</div>
               </div>
             </div>
@@ -460,7 +461,7 @@ export default function About() {
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale || "en", ["common", "about"])),
+      ...(await serverSideTranslations(locale || "en", ["common", "about", "home"])),
       footerVariant: "design2",
     },
   };

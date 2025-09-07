@@ -109,5 +109,7 @@
   "no_projects_found": "Nie znaleziono projektów w tej kategorii.",
   "project_cryptocourse_description": "DHCD to zdecentralizowana platforma do tworzenia, zarządzania i sprzedaży kursów online na blockchainie. Zdobądź wiedzę dzięki bezpiecznym, przejrzystym i innowacyjnym rozwiązaniom edukacyjnym.",
   "project_cryptocourse_title": "DHCD — zdecentralizowana platforma kursów",
+  "project_odoo_ai_title": "Integracja Odoo ERP z analizą AI",
+  "project_odoo_ai_description": "Wdrożenie Odoo ERP w dużej firmie i integracja rdzenia AI do analizy firmy lub grupy firm dla jednego użytkownika: zunifikowane pulpity, wgląd finansowy i operacyjny, wykrywanie anomalii oraz inteligentne rekomendacje.",
   "milestone_nodes": "Otrzymaliśmy i walidowaliśmy nody o wartości ponad 300 000 USD od wiodących projektów blockchain Velos i FreeTON, przyczyniając się do bezpieczeństwa i decentralizacji ich sieci."
 }

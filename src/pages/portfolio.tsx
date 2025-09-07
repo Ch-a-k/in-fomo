@@ -120,6 +120,40 @@ const Portfolio = () => {
   useEffect(() => {
     const projectsData: Project[] = [
       {
+        id: 26,
+        titleKey: 'project_odoo_ai_title',
+        descriptionKey: 'project_odoo_ai_description',
+        categories: ['CRM', 'AI Solutions', 'Web dev'],
+        images: [
+          '/images/projects/odoo-1.webp',
+          '/images/projects/odoo-2.webp',
+          '/images/projects/odoo-3.webp',
+          '/images/projects/odoo-4.webp',
+          '/images/projects/odoo-5.webp',
+          '/images/projects/odoo-6.webp',
+          '/images/projects/odoo-7.webp',
+          '/images/projects/odoo-8.webp',
+        ],
+        technologies: ['Odoo ERP', 'Python', 'PostgreSQL', 'REST API', 'AI', 'NLP'],
+        link: '#',
+        year: 2025
+      },
+      {
+        id: 25,
+        titleKey: 'project_cryptocourse_title',
+        descriptionKey: 'project_cryptocourse_description',
+        categories: ['Blockchain', 'Web dev'],
+        images: [
+          '/images/projects/cryptocourse.avif',
+          '/images/projects/cryptocourse-2.avif',
+          '/images/projects/cryptocourse-3.avif',
+          '/images/projects/cryptocourse-4.avif',
+        ],
+        technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Responsive Design'],
+        link: 'https://www.dhcd.xyz',
+        year: 2025
+      },
+      {
         id: 1,
         titleKey: 'project_polerowanie_title',
         descriptionKey: 'project_polerowanie_description',
@@ -454,21 +488,7 @@ const Portfolio = () => {
         link: 'https://pharmprostir.com.ua/',
         year: 2024
       },
-      {
-        id: 25,
-        titleKey: 'project_cryptocourse_title',
-        descriptionKey: 'project_cryptocourse_description',
-        categories: ['Blockchain', 'Web dev'],
-        images: [
-          '/images/projects/cryptocourse.avif',
-          '/images/projects/cryptocourse-2.avif',
-          '/images/projects/cryptocourse-3.avif',
-          '/images/projects/cryptocourse-4.avif',
-        ],
-        technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Responsive Design'],
-        link: 'https://www.dhcd.xyz',
-        year: 2025
-      },
+      
       // ... остальные проекты ...
     ];
     
@@ -495,7 +515,17 @@ const Portfolio = () => {
   
   // Функция для отслеживания клика по ссылке проекта
   const trackProjectLinkClick = (project: Project, e: React.MouseEvent) => {
-    e.stopPropagation(); // Предотвращаем всплытие клика
+    e.stopPropagation();
+    if (!project.link || project.link === '#') return;
+    try {
+      if (project.link.startsWith('/')) {
+        window.location.href = project.link;
+      } else {
+        window.open(project.link, '_blank', 'noopener,noreferrer');
+      }
+    } catch (err) {
+      // no-op
+    }
   };
 
   return (
@@ -538,10 +568,10 @@ const Portfolio = () => {
             {categories.map((category) => (
               <button
                 key={category.id}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
                   activeCategory === category.id
-                    ? 'bg-primary text-white'
-                    : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
+                    ? 'bg-primary text-white border-transparent'
+                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-[#1a1a1a] dark:text-gray-200 dark:hover:bg-[#222222] border-light-border dark:border-dark-border'
                 }`}
                 onClick={() => {
                   setActiveCategory(category.id);
@@ -555,61 +585,68 @@ const Portfolio = () => {
           {/* Список проектов */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   {filteredProjects.map((project) => (
-    <div
-      key={project.id}
-      className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer animate-fade-in-up"
-      onClick={() => trackProjectClick(project)}
-    >
-      <div className="relative h-56">
+              <div key={project.id} className="group relative cursor-pointer animate-fade-in-up h-full" onClick={() => trackProjectClick(project)}>
+                <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-primary/30 via-transparent to-primary/30 transition-transform duration-300 group-hover:scale-[1.01] h-full">
+                  <div className="relative rounded-2xl overflow-hidden bg-white/70 dark:bg-[#0f0f0f]/70 backdrop-blur-md border border-light-border/60 dark:border-dark-border/60 flex flex-col h-full min-h-[380px]">
+                    {/* Изображение с оверлеями */}
+                    <div className="relative h-40 md:h-44">
         <Image
           src={project.images[0]}
           alt={t(project.titleKey, { ns: 'portfolio' })}
-          width={500}
-          height={300}
+                        width={800}
+                        height={450}
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center' }} // Убедитесь, что изображение обрезается и центрируется
+                        className="w-full h-full object-cover object-center"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="w-full h-full" // Добавляем классы для полной ширины и высоты
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-70"></div>
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="flex flex-wrap gap-2 mb-2">
+                      {/* Верхние бейджи категорий */}
+                      <div className="absolute top-3 left-3 right-3 flex flex-wrap gap-2">
             {project.categories.map((category) => (
-              <div
-                key={category}
-                className="text-xs uppercase tracking-wider text-white bg-primary/80 rounded-full px-2 py-1"
-              >
+                          <span key={category} className="text-[10px] md:text-xs uppercase tracking-wider text-white/95 bg-primary/80 rounded-full px-2 py-1 shadow-sm">
                 {category}
-              </div>
+                          </span>
             ))}
           </div>
-          <h3 className="text-xl font-bold text-white">
+                      {/* Нижний градиент и заголовок */}
+                      <div className="absolute inset-x-0 bottom-0 p-4 pt-10 bg-gradient-to-t from-black/75 via-black/25 to-transparent">
+                        <h3 className="text-lg md:text-xl font-bold text-white line-clamp-1">
             {t(project.titleKey, { ns: 'portfolio' })}
           </h3>
         </div>
       </div>
-      <div className="p-6">
-        <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">
+
+                    {/* Контент карточки */}
+                    <div className="p-5 flex flex-col grow min-h-[160px]">
+                      <p className="text-gray-700 dark:text-gray-300 text-sm mb-4 line-clamp-2">
           {t(project.descriptionKey, { ns: 'portfolio' })}
         </p>
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech, index) => (
-            <span key={index} className="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                        {project.technologies.slice(0, 6).map((tech, index) => (
+                          <span key={index} className="text-[11px] md:text-xs bg-gray-100 dark:bg-gray-800/70 text-gray-800 dark:text-gray-200 px-2 py-1 rounded-full">
               {tech}
             </span>
           ))}
         </div>
-        <div className="flex justify-between items-center">
-          <span className="text-sm text-gray-500">{project.year}</span>
+                      <div className="mt-auto flex items-center justify-between">
+                        <span className="text-sm text-gray-500 dark:text-gray-400">{project.year}</span>
+                        {project.link && project.link !== '#' && (
           <button
             onClick={(e) => trackProjectLinkClick(project, e)}
-            className={`text-primary hover:text-primary-dark transition-colors flex items-center gap-1 text-sm font-medium ${project.link === '#' ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            className={`inline-flex items-center gap-2 text-primary hover:text-primary/90 text-sm font-medium transition-colors`}
           >
             {t('view_project', { ns: 'portfolio' })}
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </button>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Hover-ореол */}
+                    <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
+                    </div>
         </div>
       </div>
     </div>
@@ -619,19 +656,20 @@ const Portfolio = () => {
           {/* Модальное окно */}
           {selectedProject && (
   <div
-    className="fixed inset-0 z-[100] overflow-y-auto bg-black/90 animate-fade-in pt-[64px]"
+    className="fixed inset-0 z-[100] overflow-y-auto bg-black/70 backdrop-blur-md animate-fade-in pt-[64px]"
     onClick={() => {
       if (selectedProject) {
         setSelectedProject(null);
       }
     }}
   >
-    <div className="min-h-[calc(100vh-64px)] px-4 flex items-center justify-center">
+    <div className="min-h-[calc(50vh-64px)] px-4 flex items-center justify-center">
       <div
-        className="inline-block w-full max-w-6xl text-left align-middle transition-all transform bg-white dark:bg-gray-900 rounded-2xl shadow-2xl animate-scale-in"
+        className="inline-block w-full max-w-6xl text-left align-middle transition-all transform rounded-2xl animate-scale-in"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex flex-col lg:flex-row">
+        <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-primary/40 via-transparent to-primary/40">
+          <div className="flex flex-col lg:flex-row rounded-2xl bg-white/85 dark:bg-gray-900/85 backdrop-blur-md border border-light-border/60 dark:border-dark-border/60">
           {/* Карусель изображений */}
           <div className="relative lg:w-2/3">
             <div className="relative w-full">
@@ -641,7 +679,7 @@ const Portfolio = () => {
                 width={1200}
                 height={675}
                 priority
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain rounded-tl-2xl"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw"
               />
             </div>
@@ -649,7 +687,7 @@ const Portfolio = () => {
             {/* Кнопка закрытия */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 z-10 p-2.5 text-white/80 hover:text-white bg-black/20 hover:bg-black/30 backdrop-blur-sm rounded-full transition-all duration-200"
+              className="absolute top-4 right-4 z-10 p-2.5 text-white/85 hover:text-white bg-black/30 hover:bg-black/40 backdrop-blur-sm rounded-full transition-all duration-200 shadow"
               aria-label={t('close_modal', { ns: 'portfolio' })}
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -664,7 +702,7 @@ const Portfolio = () => {
                     e.stopPropagation();
                     prevImage();
                   }}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 text-white/80 hover:text-white bg-black/20 hover:bg-black/30 backdrop-blur-sm rounded-full transition-all duration-200"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 text-white/85 hover:text-white bg-black/30 hover:bg-black/40 backdrop-blur-sm rounded-full transition-all duration-200 shadow"
                 >
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -675,7 +713,7 @@ const Portfolio = () => {
                     e.stopPropagation();
                     nextImage();
                   }}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 text-white/80 hover:text-white bg-black/20 hover:bg-black/30 backdrop-blur-sm rounded-full transition-all duration-200"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 text-white/85 hover:text-white bg-black/30 hover:bg-black/40 backdrop-blur-sm rounded-full transition-all duration-200 shadow"
                 >
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -690,7 +728,7 @@ const Portfolio = () => {
                         setCurrentImageIndex(index);
                       }}
                       className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                        currentImageIndex === index ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/80'
+                        currentImageIndex === index ? 'bg-primary scale-125' : 'bg-primary/40 hover:bg-primary/60'
                       }`}
                     />
                   ))}
@@ -748,21 +786,20 @@ const Portfolio = () => {
                 <span className="text-sm text-gray-500 dark:text-gray-400">
                   {selectedProject.year}
                 </span>
+                {selectedProject.link && selectedProject.link !== '#' && (
                 <a
                   href={selectedProject.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-full transition-colors ${
-                    selectedProject.link === '#' ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                  onClick={(e) => {
-                  }}
+                    className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-full transition-colors"
                 >
                   {t('view_project', { ns: 'portfolio' })}
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
+                )}
+              </div>
               </div>
             </div>
           </div>
