@@ -22,13 +22,12 @@ const Table = () => {
   const { t } = useTranslation('home')
   const companies = [
     'Smashandfun',
-    'Lion Auto Auction',
     'Polerowanieszyb',
     'Blastly',
-    'AssRadar',
+    'Funcypan',
     'DHCD',
     'Beautyprostir',
-    'Therace.io',
+    'Therace',
   ]
   const services = ['ERP Integration','CRM Setup','AI Analytics','Automation','Data Migration']
   const rows = companies.map((name, idx) => {
@@ -217,7 +216,7 @@ export default function InteractiveDashboard() {
                     <div className="rounded-lg border border-light-border dark:border-dark-border/60 bg-white/70 dark:bg-[#141414]/70 p-4">
                       <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">{t('clients_helped', { defaultValue: 'Companies we helped' })}</div>
                       <div className="flex flex-wrap gap-2">
-                        {['Smashandfun','Lion Auto Auction','Polerowanieszyb','Blastly','AssRadar','DHCD','Beautyprostir','Therace.io'].map(name => (
+                        {['Smashandfun','Polerowanieszyb','Blastly','DHCD','Beautyprostir','Therace'].map(name => (
                           <span key={name} className="px-2 py-1 text-[11px] rounded-full border border-light-border dark:border-dark-border/60 bg-white/60 dark:bg-[#181818]/60">
                             {name}
                           </span>
