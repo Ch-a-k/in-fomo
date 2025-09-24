@@ -109,37 +109,41 @@ const Portfolio = () => {
     { id: 'Blockchain', name: t('categories.blockchain', { ns: 'portfolio' }) },
     { id: 'AI Solutions', name: t('categories.ai', { ns: 'portfolio' }) },
     { id: 'CRM', name: t('categories.crm', { ns: 'portfolio' }) },
-    { id: 'E-commerce', name: t('categories.ecommerce', { ns: 'portfolio' }) }
+    { id: 'E-commerce', name: t('categories.ecommerce', { ns: 'portfolio' }) },
+    { id: 'Bots', name: t('categories.bots', { ns: 'portfolio' }) }
   ];
 
   // Вспомогательная функция для генерации "Что сделали" по контексту
   const buildHighlights = (p: Project): string[] => {
     const highlights: string[] = [];
     if (p.categories.includes('CRM')) {
-      highlights.push('Внедрение CRM', 'Автоматизация процессов');
+      highlights.push('hl_crm', 'hl_process_automation');
     }
     if (p.categories.includes('AI Solutions')) {
-      highlights.push('Интеграция ИИ‑аналитики');
+      highlights.push('hl_ai_analytics');
     }
     if (p.categories.includes('E-commerce')) {
-      highlights.push('Онлайн‑оплаты', 'Каталог/заказы');
+      highlights.push('hl_payments', 'hl_catalog_orders');
     }
     if (p.categories.includes('Blockchain')) {
-      highlights.push('Смарт‑контракты/Web3');
+      highlights.push('hl_smart_contracts');
     }
     if (p.categories.includes('Mobile dev')) {
-      highlights.push('Мобильное приложение');
+      highlights.push('hl_mobile_app');
     }
     if (p.categories.includes('Web dev')) {
-      highlights.push('Редизайн/перфоманс');
+      highlights.push('hl_website_perf');
     }
     // Технологии дополняют
     if (p.technologies.some((t) => /SEO/i.test(t))) {
-      highlights.push('Рост SEO‑трафика');
+      highlights.push('hl_seo_growth');
     }
     // Уникальные кейсы по ключам
     if (p.titleKey === 'project_odoo_ai_title') {
-      highlights.push('Odoo ERP + единые дашборды');
+      highlights.push('hl_odoo_dashboards');
+    }
+    if (p.titleKey === 'project_subscribe_bot_title') {
+      highlights.push('hl_monopay', 'hl_check_subscription', 'hl_auto_remove', 'hl_webhooks_notify');
     }
     return Array.from(new Set(highlights)).slice(0, 4);
   };
@@ -147,6 +151,20 @@ const Portfolio = () => {
   // Данные проектов
   useEffect(() => {
     const projectsData: Project[] = [
+      {
+        id: 27,
+        titleKey: 'project_subscribe_bot_title',
+        descriptionKey: 'project_subscribe_bot_description',
+        categories: ['Bots', 'AI Solutions', 'Mobile dev'],
+        images: [
+          '/images/projects/Julia-bot-1.png',
+          '/images/projects/Julia-bot-2.png',
+          '/images/projects/Julia-bot-3.png'
+        ],
+        technologies: ['Telegram Bot API', 'MonoPay', 'Node.js', 'SQLite', 'Webhooks', 'Cron'],
+        link: 'https://t.me/samoshyna_juliya_bot',
+        year: 2025
+      },
       {
         id: 26,
         titleKey: 'project_odoo_ai_title',
@@ -736,7 +754,7 @@ const Portfolio = () => {
                   <p className="text-gray-700 dark:text-gray-300 text-sm mb-3 line-clamp-2">{t(project.descriptionKey, { ns: 'portfolio' })}</p>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {(project.highlights || []).slice(0, 3).map((h) => (
-                      <span key={h} className="text-[11px] bg-emerald-100/80 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full">{h}</span>
+                      <span key={h} className="text-[11px] bg-emerald-100/80 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full">{t(h as any, { ns: 'portfolio', defaultValue: h })}</span>
                     ))}
                   </div>
                   <div className="flex items-center justify-end">
@@ -862,15 +880,15 @@ const Portfolio = () => {
               ))}
             </div>
 
-            {selectedProject.highlights && selectedProject.highlights.length > 0 && (
+                  {selectedProject.highlights && selectedProject.highlights.length > 0 && (
               <div className="mb-6">
                 <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
                   {t('what_we_did', { ns: 'portfolio', defaultValue: 'Что сделали' })}
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {selectedProject.highlights.map((h) => (
-                    <span key={h} className="text-xs font-medium bg-emerald-100/80 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full">
-                      {h}
+                      {selectedProject.highlights.map((h) => (
+                        <span key={h} className="text-xs font-medium bg-emerald-100/80 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full">
+                          {t(h as any, { ns: 'portfolio', defaultValue: h })}
                     </span>
                   ))}
                 </div>
@@ -909,19 +927,16 @@ const Portfolio = () => {
                 <span className="text-sm text-gray-500 dark:text-gray-400">
                   {selectedProject.year}
                 </span>
-                {selectedProject.link && selectedProject.link !== '#' && (
-                <a
-                  href={selectedProject.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-full transition-colors"
+                <button
+                  onClick={() => trackProjectLinkClick(selectedProject, { stopPropagation: () => {} } as any)}
+                  disabled={!selectedProject.link || selectedProject.link === '#'}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-full transition-colors disabled:opacity-60"
                 >
                   {t('view_project', { ns: 'portfolio' })}
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </a>
-                )}
+                </button>
               </div>
               </div>
             </div>

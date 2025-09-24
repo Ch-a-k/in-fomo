@@ -21,8 +21,24 @@
     "blockchain": "Блокчейн",
     "ai": "ШІ Рішення",
     "crm": "CRM Системи",
-    "ecommerce": "Електронна комерція"
+    "ecommerce": "Електронна комерція",
+    "bots": "Боти/Підписки"
   },
+
+  "hl_crm": "Впровадження CRM",
+  "hl_process_automation": "Автоматизація процесів",
+  "hl_ai_analytics": "Інтеграція AI‑аналітики",
+  "hl_payments": "Онлайн‑платежі",
+  "hl_catalog_orders": "Каталог/замовлення",
+  "hl_smart_contracts": "Смарт‑контракти/Web3",
+  "hl_mobile_app": "Мобільний додаток",
+  "hl_website_perf": "Редизайн/продуктивність",
+  "hl_seo_growth": "Зростання SEO‑трафіку",
+  "hl_odoo_dashboards": "Odoo ERP + єдині дашборди",
+  "hl_monopay": "Автоплатежі MonoPay",
+  "hl_check_subscription": "Перевірка підписки/каналу",
+  "hl_auto_remove": "Автовидалення після строку",
+  "hl_webhooks_notify": "Вебхуки та сповіщення",
   
   "project_polerowanie_title": "Редизайн сайту для Polerowanie-Szyb",
   "project_polerowanie_description": "Повний редизайн сайту з сучасними функціями та покращеним контентом, зосереджений на користувацькому досвіді та оптимізації конверсії.",

@@ -21,8 +21,24 @@
     "blockchain": "Blockchain",
     "ai": "Rozwiązania AI",
     "crm": "Systemy CRM",
-    "ecommerce": "E-commerce"
+    "ecommerce": "E-commerce",
+    "bots": "Boty/Subskrypcje"
   },
+  
+  "hl_crm": "Wdrożenie CRM",
+  "hl_process_automation": "Automatyzacja procesów",
+  "hl_ai_analytics": "Integracja analityki AI",
+  "hl_payments": "Płatności online",
+  "hl_catalog_orders": "Katalog/zamówienia",
+  "hl_smart_contracts": "Smart kontrakty/Web3",
+  "hl_mobile_app": "Aplikacja mobilna",
+  "hl_website_perf": "Redesign/wydajność",
+  "hl_seo_growth": "Wzrost ruchu SEO",
+  "hl_odoo_dashboards": "Odoo ERP + wspólne pulpity",
+  "hl_monopay": "Autopłatności MonoPay",
+  "hl_check_subscription": "Sprawdzenie subskrypcji/kanału",
+  "hl_auto_remove": "Auto-usunięcie po wygaśnięciu",
+  "hl_webhooks_notify": "Webhooki i powiadomienia",
   
   "project_polerowanie_title": "Redesign strony dla Polerowanie-Szyb",
   "project_polerowanie_description": "Kompletny redesign strony internetowej z nowoczesnymi funkcjami i ulepszonym contentem, skupiający się na doświadczeniu użytkownika i optymalizacji konwersji.",
@@ -95,10 +111,12 @@
   
   "project_cefion_title": "Aplikacja mobilna Cefion",
   "project_cefion_description": "Cefion to wielofunkcyjny komunikator z czatami, nowymi rozmowami i niesamowitymi funkcjami. Aplikacja, harmonogram, portfel kryptograficzny i sieć społecznościowa zjednoczone w wybuchowej mieszance do komunikacji online we współczesnym świecie.",
-    
+  
+  "project_subscribe_bot_title": "Bot Telegram z subskrypcjami i płatnościami",
+  "project_subscribe_bot_description": "Bot sprzedaje i sprawdza subskrypcje, integruje płatności MonoPay, automatycznie nadaje dostęp do kanału, przedłuża subskrypcję i usuwa użytkowników po wygaśnięciu. Obsługuje TEST_MODE, webhooki, link zapasowy, godzinowe sprawdzenia i dzienne przypomnienia.",
+  
   "cta_title": "Gotowy na rozpoczęcie swojego projektu?",
   "cta_description": "Skontaktuj się z nami już dziś, aby omówić, jak możemy pomóc w realizacji Twoich pomysłów dzięki naszej wiedzy i innowacyjnym rozwiązaniom.",
-  
   
   "hero": {
     "badge": "Nasze Prace",

@@ -47,9 +47,9 @@ const FloatingButton = memo(() => {
   }, []);
 
   return (
-    <div className="fixed bottom-8 right-0 z-50 flex items-center">
+    <div className="fixed bottom-8 right-0 z-50 flex items-center pointer-events-none">
       <div 
-        className={`transform transition-all duration-300 ease-in-out ${isExpanded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}
+        className={`transform transition-all duration-300 ease-in-out ${isExpanded ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-x-full opacity-0 pointer-events-none'}`}
         aria-hidden={!isExpanded}
       >
         <div className="mr-3">
@@ -58,7 +58,7 @@ const FloatingButton = memo(() => {
       </div>
       <button 
         onClick={(e) => { e.stopPropagation(); toggleExpand(); }} 
-        className={`w-10 h-10 flex items-center justify-center text-white rounded-l-lg shadow-lg overflow-hidden relative transition-all duration-300 hover:shadow-[0_0_10px_rgba(255,90,0,0.6)] ${!hasPulsed ? 'animate-pulse' : ''}`}
+        className={`w-10 h-10 flex items-center justify-center text-white rounded-l-lg shadow-lg overflow-hidden relative transition-all duration-300 hover:shadow-[0_0_10px_rgba(255,90,0,0.6)] ${!hasPulsed ? 'animate-pulse' : ''} pointer-events-auto`}
         style={{
           position: 'relative',
           background: 'linear-gradient(90deg, #ff5a00, #ff2d55)',

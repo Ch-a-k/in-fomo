@@ -15,8 +15,24 @@
     "blockchain": "Blockchain",
     "ai": "AI Solutions",
     "crm": "CRM Systems",
-    "ecommerce": "E-commerce"
+    "ecommerce": "E-commerce",
+    "bots": "Bots/Subscriptions"
   },
+  
+  "hl_crm": "CRM implementation",
+  "hl_process_automation": "Process automation",
+  "hl_ai_analytics": "AI analytics integration",
+  "hl_payments": "Online payments",
+  "hl_catalog_orders": "Catalog/orders",
+  "hl_smart_contracts": "Smart contracts/Web3",
+  "hl_mobile_app": "Mobile app",
+  "hl_website_perf": "Redesign/performance",
+  "hl_seo_growth": "SEO traffic growth",
+  "hl_odoo_dashboards": "Odoo ERP + unified dashboards",
+  "hl_monopay": "MonoPay autopayments",
+  "hl_check_subscription": "Subscription/channel check",
+  "hl_auto_remove": "Auto-remove on expiry",
+  "hl_webhooks_notify": "Webhooks & notifications",
   
   "project_polerowanie_title": "Website Redesign for Polerowanie-Szyb",
   "project_polerowanie_description": "Complete website redesign with modern features and improved content, focusing on user experience and conversion optimization.",
@@ -96,9 +112,12 @@
   "project_odoo_ai_title": "Odoo ERP Integration with AI Analytics",
   "project_odoo_ai_description": "Implemented Odoo ERP in a large enterprise and integrated an AI core to analyze the company or group of companies for a single user: unified dashboards, financial and operational insights, anomaly detection, and smart recommendations.",
   
+  "project_subscribe_bot_title": "Telegram Bot with Subscriptions and Payments",
+  "project_subscribe_bot_description": "The bot sells and checks subscriptions, integrates MonoPay for payments, auto‑grants channel access, extends or creates subscriptions, and removes users when expired. Supports TEST_MODE, webhooks, fallback links, hourly checks and daily reminders.",
+  
   "cta_title": "Ready to Start Your Project?",
   "cta_description": "Contact us today to discuss how we can help bring your ideas to life with our expertise and innovative solutions.",
-
+  
   "meta": {
     "title": "Portfolio",
     "description": "Explore our portfolio of innovative IT solutions and successful projects across various industries."
