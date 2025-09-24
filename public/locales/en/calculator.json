@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "Project Calculator",
+    "description": "Estimate price and timeline by project type and package. Transparent options, no technical jargon."
+  },
+  "title": "Project cost calculator",
+  "subtitle": "Choose project type, package and options — no technical details.",
+  "keys_toggle": "Show translation keys",
+  "headings": {
+    "type": "Project type",
+    "choose_package": "Choose a package",
+    "options": "Additional options (optional)",
+    "deadlines": "Deadlines",
+    "scale": "Scale",
+    "results": "Results"
+  },
+  "types": {
+    "landing": "Landing page",
+    "corporate": "Corporate website",
+    "mobile": "Mobile app",
+    "cloud": "Cloud solutions",
+    "cybersecurity": "Cybersecurity",
+    "ai": "AI solutions",
+    "design": "UI/UX Design",
+    "bot": "Chat‑bot / AI Assistant",
+    "crm": "CRM / Account",
+    "consulting": "Business consulting",
+    "web3": "Web3 / Blockchain",
+    "tma": "Telegram Mini App",
+    "parsers": "Parsers / Scrapers"
+  },
+  "packages": {
+    "starter": { "name": "Starter", "hint": "Minimum to launch" },
+    "business": { "name": "Business", "hint": "Best value for money" },
+    "pro": { "name": "Pro", "hint": "Advanced features and integrations" },
+    "enterprise": { "name": "ABOUT", "hint": "Indicative range only. Final pricing is scoped by our team for your project." }
+  },
+  "badges": { "popular": "Popular" },
+  "options": {
+    "languages_label": "Multilingual",
+    "languages_hint": "+€300/language",
+    "languages_count": "Languages",
+    "integrations_label": "Integrations",
+    "integrations_hint": "+€500/integration",
+    "integrations_count": "Qty",
+    "accept_payments": "Online payments",
+    "content_filling": "Content filling",
+    "data_import": "Data import",
+    "support3m": "Tech support 3 months"
+  },
+  "speeds": { "relaxed": "Relaxed", "standard": "Standard", "urgent": "Urgent" },
+  "scales": { "small": "Small", "medium": "Medium", "large": "Large" },
+  "results": { "price_label": "Estimated price", "time_label": "Timeline" },
+  "cta": { "send_to_contact": "Send to contact form", "copy": "Copy", "send": "Send", "to_contact": "To contact form" },
+  "footer_note": "Prices in EUR, NET (Netto), VAT excluded.",
+  "disclaimer": "Prices shown are indicative. The final quote is calculated by our team after clarifying goals, timeline and scope.",
+  "included_title": "Included in package",
+  "preview_label": "Preview message",
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      { "q": "What affects the final price?", "a": "Feature scope, integrations, deadlines, design and quality requirements." },
+      { "q": "Can you work with a fixed budget?", "a": "Yes. After refining requirements, we propose options that fit your budget." },
+      { "q": "What is the process?", "a": "Quick call → clarify brief → estimate & timeline → contract → design/dev → release & support." }
+    ]
+  },
+  "summary": {
+    "title": "REQUEST FOR DEVELOPMENT",
+    "project_type": "Project type",
+    "package": "Package",
+    "scale": "Scale",
+    "deadline": "Deadline",
+    "weeks": "weeks",
+    "included": "Included (core)",
+    "addons": "Add-ons",
+    "price": "Estimated price (Netto)",
+    "addon_languages": "+ languages: {{count}}",
+    "addon_integrations": "+ integrations: {{count}}",
+    "addon_payments": "+ online payments",
+    "addon_content": "+ content filling",
+    "addon_import": "+ data import",
+    "addon_support": "+ tech support 3 months"
+  }
+}

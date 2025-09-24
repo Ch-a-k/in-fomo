@@ -1,9 +1,8 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { GetStaticProps } from 'next/types';
 import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
 import SEO from '../components/SEO';
 
 // Типы для проектов
@@ -16,6 +15,8 @@ interface Project {
   technologies: string[];
   link: string;
   year: number;
+  // Автоматически вычисляемые акценты: «Что сделали»
+  highlights?: string[];
 }
 
 const Portfolio = () => {
@@ -25,27 +26,29 @@ const Portfolio = () => {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [imageLoading, setImageLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortKey, setSortKey] = useState<'title' | 'year' | 'categories' | 'technologies'>('year');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
+  const [visibleCount, setVisibleCount] = useState<number>(12);
 
-  // Блокировка скролла при открытом модальном окне
+  // Блокировка скролла при открытом модальном окне с сохранением позиции
+  const scrollPositionRef = useRef(0);
   useEffect(() => {
     if (selectedProject) {
-      // Сохраняем текущую позицию скролла
-      const scrollY = window.scrollY;
+      scrollPositionRef.current = window.scrollY;
       document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
+      document.body.style.top = `-${scrollPositionRef.current}px`;
       document.body.style.left = '0';
       document.body.style.right = '0';
       document.body.style.width = '100%';
     } else {
-      // Восстанавливаем позицию скролла при закрытии
-      const scrollY = document.body.style.top;
+      const savedY = scrollPositionRef.current;
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.left = '';
       document.body.style.right = '';
       document.body.style.width = '';
-      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      window.scrollTo(0, savedY);
     }
 
     return () => {
@@ -56,13 +59,6 @@ const Portfolio = () => {
       document.body.style.width = '';
     };
   }, [selectedProject]);
-
-  // Reset loading state when changing images
-  useEffect(() => {
-    if (selectedProject) {
-      setImageLoading(true);
-    }
-  }, [currentImageIndex, selectedProject]);
 
   // Функции для карусели
   const nextImage = useCallback(() => {
@@ -115,6 +111,38 @@ const Portfolio = () => {
     { id: 'CRM', name: t('categories.crm', { ns: 'portfolio' }) },
     { id: 'E-commerce', name: t('categories.ecommerce', { ns: 'portfolio' }) }
   ];
+
+  // Вспомогательная функция для генерации "Что сделали" по контексту
+  const buildHighlights = (p: Project): string[] => {
+    const highlights: string[] = [];
+    if (p.categories.includes('CRM')) {
+      highlights.push('Внедрение CRM', 'Автоматизация процессов');
+    }
+    if (p.categories.includes('AI Solutions')) {
+      highlights.push('Интеграция ИИ‑аналитики');
+    }
+    if (p.categories.includes('E-commerce')) {
+      highlights.push('Онлайн‑оплаты', 'Каталог/заказы');
+    }
+    if (p.categories.includes('Blockchain')) {
+      highlights.push('Смарт‑контракты/Web3');
+    }
+    if (p.categories.includes('Mobile dev')) {
+      highlights.push('Мобильное приложение');
+    }
+    if (p.categories.includes('Web dev')) {
+      highlights.push('Редизайн/перфоманс');
+    }
+    // Технологии дополняют
+    if (p.technologies.some((t) => /SEO/i.test(t))) {
+      highlights.push('Рост SEO‑трафика');
+    }
+    // Уникальные кейсы по ключам
+    if (p.titleKey === 'project_odoo_ai_title') {
+      highlights.push('Odoo ERP + единые дашборды');
+    }
+    return Array.from(new Set(highlights)).slice(0, 4);
+  };
 
   // Данные проектов
   useEffect(() => {
@@ -492,20 +520,90 @@ const Portfolio = () => {
       // ... остальные проекты ...
     ];
     
-    setProjects(projectsData);
-    setFilteredProjects(projectsData);
+    const withHighlights = projectsData.map((p) => ({ ...p, highlights: buildHighlights(p) }));
+    setProjects(withHighlights);
+    setFilteredProjects(withHighlights);
   }, [t]);
 
-  // Фильтр проектов по категории
+  // Фильтр, поиск и сортировка
   useEffect(() => {
-    if (activeCategory === 'all') {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(
-        projects.filter(project => project.categories.includes(activeCategory))
-      );
+    let result = [...projects];
+
+    // Фильтр по категории
+    if (activeCategory !== 'all') {
+      result = result.filter(project => project.categories.includes(activeCategory));
     }
-  }, [activeCategory, projects]);
+
+    // Поиск по названию, описанию и технологиям
+    const query = searchQuery.trim().toLowerCase();
+    if (query.length > 0) {
+      result = result.filter(project => {
+        const title = t(project.titleKey, { ns: 'portfolio' }).toLowerCase();
+        const description = t(project.descriptionKey, { ns: 'portfolio' }).toLowerCase();
+        const techs = project.technologies.join(' ').toLowerCase();
+        return title.includes(query) || description.includes(query) || techs.includes(query);
+      });
+    }
+
+    // Сортировка
+    result.sort((a, b) => {
+      let aVal: string | number = '';
+      let bVal: string | number = '';
+      if (sortKey === 'title') {
+        aVal = t(a.titleKey, { ns: 'portfolio' });
+        bVal = t(b.titleKey, { ns: 'portfolio' });
+      } else if (sortKey === 'year') {
+        aVal = a.year;
+        bVal = b.year;
+      } else if (sortKey === 'categories') {
+        aVal = (a.categories[0] || '').toString();
+        bVal = (b.categories[0] || '').toString();
+      } else if (sortKey === 'technologies') {
+        aVal = a.technologies.length;
+        bVal = b.technologies.length;
+      }
+
+      if (typeof aVal === 'number' && typeof bVal === 'number') {
+        return sortOrder === 'asc' ? (aVal - bVal) : (bVal - aVal);
+      }
+      const aStr = String(aVal).toLowerCase();
+      const bStr = String(bVal).toLowerCase();
+      if (aStr < bStr) return sortOrder === 'asc' ? -1 : 1;
+      if (aStr > bStr) return sortOrder === 'asc' ? 1 : -1;
+      return 0;
+    });
+
+    setFilteredProjects(result);
+  }, [activeCategory, projects, searchQuery, sortKey, sortOrder, t]);
+
+  // Количество видимых карточек управляется visibleCount
+
+  const handleSort = (key: 'title' | 'year' | 'categories' | 'technologies') => {
+    if (sortKey === key) {
+      setSortOrder(prev => (prev === 'asc' ? 'desc' : 'asc'));
+    } else {
+      setSortKey(key);
+      setSortOrder('asc');
+    }
+  };
+
+  // Сброс количества при изменении фильтров/поиска/сортировки
+  useEffect(() => {
+    setVisibleCount(12);
+  }, [activeCategory, searchQuery, sortKey, sortOrder]);
+
+  // Маленький детерминированный спарклайн по id
+  const getSparkPath = (id: number): string => {
+    const points: Array<[number, number]> = [];
+    let y = (id % 5) + 3; // базовый уровень
+    for (let x = 0; x <= 10; x++) {
+      y = (y + ((id * (x + 3)) % 4) - 1) % 10;
+      if (y < 2) y = 2;
+      if (y > 9) y = 9;
+      points.push([x, y]);
+    }
+    return points.map((p, i) => (i === 0 ? `M ${p[0]} ${10 - p[1]}` : `L ${p[0]} ${10 - p[1]}`)).join(' ');
+  };
 
   // Функция для отслеживания клика по проекту
   const trackProjectClick = (project: Project) => {
@@ -564,7 +662,8 @@ const Portfolio = () => {
       <section className="py-16">
         <div className="container">
           {/* Фильтры */}
-          <div className="flex flex-wrap justify-center mb-12 gap-2">
+          <div className="flex flex-wrap justify-between items-center mb-6 gap-3">
+            <div className="flex flex-wrap gap-2">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -581,82 +680,87 @@ const Portfolio = () => {
               </button>
             ))}
           </div>
-
-          {/* Список проектов */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  {filteredProjects.map((project) => (
-              <div key={project.id} className="group relative cursor-pointer animate-fade-in-up h-full" onClick={() => trackProjectClick(project)}>
-                <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-primary/30 via-transparent to-primary/30 transition-transform duration-300 group-hover:scale-[1.01] h-full">
-                  <div className="relative rounded-2xl overflow-hidden bg-white/70 dark:bg-[#0f0f0f]/70 backdrop-blur-md border border-light-border/60 dark:border-dark-border/60 flex flex-col h-full min-h-[380px]">
-                    {/* Изображение с оверлеями */}
-                    <div className="relative h-40 md:h-44">
-        <Image
-          src={project.images[0]}
-          alt={t(project.titleKey, { ns: 'portfolio' })}
-                        width={800}
-                        height={450}
-          priority
-                        className="w-full h-full object-cover object-center"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-                      {/* Верхние бейджи категорий */}
-                      <div className="absolute top-3 left-3 right-3 flex flex-wrap gap-2">
-            {project.categories.map((category) => (
-                          <span key={category} className="text-[10px] md:text-xs uppercase tracking-wider text-white/95 bg-primary/80 rounded-full px-2 py-1 shadow-sm">
-                {category}
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder={t('search', { ns: 'portfolio', defaultValue: 'Поиск' })}
+                  className="w-56 md:w-72 px-4 py-2 rounded-full border border-light-border dark:border-dark-border bg-white dark:bg-[#0f0f0f] text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                />
+                <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                           </span>
+          </div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-600 dark:text-gray-300">{t('sort_by', { ns: 'portfolio', defaultValue: 'Сортировать' })}</span>
+                <select
+                  value={sortKey}
+                  onChange={(e) => setSortKey(e.target.value as any)}
+                  className="px-3 py-2 rounded-md border border-light-border dark:border-dark-border bg-white dark:bg-[#0f0f0f] text-sm"
+                >
+                  <option value="year">{t('table_year', { ns: 'portfolio', defaultValue: 'Год' })}</option>
+                  <option value="title">{t('table_title', { ns: 'portfolio', defaultValue: 'Название' })}</option>
+                  <option value="categories">{t('table_categories', { ns: 'portfolio', defaultValue: 'Категории' })}</option>
+                  <option value="technologies">{t('table_technologies', { ns: 'portfolio', defaultValue: 'Технологии' })}</option>
+                </select>
+                <button
+                  onClick={() => setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc')}
+                  className="px-3 py-2 rounded-md border border-light-border dark:border-dark-border bg-white dark:bg-[#0f0f0f] text-sm"
+                  aria-label="toggle-order"
+                >
+                  {sortOrder === 'asc' ? '▲' : '▼'}
+                </button>
+              </div>
+        </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+  {filteredProjects.map((project) => (
+              <div key={project.id} className="group relative rounded-2xl overflow-hidden border border-light-border dark:border-dark-border bg-white/80 dark:bg-[#0f0f0f]/80 backdrop-blur-md hover:shadow-lg transition-shadow cursor-pointer" onClick={() => trackProjectClick(project)}>
+                <div className="relative h-48 md:h-56">
+                  <Image src={project.images[0]} alt={t(project.titleKey, { ns: 'portfolio' })} width={800} height={450} className="w-full h-full object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority />
+                      <div className="absolute top-3 left-3 right-3 flex flex-wrap gap-2">
+                    {project.categories.map((c) => (
+                      <button key={c} className="text-[10px] md:text-xs uppercase tracking-wider bg-black/40 text-white/95 px-2 py-1 rounded-full hover:bg-black/55" onClick={(e) => { e.stopPropagation(); setActiveCategory(c); }}>
+                        {c}
+                      </button>
             ))}
           </div>
-                      {/* Нижний градиент и заголовок */}
                       <div className="absolute inset-x-0 bottom-0 p-4 pt-10 bg-gradient-to-t from-black/75 via-black/25 to-transparent">
-                        <h3 className="text-lg md:text-xl font-bold text-white line-clamp-1">
-            {t(project.titleKey, { ns: 'portfolio' })}
-          </h3>
+                    <h3 className="text-lg md:text-xl font-bold text-white line-clamp-1">{t(project.titleKey, { ns: 'portfolio' })}</h3>
         </div>
+                </div>
+                <div className="p-4">
+                  <p className="text-gray-700 dark:text-gray-300 text-sm mb-3 line-clamp-2">{t(project.descriptionKey, { ns: 'portfolio' })}</p>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {(project.highlights || []).slice(0, 3).map((h) => (
+                      <span key={h} className="text-[11px] bg-emerald-100/80 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full">{h}</span>
+                    ))}
+                  </div>
+                  <div className="flex items-center justify-end">
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm text-gray-500 dark:text-gray-400">{project.year}</span>
+                      {project.link && project.link !== '#' && (
+                        <button onClick={(e) => trackProjectLinkClick(project, e)} className="inline-flex items-center gap-1.5 text-sm text-primary hover:text-primary/90">
+                          {t('view_project', { ns: 'portfolio' })}
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
       </div>
 
-                    {/* Контент карточки */}
-                    <div className="p-5 flex flex-col grow min-h-[160px]">
-                      <p className="text-gray-700 dark:text-gray-300 text-sm mb-4 line-clamp-2">
-          {t(project.descriptionKey, { ns: 'portfolio' })}
-        </p>
-        <div className="flex flex-wrap gap-2 mb-4">
-                        {project.technologies.slice(0, 6).map((tech, index) => (
-                          <span key={index} className="text-[11px] md:text-xs bg-gray-100 dark:bg-gray-800/70 text-gray-800 dark:text-gray-200 px-2 py-1 rounded-full">
-              {tech}
-            </span>
-          ))}
-        </div>
-                      <div className="mt-auto flex items-center justify-between">
-                        <span className="text-sm text-gray-500 dark:text-gray-400">{project.year}</span>
-                        {project.link && project.link !== '#' && (
-          <button
-            onClick={(e) => trackProjectLinkClick(project, e)}
-                            className={`inline-flex items-center gap-2 text-primary hover:text-primary/90 text-sm font-medium transition-colors`}
-          >
-            {t('view_project', { ns: 'portfolio' })}
-                            <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </button>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Hover-ореол */}
-                    <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
-                    </div>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
+          {/* Конец списка карточек */}
 
           {/* Модальное окно */}
           {selectedProject && (
   <div
-    className="fixed inset-0 z-[100] overflow-y-auto bg-black/70 backdrop-blur-md animate-fade-in pt-[64px]"
+    className="fixed inset-0 z-[100] overflow-y-auto bg-black/80 backdrop-blur-md animate-fade-in pt-[64px]"
     onClick={() => {
       if (selectedProject) {
         setSelectedProject(null);
@@ -668,8 +772,8 @@ const Portfolio = () => {
         className="inline-block w-full max-w-6xl text-left align-middle transition-all transform rounded-2xl animate-scale-in"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-primary/40 via-transparent to-primary/40">
-          <div className="flex flex-col lg:flex-row rounded-2xl bg-white/85 dark:bg-gray-900/85 backdrop-blur-md border border-light-border/60 dark:border-dark-border/60">
+        <div className="relative rounded-3xl p-[1px] bg-gradient-to-r from-primary/40 via-transparent to-primary/40">
+          <div className="flex flex-col lg:flex-row rounded-3xl bg-white dark:bg-[#0f0f0f] backdrop-blur-lg border border-light-border/90 dark:border-[#ff2a00] shadow-2xl ring-1 ring-black/5 dark:ring-white/5">
           {/* Карусель изображений */}
           <div className="relative lg:w-2/3">
             <div className="relative w-full">
@@ -687,7 +791,7 @@ const Portfolio = () => {
             {/* Кнопка закрытия */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 z-10 p-2.5 text-white/85 hover:text-white bg-black/30 hover:bg-black/40 backdrop-blur-sm rounded-full transition-all duration-200 shadow"
+              className="absolute top-4 right-4 z-10 p-2.5 text-white/90 hover:text-white bg-black/40 hover:bg-black/50 backdrop-blur-sm rounded-full transition-all duration-200 shadow-lg"
               aria-label={t('close_modal', { ns: 'portfolio' })}
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -697,6 +801,7 @@ const Portfolio = () => {
 
             {selectedProject.images.length > 1 && (
               <>
+                {/* Prev/Next */}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -719,19 +824,22 @@ const Portfolio = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 px-4 py-2 bg-black/20 backdrop-blur-sm rounded-full">
-                  {selectedProject.images.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setCurrentImageIndex(index);
-                      }}
-                      className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                        currentImageIndex === index ? 'bg-primary scale-125' : 'bg-primary/40 hover:bg-primary/60'
-                      }`}
-                    />
-                  ))}
+                {/* Thumbnails + counter */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
+                  <div className="flex gap-2 overflow-x-auto p-1 rounded-md bg-black/20 backdrop-blur-sm">
+                    {selectedProject.images.slice(0, 8).map((img, index) => (
+                      <button
+                        key={img}
+                        onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(index); }}
+                        className={`h-10 w-16 rounded-md overflow-hidden border ${currentImageIndex === index ? 'border-primary' : 'border-transparent'}`}
+                      >
+                        <Image src={img} alt={`thumb-${index+1}`} width={64} height={40} className="object-cover w-16 h-10" />
+                      </button>
+                    ))}
+                  </div>
+                  <div className="ml-auto text-xs text-white/90 bg-black/30 px-2 py-1 rounded-md">
+                    {currentImageIndex + 1} / {selectedProject.images.length}
+                  </div>
                 </div>
               </>
             )}
@@ -743,16 +851,31 @@ const Portfolio = () => {
               {t(selectedProject.titleKey, { ns: 'portfolio' })}
             </h2>
 
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap gap-2 mb-4">
               {selectedProject.categories.map((category) => (
                 <span
                   key={category}
-                  className="text-xs font-medium bg-primary/10 text-primary px-3 py-1 rounded-full"
+                  className="text-xs font-medium bg-primary/15 text-primary px-3 py-1 rounded-full"
                 >
                   {category}
                 </span>
               ))}
             </div>
+
+            {selectedProject.highlights && selectedProject.highlights.length > 0 && (
+              <div className="mb-6">
+                <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
+                  {t('what_we_did', { ns: 'portfolio', defaultValue: 'Что сделали' })}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.highlights.map((h) => (
+                    <span key={h} className="text-xs font-medium bg-emerald-100/80 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full">
+                      {h}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="flex-1 overflow-y-auto space-y-6">
               <div>
@@ -772,7 +895,7 @@ const Portfolio = () => {
                   {selectedProject.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full"
+                      className="text-xs font-medium bg-gray-100 dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-200 px-3 py-1 rounded-full"
                     >
                       {tech}
                     </span>

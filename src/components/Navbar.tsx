@@ -321,6 +321,7 @@ const Navbar = () => {
   const navItems = [
     { href: '/', label: t('home') },
     { href: '/portfolio', label: t('portfolio') },
+    { href: '/calculator', label: t('calculator', { defaultValue: 'Calculator' }) },
     { href: '/about', label: t('about') },
     { href: '/careers', label: t('careers') },
     { href: '/contact', label: t('contact') },

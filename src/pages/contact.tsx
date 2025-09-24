@@ -125,6 +125,29 @@ const ContactForm = ({ formType, t }) => {
     }
   }
 
+  // Префилл из калькулятора (перезаписывает всегда актуальным текстом)
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const applyCalculatorPrefill = () => {
+      try {
+        const raw = localStorage.getItem('calculator_prefill')
+        if (!raw) return
+        const parsed = JSON.parse(raw) as { message?: string, source?: string, locale?: string }
+        setFormData(prev => ({
+          ...prev,
+          message: parsed?.message || prev.message,
+          source: prev.source || 'advertising'
+        }))
+      } catch {}
+    }
+    applyCalculatorPrefill()
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === 'calculator_prefill') applyCalculatorPrefill()
+    }
+    window.addEventListener('storage', onStorage)
+    return () => window.removeEventListener('storage', onStorage)
+  }, [])
+
   return (
     <div className="w-full bg-white dark:bg-[#1a1a1a] rounded-lg p-6 md:p-8 shadow-sm dark:shadow-none border border-gray-100 dark:border-gray-800">
       <div>
@@ -273,7 +296,7 @@ export default function Contact() {
   useEffect(() => {
     if (typeof window === 'undefined') return
     const hash = window.location.hash
-    if (hash === '#from-services') {
+    if (hash === '#from-services' || hash === '#from-calculator') {
       setTimeout(() => {
         const firstInput: HTMLInputElement | null = document.querySelector('input[name="name"]')
         if (firstInput) {
@@ -282,6 +305,22 @@ export default function Contact() {
         }
       }, 250)
     }
+  }, [])
+
+  // Префил из калькулятора
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    try {
+      const raw = localStorage.getItem('calculator_prefill')
+      if (!raw) return
+      const parsed = JSON.parse(raw) as { message?: string, source?: string }
+      if (parsed?.message) {
+        const textarea: HTMLTextAreaElement | null = document.querySelector('textarea[name="message"]')
+        if (textarea) textarea.value = parsed.message
+      }
+      const select: HTMLSelectElement | null = document.querySelector('select[name="source"]')
+      if (select) select.value = 'advertising'
+    } catch {}
   }, [])
 
   return (

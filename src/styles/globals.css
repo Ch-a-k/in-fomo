@@ -59,6 +59,16 @@
     content-visibility: auto;
     contain: layout style paint;
   }
+
+  /* Глобальное переопределение тёмных фонов (базовый слой) */
+  .dark .dark\\:bg-gray-900\/85{ background-color: rgba(30, 30, 30, 0.85) !important; }
+  .dark .dark\\:bg-gray-900{ background-color: #1e1e1e !important; }
+}
+
+@layer utilities {
+  /* Повышенная специфичность под компиляцию Tailwind (.dark:bg-*:is(.dark *)) */
+  .dark\\:bg-gray-900\/85:is(.dark *){ background-color: rgba(30, 30, 30, 0.85) !important; }
+  .dark\\:bg-gray-900:is(.dark *){ background-color: #1e1e1e !important; }
 }
 
 @layer components {

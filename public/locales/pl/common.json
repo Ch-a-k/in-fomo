@@ -13,6 +13,7 @@
   "contact": "KONTAKT",
   "blog": "BLOG",
   "careers": "KARIERA",
+  "calculator": "KALKULATOR",
   
   "language": "Język",
   "get_started": "Integruj ERP/CRM",
@@ -173,7 +174,7 @@
     },
     
     "how_to_control": "Jak zarządzać plikami cookie",
-    "control_explanation": "Możesz zarządzać i/lub usuwać pliki cookie według własnego uznania. Możesz usunąć wszystkie pliki cookie, które są już na Twoim urządzeniu, i możesz skonfigurować większość przeglądarek tak, aby zapobiegać ich umieszczaniu.",
+    "control_explanation": "Możesz zarządzać i/lub usuwać pliki cookie według własnego uznania. Możesz usunąć wszystkie pliki cookie, które są już na Twoim urządzeniu, i możesz skonfigrować większość przeglądarek tak, aby zapobiegać ich umieszczaniu.",
     "browser_settings_title": "Jak wyłączyć pliki cookie w przeglądarce:",
     "browser_settings": {
       "chrome": "Chrome: Ustawienia → Prywatność i bezpieczeństwo → Pliki cookie",

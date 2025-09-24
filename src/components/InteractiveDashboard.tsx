@@ -74,8 +74,19 @@ export default function InteractiveDashboard() {
   const [pos, setPos] = useState({ left: 0, top: 0 })
   const [earned, setEarned] = useState<number>(0)
   const [saved, setSaved] = useState<number>(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  // responsive breakpoint watcher
+  useEffect(() => {
+    const mq = typeof window !== 'undefined' ? window.matchMedia('(max-width: 767px)') : null
+    const update = () => setIsMobile(!!mq?.matches)
+    update()
+    mq?.addEventListener('change', update)
+    return () => mq?.removeEventListener('change', update)
+  }, [])
 
   useEffect(() => {
+    if (isMobile) return
     const container = containerRef.current
     const win = windowRef.current
     if (!container || !win) return
@@ -84,9 +95,10 @@ export default function InteractiveDashboard() {
     const rect = container.getBoundingClientRect()
     const wrect = win.getBoundingClientRect()
     setPos({ left: (rect.width - wrect.width) / 2, top: Math.max(16, (rect.height - wrect.height) / 3) })
-  }, [])
+  }, [isMobile])
 
   useEffect(() => {
+    if (isMobile) return
     const win = windowRef.current
     const container = containerRef.current
     if (!win || !container) return
@@ -126,7 +138,7 @@ export default function InteractiveDashboard() {
       window.removeEventListener('pointermove', onPointerMove)
       window.removeEventListener('pointerup', onPointerUp)
     }
-  }, [])
+  }, [isMobile])
 
   // KPI counters (reuse logic with KPIWidget for consistency)
   useEffect(() => {
@@ -172,11 +184,11 @@ export default function InteractiveDashboard() {
         <p className="text-center text-gray-600 dark:text-gray-300 mb-10">{t('erp_crm_sub', { defaultValue: 'Перемещайте окно, переключайте вкладки и взаимодействуйте с виджетами.' })}</p>
       </div>
 
-      <div ref={containerRef} className="relative mx-auto max-w-7xl min-h-[100vh] h-[135vh]">
+      <div ref={containerRef} className="relative mx-auto max-w-7xl">
         <div
           ref={windowRef}
-          className="absolute w-full max-w-6xl shadow-2xl rounded-2xl select-none"
-          style={{ left: pos.left, top: pos.top }}
+          className={`${isMobile ? 'relative' : 'absolute'} w-full max-w-6xl shadow-2xl rounded-2xl select-none`}
+          style={isMobile ? undefined : { left: pos.left, top: pos.top }}
         >
           <div className="dashboard-drag-handle rounded-t-2xl bg-white/85 dark:bg-[#0f0f0f]/85 backdrop-blur-md border border-light-border dark:border-dark-border/70 p-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -184,7 +196,7 @@ export default function InteractiveDashboard() {
               <span className="w-3 h-3 rounded-full bg-yellow-400" />
               <span className="w-3 h-3 rounded-full bg-green-400" />
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               {tabs.map(tid => (
                 <button
                   key={tid}

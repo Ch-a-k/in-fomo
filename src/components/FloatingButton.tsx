@@ -37,6 +37,15 @@ const FloatingButton = memo(() => {
     setHasPulsed(true); // После клика больше не пульсирует
   };
 
+  // Закрывать при любом клике по странице
+  useEffect(() => {
+    const handleGlobalClick = () => {
+      setIsExpanded(false);
+    };
+    document.addEventListener('click', handleGlobalClick);
+    return () => document.removeEventListener('click', handleGlobalClick);
+  }, []);
+
   return (
     <div className="fixed bottom-8 right-0 z-50 flex items-center">
       <div 
@@ -48,7 +57,7 @@ const FloatingButton = memo(() => {
         </div>
       </div>
       <button 
-        onClick={toggleExpand} 
+        onClick={(e) => { e.stopPropagation(); toggleExpand(); }} 
         className={`w-10 h-10 flex items-center justify-center text-white rounded-l-lg shadow-lg overflow-hidden relative transition-all duration-300 hover:shadow-[0_0_10px_rgba(255,90,0,0.6)] ${!hasPulsed ? 'animate-pulse' : ''}`}
         style={{
           position: 'relative',

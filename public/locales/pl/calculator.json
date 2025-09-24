@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "Kalkulator projektu",
+    "description": "Oszacuj koszt i czas wg typu projektu i pakietu. Przejrzyste opcje, bez żargonu technicznego."
+  },
+  "title": "Kalkulator kosztów projektu",
+  "subtitle": "Wybierz typ projektu, pakiet i opcje — bez technicznych detali.",
+  "keys_toggle": "Pokaż klucze tłumaczeń",
+  "headings": {
+    "type": "Typ projektu",
+    "choose_package": "Wybierz pakiet",
+    "options": "Dodatkowe opcje (opcjonalnie)",
+    "deadlines": "Terminy",
+    "scale": "Skala",
+    "results": "Wyniki"
+  },
+  "types": {
+    "landing": "Landing page",
+    "corporate": "Strona korporacyjna",
+    "mobile": "Aplikacja mobilna",
+    "cloud": "Rozwiązania chmurowe",
+    "cybersecurity": "Cyberbezpieczeństwo",
+    "ai": "Rozwiązania AI",
+    "design": "UI/UX Design",
+    "bot": "Chatbot / Asystent AI",
+    "crm": "CRM / Konto",
+    "consulting": "Konsulting biznesowy",
+    "web3": "Web3 / Blockchain",
+    "tma": "Telegram Mini App",
+    "parsers": "Parsery / Scraper-y"
+  },
+  "packages": {
+    "starter": { "name": "Starter", "hint": "Minimum do startu" },
+    "business": { "name": "Business", "hint": "Najlepszy stosunek jakości do ceny" },
+    "pro": { "name": "Pro", "hint": "Zaawansowane funkcje i integracje" },
+    "enterprise": { "name": "O BŁĘDACH", "hint": "Zakres orientacyjny. Ostateczna wycena jest przygotowywana przez nasz zespół dla Twojego projektu." }
+  },
+  "badges": { "popular": "Popularne" },
+  "options": {
+    "languages_label": "Wielojęzyczność",
+    "languages_hint": "+€300/język",
+    "languages_count": "Języków",
+    "integrations_label": "Integracje",
+    "integrations_hint": "+€500/integracja",
+    "integrations_count": "Sztuk",
+    "accept_payments": "Płatności online",
+    "content_filling": "Wypełnienie treści",
+    "data_import": "Import danych",
+    "support3m": "Wsparcie 3 miesiące"
+  },
+  "speeds": { "relaxed": "Spokojnie", "standard": "Standard", "urgent": "Pilnie" },
+  "scales": { "small": "Mała", "medium": "Średnia", "large": "Duża" },
+  "results": { "price_label": "Szacunkowy koszt", "time_label": "Czas" },
+  "cta": { "send_to_contact": "Wyślij do formularza kontaktowego", "copy": "Kopiuj", "send": "Wyślij", "to_contact": "Do formularza" },
+  "footer_note": "Ceny w EUR, NET (Netto), bez VAT.",
+  "disclaimer": "Podane ceny są orientacyjne. Ostateczna oferta jest wyliczana przez nasz zespół po doprecyzowaniu celów, terminów i zakresu.",
+  "included_title": "Co zawiera pakiet",
+  "preview_label": "Podgląd wiadomości",
+  "faq": {
+    "title": "Najczęściej zadawane pytania",
+    "items": [
+      { "q": "Co wpływa na końcową cenę?", "a": "Zakres funkcji, integracje, terminy, wymagania projektowe i jakościowe." },
+      { "q": "Czy możecie pracować w stałym budżecie?", "a": "Tak. Po doprecyzowaniu wymagań zaproponujemy warianty mieszczące się w budżecie." },
+      { "q": "Jaki jest proces współpracy?", "a": "Krótka rozmowa → doprecyzowanie briefu → wycena i terminy → umowa → design/rozwój → release i wsparcie." }
+    ]
+  },
+  "summary": {
+    "title": "ZAPYTANIE O ROZWÓJ",
+    "project_type": "Typ projektu",
+    "package": "Pakiet",
+    "scale": "Skala",
+    "deadline": "Termin",
+    "weeks": "tyg.",
+    "included": "Zakres (główne)",
+    "addons": "Dodatki",
+    "price": "Szacunkowy koszt (Netto)",
+    "addon_languages": "+ języków: {{count}}",
+    "addon_integrations": "+ integracji: {{count}}",
+    "addon_payments": "+ płatności online",
+    "addon_content": "+ wypełnienie treści",
+    "addon_import": "+ import danych",
+    "addon_support": "+ wsparcie 3 miesiące"
+  }
+}
